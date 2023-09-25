@@ -2,18 +2,23 @@ import pandas as pd
 
 def main():
 
-    #put data into dataframes
+    #data into dataframes
     windData = pd.read_csv('./data/wind-data.csv')
-    print(windData)
     weatherData = pd.read_csv('./data/weather-data.csv')
-    print(weatherData)
 
-    #sort wind data by date
+    #data cleaning
+    windData = cleanWind(windData)
 
-    #remove duplicates from wind data
+    print(windData)
 
-    #consolidate wind data from 15 min intervals to hourly
-        #take average of power production
+
+def cleanWind(windData):
+    #sort by date/time
+    windData = windData.sort_values(by=['datadatetime']) 
+    #drop duplicates
+    windData = windData.drop_duplicates()
+
+    return windData
 
 
 if __name__ == "__main__":
