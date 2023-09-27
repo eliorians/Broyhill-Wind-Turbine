@@ -9,7 +9,8 @@ def main():
     #data cleaning
     windData = cleanWind(windData)
 
-    print(windData)
+    #test
+    windData.to_csv('./data/processed/weather-data-cleaned.csv')
 
 def cleanWind(windData):
     #sort by date/time
