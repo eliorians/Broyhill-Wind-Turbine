@@ -8,9 +8,14 @@ def main():
 
     #data cleaning
     windData = cleanWind(windData)
+    weatherData = cleanWeather(weatherData)
 
     #test
-    windData.to_csv('./data/processed/weather-data-cleaned.csv')
+    windData.to_csv('./data/processed/wind-data-cleaned.csv')
+    weatherData.to_csv('./data/processed/weather-data-cleaned.csv')
+
+    #combine wind and weather data on date/time
+
 
 def cleanWind(windData):
     #sort by date/time
@@ -22,6 +27,16 @@ def cleanWind(windData):
     windData = windData.groupby(pd.Grouper(key='datadatetime', freq='H')).mean()
 
     return windData
+
+def cleanWeather(weatherData):
+    #sort by date/time
+    weatherData = weatherData.sort_values(by=['DATE'])
+    #convert datadatetime to a timestamp
+    weatherData['DATE'] = pd.to_datetime(weatherData['DATE'])
+    #aggregate hourly, mean of windspeed/temp/etc/ -> makes errors
+    #weatherData = weatherData.groupby(pd.Grouper(key='DATE', freq='H')).mean()
+
+    return weatherData
 
 
 if __name__ == "__main__":
