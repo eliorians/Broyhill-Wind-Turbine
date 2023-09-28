@@ -1,5 +1,9 @@
 import pandas as pd
 
+#change to same time zone
+# wind data = GMT -> find more data from Jim Dees
+# weather data = UTC ?
+
 def main():
 
     #data into dataframes
