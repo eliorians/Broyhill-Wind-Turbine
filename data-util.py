@@ -1,10 +1,35 @@
 import pandas as pd
 
+#columns and their data type from weather data, other columns are not selected
+#makes for faster reading and makes aggregating easier later on
+weathertypes = {
+    'DATE'                      : str,
+    'DailyWeather'              : str,
+    'HourlyAltimeterSetting'    : str,
+    'HourlyDewPointTemperature' : str,
+    'HourlyDryBulbTemperature'  : str,
+    'HourlyPrecipitation'       : float,
+    'HourlyPresentWeatherType'  : str,
+    'HourlyRelativeHumidity'    : float,
+    'HourlySkyConditions'       : str,
+    'HourlyStationPressure'     : float,
+    'HourlyVisibility'          : float,
+    'HourlyWetBulbTemperature'  : float,
+    'HourlyWindDirection'       : str,
+    'HourlyWindGustSpeed'       : int,
+    'HourlyWindSpeed'           : int
+}
+
+windtypes = {
+    'datadatetime'              : str,
+    'powerproduction'           : float,
+}
+
 def main():
 
     #data into dataframes
-    windData = pd.read_csv('./data/raw/wind-data.csv')
-    weatherData = pd.read_csv('./data/raw/weather-data.csv')
+    windData = pd.read_csv('./data/raw/wind-data.csv', low_memory=False)
+    weatherData = pd.read_csv('./data/raw/weather-data.csv', low_memory=False)
 
     #data cleaning
     windData = cleanWind(windData)
@@ -14,14 +39,24 @@ def main():
     windData.to_csv('./data/processed/wind-data-cleaned.csv')
     weatherData.to_csv('./data/processed/weather-data-cleaned.csv')
 
-    #combine wind and weather data on date/time
+    #test data types
+    print('wind data types:')
+    print(windData.dtypes)
+    print()
+    print('weather data types:')
+    print(weatherData.dtypes)
+
+
+    #todo combine wind and weather data on date/time
 
 
 def cleanWind(windData):
     #sort by date/time
     windData = windData.sort_values(by=['datadatetime']) 
+    
     #drop duplicates
     windData = windData.drop_duplicates()
+    
     #convert datadatetime to a timestamp and aggregate to hourly by taking the average production
     windData['datadatetime'] = pd.to_datetime(windData['datadatetime'])
     windData = windData.groupby(pd.Grouper(key='datadatetime', freq='H')).mean()
@@ -29,17 +64,21 @@ def cleanWind(windData):
     return windData
 
 def cleanWeather(weatherData):
+    #keep only useful columns
+    columns_to_remove = [col for col in weatherData.columns if col not in weathertypes]
+    weatherData = weatherData.drop(columns=columns_to_remove)
+
+    #todo convert datatypes?
+    #weatherData = weatherData[weathertypes.keys()].astype(weathertypes)
+    
+    #convert data column to datetime
+    weatherData['DATE'] = pd.to_datetime(weatherData['DATE'])
+    
     #sort by date/time
     weatherData = weatherData.sort_values(by=['DATE'])
-    #convert datadatetime to a timestamp
-    weatherData['DATE'] = pd.to_datetime(weatherData['DATE'])
-    #find and drop empty columns
-    empty_cols = [col for col in weatherData.columns if weatherData[col].isnull().all()]
-    weatherData.drop(empty_cols, axis=1,inplace=True)
-
-    #aggregate hourly
-    #weatherData = weatherData.groupby(pd.Grouper(key='DATE', freq='H')).mean()
-
+    
+    #todo aggregate hourly
+    
     return weatherData
 
 
