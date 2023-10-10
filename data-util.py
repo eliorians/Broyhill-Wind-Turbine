@@ -1,9 +1,5 @@
 import pandas as pd
 
-#change to same time zone
-# wind data = GMT -> find more data from Jim Dees
-# weather data = UTC ?
-
 def main():
 
     #data into dataframes
@@ -14,7 +10,7 @@ def main():
     windData = cleanWind(windData)
     weatherData = cleanWeather(weatherData)
 
-    #test
+    #cleaned data output
     windData.to_csv('./data/processed/wind-data-cleaned.csv')
     weatherData.to_csv('./data/processed/weather-data-cleaned.csv')
 
@@ -37,7 +33,11 @@ def cleanWeather(weatherData):
     weatherData = weatherData.sort_values(by=['DATE'])
     #convert datadatetime to a timestamp
     weatherData['DATE'] = pd.to_datetime(weatherData['DATE'])
-    #aggregate hourly, mean of windspeed/temp/etc/ -> makes errors
+    #find and drop empty columns
+    empty_cols = [col for col in weatherData.columns if weatherData[col].isnull().all()]
+    weatherData.drop(empty_cols, axis=1,inplace=True)
+
+    #aggregate hourly
     #weatherData = weatherData.groupby(pd.Grouper(key='DATE', freq='H')).mean()
 
     return weatherData
