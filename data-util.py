@@ -39,11 +39,11 @@ def main():
     weatherData.to_csv('./data/processed/weather-data-cleaned.csv')
 
     #test data types
-    # print('wind data types:')
-    # print(windData.dtypes)
-    # print()
-    # print('weather data types:')
-    # print(weatherData.dtypes)
+    print('wind data types:')
+    print(windData.dtypes)
+    print()
+    print('weather data types:')
+    print(weatherData.dtypes)
 
     #!combine wind and weather data on date/time
 
@@ -75,6 +75,9 @@ def cleanWeather(weatherData):
     #sort by date/time
     weatherData = weatherData.sort_values(by=['DATE'])
     
+    #remove end of day entries (23:59:00)
+    weatherData = weatherData[~weatherData['DATE'].dt.strftime('%H:%M:%S').str.endswith('23:59:00')]
+
     #aggregate hourly
     #weatherData = weatherData.groupby(pd.Grouper(key='DATE', freq='H')).last()
     
