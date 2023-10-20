@@ -3,18 +3,18 @@ import pandas as pd
 #columns and their data type from each source, as well as how they will be aggregated
 weathertypes = {
     'DATE'                      : str,       #key
-    'DailyWeather'              : str,      #last
+    'DailyWeather'              : str,      #?last or valid?
     'HourlyAltimeterSetting'    : str,      #mean
     'HourlyDewPointTemperature' : str,      #mean
     'HourlyDryBulbTemperature'  : str,      #mean
     'HourlyPrecipitation'       : float,    #mean
-    'HourlyPresentWeatherType'  : str,      #last
+    'HourlyPresentWeatherType'  : str,      #?last
     'HourlyRelativeHumidity'    : float,    #mean
-    'HourlySkyConditions'       : str,      #last
+    'HourlySkyConditions'       : str,      #?last
     'HourlyStationPressure'     : float,    #mean
     'HourlyVisibility'          : float,    #mean
     'HourlyWetBulbTemperature'  : float,    #mean
-    'HourlyWindDirection'       : str,      #?
+    'HourlyWindDirection'       : str,      #?VRB
     'HourlyWindGustSpeed'       : int,      #?max
     'HourlyWindSpeed'           : int       #mean
 }
@@ -77,6 +77,8 @@ def cleanWeather(weatherData):
     
     #remove end of day entries (23:59:00)
     weatherData = weatherData[~weatherData['DATE'].dt.strftime('%H:%M:%S').str.endswith('23:59:00')]
+
+    #fill missing data
 
     #aggregate hourly
     #weatherData = weatherData.groupby(pd.Grouper(key='DATE', freq='H')).last()
