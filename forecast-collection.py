@@ -19,8 +19,8 @@ def main():
             time.sleep(seconds_until_next_hour)
         
         # Make an API request to get the hourly forecast
-        response = requests.get(url, headers=headers)
         timestamp = time.strftime("%m-%d-%Y_%H-%M-%S")
+        response = requests.get(url, headers=headers)
         
         #if the request is good, get the get the data and save the json
         if response.status_code == 200:
