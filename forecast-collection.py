@@ -2,14 +2,26 @@ import os
 import time
 import requests
 import json
+import logging
+
+def setup_logging():
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(),  # Send log messages to the console
+            logging.FileHandler('forecast_collection.log')  # Save log messages to a file
+        ])
 
 def main():
     #metadata url is used to get the actual url below used for requests
     metadata_url = "https://api.weather.gov/points/36.2135,-81.6923"
     url = "https://api.weather.gov/gridpoints/RNK/17,16/forecast/hourly"
     headers = {"User-Agent": "ElisForecastCollection/1.0 (eli.orians@gmail.com)", "Accept": "application/geo+json"}
+    logger = logging.getLogger('forecast_collection')
 
-    print("Running forecast collection, start time: " + time.strftime("%m/%d/%Y %H:%M:%S"))
+    logger.info("Running forecast collection, start time: " + time.strftime("%m/%d/%Y %H:%M:%S"))
+
 
     while True:
         # Calculate the seconds remaining until the next hour and wait that long
@@ -28,7 +40,7 @@ def main():
 
             with open(file_name, "w") as json_file:
                 json.dump(data, json_file)
-                print(f"Data saved to {file_name}")
+                logger.info(f"Data saved to {file_name}")
 
         #error 500 is interal error, attempt to recquest 6 more times as to only go one minute away from the hour at most
         elif response.status_code == 500:
@@ -44,19 +56,19 @@ def main():
 
                     with open(file_name, "w") as json_file:
                         json.dump(data, json_file)
-                        print(f"Data saved to {file_name}")
+                        logger.info(f"Data saved to {file_name} but took {errors} tries")
                     
                     break
                 else:
                     errors = errors + 1
 
             if response.status_code != 200:
-                print(f"Error: {response.status_code} at {timestamp}")
-                print(response.content)
+                logger.error(f"Error: {response.status_code} at {timestamp} after {errors} tries")
+                logger.error(response.content)
         
         else:
-            print(f"Error: {response.status_code} at {timestamp}")
-            print(response.content)
+            logger.error(f"Error: {response.status_code} at {timestamp}")
+            logger.error(response.content)
     
 
 if __name__ == '__main__':
