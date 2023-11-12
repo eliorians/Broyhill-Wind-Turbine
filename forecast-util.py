@@ -27,7 +27,8 @@ def convert_filepath(filepath):
     # extract the directory path and filename from the original filepath
     directory, filename = os.path.split(filepath)
     # remove the seconds, and change the extension to .csv
-    base_name = re.sub(r'_\d+\.json$', '.csv', filename)
+    base_name = re.sub(r'(_|\d+)\.json$', '.csv', filename)
+    base_name = base_name.rsplit('-', 1)[0] + '.csv'
     # Construct the new directory path with "-processed" and the new filename
     new_directory = os.path.join(os.path.dirname(directory), 'forecast-data-processed')
     new_filepath = os.path.join(new_directory, base_name)
