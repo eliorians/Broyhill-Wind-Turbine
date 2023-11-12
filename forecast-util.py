@@ -4,6 +4,7 @@ import logging
 import json
 import os
 import re
+import time
 
 json_folder = './forecast-data/'
 logger = logging.getLogger('forecast_util')
@@ -52,6 +53,8 @@ def process_json_file(filepath):
               
 def main():
 
+    start_time = time.time()
+    file_count = 0
     logging_setup()
 
     #iterate through all files in the forecast-data folder
@@ -61,6 +64,12 @@ def main():
             filepath = os.path.join(json_folder, filename)
             # Process the JSON file
             process_json_file(filepath)
+            file_count = file_count + 1
+
+
+    end_time = time.time()
+    runtime = end_time - start_time
+    logger.info(f"Program finished. Processed {file_count} in {runtime:.2f} seconds")
 
 if __name__ == '__main__':
     main()
