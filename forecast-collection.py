@@ -21,6 +21,7 @@ def logging_setup():
 
 def main():
     #metadata url is used to get the actual url below used for requests
+        #request response using metadata url first, then the forecastHourly field will contain url to get hourly forecast data
     metadata_url = "https://api.weather.gov/points/36.2135,-81.6923"
     url = "https://api.weather.gov/gridpoints/RNK/17,16/forecast/hourly"
     headers = {"User-Agent": "ElisForecastCollection/1.0 (eli.orians@gmail.com)", "Accept": "application/geo+json"}

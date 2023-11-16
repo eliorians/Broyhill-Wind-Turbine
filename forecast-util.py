@@ -8,7 +8,6 @@ import time
 
 json_folder = './forecast-data/'
 logger = logging.getLogger('forecast_util')
-logger.info("Converting forecast data...")
 
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
@@ -56,6 +55,7 @@ def main():
     start_time = time.time()
     file_count = 0
     logging_setup()
+    logger.info("Running forecast-util...")
 
     #iterate through all files in the forecast-data folder
     for filename in os.listdir(json_folder):
