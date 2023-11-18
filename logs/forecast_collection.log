@@ -189,3 +189,171 @@ DEBUG - 2023-11-14 22:00:00,705 - Starting new HTTPS connection (1): api.weather
 DEBUG - 2023-11-14 22:00:01,278 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5175
 INFO - 2023-11-14 22:00:01,286 - Data successfully saved to forecast-data\forecast_11-14-2023_22-00-00.json
 INFO - 2023-11-16 19:12:12,628 - Starting forecast collection
+DEBUG - 2023-11-16 20:00:00,770 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-16 20:00:01,666 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-16 20:00:11,668 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-16 20:00:12,521 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5522
+INFO - 2023-11-16 20:00:12,539 - Data successfully saved to forecast-data\forecast_11-16-2023_20-00-11.json
+DEBUG - 2023-11-16 21:00:00,612 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-16 21:00:04,619 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5525
+INFO - 2023-11-16 21:00:04,632 - Data successfully saved to forecast-data\forecast_11-16-2023_21-00-00.json
+DEBUG - 2023-11-16 22:00:00,673 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-16 22:00:03,113 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5540
+INFO - 2023-11-16 22:00:03,126 - Data successfully saved to forecast-data\forecast_11-16-2023_22-00-00.json
+DEBUG - 2023-11-16 23:00:00,162 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-16 23:00:01,187 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2023-11-16 23:00:11,191 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-16 23:00:12,166 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5525
+INFO - 2023-11-16 23:00:12,180 - Data successfully saved to forecast-data\forecast_11-16-2023_23-00-11.json
+DEBUG - 2023-11-17 00:00:00,213 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 00:00:01,111 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 00:00:11,115 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 00:00:11,673 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 00:00:21,677 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 00:00:22,307 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 00:00:32,309 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 00:00:32,922 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 00:00:42,926 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 00:00:43,716 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5535
+INFO - 2023-11-17 00:00:43,728 - Data successfully saved to forecast-data\forecast_11-17-2023_00-00-42.json
+DEBUG - 2023-11-17 01:00:00,762 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 01:00:01,341 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5535
+INFO - 2023-11-17 01:00:01,354 - Data successfully saved to forecast-data\forecast_11-17-2023_01-00-00.json
+DEBUG - 2023-11-17 02:00:00,387 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 02:00:01,116 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 02:00:11,120 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 02:00:11,846 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5547
+INFO - 2023-11-17 02:00:11,860 - Data successfully saved to forecast-data\forecast_11-17-2023_02-00-11.json
+DEBUG - 2023-11-17 03:00:00,893 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 03:00:01,332 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5547
+INFO - 2023-11-17 03:00:01,346 - Data successfully saved to forecast-data\forecast_11-17-2023_03-00-00.json
+DEBUG - 2023-11-17 04:00:00,380 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 04:00:00,802 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5544
+INFO - 2023-11-17 04:00:00,815 - Data successfully saved to forecast-data\forecast_11-17-2023_04-00-00.json
+DEBUG - 2023-11-17 05:00:00,943 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 05:00:01,857 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2023-11-17 05:00:11,861 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 05:00:12,601 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5546
+INFO - 2023-11-17 05:00:12,614 - Data successfully saved to forecast-data\forecast_11-17-2023_05-00-11.json
+DEBUG - 2023-11-17 06:00:00,682 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 06:00:01,234 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5546
+INFO - 2023-11-17 06:00:01,246 - Data successfully saved to forecast-data\forecast_11-17-2023_06-00-00.json
+DEBUG - 2023-11-17 07:00:00,286 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 07:00:04,687 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5630
+INFO - 2023-11-17 07:00:04,701 - Data successfully saved to forecast-data\forecast_11-17-2023_07-00-00.json
+DEBUG - 2023-11-17 08:00:00,734 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 08:00:04,813 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5620
+INFO - 2023-11-17 08:00:04,833 - Data successfully saved to forecast-data\forecast_11-17-2023_08-00-00.json
+DEBUG - 2023-11-17 09:00:00,865 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 09:00:05,819 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5626
+INFO - 2023-11-17 09:00:05,832 - Data successfully saved to forecast-data\forecast_11-17-2023_09-00-00.json
+DEBUG - 2023-11-17 10:00:00,864 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 10:00:01,376 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5626
+INFO - 2023-11-17 10:00:01,390 - Data successfully saved to forecast-data\forecast_11-17-2023_10-00-00.json
+DEBUG - 2023-11-17 11:00:00,421 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 11:00:01,827 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 11:00:11,829 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 11:00:12,650 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5619
+INFO - 2023-11-17 11:00:12,664 - Data successfully saved to forecast-data\forecast_11-17-2023_11-00-11.json
+DEBUG - 2023-11-17 12:00:00,696 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 12:00:01,159 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5619
+INFO - 2023-11-17 12:00:01,172 - Data successfully saved to forecast-data\forecast_11-17-2023_12-00-00.json
+DEBUG - 2023-11-17 13:00:00,204 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 13:00:02,197 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5588
+INFO - 2023-11-17 13:00:02,218 - Data successfully saved to forecast-data\forecast_11-17-2023_13-00-00.json
+DEBUG - 2023-11-17 14:00:00,321 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 14:00:01,407 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2023-11-17 14:00:11,411 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 14:00:11,935 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 14:00:21,938 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 14:00:22,569 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 14:00:32,573 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 14:00:33,586 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5590
+INFO - 2023-11-17 14:00:33,598 - Data successfully saved to forecast-data\forecast_11-17-2023_14-00-32.json
+DEBUG - 2023-11-17 15:00:00,662 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 15:00:01,909 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5529
+INFO - 2023-11-17 15:00:01,922 - Data successfully saved to forecast-data\forecast_11-17-2023_15-00-00.json
+DEBUG - 2023-11-17 16:00:00,960 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 16:00:02,313 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-17 16:00:12,317 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 16:00:13,240 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5516
+INFO - 2023-11-17 16:00:13,253 - Data successfully saved to forecast-data\forecast_11-17-2023_16-00-12.json
+DEBUG - 2023-11-17 17:00:00,285 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 17:00:01,150 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5516
+INFO - 2023-11-17 17:00:01,163 - Data successfully saved to forecast-data\forecast_11-17-2023_17-00-00.json
+DEBUG - 2023-11-17 18:00:00,194 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 18:00:02,618 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5478
+INFO - 2023-11-17 18:00:02,631 - Data successfully saved to forecast-data\forecast_11-17-2023_18-00-00.json
+DEBUG - 2023-11-17 19:00:00,662 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 19:00:01,954 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2023-11-17 19:00:11,958 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 19:00:12,827 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5471
+INFO - 2023-11-17 19:00:12,841 - Data successfully saved to forecast-data\forecast_11-17-2023_19-00-11.json
+DEBUG - 2023-11-17 20:00:00,872 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 20:00:02,580 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5471
+INFO - 2023-11-17 20:00:02,594 - Data successfully saved to forecast-data\forecast_11-17-2023_20-00-00.json
+DEBUG - 2023-11-17 21:00:00,625 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 21:00:02,218 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5463
+INFO - 2023-11-17 21:00:02,230 - Data successfully saved to forecast-data\forecast_11-17-2023_21-00-00.json
+DEBUG - 2023-11-17 22:00:00,261 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 22:00:05,128 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5458
+INFO - 2023-11-17 22:00:05,136 - Data successfully saved to forecast-data\forecast_11-17-2023_22-00-00.json
+DEBUG - 2023-11-17 23:00:00,291 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-17 23:00:02,620 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5454
+INFO - 2023-11-17 23:00:02,631 - Data successfully saved to forecast-data\forecast_11-17-2023_23-00-00.json
+DEBUG - 2023-11-18 00:00:00,743 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 00:00:01,199 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5454
+INFO - 2023-11-18 00:00:01,211 - Data successfully saved to forecast-data\forecast_11-18-2023_00-00-00.json
+DEBUG - 2023-11-18 01:00:00,245 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 01:00:05,386 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5444
+INFO - 2023-11-18 01:00:05,396 - Data successfully saved to forecast-data\forecast_11-18-2023_01-00-00.json
+DEBUG - 2023-11-18 02:00:00,429 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 02:00:00,917 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5444
+INFO - 2023-11-18 02:00:00,930 - Data successfully saved to forecast-data\forecast_11-18-2023_02-00-00.json
+DEBUG - 2023-11-18 03:00:00,965 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 03:00:04,700 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5423
+INFO - 2023-11-18 03:00:04,714 - Data successfully saved to forecast-data\forecast_11-18-2023_03-00-00.json
+DEBUG - 2023-11-18 04:00:00,748 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 04:00:01,229 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5423
+INFO - 2023-11-18 04:00:01,242 - Data successfully saved to forecast-data\forecast_11-18-2023_04-00-00.json
+DEBUG - 2023-11-18 05:00:00,277 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 05:00:00,705 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5410
+INFO - 2023-11-18 05:00:00,718 - Data successfully saved to forecast-data\forecast_11-18-2023_05-00-00.json
+DEBUG - 2023-11-18 06:00:00,753 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 06:00:01,621 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5302
+INFO - 2023-11-18 06:00:01,634 - Data successfully saved to forecast-data\forecast_11-18-2023_06-00-00.json
+DEBUG - 2023-11-18 07:00:00,669 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 07:00:02,291 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-18 07:00:12,295 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 07:00:13,328 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5279
+INFO - 2023-11-18 07:00:13,341 - Data successfully saved to forecast-data\forecast_11-18-2023_07-00-12.json
+DEBUG - 2023-11-18 08:00:00,439 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 08:00:00,898 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5279
+INFO - 2023-11-18 08:00:00,911 - Data successfully saved to forecast-data\forecast_11-18-2023_08-00-00.json
+DEBUG - 2023-11-18 09:00:01,009 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 09:00:01,498 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5266
+INFO - 2023-11-18 09:00:01,511 - Data successfully saved to forecast-data\forecast_11-18-2023_09-00-01.json
+DEBUG - 2023-11-18 10:00:00,543 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 10:00:02,354 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 308
+ERROR - 2023-11-18 10:00:02,357 - 503
+ERROR - 2023-11-18 10:00:02,358 - b'{\n    "correlationId": "5e3cde95",\n    "title": "Forecast Grid Invalid",\n    "type": "https://api.weather.gov/problems/ForecastMissingData",\n    "status": 503,\n    "detail": "The forecast grid is missing data for time 2023-11-24T20:00:00-05:00.",\n    "instance": "https://api.weather.gov/requests/5e3cde95"\n}'
+DEBUG - 2023-11-18 11:00:00,389 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 11:00:02,317 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 306
+ERROR - 2023-11-18 11:00:02,318 - 503
+ERROR - 2023-11-18 11:00:02,319 - b'{\n    "correlationId": "73a0eef",\n    "title": "Forecast Grid Invalid",\n    "type": "https://api.weather.gov/problems/ForecastMissingData",\n    "status": 503,\n    "detail": "The forecast grid is missing data for time 2023-11-24T20:00:00-05:00.",\n    "instance": "https://api.weather.gov/requests/73a0eef"\n}'
+DEBUG - 2023-11-18 12:00:00,350 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:00:01,239 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2023-11-18 12:00:11,241 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:00:12,349 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 308
+DEBUG - 2023-11-18 12:00:22,351 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:00:23,016 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 308
+DEBUG - 2023-11-18 12:00:33,019 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:00:33,636 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 308
+DEBUG - 2023-11-18 12:00:43,641 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:00:48,977 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 306
+DEBUG - 2023-11-18 12:00:58,980 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:01:03,915 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2023-11-18 12:01:13,917 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2023-11-18 12:01:14,548 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 503 308
+ERROR - 2023-11-18 12:01:14,550 - 503
+ERROR - 2023-11-18 12:01:14,550 - b'{\n    "correlationId": "195952e5",\n    "title": "Forecast Grid Invalid",\n    "type": "https://api.weather.gov/problems/ForecastMissingData",\n    "status": 503,\n    "detail": "The forecast grid is missing data for time 2023-11-24T20:00:00-05:00.",\n    "instance": "https://api.weather.gov/requests/195952e5"\n}'
