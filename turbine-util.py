@@ -5,6 +5,8 @@ import logging
 
 logger = logging.getLogger('turbine_util')
 
+dataPath = ""
+
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
     logs_directory = os.path.join(os.getcwd(), 'logs')
