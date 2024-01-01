@@ -13,9 +13,6 @@ Folders:
 
     turbine-data-processed  - cleaned turbine data to be used by the model
 
-    weater-data             - historical weather data for Boone, not forecasts but actual.
-
-    weater-data-processed   - cleaned weather data to be used by the model 
 
 Files:
 
@@ -25,9 +22,4 @@ Files:
 
     turbine-util.py         - clean turbine data to be used by the model
 
-    weather-util.py         - cleans historical weather data to be used by the model
-
     main.py                 - where the model is trained and evaluated
-
-
-
