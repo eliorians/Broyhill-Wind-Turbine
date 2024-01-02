@@ -50,7 +50,7 @@ column_names = [
     "WTG1_R_DBLPwr_kW", "WTG1_R_DBLPwr_kW_MAX", "WTG1_R_DBLPwr_kW_MIN", "WTG1_R_DBLPwr_kW_STDDEV", 
     "WTG1_R_TempFrame_degC", 
     "WTG1_R_YawPosition_deg", 
-    "WTG1_R_RotorSpeed_RPM", "WTG1_R_RotorSpeed_RPM_MAX", "WTG1_R_RotorSpeed_RPM_MIN", 
+    "WTG1_R_RotorSpeed_RPM", "WTG1_R_RotorSpeed_RPM_MAX", "WTG1_R_RotorSpeed_RPM_MIN", #ROTOR SPEED
     "WTG1_R_RotorSpeed_RPM_STDDEV", 
     "WTG1_R_WindSpeed_mps", "WTG1_R_WindSpeed_mps_MAX", "WTG1_R_WindSpeed_mps_MIN", "WTG1_R_WindSpeed_mps_STDDEV", #INSTANTANEOUS WINDSPEED
     "WTG1_R_WindSpeed1m_mps", "WTG1_R_WindSpeed10m_mps", #WINDSPEED 1M AND 10M AVG
@@ -107,12 +107,16 @@ column_names = [
 ]
 
 useColumns = [
-    'timestamp',                                                                                                        #current time
-    'WTG1_R_InvPwr_kW', 'WTG1_R_InvPwr_kW_MAX', 'WTG1_R_InvPwr_kW_MIN', 'WTG1_R_InvPwr_kW_STDDEV',                      #power produced
-    "WTG1_R_WindSpeed_mps", "WTG1_R_WindSpeed_mps_MAX", "WTG1_R_WindSpeed_mps_MIN", "WTG1_R_WindSpeed_mps_STDDEV"       #instantaneous windspeed
-    "WTG1_R_TempAmb_degC",                                                                                              #ambient temperature
-    "WTG1_R_YawLeftTime_sec", "WTG1_R_YawRightTime_sec", "WTG1_R_YawUnwindRight_sec", "WTG1_R_YawUnwindRight_sec_MIN",  #yaw
-    'WTG1_R_AnyWrnCond'                                                                                                 #any warning flags
+    'timestamp',                                                                                                           #current time
+    'WTG1_R_InvPwr_kW', 'WTG1_R_InvPwr_kW_MAX', 'WTG1_R_InvPwr_kW_MIN', 'WTG1_R_InvPwr_kW_STDDEV',                         #power produced
+    'WTG1_R_WindSpeed_mps', 'WTG1_R_WindSpeed_mps_MAX', 'WTG1_R_WindSpeed_mps_MIN', 'WTG1_R_WindSpeed_mps_STDDEV',         #windspeed instantaneous
+    'WTG1_R_WindSpeed1m_mps', 'WTG1_R_WindSpeed10m_mps',                                                                   #windspeed 1m and 10m
+    "WTG1_R_WindSpeed1s_mps", "WTG1_R_WindSpeed1s_mps_MAX", "WTG1_R_WindSpeed1s_mps_MIN", "WTG1_R_WindSpeed1s_mps_STDDEV", #windspeed 1s
+    'WTG1_R_TempAmb_degC',                                                                                                 #ambient temperature
+    'WTG1_R_YawLeftTime_sec', 'WTG1_R_YawRightTime_sec', 'WTG1_R_YawUnwindRight_sec', 'WTG1_R_YawUnwindRight_sec_MIN',     #yaw wind/unwind
+    "WTG1_R_YawVaneAvg_deg", "WTG1_R_YawVaneAvg_deg_MAX", "WTG1_R_YawVaneAvg_deg_MIN", "WTG1_R_YawVaneAvg_deg_STDDEV",     #yaw position
+    "WTG1_R_RotorSpeed_RPM", "WTG1_R_RotorSpeed_RPM_MAX", "WTG1_R_RotorSpeed_RPM_MIN",                                     #rotor speed
+    'WTG1_R_AnyWrnCond'                                                                                                    #any warning flags
 ]
 
 
@@ -139,7 +143,8 @@ def readSQLDump():
     #read tubrine data into dataframe
     df = pd.read_csv(dataPath, sep='\t', skiprows=skipRows, header=None, names=column_names, usecols=useColumns)
     
-    #todo stop reading frames when you reach the "\."
+    #drop end of dump file 
+    df.drop(df.tail(8).index, inplace=True)
     
     return df
 
@@ -159,6 +164,8 @@ def main():
 
     df = readSQLDump()
     df = cleanTurbineData(df)
+
+    print(df.tail())
 
     
 
