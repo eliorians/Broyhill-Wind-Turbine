@@ -109,6 +109,7 @@ column_names = [
 useColumns = [
     'timestamp',                                                                                                           #current time
     'WTG1_R_InvPwr_kW', 'WTG1_R_InvPwr_kW_MAX', 'WTG1_R_InvPwr_kW_MIN', 'WTG1_R_InvPwr_kW_STDDEV',                         #power produced
+    "WTG1_R_InvFreq_Hz",                                                                                                   #inverter frequency 
     'WTG1_R_WindSpeed_mps', 'WTG1_R_WindSpeed_mps_MAX', 'WTG1_R_WindSpeed_mps_MIN', 'WTG1_R_WindSpeed_mps_STDDEV',         #windspeed instantaneous
     'WTG1_R_WindSpeed1m_mps', 'WTG1_R_WindSpeed10m_mps',                                                                   #windspeed 1m and 10m
     "WTG1_R_WindSpeed1s_mps", "WTG1_R_WindSpeed1s_mps_MAX", "WTG1_R_WindSpeed1s_mps_MIN", "WTG1_R_WindSpeed1s_mps_STDDEV", #windspeed 1s
@@ -116,9 +117,10 @@ useColumns = [
     'WTG1_R_YawLeftTime_sec', 'WTG1_R_YawRightTime_sec', 'WTG1_R_YawUnwindRight_sec', 'WTG1_R_YawUnwindRight_sec_MIN',     #yaw wind/unwind
     "WTG1_R_YawVaneAvg_deg", "WTG1_R_YawVaneAvg_deg_MAX", "WTG1_R_YawVaneAvg_deg_MIN", "WTG1_R_YawVaneAvg_deg_STDDEV",     #yaw position
     "WTG1_R_RotorSpeed_RPM", "WTG1_R_RotorSpeed_RPM_MAX", "WTG1_R_RotorSpeed_RPM_MIN",                                     #rotor speed
-    'WTG1_R_AnyWrnCond'                                                                                                    #any warning flags
+    'WTG1_R_AnyWrnCond', "WTG1_R_AnyFltCond", "WTG1_R_AnyEnvCond", "WTG1_R_AnyExtCond", "WTG1_R_DSP_GridStateEventStatus"  #any warning flags
 ]
 
+    
 
 
 def logging_setup():
