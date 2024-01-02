@@ -3,6 +3,8 @@ import os
 import pandas as pd
 import logging
 
+import pytz
+
 logger = logging.getLogger('turbine_util')
 
 # See "./turbine-data/turbine_data_info.cfg" for column info
@@ -114,14 +116,47 @@ useColumns = [
     'WTG1_R_WindSpeed1m_mps', 'WTG1_R_WindSpeed10m_mps',                                                                   #windspeed 1m and 10m
     "WTG1_R_WindSpeed1s_mps", "WTG1_R_WindSpeed1s_mps_MAX", "WTG1_R_WindSpeed1s_mps_MIN", "WTG1_R_WindSpeed1s_mps_STDDEV", #windspeed 1s
     'WTG1_R_TempAmb_degC',                                                                                                 #ambient temperature
-    'WTG1_R_YawLeftTime_sec', 'WTG1_R_YawRightTime_sec', 'WTG1_R_YawUnwindRight_sec', 'WTG1_R_YawUnwindRight_sec_MIN',     #yaw wind/unwind
+    'WTG1_R_YawLeftTime_sec', 'WTG1_R_YawRightTime_sec', 'WTG1_R_YawUnwindRight_sec', 'WTG1_R_YawUnwindLeft_sec',          #yaw wind/unwind
     "WTG1_R_YawVaneAvg_deg", "WTG1_R_YawVaneAvg_deg_MAX", "WTG1_R_YawVaneAvg_deg_MIN", "WTG1_R_YawVaneAvg_deg_STDDEV",     #yaw position
     "WTG1_R_RotorSpeed_RPM", "WTG1_R_RotorSpeed_RPM_MAX", "WTG1_R_RotorSpeed_RPM_MIN",                                     #rotor speed
     'WTG1_R_AnyWrnCond', "WTG1_R_AnyFltCond", "WTG1_R_AnyEnvCond", "WTG1_R_AnyExtCond", "WTG1_R_DSP_GridStateEventStatus"  #any warning flags
 ]
 
-    
 
+column_types = {
+    'WTG1_R_InvPwr_kW'               : float,               # Power produced
+    'WTG1_R_InvPwr_kW_MAX'           : float,
+    'WTG1_R_InvPwr_kW_MIN'           : float,
+    'WTG1_R_InvPwr_kW_STDDEV'        : float,
+    'WTG1_R_InvFreq_Hz'              : float,               # Inverter frequency
+    'WTG1_R_WindSpeed_mps'           : float,               # Wind speed instantaneous
+    'WTG1_R_WindSpeed_mps_MAX'       : float,
+    'WTG1_R_WindSpeed_mps_MIN'       : float,
+    'WTG1_R_WindSpeed_mps_STDDEV'    : float,
+    'WTG1_R_WindSpeed1m_mps'         : float,               # Wind speed at 1m
+    'WTG1_R_WindSpeed10m_mps'        : float,               # Wind speed at 10m
+    'WTG1_R_WindSpeed1s_mps'         : float,               # Wind speed at 1s
+    'WTG1_R_WindSpeed1s_mps_MAX'     : float,
+    'WTG1_R_WindSpeed1s_mps_MIN'     : float,
+    'WTG1_R_WindSpeed1s_mps_STDDEV'  : float,
+    'WTG1_R_TempAmb_degC'            : float,               # Ambient temperature
+    'WTG1_R_YawLeftTime_sec'         : int,                 # Yaw wind/unwind
+    'WTG1_R_YawRightTime_sec'        : int,
+    'WTG1_R_YawUnwindRight_sec'      : int,
+    'WTG1_R_YawUnwindLeft_sec'       : int,
+    'WTG1_R_YawVaneAvg_deg'          : float,               # Yaw position
+    'WTG1_R_YawVaneAvg_deg_MAX'      : float,
+    'WTG1_R_YawVaneAvg_deg_MIN'      : float,
+    'WTG1_R_YawVaneAvg_deg_STDDEV'   : float,
+    'WTG1_R_RotorSpeed_RPM'          : float,               # Rotor speed
+    'WTG1_R_RotorSpeed_RPM_MAX'      : float,
+    'WTG1_R_RotorSpeed_RPM_MIN'      : float,
+    'WTG1_R_AnyWrnCond'              : int,                 # Any warning flags
+    'WTG1_R_AnyFltCond'              : int,                 # Any fault conditions
+    'WTG1_R_AnyEnvCond'              : int,                 # Any environmental conditions
+    'WTG1_R_AnyExtCond'              : int,                 # Any external conditions
+    'WTG1_R_DSP_GridStateEventStatus': int                  # DSP Grid State Event Status
+}
 
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
@@ -153,9 +188,16 @@ def readSQLDump():
 
 def cleanTurbineData(df):
 
-    #todo aggregate hourly
+    #set all column types, making timestamp format consistent first
+    df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+    df['timestamp'] = df['timestamp'].dt.floor('s') 
+    df = df.astype(column_types)
 
-    #todo change to eastern time zone
+    #change to eastern time zone
+    df['timestamp'] = df['timestamp'].dt.tz_localize('UTC')
+    df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+    
+    #todo aggregate hourly
 
     return df
 
@@ -167,7 +209,7 @@ def main():
     df = readSQLDump()
     df = cleanTurbineData(df)
 
-    print(df.tail())
+    print(df)
 
     
 
