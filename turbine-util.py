@@ -189,50 +189,56 @@ def readSQLDump():
 
 def cleanTurbineData(df):
 
-    #set all column types, making timestamp format consistent first
+    #todo this isnt working, timestamp lost 
+    #set timestamp making timestamp format consistent first
     df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
-    df['timestamp'] = df['timestamp'].dt.floor('s') 
+    df['timestamp'] = df['timestamp'].dt.floor('s')  
+    
+    #change to eastern time zone
+    df['timestamp'] = df['timestamp'].dt.tz_localize('UTC')                    
+    df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+
+    #set all column types,
     df = df.astype(column_types)
 
-    #change to eastern time zone
-    df['timestamp'] = df['timestamp'].dt.tz_localize('UTC')
-    df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
-    
+
     #todo aggregate hourly
-    df = df.groupby(df['timestamp'].dt.floor('H')).agg({
-        'WTG1_R_InvPwr_kW'               : 'mean',
-        'WTG1_R_InvPwr_kW_MAX'           : 'max',
-        'WTG1_R_InvPwr_kW_MIN'           : 'min',
-        'WTG1_R_InvPwr_kW_STDDEV'        : 'mean',
-        'WTG1_R_InvFreq_Hz'              : 'mean',
-        'WTG1_R_WindSpeed_mps'           : 'mean',
-        'WTG1_R_WindSpeed_mps_MAX'       : '',
-        'WTG1_R_WindSpeed_mps_MIN'       : '',
-        'WTG1_R_WindSpeed_mps_STDDEV'    : '',
-        'WTG1_R_WindSpeed1m_mps'         : '',
-        'WTG1_R_WindSpeed10m_mps'        : '',
-        'WTG1_R_WindSpeed1s_mps'         : '',
-        'WTG1_R_WindSpeed1s_mps_MAX'     : '',
-        'WTG1_R_WindSpeed1s_mps_MIN'     : '',
-        'WTG1_R_WindSpeed1s_mps_STDDEV'  : '',
-        'WTG1_R_TempAmb_degC'            : '',
-        'WTG1_R_YawLeftTime_sec'         : '',
-        'WTG1_R_YawRightTime_sec'        : '',
-        'WTG1_R_YawUnwindRight_sec'      : '',
-        'WTG1_R_YawUnwindLeft_sec'       : '',
-        'WTG1_R_YawVaneAvg_deg'          : '',
-        'WTG1_R_YawVaneAvg_deg_MAX'      : '',
-        'WTG1_R_YawVaneAvg_deg_MIN'      : '',
-        'WTG1_R_YawVaneAvg_deg_STDDEV'   : '',
-        'WTG1_R_RotorSpeed_RPM'          : '',
-        'WTG1_R_RotorSpeed_RPM_MAX'      : '',
-        'WTG1_R_RotorSpeed_RPM_MIN'      : '',
-        'WTG1_R_AnyWrnCond'              : '',
-        'WTG1_R_AnyFltCond'              : '',
-        'WTG1_R_AnyEnvCond'              : '',
-        'WTG1_R_AnyExtCond'              : '',
-        'WTG1_R_DSP_GridStateEventStatus': ''
-    }).reset_index()
+    # df = df.groupby(df['timestamp'].dt.floor('H')).agg({
+    #     'WTG1_R_InvPwr_kW'               : 'mean',
+    #     'WTG1_R_InvPwr_kW_MAX'           : 'max',
+    #     'WTG1_R_InvPwr_kW_MIN'           : 'min',
+    #     'WTG1_R_InvPwr_kW_STDDEV'        : 'mean',
+    #     'WTG1_R_InvFreq_Hz'              : 'mean',
+    #     'WTG1_R_WindSpeed_mps'           : 'mean',
+    #     'WTG1_R_WindSpeed_mps_MAX'       : 'max',
+    #     'WTG1_R_WindSpeed_mps_MIN'       : 'min',
+    #     'WTG1_R_WindSpeed_mps_STDDEV'    : 'mean',
+    #     'WTG1_R_WindSpeed1m_mps'         : 'mean',
+    #     'WTG1_R_WindSpeed10m_mps'        : 'mean',
+    #     'WTG1_R_WindSpeed1s_mps'         : 'mean',
+    #     'WTG1_R_WindSpeed1s_mps_MAX'     : 'max',
+    #     'WTG1_R_WindSpeed1s_mps_MIN'     : 'min',
+    #     'WTG1_R_WindSpeed1s_mps_STDDEV'  : 'mean',
+    #     'WTG1_R_TempAmb_degC'            : 'mean',
+    #     'WTG1_R_YawLeftTime_sec'         : 'mean',
+    #     'WTG1_R_YawRightTime_sec'        : 'mean',
+    #     'WTG1_R_YawUnwindRight_sec'      : 'mean',
+    #     'WTG1_R_YawUnwindLeft_sec'       : 'mean',
+    #     'WTG1_R_YawVaneAvg_deg'          : 'mean',
+    #     'WTG1_R_YawVaneAvg_deg_MAX'      : 'max',
+    #     'WTG1_R_YawVaneAvg_deg_MIN'      : 'min',
+    #     'WTG1_R_YawVaneAvg_deg_STDDEV'   : 'mean',
+    #     'WTG1_R_RotorSpeed_RPM'          : 'mean',
+    #     'WTG1_R_RotorSpeed_RPM_MAX'      : 'max',
+    #     'WTG1_R_RotorSpeed_RPM_MIN'      : 'min',
+    #     'WTG1_R_AnyWrnCond'              : 'last',
+    #     'WTG1_R_AnyFltCond'              : 'last',
+    #     'WTG1_R_AnyEnvCond'              : 'last',
+    #     'WTG1_R_AnyExtCond'              : 'last',
+    #     'WTG1_R_DSP_GridStateEventStatus': 'last'
+    # }).reset_index()
+
+    #todo add column with corresponding forecast .csv name
 
     return df
 
@@ -242,13 +248,11 @@ def main():
     logger.info("Running turbine-util...")
 
     df = readSQLDump()
+
     df = cleanTurbineData(df)
 
-    #todo add column with corresponding forecast .csv name
-
-    print(df)
-
-    
+    df.to_csv('./turbine-data-processed/cleanedFrames.csv')
+    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"')
 
 if __name__ == "__main__":
     main()
