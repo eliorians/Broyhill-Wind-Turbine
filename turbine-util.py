@@ -189,17 +189,17 @@ def readSQLDump():
 
 def cleanTurbineData(df):
 
-    #todo this isnt working, timestamp lost 
-    #set timestamp making timestamp format consistent first
+    #!this isnt working, timestamp lost 
+    #todo set timestamp making timestamp format consistent first
     df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
     df['timestamp'] = df['timestamp'].dt.floor('s')  
     
-    #change to eastern time zone
-    df['timestamp'] = df['timestamp'].dt.tz_localize('UTC')                    
-    df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+    #todo change to eastern time zone
+    # df['timestamp'] = df['timestamp'].dt.tz_localize('UTC')                    
+    # df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
 
-    #set all column types,
-    df = df.astype(column_types)
+    #todo set all column types,
+    # df = df.astype(column_types)
 
 
     #todo aggregate hourly

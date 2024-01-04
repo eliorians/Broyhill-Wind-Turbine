@@ -31,7 +31,6 @@ def main():
     logger = logging.getLogger('forecast_collection')
     logger.info("Starting forecast collection")
 
-
     while True:
         # Calculate the seconds remaining until the next hour and wait that long
         current_time = time.localtime()
