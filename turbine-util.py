@@ -197,7 +197,7 @@ def cleanTurbineData(df):
     #set all other column types
     df = df.astype(column_types)
 
-    #todo aggregate hourly
+    #aggregate hourly
     df = df.groupby(df['timestamp'].dt.floor('H')).agg({
         'WTG1_R_InvPwr_kW'               : 'mean',
         'WTG1_R_InvPwr_kW_MAX'           : 'max',
@@ -233,11 +233,12 @@ def cleanTurbineData(df):
         'WTG1_R_DSP_GridStateEventStatus': 'last'
     }).reset_index()
 
-    #change to eastern time zone
+    #change to eastern time zone, this must be done after grouping to effectively handle daylight saving time
     df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
     df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
 
     #todo add column with corresponding forecast .csv name
+
 
     return df
 
