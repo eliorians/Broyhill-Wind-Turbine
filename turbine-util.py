@@ -191,51 +191,51 @@ def cleanTurbineData(df):
 
     #set timestamp and make consistent
     df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed')
-    df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M'))
-    
-    #todo change to eastern time zone
-    # df['timestamp'] = df['timestamp'].dt.tz_localize('UTC')                    
-    # df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+    df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
+    df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S')
 
-    #todo set all column types,
-    # df = df.astype(column_types)
-
+    #set all other column types
+    df = df.astype(column_types)
 
     #todo aggregate hourly
-    # df = df.groupby(df['timestamp'].dt.floor('H')).agg({
-    #     'WTG1_R_InvPwr_kW'               : 'mean',
-    #     'WTG1_R_InvPwr_kW_MAX'           : 'max',
-    #     'WTG1_R_InvPwr_kW_MIN'           : 'min',
-    #     'WTG1_R_InvPwr_kW_STDDEV'        : 'mean',
-    #     'WTG1_R_InvFreq_Hz'              : 'mean',
-    #     'WTG1_R_WindSpeed_mps'           : 'mean',
-    #     'WTG1_R_WindSpeed_mps_MAX'       : 'max',
-    #     'WTG1_R_WindSpeed_mps_MIN'       : 'min',
-    #     'WTG1_R_WindSpeed_mps_STDDEV'    : 'mean',
-    #     'WTG1_R_WindSpeed1m_mps'         : 'mean',
-    #     'WTG1_R_WindSpeed10m_mps'        : 'mean',
-    #     'WTG1_R_WindSpeed1s_mps'         : 'mean',
-    #     'WTG1_R_WindSpeed1s_mps_MAX'     : 'max',
-    #     'WTG1_R_WindSpeed1s_mps_MIN'     : 'min',
-    #     'WTG1_R_WindSpeed1s_mps_STDDEV'  : 'mean',
-    #     'WTG1_R_TempAmb_degC'            : 'mean',
-    #     'WTG1_R_YawLeftTime_sec'         : 'mean',
-    #     'WTG1_R_YawRightTime_sec'        : 'mean',
-    #     'WTG1_R_YawUnwindRight_sec'      : 'mean',
-    #     'WTG1_R_YawUnwindLeft_sec'       : 'mean',
-    #     'WTG1_R_YawVaneAvg_deg'          : 'mean',
-    #     'WTG1_R_YawVaneAvg_deg_MAX'      : 'max',
-    #     'WTG1_R_YawVaneAvg_deg_MIN'      : 'min',
-    #     'WTG1_R_YawVaneAvg_deg_STDDEV'   : 'mean',
-    #     'WTG1_R_RotorSpeed_RPM'          : 'mean',
-    #     'WTG1_R_RotorSpeed_RPM_MAX'      : 'max',
-    #     'WTG1_R_RotorSpeed_RPM_MIN'      : 'min',
-    #     'WTG1_R_AnyWrnCond'              : 'last',
-    #     'WTG1_R_AnyFltCond'              : 'last',
-    #     'WTG1_R_AnyEnvCond'              : 'last',
-    #     'WTG1_R_AnyExtCond'              : 'last',
-    #     'WTG1_R_DSP_GridStateEventStatus': 'last'
-    # }).reset_index()
+    df = df.groupby(df['timestamp'].dt.floor('H')).agg({
+        'WTG1_R_InvPwr_kW'               : 'mean',
+        'WTG1_R_InvPwr_kW_MAX'           : 'max',
+        'WTG1_R_InvPwr_kW_MIN'           : 'min',
+        'WTG1_R_InvPwr_kW_STDDEV'        : 'mean',
+        'WTG1_R_InvFreq_Hz'              : 'mean',
+        'WTG1_R_WindSpeed_mps'           : 'mean',
+        'WTG1_R_WindSpeed_mps_MAX'       : 'max',
+        'WTG1_R_WindSpeed_mps_MIN'       : 'min',
+        'WTG1_R_WindSpeed_mps_STDDEV'    : 'mean',
+        'WTG1_R_WindSpeed1m_mps'         : 'mean',
+        'WTG1_R_WindSpeed10m_mps'        : 'mean',
+        'WTG1_R_WindSpeed1s_mps'         : 'mean',
+        'WTG1_R_WindSpeed1s_mps_MAX'     : 'max',
+        'WTG1_R_WindSpeed1s_mps_MIN'     : 'min',
+        'WTG1_R_WindSpeed1s_mps_STDDEV'  : 'mean',
+        'WTG1_R_TempAmb_degC'            : 'mean',
+        'WTG1_R_YawLeftTime_sec'         : 'mean',
+        'WTG1_R_YawRightTime_sec'        : 'mean',
+        'WTG1_R_YawUnwindRight_sec'      : 'mean',
+        'WTG1_R_YawUnwindLeft_sec'       : 'mean',
+        'WTG1_R_YawVaneAvg_deg'          : 'mean',
+        'WTG1_R_YawVaneAvg_deg_MAX'      : 'max',
+        'WTG1_R_YawVaneAvg_deg_MIN'      : 'min',
+        'WTG1_R_YawVaneAvg_deg_STDDEV'   : 'mean',
+        'WTG1_R_RotorSpeed_RPM'          : 'mean',
+        'WTG1_R_RotorSpeed_RPM_MAX'      : 'max',
+        'WTG1_R_RotorSpeed_RPM_MIN'      : 'min',
+        'WTG1_R_AnyWrnCond'              : 'last',
+        'WTG1_R_AnyFltCond'              : 'last',
+        'WTG1_R_AnyEnvCond'              : 'last',
+        'WTG1_R_AnyExtCond'              : 'last',
+        'WTG1_R_DSP_GridStateEventStatus': 'last'
+    }).reset_index()
+
+    #change to eastern time zone
+    df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
+    df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
 
     #todo add column with corresponding forecast .csv name
 
