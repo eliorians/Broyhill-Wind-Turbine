@@ -3,6 +3,10 @@ import os
 import pandas as pd
 import logging
 
+import forecast_util
+import turbine_util
+
+
 logger = logging.getLogger('main')
 
 def logging_setup():
@@ -21,8 +25,14 @@ def logging_setup():
 
 def main():
     
+    #process forecast data
+    forecast_util.main
+
+    #process turbine data
+    turbine_util.main
+    df = pd.read_csv('./turbine-data-processed/cleanedFrames.csv')
+    
     #todo setup tensorflow time series model
-    print("hello world")
 
 
 if __name__ == "__main__":

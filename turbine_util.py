@@ -258,7 +258,7 @@ def cleanTurbineData(df):
 def main():
 
     logging_setup()
-    logger.info("Running turbine-util...")
+    logger.info("Running turbine_util...")
 
     df = readSQLDump()
 

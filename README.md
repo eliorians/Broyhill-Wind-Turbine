@@ -16,10 +16,10 @@ Folders:
 
 Files:
 
-    forecast-collection.py  - collecting forecast data from the National Weather Service API
+    forecast_collection.py  - collecting forecast data from the National Weather Service API
 
-    forecast-util.py        - cleans collected forecast data to be used by the model
+    forecast_util.py        - cleans collected forecast data to be used by the model
 
-    turbine-util.py         - clean turbine data to be used by the model
+    turbine_util.py         - clean turbine data to be used by the model
 
     main.py                 - where the model is trained and evaluated

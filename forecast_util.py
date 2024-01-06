@@ -72,7 +72,7 @@ def process_filepath(filepath):
 def main():
 
     logging_setup()
-    logger.info("Running forecast-util...")
+    logger.info("Running forecast_util...")
     
     #convert all forecast files to json
     jsonToCSV()
