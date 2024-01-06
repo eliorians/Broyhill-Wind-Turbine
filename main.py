@@ -28,11 +28,11 @@ def main():
     #process forecast data
     forecast_util.main
 
-    #process turbine data
+    #process turbine data and get dataframe
     turbine_util.main
     df = pd.read_csv('./turbine-data-processed/cleanedFrames.csv')
     
-    #todo setup tensorflow time series model
+    #todo setup tensorflow time series model...
 
 
 if __name__ == "__main__":
