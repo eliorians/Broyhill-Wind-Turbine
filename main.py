@@ -20,7 +20,8 @@ def logging_setup():
         ])
 
 def main():
-    #setup tensorflow time series model
+    
+    #todo setup tensorflow time series model
     print("hello world")
 
 

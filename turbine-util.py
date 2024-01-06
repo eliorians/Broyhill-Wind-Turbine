@@ -2,12 +2,12 @@
 import os
 import pandas as pd
 import logging
-
 import pytz
 
 logger = logging.getLogger('turbine_util')
 
-# See "./turbine-data/turbine_data_info.cfg" for column info
+#all columns that exist in frames.csv
+#see "./turbine-data/turbine_data_info.cfg" for column info
 column_names = [
     "idx", "timestamp", "sample_cnt", 
     "WTG1_R_filt_genWinding_temp_calc_degC", "WTG1_R_filt_genWinding_temp_calc_degC_MAX", "WTG1_R_filt_genWinding_temp_calc_degC_MIN", 
@@ -108,6 +108,7 @@ column_names = [
     "WTG1_R_MCU_GridEventStatus", "WTG1_R_MCU_GridEventStatus_MAX", "WTG1_R_MCU_GridEventStatus_MIN"
 ]
 
+#columns to be used
 use_columns = [
     'timestamp',                                                                                                           #current time
     'WTG1_R_InvPwr_kW', 'WTG1_R_InvPwr_kW_MAX', 'WTG1_R_InvPwr_kW_MIN', 'WTG1_R_InvPwr_kW_STDDEV',                         #power produced
@@ -122,7 +123,7 @@ use_columns = [
     'WTG1_R_AnyWrnCond', "WTG1_R_AnyFltCond", "WTG1_R_AnyEnvCond", "WTG1_R_AnyExtCond", "WTG1_R_DSP_GridStateEventStatus"  #any warning flags
 ]
 
-
+#column types for each used column
 column_types = {
     'WTG1_R_InvPwr_kW'               : float,               # Power produced
     'WTG1_R_InvPwr_kW_MAX'           : float,
@@ -158,6 +159,7 @@ column_types = {
     'WTG1_R_DSP_GridStateEventStatus': int                  # DSP Grid State Event Status
 }
 
+#setup for program logging
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
     logs_directory = os.path.join(os.getcwd(), 'logs')
@@ -172,6 +174,7 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
+#read the main frames.csv SQL dump file
 def readSQLDump():
     #path to data and the row the data starts
     dataPath = "./turbine-data/frames.csv"
@@ -186,7 +189,12 @@ def readSQLDump():
     
     return df
 
+#finds the forecast filename in ./forecast-data-processed and returns true if it exists
+def findForecastFile(filename):
+    filepath = './forecast-data-processed/' + filename
+    return os.path.isfile(filepath)
 
+#clean turbine data, see various steps throughout
 def cleanTurbineData(df):
 
     #set timestamp and make consistent
@@ -237,8 +245,13 @@ def cleanTurbineData(df):
     df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
     df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
 
-    #todo add column with corresponding forecast .csv name
+    #add column for the associated forecast with the hour, 
+    df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
+    df['forecast_file'] = df['forecast_file'].astype(str)
 
+    #add a column that will be true if the forecast data exists
+    df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
+    df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
     return df
 
