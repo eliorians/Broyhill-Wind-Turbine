@@ -9,13 +9,13 @@ import time
 logger = logging.getLogger('forecast_util')
 
 column_types = {
-    'temperature_F'                     : 'int',
-    'windSpeed_mph'                     : 'int',
-    'windDirection'                     : 'str',
-    'shortForecast'                     : 'str',
-    'probabilityOfPrecipitation_percent': 'int',
-    'dewpoint_degC'                     : 'float',
-    'relativeHumidity_percent'          : 'int'
+    'temperature_F'                     : int,
+    'windSpeed_mph'                     : int,
+    'windDirection'                     : str,
+    'shortForecast'                     : str,
+    'probabilityOfPrecipitation_percent': int,
+    'dewpoint_degC'                     : float,
+    'relativeHumidity_percent'          : int
 }
 
 def logging_setup():

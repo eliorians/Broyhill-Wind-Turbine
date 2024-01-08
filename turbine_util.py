@@ -126,7 +126,7 @@ use_columns = [
 ]
 
 #column types for each used column
-column_types = {
+turbine_column_types = {
     'WTG1_R_InvPwr_kW'               : float,               # Power produced
     'WTG1_R_InvPwr_kW_MAX'           : float,
     'WTG1_R_InvPwr_kW_MIN'           : float,
@@ -159,6 +159,16 @@ column_types = {
     'WTG1_R_AnyEnvCond'              : int,                 # Any environmental conditions
     'WTG1_R_AnyExtCond'              : int,                 # Any external conditions
     'WTG1_R_DSP_GridStateEventStatus': int                  # DSP Grid State Event Status
+}
+
+forecast_column_types = {
+    'temperature_F'                     : int,
+    'windSpeed_mph'                     : int,
+    'windDirection'                     : str,
+    'shortForecast'                     : str,
+    'probabilityOfPrecipitation_percent': int,
+    'dewpoint_degC'                     : float,
+    'relativeHumidity_percent'          : int
 }
 
 #setup for program logging
@@ -208,7 +218,7 @@ def cleanTurbineData(df):
     df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S')
 
     #set all other column types
-    df = df.astype(column_types)
+    df = df.astype(turbine_column_types)
 
     #aggregate hourly
     df = df.groupby(df['timestamp'].dt.floor('H')).agg({
@@ -266,7 +276,13 @@ def combineTurbineForecast(df):
     df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
     df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-    #? make forecast data in their own columns? how would i do this?
+    #open the assosiated forecast file for each row, if it exists
+    for index, row in df.iterrows():
+        if row['forecast_file_exists'] == True:
+            filename = row['forecast_file']
+            forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['startTime', 'endTime'])
+            #todo merge the forecast in... 
+            df = pd.merge(df, forecast_df, left_on='timestamp', right_on='startTime', how='left')
 
     return df
 
