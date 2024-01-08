@@ -69,18 +69,17 @@ def cleanForecastData(filepath):
     df['relativeHumidity_percent'] = df['relativeHumidity'].apply(extractJson)
     df['temperature_F'] = df['temperature']
     df['windSpeed_mph'] = df['windSpeed'].str.replace(' mph', '')
-    
-    #drop uneeded columns
-    columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed']
-    df.drop(columns=columns_to_drop, inplace=True)
 
     #deal with null values
     df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
 
-    #set column types
-    df['startTime'] = pd.to_datetime(df['startTime'])
-    df['endTime'] = pd.to_datetime(df['endTime'])
+    #set column types, only keep one and make it the timestampt
+    df['timestamp'] = pd.to_datetime(df['startTime'])
     df = df.astype(column_types)
+
+        #drop uneeded columns
+    columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime']
+    df.drop(columns=columns_to_drop, inplace=True)
     
     #save to csv
     filepath = getNewFilepath(filepath)
@@ -109,8 +108,6 @@ def main():
     end_time = time.time()
     runtime = end_time - start_time
     logger.info(f"Program finished. Processed {file_count} in {runtime:.2f} seconds")
-
-    
 
 if __name__ == '__main__':
     main()

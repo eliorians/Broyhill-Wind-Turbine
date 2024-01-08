@@ -280,9 +280,11 @@ def combineTurbineForecast(df):
     for index, row in df.iterrows():
         if row['forecast_file_exists'] == True:
             filename = row['forecast_file']
-            forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['startTime', 'endTime'])
-            #todo merge the forecast in... 
-            df = pd.merge(df, forecast_df, left_on='timestamp', right_on='startTime', how='left')
+            forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+
+            #todo merge the forecast in... this does not work as expected. 
+            #? what do we want to happen? -> write out in excel
+            df = pd.merge(df, forecast_df, on='timestamp', how='left')
 
     return df
 
