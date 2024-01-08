@@ -4,6 +4,8 @@ import pandas as pd
 import logging
 import pytz
 
+import forecast_util
+
 logger = logging.getLogger('turbine_util')
 
 #all columns that exist in frames.csv
@@ -176,6 +178,8 @@ def logging_setup():
 
 #read the main frames.csv SQL dump file
 def readSQLDump():
+    logger.info("in readSQLDump")
+
     #path to data and the row the data starts
     dataPath = "./turbine-data/frames.csv"
     skipTop = 17
@@ -196,6 +200,7 @@ def findForecastFile(filename):
 
 #clean turbine data, see various steps throughout
 def cleanTurbineData(df):
+    logger.info("in cleanTurbineData")
 
     #set timestamp and make consistent
     df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed')
@@ -245,6 +250,14 @@ def cleanTurbineData(df):
     df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
     df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
 
+    return df
+
+def combineTurbineForecast(df):
+    logger.info("in combineTurbineForecast")
+
+    #clean forecast data
+    forecast_util.main
+    
     #add column for the associated forecast with the hour, 
     df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
     df['forecast_file'] = df['forecast_file'].astype(str)
@@ -253,6 +266,8 @@ def cleanTurbineData(df):
     df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
     df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
+    #? make forecast data in their own columns? how would i do this?
+
     return df
 
 def main():
@@ -260,10 +275,16 @@ def main():
     logging_setup()
     logger.info("Running turbine_util...")
 
+    #read in data
     df = readSQLDump()
 
+    #clean data
     df = cleanTurbineData(df)
 
+    #combine with forecast data
+    df = combineTurbineForecast(df)
+
+    #output
     df.to_csv('./turbine-data-processed/cleanedFrames.csv')
     logger.info('Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"')
 

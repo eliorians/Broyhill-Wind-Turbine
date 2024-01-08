@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import logging
 
-import forecast_util
 import turbine_util
 
 
@@ -25,14 +24,14 @@ def logging_setup():
 
 def main():
     
-    #process forecast data
-    forecast_util.main
-
     #process turbine data and get dataframe
     turbine_util.main
     df = pd.read_csv('./turbine-data-processed/cleanedFrames.csv')
     
-    #todo setup tensorflow time series model...
+    #todo train/test split (80/20)
+    # train_size = int(len(df) * 0.8)
+    # train_data, test_data = df.iloc[:train_size], df.iloc[train_size:]
+
 
 
 if __name__ == "__main__":

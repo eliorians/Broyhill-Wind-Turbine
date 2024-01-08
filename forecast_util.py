@@ -6,8 +6,17 @@ import os
 import re
 import time
 
-json_folder = './forecast-data/'
 logger = logging.getLogger('forecast_util')
+
+column_types = {
+    'temperature_F'                     : 'int',
+    'windSpeed_mph'                     : 'int',
+    'windDirection'                     : 'str',
+    'shortForecast'                     : 'str',
+    'probabilityOfPrecipitation_percent': 'int',
+    'dewpoint_degC'                     : 'float',
+    'relativeHumidity_percent'          : 'int'
+}
 
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
@@ -23,42 +32,16 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
-#converts all forecast json files to csv files
-def jsonToCSV():
-    start_time = time.time()
-    file_count = 0
+#extracts json data
+def extractJson(data):
+    try:
+        return data.get('value')
+    except (json.JSONDecodeError, AttributeError):
+        return None
 
-    #iterate through all files in the forecast-data folder
-    for filename in os.listdir(json_folder):
-        if filename.endswith('.json'):
-            # Construct the full path to the JSON file
-            filepath = os.path.join(json_folder, filename)
-            # Process the JSON file
-            process_json_file(filepath)
-            file_count = file_count + 1
-
-    end_time = time.time()
-    runtime = end_time - start_time
-    logger.info(f"Program finished. Processed {file_count} in {runtime:.2f} seconds")
-
-#process individual json file
-def process_json_file(filepath):
-
-    #open json file
-    with open(filepath, 'r') as json_file:
-        forecast_dict = json.load(json_file)
-
-    #turn to dictionary, then dataframe
-    periods = forecast_dict.get("properties", {}).get("periods", [])
-    df = pd.DataFrame(periods)
-
-    #save to csv
-    filepath = process_filepath(filepath)
-    df.to_csv(filepath)
-    logger.info(f"Data successfully saved to {filepath}")
 
 #converts forecast path to csv path
-def process_filepath(filepath):
+def getNewFilepath(filepath):
     # extract the directory path and filename from the original filepath
     directory, filename = os.path.split(filepath)
     # remove the seconds, and change the extension to .csv
@@ -69,13 +52,63 @@ def process_filepath(filepath):
     new_filepath = os.path.join(new_directory, base_name)
     return new_filepath
 
+#process each forecast data file
+def cleanForecastData(filepath):
+
+    #open json file
+    with open(filepath, 'r') as json_file:
+        forecast_dict = json.load(json_file)
+
+    #turn to dictionary, then dataframe
+    periods = forecast_dict.get("properties", {}).get("periods", [])
+    df = pd.DataFrame(periods)
+
+    #extract json values and add unit to column headers
+    df['probabilityOfPrecipitation_percent'] = df['probabilityOfPrecipitation'].apply(extractJson)
+    df['dewpoint_degC'] = df['dewpoint'].apply(extractJson)
+    df['relativeHumidity_percent'] = df['relativeHumidity'].apply(extractJson)
+    df['temperature_F'] = df['temperature']
+    df['windSpeed_mph'] = df['windSpeed'].str.replace(' mph', '')
+    
+    #drop uneeded columns
+    columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed']
+    df.drop(columns=columns_to_drop, inplace=True)
+
+    #deal with null values
+    df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
+
+    #set column types
+    df['startTime'] = pd.to_datetime(df['startTime'])
+    df['endTime'] = pd.to_datetime(df['endTime'])
+    df = df.astype(column_types)
+    
+    #save to csv
+    filepath = getNewFilepath(filepath)
+    df.to_csv(filepath)
+    logger.info(f"Data successfully saved to {filepath}")
+
 def main():
 
     logging_setup()
     logger.info("Running forecast_util...")
-    
-    #convert all forecast files to json
-    jsonToCSV()
+
+    #tracking time to process all files    
+    start_time = time.time()
+    file_count = 0
+
+    #iterate through all files in the forecast-data folder and clean each
+    json_folder = './forecast-data/'
+    for filename in os.listdir(json_folder):
+        if filename.endswith('.json'):
+            # Construct the path to the JSON file
+            filepath = os.path.join(json_folder, filename)
+            # Do the work
+            cleanForecastData(filepath)
+            file_count = file_count + 1
+
+    end_time = time.time()
+    runtime = end_time - start_time
+    logger.info(f"Program finished. Processed {file_count} in {runtime:.2f} seconds")
 
     
 
