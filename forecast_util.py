@@ -1,4 +1,5 @@
 
+import warnings
 import pandas as pd
 import logging
 import json
@@ -73,18 +74,23 @@ def cleanForecastData(filepath):
     #deal with null values
     df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
 
-    #set column types, only keep one and make it the timestampt
-    df['timestamp'] = pd.to_datetime(df['startTime'])
-    df = df.astype(column_types)
+    #set column types, only keep one and make it the timestamp, with warning catching
+    with warnings.catch_warnings():
+        warnings.filterwarnings("error", category=FutureWarning)
+        try:
+            df['timestamp'] = pd.to_datetime(df['endTime'])
+            df = df.astype(column_types)
+        except FutureWarning as warning:
+            print(f"Warning while processing {filepath}: " + str(warning))
 
-        #drop uneeded columns
+    #drop uneeded columns
     columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
     df.drop(columns=columns_to_drop, inplace=True)
     
     #save to csv
     filepath = getNewFilepath(filepath)
     df.to_csv(filepath)
-    logger.info(f"Data successfully saved to {filepath}")
+    #logger.info(f"Data successfully saved to {filepath}")
 
 def main():
 
@@ -107,7 +113,7 @@ def main():
 
     end_time = time.time()
     runtime = end_time - start_time
-    logger.info(f"Program finished. Processed {file_count} in {runtime:.2f} seconds")
+    logger.info(f"forecast_util.py finished successfully. Processed {file_count} files in {runtime:.2f} seconds")
 
 if __name__ == '__main__':
     main()

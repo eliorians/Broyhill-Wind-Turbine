@@ -276,15 +276,27 @@ def combineTurbineForecast(df):
     df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
     df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-    # #open the assosiated forecast file for each row, if it exists
-    # for index, row in df.iterrows():
-    #     if row['forecast_file_exists'] == True:
-    #         filename = row['forecast_file']
-    #         forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+    #for each row in frames
+    for index, row in df.iterrows():
+        #if the forecast file exists
+        if row['forecast_file_exists'] == True:
+            #error catching
+            try:
+                #read the file
+                filename = row['forecast_file']
+                forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+                forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
 
-    #         #todo merge the forecast in... this does not work as expected. 
-    #         #? what do we want to happen? -> write out in excel
-    #         df = pd.merge(df, forecast_df, on='timestamp', how='left')
+                #todo "merge" the forecast in
+                suffix = f"_{index}hago"
+                df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
+
+            except Exception as e:
+                print(f"Error processing {filename}:")
+                print(f"Error details: {e}")
+                exit
+
+    #todo deal with missing forecast values
 
     return df
 
