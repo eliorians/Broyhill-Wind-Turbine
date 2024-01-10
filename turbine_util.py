@@ -266,25 +266,25 @@ def combineTurbineForecast(df):
     logger.info("in combineTurbineForecast")
 
     #clean forecast data
-    forecast_util.main
+    forecast_util.main()
     
-    #add column for the associated forecast with the hour, 
+    #add column for the associated forecast with the hour, and set its type
     df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
     df['forecast_file'] = df['forecast_file'].astype(str)
 
-    #add a column that will be true if the forecast data exists
+    #add a column that will be true if the forecast data exists, and set its type
     df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
     df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-    #open the assosiated forecast file for each row, if it exists
-    for index, row in df.iterrows():
-        if row['forecast_file_exists'] == True:
-            filename = row['forecast_file']
-            forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+    # #open the assosiated forecast file for each row, if it exists
+    # for index, row in df.iterrows():
+    #     if row['forecast_file_exists'] == True:
+    #         filename = row['forecast_file']
+    #         forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
 
-            #todo merge the forecast in... this does not work as expected. 
-            #? what do we want to happen? -> write out in excel
-            df = pd.merge(df, forecast_df, on='timestamp', how='left')
+    #         #todo merge the forecast in... this does not work as expected. 
+    #         #? what do we want to happen? -> write out in excel
+    #         df = pd.merge(df, forecast_df, on='timestamp', how='left')
 
     return df
 

@@ -78,7 +78,7 @@ def cleanForecastData(filepath):
     df = df.astype(column_types)
 
         #drop uneeded columns
-    columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime']
+    columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
     df.drop(columns=columns_to_drop, inplace=True)
     
     #save to csv
