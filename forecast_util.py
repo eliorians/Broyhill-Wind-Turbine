@@ -96,7 +96,7 @@ def cleanForecastData(filepath):
         except FutureWarning as warning:
             print(f"Warning while processing {filepath}: " + str(warning))
         except Exception as error:
-            print(f"Error while opening {filepath}: " + str(error))
+            print(f"Error while processing {filepath}: " + str(error))
 
     #save to csv
     filepath = getNewFilepath(filepath)

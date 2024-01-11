@@ -1,5 +1,6 @@
 
 import os
+import warnings
 import pandas as pd
 import logging
 import pytz
@@ -212,91 +213,109 @@ def findForecastFile(filename):
 def cleanTurbineData(df):
     logger.info("in cleanTurbineData")
 
-    #set timestamp and make consistent
-    df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
-    df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
-    df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S')
+    #error catching
+    with warnings.catch_warnings():
+        warnings.filterwarnings("error", category=FutureWarning)
+    try:
 
-    #set all other column types
-    df = df.astype(turbine_column_types)
+        #set timestamp type, reading mixed format
+        df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
+        #make format consistent
+        df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
+        #set back to datetime with consistent format
+        df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S', utc=True)
 
-    #aggregate hourly
-    df = df.groupby(df['timestamp'].dt.floor('H')).agg({
-        'WTG1_R_InvPwr_kW'               : 'mean',
-        'WTG1_R_InvPwr_kW_MAX'           : 'max',
-        'WTG1_R_InvPwr_kW_MIN'           : 'min',
-        'WTG1_R_InvPwr_kW_STDDEV'        : 'mean',
-        'WTG1_R_InvFreq_Hz'              : 'mean',
-        'WTG1_R_WindSpeed_mps'           : 'mean',
-        'WTG1_R_WindSpeed_mps_MAX'       : 'max',
-        'WTG1_R_WindSpeed_mps_MIN'       : 'min',
-        'WTG1_R_WindSpeed_mps_STDDEV'    : 'mean',
-        'WTG1_R_WindSpeed1m_mps'         : 'mean',
-        'WTG1_R_WindSpeed10m_mps'        : 'mean',
-        'WTG1_R_WindSpeed1s_mps'         : 'mean',
-        'WTG1_R_WindSpeed1s_mps_MAX'     : 'max',
-        'WTG1_R_WindSpeed1s_mps_MIN'     : 'min',
-        'WTG1_R_WindSpeed1s_mps_STDDEV'  : 'mean',
-        'WTG1_R_TempAmb_degC'            : 'mean',
-        'WTG1_R_YawLeftTime_sec'         : 'mean',
-        'WTG1_R_YawRightTime_sec'        : 'mean',
-        'WTG1_R_YawUnwindRight_sec'      : 'mean',
-        'WTG1_R_YawUnwindLeft_sec'       : 'mean',
-        'WTG1_R_YawVaneAvg_deg'          : 'mean',
-        'WTG1_R_YawVaneAvg_deg_MAX'      : 'max',
-        'WTG1_R_YawVaneAvg_deg_MIN'      : 'min',
-        'WTG1_R_YawVaneAvg_deg_STDDEV'   : 'mean',
-        'WTG1_R_RotorSpeed_RPM'          : 'mean',
-        'WTG1_R_RotorSpeed_RPM_MAX'      : 'max',
-        'WTG1_R_RotorSpeed_RPM_MIN'      : 'min',
-        'WTG1_R_AnyWrnCond'              : 'last',
-        'WTG1_R_AnyFltCond'              : 'last',
-        'WTG1_R_AnyEnvCond'              : 'last',
-        'WTG1_R_AnyExtCond'              : 'last',
-        'WTG1_R_DSP_GridStateEventStatus': 'last'
-    }).reset_index()
+        #set all other column types
+        df = df.astype(turbine_column_types)
 
-    #change to eastern time zone, this must be done after grouping to effectively handle daylight saving time
-    # df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
-    # df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+        #aggregate hourly
+        df = df.groupby(df['timestamp'].dt.floor('H')).agg({
+            'WTG1_R_InvPwr_kW'               : 'mean',
+            'WTG1_R_InvPwr_kW_MAX'           : 'max',
+            'WTG1_R_InvPwr_kW_MIN'           : 'min',
+            'WTG1_R_InvPwr_kW_STDDEV'        : 'mean',
+            'WTG1_R_InvFreq_Hz'              : 'mean',
+            'WTG1_R_WindSpeed_mps'           : 'mean',
+            'WTG1_R_WindSpeed_mps_MAX'       : 'max',
+            'WTG1_R_WindSpeed_mps_MIN'       : 'min',
+            'WTG1_R_WindSpeed_mps_STDDEV'    : 'mean',
+            'WTG1_R_WindSpeed1m_mps'         : 'mean',
+            'WTG1_R_WindSpeed10m_mps'        : 'mean',
+            'WTG1_R_WindSpeed1s_mps'         : 'mean',
+            'WTG1_R_WindSpeed1s_mps_MAX'     : 'max',
+            'WTG1_R_WindSpeed1s_mps_MIN'     : 'min',
+            'WTG1_R_WindSpeed1s_mps_STDDEV'  : 'mean',
+            'WTG1_R_TempAmb_degC'            : 'mean',
+            'WTG1_R_YawLeftTime_sec'         : 'mean',
+            'WTG1_R_YawRightTime_sec'        : 'mean',
+            'WTG1_R_YawUnwindRight_sec'      : 'mean',
+            'WTG1_R_YawUnwindLeft_sec'       : 'mean',
+            'WTG1_R_YawVaneAvg_deg'          : 'mean',
+            'WTG1_R_YawVaneAvg_deg_MAX'      : 'max',
+            'WTG1_R_YawVaneAvg_deg_MIN'      : 'min',
+            'WTG1_R_YawVaneAvg_deg_STDDEV'   : 'mean',
+            'WTG1_R_RotorSpeed_RPM'          : 'mean',
+            'WTG1_R_RotorSpeed_RPM_MAX'      : 'max',
+            'WTG1_R_RotorSpeed_RPM_MIN'      : 'min',
+            'WTG1_R_AnyWrnCond'              : 'last',
+            'WTG1_R_AnyFltCond'              : 'last',
+            'WTG1_R_AnyEnvCond'              : 'last',
+            'WTG1_R_AnyExtCond'              : 'last',
+            'WTG1_R_DSP_GridStateEventStatus': 'last'
+        }).reset_index()
+
+    except FutureWarning as warning:
+        print(f"Warning: " + str(warning))
+    except Exception as error:
+        print(f"Error: " + str(error))
 
     return df
 
 def combineTurbineForecast(df):
     logger.info("in combineTurbineForecast")
 
-    #clean forecast data
-    forecast_util.main()
-    
-    #add column for the associated forecast with the hour, and set its type
-    df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
-    df['forecast_file'] = df['forecast_file'].astype(str)
+    #error catching
+    with warnings.catch_warnings():
+        warnings.filterwarnings("error", category=FutureWarning)
+    try:
 
-    #add a column that will be true if the forecast data exists, and set its type
-    df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
-    df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
+        #clean forecast data
+        forecast_util.main()
+        
+        #add column for the associated forecast with the hour, and set its type
+        df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
+        df['forecast_file'] = df['forecast_file'].astype(str)
 
-    #for each row in frames
-    for index, row in df.iterrows():
-        #if the forecast file exists
-        if row['forecast_file_exists'] == True:
-            #error catching
-            try:
-                #read the file
-                filename = row['forecast_file']
-                forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
-                forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
+        #add a column that will be true if the forecast data exists, and set its type
+        df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
+        df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-                #todo "merge" the forecast in
-                suffix = f"_{index}hago"
-                df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
+        #for each row in frames
+        for index, row in df.iterrows():
+            #if the forecast file exists
+            if row['forecast_file_exists'] == True:
+                #error catching
+                try:
+                    #read the file
+                    filename = row['forecast_file']
+                    forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+                    forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
 
-            except Exception as e:
-                print(f"Error processing {filename}:")
-                print(f"Error details: {e}")
-                exit
+                    #todo "merge" the forecast in
+                    suffix = f"_{index}hago"
+                    df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
 
-    #todo deal with missing forecast values
+                except Exception as e:
+                    print(f"Error processing {filename}:")
+                    print(f"Error details: {e}")
+                    exit
+
+        #todo deal with missing forecast values
+                    
+    except FutureWarning as warning:
+        print(f"Warning: " + str(warning))
+    except Exception as error:
+        print(f"Error: " + str(error))
 
     return df
 
@@ -312,7 +331,7 @@ def main():
     df = cleanTurbineData(df)
 
     #combine with forecast data
-    df = combineTurbineForecast(df)
+    #df = combineTurbineForecast(df)
 
     #output
     df.to_csv('./turbine-data-processed/cleanedFrames.csv')
