@@ -293,28 +293,26 @@ def combineTurbineForecast(df):
     #todo interleave forecast and turbine data
 
     #! this took too long
-    # #for each row in frames
-    # for index, row in df.iterrows():
+    #for each row in frames
+    for index, row in df.iterrows():
         
-    #     #if the forecast file exists
-    #     if row['forecast_file_exists'] == True:
-    #         file_count = file_count + 1
+        #if the forecast file exists
+        if row['forecast_file_exists'] == True:
 
-    #         #error catching
-    #         try:
-    #             #read the file
-    #             filename = row['forecast_file']
-    #             forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
-    #             forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
+            #error catching
+            try:
+                #read the file
+                filename = row['forecast_file']
+                forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
 
-    #             #"merge" the forecast in
-    #             suffix = f"_{index}h"
-    #             df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
+                #"merge" the forecast in
+                suffix = f"_{index}h"
+                df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
 
-    #         except Exception as e:
-    #             print(f"Error processing {filename}:")
-    #             print(f"Error details: {e}")
-    #             exit
+            except Exception as e:
+                print(f"Error processing {filename}:")
+                print(f"Error details: {e}")
+                exit
 
     #todo deal with missing forecast values
                     
