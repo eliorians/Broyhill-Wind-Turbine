@@ -275,57 +275,52 @@ def cleanTurbineData(df):
 def combineTurbineForecast(df):
     logger.info("in combineTurbineForecast")
 
-    #clean forecast data
+    #process forecast data
     forecast_util.main()
 
-    #error catching
-    with warnings.catch_warnings():
-        warnings.filterwarnings("error", category=FutureWarning)
-    try:        
-        #add column for the associated forecast with the hour, and set its type
-        df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
-        df['forecast_file'] = df['forecast_file'].astype(str)
+    logger.info("merging turbine and forecast data")
+    start_time = time.time()
+    file_count = 0
 
-        #add a column that will be true if the forecast data exists, and set its type
-        df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
-        df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
+    #add column for the associated forecast with the hour, and set its type
+    df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
+    df['forecast_file'] = df['forecast_file'].astype(str)
 
-        logger.info("merging turbine and forecast data")
-        start_time = time.time()
-        file_count = 0
+    #add a column that will be true if the forecast data exists, and set its type
+    df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
+    df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-        #for each row in frames
-        for index, row in df.iterrows():
-            #if the forecast file exists
-            if row['forecast_file_exists'] == True:
-                file_count = file_count + 1
+    #todo interleave forecast and turbine data
 
-                #error catching
-                try:
-                    #read the file
-                    filename = row['forecast_file']
-                    forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
-                    forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
+    #! this took too long
+    # #for each row in frames
+    # for index, row in df.iterrows():
+        
+    #     #if the forecast file exists
+    #     if row['forecast_file_exists'] == True:
+    #         file_count = file_count + 1
 
-                    #todo "merge" the forecast in
-                    suffix = f"_{index}h"
-                    df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
+    #         #error catching
+    #         try:
+    #             #read the file
+    #             filename = row['forecast_file']
+    #             forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+    #             forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
 
-                except Exception as e:
-                    print(f"Error processing {filename}:")
-                    print(f"Error details: {e}")
-                    exit
+    #             #"merge" the forecast in
+    #             suffix = f"_{index}h"
+    #             df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
 
-        #todo deal with missing forecast values
+    #         except Exception as e:
+    #             print(f"Error processing {filename}:")
+    #             print(f"Error details: {e}")
+    #             exit
+
+    #todo deal with missing forecast values
                     
-    except FutureWarning as warning:
-        print(f"Warning: " + str(warning))
-    except Exception as error:
-        print(f"Error: " + str(error))
-
     end_time = time.time()
     runtime = end_time - start_time
-    logger.info(f"forecast_util.py finished successfully. Processed {file_count} files in {runtime:.2f} seconds")
+    logger.info(f"successfully combined {file_count} files in {runtime:.2f} seconds")
 
     return df
 
