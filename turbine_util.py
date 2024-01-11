@@ -213,7 +213,7 @@ def cleanTurbineData(df):
     logger.info("in cleanTurbineData")
 
     #set timestamp and make consistent
-    df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed')
+    df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
     df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
     df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S')
 
@@ -257,8 +257,8 @@ def cleanTurbineData(df):
     }).reset_index()
 
     #change to eastern time zone, this must be done after grouping to effectively handle daylight saving time
-    df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
-    df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+    # df['timestamp'] = df['timestamp'].dt.tz_localize('UTC', ambiguous='infer')
+    # df['timestamp'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
 
     return df
 

@@ -60,33 +60,44 @@ def cleanForecastData(filepath):
     with open(filepath, 'r') as json_file:
         forecast_dict = json.load(json_file)
 
-    #turn to dictionary, then dataframe
-    periods = forecast_dict.get("properties", {}).get("periods", [])
-    df = pd.DataFrame(periods)
-
-    #extract json values and add unit to column headers
-    df['probabilityOfPrecipitation_percent'] = df['probabilityOfPrecipitation'].apply(extractJson)
-    df['dewpoint_degC'] = df['dewpoint'].apply(extractJson)
-    df['relativeHumidity_percent'] = df['relativeHumidity'].apply(extractJson)
-    df['temperature_F'] = df['temperature']
-    df['windSpeed_mph'] = df['windSpeed'].str.replace(' mph', '')
-
-    #deal with null values
-    df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
-
-    #set column types, only keep one and make it the timestamp, with warning catching
+    #error catching
     with warnings.catch_warnings():
         warnings.filterwarnings("error", category=FutureWarning)
         try:
-            df['timestamp'] = pd.to_datetime(df['endTime'])
+            #turn to dictionary, then dataframe
+            periods = forecast_dict.get("properties", {}).get("periods", [])
+            df = pd.DataFrame(periods)
+
+            #extract json values and add unit to column headers
+            df['probabilityOfPrecipitation_percent'] = df['probabilityOfPrecipitation'].apply(extractJson)
+            df['dewpoint_degC'] = df['dewpoint'].apply(extractJson)
+            df['relativeHumidity_percent'] = df['relativeHumidity'].apply(extractJson)
+            df['temperature_F'] = df['temperature']
+            df['windSpeed_mph'] = df['windSpeed'].str.replace(' mph', '')
+
+            #deal with null values
+            df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
+            
+            #convert timestamp to UTC timezone, this makes for easier manioulation by elimating daylight savings
+            #use the endtime as the timestamp since this lines up with the turbine data
+            df['timestamp'] = pd.to_datetime(df['endTime'], utc=True)
+
+            #set column types
             df = df.astype(column_types)
+            
+            #drop uneeded columns
+            columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
+            df.drop(columns=columns_to_drop, inplace=True)
+            
+            #reorder columns for easier reading
+            order = ['timestamp', 'windSpeed_mph', 'windDirection', 'temperature_F', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent']
+            df = df[order]
+
         except FutureWarning as warning:
             print(f"Warning while processing {filepath}: " + str(warning))
+        except Exception as error:
+            print(f"Error while opening {filepath}: " + str(error))
 
-    #drop uneeded columns
-    columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
-    df.drop(columns=columns_to_drop, inplace=True)
-    
     #save to csv
     filepath = getNewFilepath(filepath)
     df.to_csv(filepath)
