@@ -8369,3 +8369,9 @@ INFO - 2024-01-11 15:36:53,117 - Running turbine_util...
 INFO - 2024-01-11 15:36:53,117 - in readSQLDump
 INFO - 2024-01-11 15:36:58,562 - in cleanTurbineData
 INFO - 2024-01-11 15:37:04,599 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-11 15:44:01,771 - Running turbine_util...
+INFO - 2024-01-11 15:44:01,771 - in readSQLDump
+INFO - 2024-01-11 15:44:07,254 - in cleanTurbineData
+INFO - 2024-01-11 15:44:11,173 - in combineTurbineForecast
+INFO - 2024-01-11 15:44:11,175 - Running forecast_util...
+INFO - 2024-01-11 15:44:19,717 - forecast_util.py finished successfully. Processed 1386 files in 8.54 seconds

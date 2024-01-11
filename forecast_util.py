@@ -76,6 +76,7 @@ def cleanForecastData(filepath):
             df['windSpeed_mph'] = df['windSpeed'].str.replace(' mph', '')
 
             #deal with null values
+            #currently only found in relativeHumidity_percent column
             df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
             
             #convert timestamp to UTC timezone, this makes for easier manioulation by elimating daylight savings
@@ -106,7 +107,7 @@ def cleanForecastData(filepath):
 def main():
 
     logging_setup()
-    logger.info("Running forecast_util...")
+    logger.info("Starting forecast_util")
 
     #tracking time to process all files    
     start_time = time.time()
@@ -124,7 +125,7 @@ def main():
 
     end_time = time.time()
     runtime = end_time - start_time
-    logger.info(f"forecast_util.py finished successfully. Processed {file_count} files in {runtime:.2f} seconds")
+    logger.info(f"forecast_util.py finished successfully, processing {file_count} files in {runtime:.2f} seconds")
 
 if __name__ == '__main__':
     main()

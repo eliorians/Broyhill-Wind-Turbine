@@ -1,5 +1,6 @@
 
 import os
+import time
 import warnings
 import pandas as pd
 import logging
@@ -274,14 +275,13 @@ def cleanTurbineData(df):
 def combineTurbineForecast(df):
     logger.info("in combineTurbineForecast")
 
+    #clean forecast data
+    forecast_util.main()
+
     #error catching
     with warnings.catch_warnings():
         warnings.filterwarnings("error", category=FutureWarning)
-    try:
-
-        #clean forecast data
-        forecast_util.main()
-        
+    try:        
         #add column for the associated forecast with the hour, and set its type
         df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
         df['forecast_file'] = df['forecast_file'].astype(str)
@@ -290,10 +290,16 @@ def combineTurbineForecast(df):
         df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
         df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
+        logger.info("merging turbine and forecast data")
+        start_time = time.time()
+        file_count = 0
+
         #for each row in frames
         for index, row in df.iterrows():
             #if the forecast file exists
             if row['forecast_file_exists'] == True:
+                file_count = file_count + 1
+
                 #error catching
                 try:
                     #read the file
@@ -302,7 +308,7 @@ def combineTurbineForecast(df):
                     forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'])
 
                     #todo "merge" the forecast in
-                    suffix = f"_{index}hago"
+                    suffix = f"_{index}h"
                     df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
 
                 except Exception as e:
@@ -317,12 +323,16 @@ def combineTurbineForecast(df):
     except Exception as error:
         print(f"Error: " + str(error))
 
+    end_time = time.time()
+    runtime = end_time - start_time
+    logger.info(f"forecast_util.py finished successfully. Processed {file_count} files in {runtime:.2f} seconds")
+
     return df
 
 def main():
 
     logging_setup()
-    logger.info("Running turbine_util...")
+    logger.info("Starting turbine_util")
 
     #read in data
     df = readSQLDump()
@@ -331,7 +341,7 @@ def main():
     df = cleanTurbineData(df)
 
     #combine with forecast data
-    #df = combineTurbineForecast(df)
+    df = combineTurbineForecast(df)
 
     #output
     df.to_csv('./turbine-data-processed/cleanedFrames.csv')
