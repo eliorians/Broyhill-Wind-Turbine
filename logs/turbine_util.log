@@ -8460,3 +8460,12 @@ INFO - 2024-01-12 12:28:06,122 - plugin_name: caching_sha2_password
 INFO - 2024-01-12 12:28:06,122 - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
 DEBUG - 2024-01-12 12:28:06,122 - Exchanging further packets
 DEBUG - 2024-01-12 12:28:06,123 - caching_sha2_password completed succesfully
+INFO - 2024-01-12 14:09:59,393 - Starting turbine_util
+INFO - 2024-01-12 14:09:59,393 - in readSQLDump
+INFO - 2024-01-12 14:10:05,051 - in cleanTurbineData
+INFO - 2024-01-12 14:10:09,027 - in combineTurbineForecast
+INFO - 2024-01-12 14:10:09,028 - Starting forecast_util
+INFO - 2024-01-12 14:10:33,709 - forecast_util.py finished successfully, processing 1409 files in 24.68 seconds
+INFO - 2024-01-12 14:10:33,709 - merging turbine and forecast data
+INFO - 2024-01-12 14:10:35,571 - forecast_util.py finished successfully, processing 0 files in 1.86 seconds
+INFO - 2024-01-12 14:10:37,927 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"

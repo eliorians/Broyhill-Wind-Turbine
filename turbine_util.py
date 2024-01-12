@@ -311,27 +311,11 @@ def combineTurbineForecast(df):
             df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
             #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
-
-            # #for each row in frames
-            # for index, row in df.iterrows():
-                
-            #     #if the forecast file exists
-            #     if row['forecast_file_exists'] == True:
-
-            #         #error catching
-            #         try:
-            #             #read the file
-            #             filename = row['forecast_file']
-            #             forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
-
-            #             #"merge" the forecast in
-            #             suffix = f"_{index}h"
-            #             df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
-
-            #         except Exception as e:
-            #             print(f"Error processing {filename}:")
-            #             print(f"Error details: {e}")
-            #             exit
+            for index, row in df.iterrows():
+                if row['forecast_file_exists'] == True:
+                    filename = row['forecast_file']
+                    forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+                    df = pd.merge(df, forecast_df, how='left', on='timestamp')
 
             #todo deal with missing forecast values
             #leave them null? set to 0?
