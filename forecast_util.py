@@ -13,7 +13,6 @@ column_types = {
     'temperature_F'                     : int,
     'windSpeed_mph'                     : int,
     'windDirection'                     : str,
-    'shortForecast'                     : str,
     'probabilityOfPrecipitation_percent': int,
     'dewpoint_degC'                     : float,
     'relativeHumidity_percent'          : int
@@ -90,22 +89,30 @@ def cleanForecastData(filepath):
             columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
             df.drop(columns=columns_to_drop, inplace=True)
             
-            #reorder columns for easier reading
-            order = ['timestamp', 'windSpeed_mph', 'windDirection', 'temperature_F', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent']
-            df = df[order]
+            #keep only next X hours of forecast, since this is what we will be using
+            hours_to_forecast = 12
+            df = df.head(hours_to_forecast)
 
-            #todo reshape data to be merged with main dataset
-            # Create a new column 'n' representing the index
-            df['n'] = df.index
+            #reshape data to make for easier merging into main dataset
+            df_result = pd.DataFrame()
+            columns_to_reshape = ["windDirection","probabilityOfPrecipitation_percent","dewpoint_degC","relativeHumidity_percent","temperature_F","windSpeed_mph"]
+            for column in columns_to_reshape:
+                # Create a temporary DataFrame for the current column
+                temp_df = df[['timestamp', column]].copy()
+                # Create a new column 'n' representing the index
+                temp_df['n'] = temp_df.index
+                # Pivot the DataFrame
+                temp_df = temp_df.pivot_table(index='timestamp', columns='n', values=column, aggfunc='first')
+                # Rename columns with the desired format
+                temp_df.columns = [f'{column}_{col}h' for col in temp_df.columns]
+                # Reset index to make 'timestamp' a regular column
+                temp_df = temp_df.reset_index()
+                # Concatenate the result to the final DataFrame
+                df_result = pd.concat([df_result, temp_df], axis=1)
 
-            # Pivot the DataFrame
-            df = df.pivot_table(index='timestamp', columns='n', values='windSpeed_mph', aggfunc='first')
-
-            # Rename columns with the desired format
-            df.columns = [f'windSpeed_{col}h' for col in df.columns]
-
-            # Reset index to make 'timestamp' a regular column
-            df = df.reset_index()
+            #drop duplicate tiemstamp columns and save result
+            df_result = df_result.loc[:, ~df_result.columns.duplicated()]
+            df = df_result
 
         except FutureWarning as warning:
             print(f"Warning while processing {filepath}: " + str(warning))

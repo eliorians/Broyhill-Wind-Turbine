@@ -292,42 +292,61 @@ def combineTurbineForecast(df):
     #process forecast data
     forecast_util.main()
 
-    logger.info("merging turbine and forecast data")
+    #error catching
+    with warnings.catch_warnings():
+        warnings.filterwarnings("error", category=FutureWarning)
+        try:
 
-    #add column for the associated forecast with the hour, and set its type
-    df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
-    df['forecast_file'] = df['forecast_file'].astype(str)
+            logger.info("merging turbine and forecast data")
 
-    #add a column that will be true if the forecast data exists, and set its type
-    df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
-    df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
+            #add column for the associated forecast with the hour, and set its type
+            #convert timestamp to timestamp_est to get correct filename
+            df['timestamp_est'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+            df['forecast_file'] = 'forecast_' + df['timestamp_est'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
+            df['forecast_file'] = df['forecast_file'].astype(str)
+            df.drop['timestamp_est']
 
-    #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
+            #add a column that will be true if the forecast data exists, and set its type
+            df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
+            df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-    #...old code very smelly
-    # #for each row in frames
-    # for index, row in df.iterrows():
-        
-    #     #if the forecast file exists
-    #     if row['forecast_file_exists'] == True:
+            #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
 
-    #         #error catching
-    #         try:
-    #             #read the file
-    #             filename = row['forecast_file']
-    #             forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+            # #for each row in frames
+            # for index, row in df.iterrows():
+                
+            #     #if the forecast file exists
+            #     if row['forecast_file_exists'] == True:
 
-    #             #"merge" the forecast in
-    #             suffix = f"_{index}h"
-    #             df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
+            #         #error catching
+            #         try:
+            #             #read the file
+            #             filename = row['forecast_file']
+            #             forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
 
-    #         except Exception as e:
-    #             print(f"Error processing {filename}:")
-    #             print(f"Error details: {e}")
-    #             exit
+            #             #"merge" the forecast in
+            #             suffix = f"_{index}h"
+            #             df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
 
-    #todo deal with missing forecast values
+            #         except Exception as e:
+            #             print(f"Error processing {filename}:")
+            #             print(f"Error details: {e}")
+            #             exit
 
+            #todo deal with missing forecast values
+            #leave them null? set to 0?
+
+            #todo set new column types
+            # df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
+            # new_column_types = {}
+            # for column, dtype in column_types.items():
+            #     new_column_types.update({f'{column}_{i}h': dtype for i in range(hours_to_forecast)})
+            # df = df.astype(new_column_types)
+
+        except FutureWarning as warning:
+            print(f"Warning: " + str(warning))
+        except Exception as error:
+            print(f"Error: " + str(error))
 
     return df
 
@@ -336,7 +355,7 @@ def main():
     logging_setup()
     logger.info("Starting turbine_util")
 
-    #? consudering using a databse...
+    #? considering using a database...
     #setupDatabase()
 
     #read in data
