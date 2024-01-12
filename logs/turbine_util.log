@@ -8391,3 +8391,72 @@ INFO - 2024-01-11 15:52:43,132 - forecast_util.py finished successfully, process
 INFO - 2024-01-11 15:52:45,212 - merging turbine and forecast data
 INFO - 2024-01-11 16:14:34,325 - successfully combined 553 files in 1309.11 seconds
 INFO - 2024-01-11 16:16:27,946 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-12 11:34:13,785 - Starting turbine_util
+INFO - 2024-01-12 11:34:13,786 - in readSQLDump
+INFO - 2024-01-12 11:34:19,608 - in cleanTurbineData
+DEBUG - 2024-01-12 11:34:23,813 - Building SSL context
+DEBUG - 2024-01-12 11:34:23,844 - Switching to SSL
+DEBUG - 2024-01-12 11:34:23,849 - SSL has been enabled
+DEBUG - 2024-01-12 11:34:23,849 - Starting authorization phase
+DEBUG - 2024-01-12 11:34:23,849 - The provided initial strategy is caching_sha2_password
+INFO - 2024-01-12 11:36:13,601 - Starting turbine_util
+INFO - 2024-01-12 11:36:13,601 - in readSQLDump
+INFO - 2024-01-12 11:36:19,079 - in cleanTurbineData
+DEBUG - 2024-01-12 11:36:23,064 - Building SSL context
+DEBUG - 2024-01-12 11:36:23,115 - Switching to SSL
+DEBUG - 2024-01-12 11:36:23,118 - SSL has been enabled
+DEBUG - 2024-01-12 11:36:23,118 - Starting authorization phase
+DEBUG - 2024-01-12 11:36:23,119 - The provided initial strategy is caching_sha2_password
+INFO - 2024-01-12 11:37:14,147 - Starting turbine_util
+INFO - 2024-01-12 11:37:14,148 - in readSQLDump
+INFO - 2024-01-12 11:37:19,639 - in cleanTurbineData
+DEBUG - 2024-01-12 11:37:23,641 - Building SSL context
+DEBUG - 2024-01-12 11:37:23,672 - Switching to SSL
+DEBUG - 2024-01-12 11:37:23,674 - SSL has been enabled
+DEBUG - 2024-01-12 11:37:23,674 - Starting authorization phase
+DEBUG - 2024-01-12 11:37:23,675 - The provided initial strategy is caching_sha2_password
+INFO - 2024-01-12 11:37:25,692 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-12 12:23:00,256 - Starting turbine_util
+INFO - 2024-01-12 12:23:00,256 - in readSQLDump
+INFO - 2024-01-12 12:23:05,711 - in cleanTurbineData
+INFO - 2024-01-12 12:23:09,649 - in setupDatabase
+INFO - 2024-01-12 12:23:11,789 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-12 12:23:39,586 - Starting turbine_util
+INFO - 2024-01-12 12:23:39,586 - in setupDatabase
+INFO - 2024-01-12 12:25:37,872 - Starting turbine_util
+INFO - 2024-01-12 12:25:37,873 - in setupDatabase
+DEBUG - 2024-01-12 12:25:37,891 - Building SSL context
+DEBUG - 2024-01-12 12:25:37,930 - Switching to SSL
+DEBUG - 2024-01-12 12:25:37,933 - SSL has been enabled
+DEBUG - 2024-01-12 12:25:37,933 - Starting authorization phase
+DEBUG - 2024-01-12 12:25:37,934 - The provided initial strategy is caching_sha2_password
+INFO - 2024-01-12 12:25:37,934 - package: mysql.connector.plugins
+INFO - 2024-01-12 12:25:37,934 - plugin_name: caching_sha2_password
+INFO - 2024-01-12 12:25:37,934 - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+DEBUG - 2024-01-12 12:25:37,934 - Exchanging further packets
+INFO - 2024-01-12 12:27:28,523 - Starting turbine_util
+INFO - 2024-01-12 12:27:28,524 - in setupDatabase
+DEBUG - 2024-01-12 12:27:28,542 - Building SSL context
+DEBUG - 2024-01-12 12:27:28,573 - Switching to SSL
+DEBUG - 2024-01-12 12:27:28,575 - SSL has been enabled
+DEBUG - 2024-01-12 12:27:28,575 - Starting authorization phase
+DEBUG - 2024-01-12 12:27:28,575 - The provided initial strategy is caching_sha2_password
+INFO - 2024-01-12 12:27:28,576 - package: mysql.connector.plugins
+INFO - 2024-01-12 12:27:28,576 - plugin_name: caching_sha2_password
+INFO - 2024-01-12 12:27:28,576 - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+DEBUG - 2024-01-12 12:27:28,576 - Exchanging further packets
+DEBUG - 2024-01-12 12:27:28,579 - caching_sha2_password completed succesfully
+INFO - 2024-01-12 12:27:56,502 - Starting turbine_util
+INFO - 2024-01-12 12:27:56,503 - in readSQLDump
+INFO - 2024-01-12 12:28:01,865 - in cleanTurbineData
+INFO - 2024-01-12 12:28:06,043 - in setupDatabase
+DEBUG - 2024-01-12 12:28:06,069 - Building SSL context
+DEBUG - 2024-01-12 12:28:06,119 - Switching to SSL
+DEBUG - 2024-01-12 12:28:06,121 - SSL has been enabled
+DEBUG - 2024-01-12 12:28:06,122 - Starting authorization phase
+DEBUG - 2024-01-12 12:28:06,122 - The provided initial strategy is caching_sha2_password
+INFO - 2024-01-12 12:28:06,122 - package: mysql.connector.plugins
+INFO - 2024-01-12 12:28:06,122 - plugin_name: caching_sha2_password
+INFO - 2024-01-12 12:28:06,122 - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+DEBUG - 2024-01-12 12:28:06,122 - Exchanging further packets
+DEBUG - 2024-01-12 12:28:06,123 - caching_sha2_password completed succesfully

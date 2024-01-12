@@ -2,9 +2,11 @@
 import os
 import time
 import warnings
+from mysqlx import OperationalError
 import pandas as pd
 import logging
 import pytz
+from sqlalchemy import create_engine
 
 import forecast_util
 
@@ -187,6 +189,18 @@ def logging_setup():
             logging.StreamHandler(),  # Send log messages to the console
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
+    
+def setupDatabase():
+    logger.info("in setupDatabase")
+
+    try:
+        database_url = 'mysql+mysqlconnector://root:password@localhost:3306/broyhill_turbine'
+        engine = create_engine(database_url)
+
+        with engine.connect() as connection:
+            print("Connected to the database successfully.")
+    except Exception as e:
+        print(f"Error connecting to the database: {e}")
 
 #read the main frames.csv SQL dump file
 def readSQLDump():
@@ -279,8 +293,6 @@ def combineTurbineForecast(df):
     forecast_util.main()
 
     logger.info("merging turbine and forecast data")
-    start_time = time.time()
-    file_count = 0
 
     #add column for the associated forecast with the hour, and set its type
     df['forecast_file'] = 'forecast_' + df['timestamp'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
@@ -290,35 +302,32 @@ def combineTurbineForecast(df):
     df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
     df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-    #todo interleave forecast and turbine data
+    #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
 
-    #! this took too long
-    #for each row in frames
-    for index, row in df.iterrows():
+    #...old code very smelly
+    # #for each row in frames
+    # for index, row in df.iterrows():
         
-        #if the forecast file exists
-        if row['forecast_file_exists'] == True:
+    #     #if the forecast file exists
+    #     if row['forecast_file_exists'] == True:
 
-            #error catching
-            try:
-                #read the file
-                filename = row['forecast_file']
-                forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
+    #         #error catching
+    #         try:
+    #             #read the file
+    #             filename = row['forecast_file']
+    #             forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
 
-                #"merge" the forecast in
-                suffix = f"_{index}h"
-                df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
+    #             #"merge" the forecast in
+    #             suffix = f"_{index}h"
+    #             df = pd.merge(df, forecast_df, how='left', on='timestamp', suffixes=('', suffix))
 
-            except Exception as e:
-                print(f"Error processing {filename}:")
-                print(f"Error details: {e}")
-                exit
+    #         except Exception as e:
+    #             print(f"Error processing {filename}:")
+    #             print(f"Error details: {e}")
+    #             exit
 
     #todo deal with missing forecast values
-                    
-    end_time = time.time()
-    runtime = end_time - start_time
-    logger.info(f"successfully combined {file_count} files in {runtime:.2f} seconds")
+
 
     return df
 
@@ -326,6 +335,9 @@ def main():
 
     logging_setup()
     logger.info("Starting turbine_util")
+
+    #? consudering using a databse...
+    #setupDatabase()
 
     #read in data
     df = readSQLDump()

@@ -94,6 +94,19 @@ def cleanForecastData(filepath):
             order = ['timestamp', 'windSpeed_mph', 'windDirection', 'temperature_F', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent']
             df = df[order]
 
+            #todo reshape data to be merged with main dataset
+            # Create a new column 'n' representing the index
+            df['n'] = df.index
+
+            # Pivot the DataFrame
+            df = df.pivot_table(index='timestamp', columns='n', values='windSpeed_mph', aggfunc='first')
+
+            # Rename columns with the desired format
+            df.columns = [f'windSpeed_{col}h' for col in df.columns]
+
+            # Reset index to make 'timestamp' a regular column
+            df = df.reset_index()
+
         except FutureWarning as warning:
             print(f"Warning while processing {filepath}: " + str(warning))
         except Exception as error:
