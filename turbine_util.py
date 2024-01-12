@@ -304,18 +304,38 @@ def combineTurbineForecast(df):
             df['timestamp_est'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
             df['forecast_file'] = 'forecast_' + df['timestamp_est'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
             df['forecast_file'] = df['forecast_file'].astype(str)
-            df.drop['timestamp_est']
+            df = df.drop['timestamp_est']
 
             #add a column that will be true if the forecast data exists, and set its type
             df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
             df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
             #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
-            for index, row in df.iterrows():
-                if row['forecast_file_exists'] == True:
-                    filename = row['forecast_file']
-                    forecast_df = pd.read_csv('./forecast-data-processed/' + filename, dtype=forecast_column_types, parse_dates=['timestamp'])
-                    df = pd.merge(df, forecast_df, how='left', on='timestamp')
+
+            # Create an empty list to store forecast DataFrames, and a list of all exisitng forecast files
+            forecast_dfs = []
+            forecast_files = df.loc[df['forecast_file_exists'], 'forecast_file'].tolist()
+
+            # Read and accumulate forecast DataFrames
+            for filename in forecast_files:
+                filepath = os.path.join('./forecast-data-processed/', filename)
+                forecast_df = pd.read_csv(filepath, parse_dates=['timestamp'])
+                forecast_dfs.append(forecast_df)
+                print(forecast_df)
+                    
+            # Concatenate all forecast DataFrames
+            merged_forecast_df = pd.concat(forecast_dfs, axis=0, ignore_index=True)
+
+            # Merge the original DataFrame with the combined forecast DataFrame
+            df = pd.merge(df, merged_forecast_df, how='left', on='timestamp')
+            
+            
+            #not working...
+            # for index, row in df.iterrows():
+            #     if row['forecast_file_exists'] == True:
+            #         filename = row['forecast_file']
+            #         forecast_df = pd.read_csv('./forecast-data-processed/' + filename, parse_dates=['timestamp'])
+            #         df = pd.merge(df, forecast_df, how='left', on='timestamp')
 
             #todo deal with missing forecast values
             #leave them null? set to 0?
