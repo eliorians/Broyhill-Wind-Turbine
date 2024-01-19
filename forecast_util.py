@@ -88,12 +88,16 @@ def cleanForecastData(filepath):
             #drop uneeded columns
             columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
             df.drop(columns=columns_to_drop, inplace=True)
+
+
+            #TODO: change so each json file is one row of information that is needed and 
+            #TODO: then merge all rows together. Timestamp of how long ago it was forecasted and for where it correlates in turbine data
             
             #keep only next X hours of forecast, since this is what we will be using
             hours_to_forecast = 12
             df = df.head(hours_to_forecast)
 
-            #reshape data to make for easier merging into main dataset
+            # #reshape data to make for easier merging into main dataset
             df_result = pd.DataFrame()
             columns_to_reshape = ["windDirection","probabilityOfPrecipitation_percent","dewpoint_degC","relativeHumidity_percent","temperature_F","windSpeed_mph"]
             for column in columns_to_reshape:
