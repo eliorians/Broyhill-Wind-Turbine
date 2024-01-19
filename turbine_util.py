@@ -312,25 +312,28 @@ def combineTurbineForecast(df):
 
             #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
 
-            # Create an empty list to store forecast DataFrames, and a list of all exisitng forecast files
+            #create an empty list to store forecast DataFrames, and a list of all exisitng forecast files
             forecast_dfs = []
             forecast_files = df.loc[df['forecast_file_exists'], 'forecast_file'].tolist()
 
-            # Read and accumulate forecast DataFrames
+            #read and accumulate forecast DataFrames
             for filename in forecast_files:
                 filepath = os.path.join('./forecast-data-processed/', filename)
                 forecast_df = pd.read_csv(filepath, parse_dates=['timestamp'])
                 forecast_dfs.append(forecast_df)
                 print(forecast_df)
                     
-            # Concatenate all forecast DataFrames
+            #concatenate all forecast DataFrames
             merged_forecast_df = pd.concat(forecast_dfs, axis=0, ignore_index=True)
 
-            # Merge the original DataFrame with the combined forecast DataFrame
+            #set types
+            merged_forecast_df['timestamp'] = pd.to_datetime(merged_forecast_df['timestamp'], utc=True)
+
+            #merge the original DataFrame with the combined forecast DataFrame
             df = pd.merge(df, merged_forecast_df, how='left', on='timestamp')
             
             
-            #not working...
+            #another way to merge, but slow due to itterrows. also did not work
             # for index, row in df.iterrows():
             #     if row['forecast_file_exists'] == True:
             #         filename = row['forecast_file']

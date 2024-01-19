@@ -8517,3 +8517,11 @@ INFO - 2024-01-12 16:16:21,605 - Starting forecast_util
 INFO - 2024-01-12 16:16:45,980 - forecast_util.py finished successfully, processing 1411 files in 24.38 seconds
 INFO - 2024-01-12 16:16:45,980 - merging turbine and forecast data
 INFO - 2024-01-12 16:16:49,189 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-15 16:01:56,668 - Starting turbine_util
+INFO - 2024-01-15 16:01:56,668 - in readSQLDump
+INFO - 2024-01-15 16:02:02,038 - in cleanTurbineData
+INFO - 2024-01-15 16:02:06,734 - in combineTurbineForecast
+INFO - 2024-01-15 16:02:06,735 - Starting forecast_util
+INFO - 2024-01-15 16:02:43,154 - forecast_util.py finished successfully, processing 1483 files in 36.42 seconds
+INFO - 2024-01-15 16:02:43,154 - merging turbine and forecast data
+INFO - 2024-01-15 16:02:47,755 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
