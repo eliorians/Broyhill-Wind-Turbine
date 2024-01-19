@@ -1856,6 +1856,8 @@ INFO - 2023-11-12 13:19:41,550 - Data successfully saved to .\forecast-data-proc
 INFO - 2023-11-12 13:19:41,553 - Data successfully saved to .\forecast-data-processed\forecast_11-12-2023_12-00.csv
 INFO - 2023-11-12 13:19:41,556 - Data successfully saved to .\forecast-data-processed\forecast_11-12-2023_13-00.csv
 INFO - 2023-11-12 13:19:41,556 - Program finished. Processed 534 in 1.65 seconds
+<<<<<<< HEAD
+=======
 INFO - 2024-01-02 12:56:18,573 - Running forecast-util...
 INFO - 2024-01-02 12:56:18,595 - Data successfully saved to .\forecast-data-processed\forecast_01-01-2024_12-00.csv
 INFO - 2024-01-02 12:56:18,603 - Data successfully saved to .\forecast-data-processed\forecast_01-01-2024_13-00.csv
@@ -30543,3 +30545,9 @@ INFO - 2024-01-12 13:58:36,049 - Starting forecast_util
 INFO - 2024-01-12 13:58:56,220 - Starting forecast_util
 INFO - 2024-01-12 14:03:17,605 - Starting forecast_util
 INFO - 2024-01-12 14:03:43,092 - forecast_util.py finished successfully, processing 1409 files in 25.49 seconds
+>>>>>>> 8c9aff0fc3e1549c1205760a6cb08e6815fd6297
+INFO - 2024-01-19 09:40:24,260 - Starting forecast_util
+INFO - 2024-01-19 09:44:15,765 - forecast_util.py finished successfully, processing 1411 files in 231.50 seconds
+INFO - 2024-01-19 09:58:58,084 - Starting forecast_util
+INFO - 2024-01-19 09:59:19,980 - Starting forecast_util
+INFO - 2024-01-19 10:00:14,742 - forecast_util.py finished successfully, processing 1411 files in 54.76 seconds
