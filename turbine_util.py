@@ -13,6 +13,8 @@ import forecast_util
 
 logger = logging.getLogger('turbine_util')
 
+HOURS_TO_FORECAST = 12
+
 #all columns that exist in frames.csv
 #see "./turbine-data/turbine_data_info.cfg" for column info
 column_names = [
@@ -298,54 +300,25 @@ def combineTurbineForecast(df):
         warnings.filterwarnings("error", category=FutureWarning)
         try:
 
-            logger.info("merging turbine and forecast data")
-
-            #add column for the associated forecast with the hour, and set its type
-            #convert timestamp to timestamp_est to get correct filename
+            #create timestamp_est since forecast files are in EST
             df['timestamp_est'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
-            df['forecast_file'] = 'forecast_' + df['timestamp_est'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
+            #subtract HOURS_TO_FORECAST to get the time of forecast that we are looking for
+            df['timestamp_est_forecast'] = df['timestamp_est'] - pd.Timedelta(hours=HOURS_TO_FORECAST)
+            #create corresponding forecast filename
+            df['forecast_file'] = 'forecast_' + df['timestamp_est_forecast'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
             df['forecast_file'] = df['forecast_file'].astype(str)
-            df = df.drop('timestamp_est', axis=1)
 
-            #add a column that will be true if the forecast data exists, and set its type
+            #create a column that will be true if the forecast data exists
             df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
             df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-            #todo merge forecast and turbine data
-            #? what data is needed in one line of data?
+            #drop calculation columns
+            # df = df.drop('timestamp_est', axis=1)
+            # df = df.drop('timestamp_est_forecast', axis=1)
 
-            # #create an empty list to store forecast DataFrames, and a list of all exisitng forecast files
-            # forecast_dfs = []
-            # forecast_files = df.loc[df['forecast_file_exists'], 'forecast_file'].tolist()
+            #todo open the file associated with each row, if it exists, and merge column # (HOURS_TO_FORECAST) with it
+                #? how to merge single rows?
 
-            # #read and accumulate forecast DataFrames
-            # for filename in forecast_files:
-            #     filepath = os.path.join('./forecast-data-processed/', filename)
-            #     forecast_df = pd.read_csv(filepath, parse_dates=['timestamp'])
-            #     forecast_dfs.append(forecast_df)
-                    
-            # #concatenate all forecast DataFrames
-            # forecast_df = pd.concat(forecast_dfs, axis=0, ignore_index=True)
-
-            # #set types
-            # forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
-
-            # #save concated forecast data
-            # forecast_df.to_csv('./turbine-data-processed/cleanedForecast.csv')
-            # logger.info('Forecast data cleaned and saved to "./turbine-data-processed/cleanedForecast.csv"')
-
-            # #merge the original DataFrame with the combined forecast DataFrame
-            # df = pd.merge(df, forecast_df, how='outer', on='timestamp')
-            
-            # deal with missing forecast values
-            # #leave them null? set to 0?
-
-            # set new column types
-            # # df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
-            # # new_column_types = {}
-            # # for column, dtype in column_types.items():
-            # #     new_column_types.update({f'{column}_{i}h': dtype for i in range(hours_to_forecast)})
-            # # df = df.astype(new_column_types)
 
         except FutureWarning as warning:
             print(f"Warning: " + str(warning))
@@ -375,6 +348,8 @@ def main():
     #output
     df.to_csv('./turbine-data-processed/cleanedFrames.csv')
     logger.info('Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"')
+
+    return df
 
 if __name__ == "__main__":
     main()

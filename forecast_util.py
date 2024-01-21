@@ -9,8 +9,6 @@ import time
 
 logger = logging.getLogger('forecast_util')
 
-HOURS_TO_FORECAST = 12
-
 column_types = {
     'temperature_F'                     : int,
     'windSpeed_mph'                     : int,
@@ -81,40 +79,17 @@ def cleanForecastData(filepath):
             df['relativeHumidity_percent'] = df['relativeHumidity_percent'].interpolate()
             
             #convert timestamp to UTC timezone, this makes for easier manioulation by elimating daylight savings
-            #?use the endtime as the timestamp since this lines up with the turbine data
+            #use the endtime as the timestamp since this lines up with the turbine data
             df['timestamp'] = pd.to_datetime(df['endTime'], utc=True)
 
             #set column types
             df = df.astype(column_types)
             
             #drop uneeded columns
-            columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 'windSpeed', 'startTime', 'endTime', 'shortForecast', ]
+            columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 
+                               'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 
+                               'windSpeed', 'shortForecast', 'endTime', 'startTime']
             df.drop(columns=columns_to_drop, inplace=True)
-            
-            #keep only next X hours of forecast, since this is what we will be using
-            df = df.head(HOURS_TO_FORECAST)
-            
-
-            #reshape data to make for easier merging into main dataset
-            # df_result = pd.DataFrame()
-            # columns_to_reshape = ["windDirection","probabilityOfPrecipitation_percent","dewpoint_degC","relativeHumidity_percent","temperature_F","windSpeed_mph"]
-            # for column in columns_to_reshape:
-            #     # Create a temporary DataFrame for the current column
-            #     temp_df = df[['timestamp', column]].copy()
-            #     # Create a new column 'n' representing the index
-            #     temp_df['n'] = temp_df.index
-            #     # Pivot the DataFrame
-            #     temp_df = temp_df.pivot_table(index='timestamp', columns='n', values=column, aggfunc='first')
-            #     # Rename columns with the desired format
-            #     temp_df.columns = [f'{column}_{col}h' for col in temp_df.columns]
-            #     # Reset index to make 'timestamp' a regular column
-            #     temp_df = temp_df.reset_index()
-            #     # Concatenate the result to the final DataFrame
-            #     df_result = pd.concat([df_result, temp_df], axis=1)
-
-            # #drop duplicate tiemstamp columns and save result
-            # df_result = df_result.loc[:, ~df_result.columns.duplicated()]
-            # df = df_result
 
         except FutureWarning as warning:
             print(f"Warning while processing {filepath}: " + str(warning))

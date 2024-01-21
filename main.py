@@ -25,8 +25,7 @@ def logging_setup():
 def main():
     
     #process turbine data and get dataframe
-    turbine_util.main
-    df = pd.read_csv('./turbine-data-processed/cleanedFrames.csv')
+    df = turbine_util.main
     
     #todo train/test split (80/20)
     # train_size = int(len(df) * 0.8)
