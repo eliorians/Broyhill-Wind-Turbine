@@ -1,6 +1,7 @@
 
 import os
 import time
+import traceback
 import warnings
 from mysqlx import OperationalError
 import pandas as pd
@@ -304,56 +305,53 @@ def combineTurbineForecast(df):
             df['timestamp_est'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
             df['forecast_file'] = 'forecast_' + df['timestamp_est'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv'
             df['forecast_file'] = df['forecast_file'].astype(str)
-            df = df.drop['timestamp_est']
+            df = df.drop('timestamp_est', axis=1)
 
             #add a column that will be true if the forecast data exists, and set its type
             df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
             df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-            #todo concat forecast and turbine data (simplify the merge by change the forecast file columns and then concat on timestamp)
+            #todo merge forecast and turbine data
+            #? what data is needed in one line of data?
 
-            #create an empty list to store forecast DataFrames, and a list of all exisitng forecast files
-            forecast_dfs = []
-            forecast_files = df.loc[df['forecast_file_exists'], 'forecast_file'].tolist()
+            # #create an empty list to store forecast DataFrames, and a list of all exisitng forecast files
+            # forecast_dfs = []
+            # forecast_files = df.loc[df['forecast_file_exists'], 'forecast_file'].tolist()
 
-            #read and accumulate forecast DataFrames
-            for filename in forecast_files:
-                filepath = os.path.join('./forecast-data-processed/', filename)
-                forecast_df = pd.read_csv(filepath, parse_dates=['timestamp'])
-                forecast_dfs.append(forecast_df)
-                print(forecast_df)
+            # #read and accumulate forecast DataFrames
+            # for filename in forecast_files:
+            #     filepath = os.path.join('./forecast-data-processed/', filename)
+            #     forecast_df = pd.read_csv(filepath, parse_dates=['timestamp'])
+            #     forecast_dfs.append(forecast_df)
                     
-            #concatenate all forecast DataFrames
-            merged_forecast_df = pd.concat(forecast_dfs, axis=0, ignore_index=True)
+            # #concatenate all forecast DataFrames
+            # forecast_df = pd.concat(forecast_dfs, axis=0, ignore_index=True)
 
-            #set types
-            merged_forecast_df['timestamp'] = pd.to_datetime(merged_forecast_df['timestamp'], utc=True)
+            # #set types
+            # forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
 
-            #merge the original DataFrame with the combined forecast DataFrame
-            df = pd.merge(df, merged_forecast_df, how='left', on='timestamp')
+            # #save concated forecast data
+            # forecast_df.to_csv('./turbine-data-processed/cleanedForecast.csv')
+            # logger.info('Forecast data cleaned and saved to "./turbine-data-processed/cleanedForecast.csv"')
+
+            # #merge the original DataFrame with the combined forecast DataFrame
+            # df = pd.merge(df, forecast_df, how='outer', on='timestamp')
             
-            
-            #another way to merge, but slow due to itterrows. also did not work
-            # for index, row in df.iterrows():
-            #     if row['forecast_file_exists'] == True:
-            #         filename = row['forecast_file']
-            #         forecast_df = pd.read_csv('./forecast-data-processed/' + filename, parse_dates=['timestamp'])
-            #         df = pd.merge(df, forecast_df, how='left', on='timestamp')
+            # deal with missing forecast values
+            # #leave them null? set to 0?
 
-            #todo deal with missing forecast values
-            #leave them null? set to 0?
-
-            #todo set new column types
-            # df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
-            # new_column_types = {}
-            # for column, dtype in column_types.items():
-            #     new_column_types.update({f'{column}_{i}h': dtype for i in range(hours_to_forecast)})
-            # df = df.astype(new_column_types)
+            # set new column types
+            # # df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True)
+            # # new_column_types = {}
+            # # for column, dtype in column_types.items():
+            # #     new_column_types.update({f'{column}_{i}h': dtype for i in range(hours_to_forecast)})
+            # # df = df.astype(new_column_types)
 
         except FutureWarning as warning:
             print(f"Warning: " + str(warning))
         except Exception as error:
             print(f"Error: " + str(error))
+            traceback.print_exc()
 
     return df
 
