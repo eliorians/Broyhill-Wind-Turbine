@@ -318,6 +318,14 @@ def combineTurbineForecast(df):
 
             #todo open the file associated with each row, if it exists, and merge column # (HOURS_TO_FORECAST) with it
                 #? how to merge single rows?
+            
+            #select row in df (and get the filename)
+
+            #open the file and select 12th row
+
+            #merge selected 12th row into df
+
+            #repeat for all rows
 
 
         except FutureWarning as warning:
