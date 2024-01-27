@@ -9703,3 +9703,278 @@ INFO - 2024-01-27 15:16:16,871 - in combineTurbineForecast
 INFO - 2024-01-27 15:16:16,872 - Starting forecast_util
 INFO - 2024-01-27 15:16:26,794 - forecast_util.py finished successfully, processing 1714 files in 9.92 seconds
 INFO - 2024-01-27 15:16:46,777 - data merged successfully in 17.54 seconds
+INFO - 2024-01-27 15:28:14,960 - Starting turbine_util
+INFO - 2024-01-27 15:28:14,960 - in readSQLDump
+INFO - 2024-01-27 15:28:20,659 - in cleanTurbineData
+INFO - 2024-01-27 15:28:24,921 - in combineTurbineForecast
+INFO - 2024-01-27 15:28:24,922 - Starting forecast_util
+INFO - 2024-01-27 15:28:34,654 - forecast_util.py finished successfully, processing 1714 files in 9.73 seconds
+ERROR - 2024-01-27 15:29:20,684 - DataFrame.merge() got an unexpected keyword argument 'left'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 343, in combineTurbineForecast
+    forecast_df = pd.concat(forecast_dfs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataFrame.merge() got an unexpected keyword argument 'left'
+INFO - 2024-01-27 15:29:24,317 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:30:03,616 - Starting turbine_util
+INFO - 2024-01-27 15:30:03,617 - in readSQLDump
+INFO - 2024-01-27 15:30:09,059 - in cleanTurbineData
+INFO - 2024-01-27 15:30:13,322 - in combineTurbineForecast
+INFO - 2024-01-27 15:30:13,322 - Starting forecast_util
+INFO - 2024-01-27 15:30:22,689 - forecast_util.py finished successfully, processing 1714 files in 9.37 seconds
+ERROR - 2024-01-27 15:31:06,865 - Cannot merge a Series without a name
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 346, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 152, in merge
+    right_df = _validate_operand(right)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 2629, in _validate_operand
+    raise ValueError("Cannot merge a Series without a name")
+ValueError: Cannot merge a Series without a name
+INFO - 2024-01-27 15:31:10,296 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:32:35,137 - Starting turbine_util
+INFO - 2024-01-27 15:32:35,137 - in readSQLDump
+INFO - 2024-01-27 15:32:40,547 - in cleanTurbineData
+INFO - 2024-01-27 15:32:44,787 - in combineTurbineForecast
+INFO - 2024-01-27 15:32:44,788 - Starting forecast_util
+INFO - 2024-01-27 15:32:54,075 - forecast_util.py finished successfully, processing 1714 files in 9.29 seconds
+ERROR - 2024-01-27 15:33:37,841 - Cannot merge a Series without a name
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 347, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 152, in merge
+    right_df = _validate_operand(right)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 2629, in _validate_operand
+    raise ValueError("Cannot merge a Series without a name")
+ValueError: Cannot merge a Series without a name
+INFO - 2024-01-27 15:33:41,331 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:37:49,279 - Starting turbine_util
+INFO - 2024-01-27 15:37:49,279 - in readSQLDump
+INFO - 2024-01-27 15:37:54,918 - in cleanTurbineData
+INFO - 2024-01-27 15:37:59,319 - in combineTurbineForecast
+INFO - 2024-01-27 15:37:59,320 - Starting forecast_util
+INFO - 2024-01-27 15:38:09,080 - forecast_util.py finished successfully, processing 1714 files in 9.76 seconds
+ERROR - 2024-01-27 15:38:54,480 - You are trying to merge on datetime64[ns, UTC] and object columns for key 'timestamp'. If you wish to proceed you should use pd.concat
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 347, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 804, in __init__
+    self._maybe_coerce_merge_keys()
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1483, in _maybe_coerce_merge_keys
+    raise ValueError(msg)
+ValueError: You are trying to merge on datetime64[ns, UTC] and object columns for key 'timestamp'. If you wish to proceed you should use pd.concat
+INFO - 2024-01-27 15:38:58,062 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:40:28,241 - Starting turbine_util
+INFO - 2024-01-27 15:40:28,241 - in readSQLDump
+INFO - 2024-01-27 15:40:33,875 - in cleanTurbineData
+INFO - 2024-01-27 15:40:38,298 - in combineTurbineForecast
+INFO - 2024-01-27 15:40:38,299 - Starting forecast_util
+INFO - 2024-01-27 15:40:48,396 - forecast_util.py finished successfully, processing 1714 files in 10.10 seconds
+ERROR - 2024-01-27 15:41:35,193 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 347, in combineTurbineForecast
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 15:41:38,762 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:41:45,010 - Starting turbine_util
+INFO - 2024-01-27 15:41:45,011 - in readSQLDump
+INFO - 2024-01-27 15:41:50,751 - in cleanTurbineData
+INFO - 2024-01-27 15:41:55,081 - in combineTurbineForecast
+INFO - 2024-01-27 15:41:55,081 - Starting forecast_util
+INFO - 2024-01-27 15:42:05,041 - forecast_util.py finished successfully, processing 1714 files in 9.96 seconds
+ERROR - 2024-01-27 15:42:50,420 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 349, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 15:42:53,984 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:43:00,883 - Starting turbine_util
+INFO - 2024-01-27 15:43:00,883 - in readSQLDump
+INFO - 2024-01-27 15:43:06,517 - in cleanTurbineData
+INFO - 2024-01-27 15:43:10,794 - in combineTurbineForecast
+INFO - 2024-01-27 15:43:10,794 - Starting forecast_util
+INFO - 2024-01-27 15:43:20,518 - forecast_util.py finished successfully, processing 1714 files in 9.72 seconds
+ERROR - 2024-01-27 15:44:06,157 - Cannot merge a Series without a name
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 348, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 152, in merge
+    right_df = _validate_operand(right)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 2629, in _validate_operand
+    raise ValueError("Cannot merge a Series without a name")
+ValueError: Cannot merge a Series without a name
+INFO - 2024-01-27 15:44:09,755 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:44:13,826 - Starting turbine_util
+INFO - 2024-01-27 15:44:13,826 - in readSQLDump
+INFO - 2024-01-27 15:44:19,452 - in cleanTurbineData
+INFO - 2024-01-27 15:44:23,695 - in combineTurbineForecast
+INFO - 2024-01-27 15:44:23,695 - Starting forecast_util
+INFO - 2024-01-27 15:44:33,166 - forecast_util.py finished successfully, processing 1714 files in 9.47 seconds
+ERROR - 2024-01-27 15:45:16,845 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 349, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 15:45:20,322 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:47:00,848 - Starting turbine_util
+INFO - 2024-01-27 15:47:00,849 - in readSQLDump
+INFO - 2024-01-27 15:47:06,316 - in cleanTurbineData
+INFO - 2024-01-27 15:47:10,633 - in combineTurbineForecast
+INFO - 2024-01-27 15:47:10,634 - Starting forecast_util
+INFO - 2024-01-27 15:47:20,143 - forecast_util.py finished successfully, processing 1714 files in 9.51 seconds
+ERROR - 2024-01-27 15:48:04,232 - 'timestamp'
+INFO - 2024-01-27 15:48:07,616 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:48:18,299 - Starting turbine_util
+INFO - 2024-01-27 15:48:18,299 - in readSQLDump
+INFO - 2024-01-27 15:48:23,853 - in cleanTurbineData
+INFO - 2024-01-27 15:48:28,130 - in combineTurbineForecast
+INFO - 2024-01-27 15:48:28,131 - Starting forecast_util
+INFO - 2024-01-27 15:48:37,563 - forecast_util.py finished successfully, processing 1714 files in 9.43 seconds
+ERROR - 2024-01-27 15:49:21,729 - 'timestamp'
+INFO - 2024-01-27 15:49:25,142 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:52:44,265 - Starting turbine_util
+INFO - 2024-01-27 15:52:44,265 - in readSQLDump
+INFO - 2024-01-27 15:52:49,986 - in cleanTurbineData
+INFO - 2024-01-27 15:52:54,321 - in combineTurbineForecast
+INFO - 2024-01-27 15:52:54,322 - Starting forecast_util
+INFO - 2024-01-27 15:53:03,887 - forecast_util.py finished successfully, processing 1714 files in 9.57 seconds
+ERROR - 2024-01-27 15:53:48,579 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 349, in combineTurbineForecast
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 15:53:52,033 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:56:03,316 - Starting turbine_util
+INFO - 2024-01-27 15:56:03,317 - in readSQLDump
+INFO - 2024-01-27 15:56:08,870 - in cleanTurbineData
+INFO - 2024-01-27 15:56:13,192 - in combineTurbineForecast
+INFO - 2024-01-27 15:56:13,193 - Starting forecast_util
+INFO - 2024-01-27 15:56:22,547 - forecast_util.py finished successfully, processing 1714 files in 9.35 seconds
+ERROR - 2024-01-27 15:57:06,402 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 352, in combineTurbineForecast
+    df = df.merge(forecast_df, on='timestamp', how='outer')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10487, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 15:57:09,814 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:57:42,934 - Starting turbine_util
+INFO - 2024-01-27 15:57:42,934 - in readSQLDump
+INFO - 2024-01-27 15:57:48,412 - in cleanTurbineData
+INFO - 2024-01-27 15:57:52,852 - in combineTurbineForecast
+INFO - 2024-01-27 15:57:52,852 - Starting forecast_util
+INFO - 2024-01-27 15:58:02,356 - forecast_util.py finished successfully, processing 1714 files in 9.50 seconds
+ERROR - 2024-01-27 15:58:46,448 - 'timestamp'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 160, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'timestamp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 348, in combineTurbineForecast
+    forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
+                                              ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'timestamp'
+INFO - 2024-01-27 15:58:49,866 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"

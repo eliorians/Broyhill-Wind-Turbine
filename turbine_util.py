@@ -315,42 +315,43 @@ def combineTurbineForecast(df):
 
             #TODO fix the merging process here... 
 
-            def merge_forecast(turbine_row):
+            forecast_dfs = []
+            #iterate turbine rows
+            for _, turbine_row in df.iterrows():
+                
+                #cleanup turbine row
+                turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
+
+                #if forecast file exists for the current turbine_row
                 if turbine_row['forecast_file_exists'] == True:
-                    #create filepath and df
+
+                    #create filepath, and turn to df
                     file_path = os.path.join('./forecast-data-processed/', turbine_row['forecast_file'])
                     forecast_df = pd.read_csv(file_path)
-
-                    #cleanup row
-                    turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
 
                     #itterate over forecast file
                     for index, forecast_row in forecast_df.iterrows():
 
-                        #cleanup row
+                        #cleanup forecast row
                         forecast_row['timestamp'] = pd.to_datetime(forecast_row['timestamp'], utc=True)
 
-                        # if we find the forecast that matches the turbine time
+                        # find the row in the forecast df that goes with current turbine row
                         if forecast_row['timestamp'] == turbine_row['timestamp']:
-                            #merge and move on
-                            turbine_row = pd.concat([pd.DataFrame(turbine_row).T, pd.DataFrame(forecast_row).T], axis=1)
-                            return turbine_row
-                        
-                return pd.DataFrame(turbine_row).T
-            
-            start_time = time.time()
+                            #add row to list
+                            forecast_dfs.append(forecast_row)
 
-            df = df.apply(merge_forecast, axis=1)
-            
-            end_time = time.time()
-            runtime = end_time - start_time
-            logger.info(f"data merged successfully in {runtime:.2f} seconds")
+            #concat list of forecast dfs
+            forecast_df = pd.concat(forecast_dfs, axis=0)
 
-            print(df)
+            forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
+            forecast_df.name = 'forecast_df'
+            
+            #final merge
+            df = df.merge(forecast_df, on='timestamp', how='outer')
 
             #drop calculation columns
-            #cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
-            #df = df.drop(cols_to_drop, axis=1)
+            cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
+            df = df.drop(cols_to_drop, axis=1)
 
         except FutureWarning as warning:
             logger.warning(warning)
