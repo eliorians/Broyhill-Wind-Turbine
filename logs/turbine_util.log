@@ -8617,3 +8617,1089 @@ INFO - 2024-01-21 13:48:06,793 - in combineTurbineForecast
 INFO - 2024-01-21 13:48:06,794 - Starting forecast_util
 INFO - 2024-01-21 13:48:15,364 - forecast_util.py finished successfully, processing 1568 files in 8.57 seconds
 INFO - 2024-01-21 13:48:19,787 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:15:28,704 - Starting turbine_util
+INFO - 2024-01-27 11:15:28,705 - in readSQLDump
+INFO - 2024-01-27 11:15:34,525 - in cleanTurbineData
+INFO - 2024-01-27 11:15:38,562 - in combineTurbineForecast
+INFO - 2024-01-27 11:15:38,563 - Starting forecast_util
+INFO - 2024-01-27 11:15:57,854 - forecast_util.py finished successfully, processing 1710 files in 19.29 seconds
+INFO - 2024-01-27 11:16:04,658 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:18:50,524 - Starting turbine_util
+INFO - 2024-01-27 11:18:50,524 - in readSQLDump
+INFO - 2024-01-27 11:18:56,077 - in cleanTurbineData
+INFO - 2024-01-27 11:19:00,250 - in combineTurbineForecast
+INFO - 2024-01-27 11:19:00,251 - Starting forecast_util
+INFO - 2024-01-27 11:19:09,755 - forecast_util.py finished successfully, processing 1710 files in 9.50 seconds
+INFO - 2024-01-27 11:19:19,099 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:20:45,372 - Starting turbine_util
+INFO - 2024-01-27 11:20:45,372 - in readSQLDump
+INFO - 2024-01-27 11:20:50,869 - in cleanTurbineData
+INFO - 2024-01-27 11:20:54,813 - in combineTurbineForecast
+INFO - 2024-01-27 11:20:54,814 - Starting forecast_util
+INFO - 2024-01-27 11:21:04,698 - forecast_util.py finished successfully, processing 1710 files in 9.88 seconds
+INFO - 2024-01-27 11:21:14,583 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:21:40,773 - Starting turbine_util
+INFO - 2024-01-27 11:21:40,773 - in readSQLDump
+INFO - 2024-01-27 11:21:46,466 - in cleanTurbineData
+INFO - 2024-01-27 11:21:50,470 - in combineTurbineForecast
+INFO - 2024-01-27 11:21:50,471 - Starting forecast_util
+INFO - 2024-01-27 11:21:59,894 - forecast_util.py finished successfully, processing 1710 files in 9.42 seconds
+INFO - 2024-01-27 11:22:09,078 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:23:15,775 - Starting turbine_util
+INFO - 2024-01-27 11:23:15,775 - in readSQLDump
+INFO - 2024-01-27 11:23:21,416 - in cleanTurbineData
+INFO - 2024-01-27 11:23:25,342 - in combineTurbineForecast
+INFO - 2024-01-27 11:23:25,343 - Starting forecast_util
+INFO - 2024-01-27 11:23:34,774 - forecast_util.py finished successfully, processing 1710 files in 9.43 seconds
+INFO - 2024-01-27 11:23:44,183 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:33:38,973 - Starting turbine_util
+INFO - 2024-01-27 11:33:38,973 - in readSQLDump
+INFO - 2024-01-27 11:33:44,468 - in cleanTurbineData
+INFO - 2024-01-27 11:33:48,410 - in combineTurbineForecast
+INFO - 2024-01-27 11:33:48,411 - Starting forecast_util
+INFO - 2024-01-27 11:33:58,042 - forecast_util.py finished successfully, processing 1710 files in 9.63 seconds
+INFO - 2024-01-27 11:34:07,625 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:35:44,154 - Starting turbine_util
+INFO - 2024-01-27 11:35:44,154 - in readSQLDump
+INFO - 2024-01-27 11:35:49,822 - in cleanTurbineData
+INFO - 2024-01-27 11:35:53,844 - in combineTurbineForecast
+INFO - 2024-01-27 11:35:53,844 - Starting forecast_util
+INFO - 2024-01-27 11:36:03,547 - forecast_util.py finished successfully, processing 1710 files in 9.70 seconds
+INFO - 2024-01-27 11:36:13,043 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 11:47:13,634 - Starting turbine_util
+INFO - 2024-01-27 11:47:13,634 - in readSQLDump
+INFO - 2024-01-27 11:47:19,242 - in cleanTurbineData
+INFO - 2024-01-27 11:47:23,296 - in combineTurbineForecast
+INFO - 2024-01-27 11:47:23,297 - Starting forecast_util
+INFO - 2024-01-27 11:47:32,858 - forecast_util.py finished successfully, processing 1710 files in 9.56 seconds
+INFO - 2024-01-27 11:47:42,327 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:10:59,049 - Starting turbine_util
+INFO - 2024-01-27 12:10:59,049 - in readSQLDump
+INFO - 2024-01-27 12:11:04,736 - in cleanTurbineData
+INFO - 2024-01-27 12:11:08,876 - in combineTurbineForecast
+INFO - 2024-01-27 12:11:08,877 - Starting forecast_util
+INFO - 2024-01-27 12:11:19,035 - forecast_util.py finished successfully, processing 1711 files in 10.16 seconds
+INFO - 2024-01-27 12:11:28,384 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:14:49,037 - Starting turbine_util
+INFO - 2024-01-27 12:14:49,037 - in readSQLDump
+INFO - 2024-01-27 12:14:54,698 - in cleanTurbineData
+INFO - 2024-01-27 12:14:58,856 - in combineTurbineForecast
+INFO - 2024-01-27 12:14:58,857 - Starting forecast_util
+INFO - 2024-01-27 12:15:08,891 - forecast_util.py finished successfully, processing 1711 files in 10.03 seconds
+INFO - 2024-01-27 12:15:14,831 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:17:59,460 - Starting turbine_util
+INFO - 2024-01-27 12:17:59,460 - in readSQLDump
+INFO - 2024-01-27 12:18:05,114 - in cleanTurbineData
+INFO - 2024-01-27 12:18:09,093 - in combineTurbineForecast
+INFO - 2024-01-27 12:18:09,094 - Starting forecast_util
+INFO - 2024-01-27 12:18:18,709 - forecast_util.py finished successfully, processing 1711 files in 9.62 seconds
+INFO - 2024-01-27 12:18:24,850 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:25:12,179 - Starting turbine_util
+INFO - 2024-01-27 12:25:12,179 - in readSQLDump
+INFO - 2024-01-27 12:25:17,822 - in cleanTurbineData
+INFO - 2024-01-27 12:25:21,790 - in combineTurbineForecast
+INFO - 2024-01-27 12:25:21,791 - Starting forecast_util
+INFO - 2024-01-27 12:25:31,349 - forecast_util.py finished successfully, processing 1711 files in 9.56 seconds
+INFO - 2024-01-27 12:25:37,282 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:26:15,034 - Starting turbine_util
+INFO - 2024-01-27 12:26:15,034 - in readSQLDump
+INFO - 2024-01-27 12:26:20,417 - in cleanTurbineData
+INFO - 2024-01-27 12:26:24,381 - in combineTurbineForecast
+INFO - 2024-01-27 12:26:24,382 - Starting forecast_util
+INFO - 2024-01-27 12:26:34,246 - forecast_util.py finished successfully, processing 1711 files in 9.86 seconds
+INFO - 2024-01-27 12:26:40,332 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:27:49,869 - Starting turbine_util
+INFO - 2024-01-27 12:27:49,869 - in readSQLDump
+INFO - 2024-01-27 12:27:55,461 - in cleanTurbineData
+INFO - 2024-01-27 12:27:59,606 - in combineTurbineForecast
+INFO - 2024-01-27 12:27:59,607 - Starting forecast_util
+INFO - 2024-01-27 12:28:09,708 - forecast_util.py finished successfully, processing 1711 files in 10.10 seconds
+INFO - 2024-01-27 12:28:15,815 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:29:59,013 - Starting turbine_util
+INFO - 2024-01-27 12:29:59,013 - in readSQLDump
+INFO - 2024-01-27 12:30:04,729 - in cleanTurbineData
+INFO - 2024-01-27 12:30:08,794 - in combineTurbineForecast
+INFO - 2024-01-27 12:30:08,795 - Starting forecast_util
+INFO - 2024-01-27 12:30:18,579 - forecast_util.py finished successfully, processing 1711 files in 9.78 seconds
+INFO - 2024-01-27 12:30:27,101 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:39:31,903 - Starting turbine_util
+INFO - 2024-01-27 12:39:31,903 - in readSQLDump
+INFO - 2024-01-27 12:39:37,544 - in cleanTurbineData
+INFO - 2024-01-27 12:39:41,564 - in combineTurbineForecast
+INFO - 2024-01-27 12:39:41,565 - Starting forecast_util
+INFO - 2024-01-27 12:39:51,142 - forecast_util.py finished successfully, processing 1711 files in 9.58 seconds
+INFO - 2024-01-27 12:39:57,942 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:40:18,087 - Starting turbine_util
+INFO - 2024-01-27 12:40:18,088 - in readSQLDump
+INFO - 2024-01-27 12:40:23,515 - in cleanTurbineData
+INFO - 2024-01-27 12:40:27,453 - in combineTurbineForecast
+INFO - 2024-01-27 12:40:27,454 - Starting forecast_util
+INFO - 2024-01-27 12:40:36,931 - forecast_util.py finished successfully, processing 1711 files in 9.48 seconds
+INFO - 2024-01-27 12:40:43,529 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:41:37,772 - Starting turbine_util
+INFO - 2024-01-27 12:41:37,772 - in readSQLDump
+INFO - 2024-01-27 12:41:43,280 - in cleanTurbineData
+INFO - 2024-01-27 12:41:47,186 - in combineTurbineForecast
+INFO - 2024-01-27 12:41:47,186 - Starting forecast_util
+INFO - 2024-01-27 12:41:56,634 - forecast_util.py finished successfully, processing 1711 files in 9.45 seconds
+INFO - 2024-01-27 12:42:03,185 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:52:55,054 - Starting turbine_util
+INFO - 2024-01-27 12:52:55,054 - in readSQLDump
+INFO - 2024-01-27 12:53:00,751 - in cleanTurbineData
+INFO - 2024-01-27 12:53:04,658 - in combineTurbineForecast
+INFO - 2024-01-27 12:53:04,659 - Starting forecast_util
+INFO - 2024-01-27 12:53:14,481 - forecast_util.py finished successfully, processing 1711 files in 9.82 seconds
+INFO - 2024-01-27 12:53:32,884 - Starting turbine_util
+INFO - 2024-01-27 12:53:32,884 - in readSQLDump
+INFO - 2024-01-27 12:53:38,529 - in cleanTurbineData
+INFO - 2024-01-27 12:53:43,011 - in combineTurbineForecast
+INFO - 2024-01-27 12:53:43,013 - Starting forecast_util
+INFO - 2024-01-27 12:53:53,350 - forecast_util.py finished successfully, processing 1711 files in 10.34 seconds
+ERROR - 2024-01-27 12:53:56,357 - cannot access local variable 'count' where it is not associated with a value
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 372, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 366, in merge_forecast
+    count = count+1
+            ^^^^^
+UnboundLocalError: cannot access local variable 'count' where it is not associated with a value
+INFO - 2024-01-27 12:53:59,800 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:54:22,406 - Starting turbine_util
+INFO - 2024-01-27 12:54:22,406 - in readSQLDump
+INFO - 2024-01-27 12:54:27,873 - in cleanTurbineData
+INFO - 2024-01-27 12:54:32,450 - in combineTurbineForecast
+INFO - 2024-01-27 12:54:32,451 - Starting forecast_util
+INFO - 2024-01-27 12:54:42,466 - forecast_util.py finished successfully, processing 1711 files in 10.02 seconds
+INFO - 2024-01-27 12:54:49,874 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:55:16,926 - Starting turbine_util
+INFO - 2024-01-27 12:55:16,926 - in readSQLDump
+INFO - 2024-01-27 12:55:22,501 - in cleanTurbineData
+INFO - 2024-01-27 12:55:26,825 - in combineTurbineForecast
+INFO - 2024-01-27 12:55:26,826 - Starting forecast_util
+INFO - 2024-01-27 12:55:36,793 - forecast_util.py finished successfully, processing 1711 files in 9.97 seconds
+INFO - 2024-01-27 12:55:42,489 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 12:59:16,013 - Starting turbine_util
+INFO - 2024-01-27 12:59:16,013 - in readSQLDump
+INFO - 2024-01-27 12:59:21,519 - in cleanTurbineData
+INFO - 2024-01-27 12:59:25,868 - in combineTurbineForecast
+INFO - 2024-01-27 12:59:25,868 - Starting forecast_util
+INFO - 2024-01-27 12:59:35,780 - forecast_util.py finished successfully, processing 1711 files in 9.91 seconds
+INFO - 2024-01-27 12:59:41,436 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:00:06,584 - Starting turbine_util
+INFO - 2024-01-27 13:00:06,584 - in readSQLDump
+INFO - 2024-01-27 13:00:12,023 - in cleanTurbineData
+INFO - 2024-01-27 13:00:16,279 - in combineTurbineForecast
+INFO - 2024-01-27 13:00:16,280 - Starting forecast_util
+INFO - 2024-01-27 13:00:25,991 - forecast_util.py finished successfully, processing 1712 files in 9.71 seconds
+INFO - 2024-01-27 13:00:33,636 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:03:45,362 - Starting turbine_util
+INFO - 2024-01-27 13:03:45,362 - in readSQLDump
+INFO - 2024-01-27 13:03:50,825 - in cleanTurbineData
+INFO - 2024-01-27 13:03:55,195 - in combineTurbineForecast
+INFO - 2024-01-27 13:03:55,196 - Starting forecast_util
+INFO - 2024-01-27 13:04:05,344 - forecast_util.py finished successfully, processing 1712 files in 10.15 seconds
+INFO - 2024-01-27 13:04:13,816 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:07:58,578 - Starting turbine_util
+INFO - 2024-01-27 13:07:58,578 - in readSQLDump
+INFO - 2024-01-27 13:08:04,263 - in cleanTurbineData
+INFO - 2024-01-27 13:08:08,761 - in combineTurbineForecast
+INFO - 2024-01-27 13:08:08,762 - Starting forecast_util
+INFO - 2024-01-27 13:08:19,187 - forecast_util.py finished successfully, processing 1712 files in 10.42 seconds
+INFO - 2024-01-27 13:08:24,973 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:10:16,146 - Starting turbine_util
+INFO - 2024-01-27 13:10:16,146 - in readSQLDump
+INFO - 2024-01-27 13:10:21,879 - in cleanTurbineData
+INFO - 2024-01-27 13:10:26,225 - in combineTurbineForecast
+INFO - 2024-01-27 13:10:26,226 - Starting forecast_util
+INFO - 2024-01-27 13:10:36,272 - forecast_util.py finished successfully, processing 1712 files in 10.05 seconds
+INFO - 2024-01-27 13:10:42,081 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:12:12,641 - Starting turbine_util
+INFO - 2024-01-27 13:12:12,642 - in readSQLDump
+INFO - 2024-01-27 13:12:18,212 - in cleanTurbineData
+INFO - 2024-01-27 13:12:22,578 - in combineTurbineForecast
+INFO - 2024-01-27 13:12:22,579 - Starting forecast_util
+INFO - 2024-01-27 13:12:32,444 - forecast_util.py finished successfully, processing 1712 files in 9.86 seconds
+INFO - 2024-01-27 13:13:39,184 - Starting turbine_util
+INFO - 2024-01-27 13:13:39,184 - in readSQLDump
+INFO - 2024-01-27 13:13:44,706 - in cleanTurbineData
+INFO - 2024-01-27 13:13:49,135 - in combineTurbineForecast
+INFO - 2024-01-27 13:13:49,135 - Starting forecast_util
+INFO - 2024-01-27 13:13:58,970 - forecast_util.py finished successfully, processing 1712 files in 9.83 seconds
+INFO - 2024-01-27 13:14:06,704 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:17:47,529 - Starting turbine_util
+INFO - 2024-01-27 13:17:47,529 - in readSQLDump
+INFO - 2024-01-27 13:17:53,025 - in cleanTurbineData
+INFO - 2024-01-27 13:17:57,397 - in combineTurbineForecast
+INFO - 2024-01-27 13:17:57,397 - Starting forecast_util
+INFO - 2024-01-27 13:18:07,294 - forecast_util.py finished successfully, processing 1712 files in 9.90 seconds
+INFO - 2024-01-27 13:18:15,132 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 13:35:50,225 - Starting turbine_util
+INFO - 2024-01-27 13:35:50,225 - in readSQLDump
+INFO - 2024-01-27 13:35:55,703 - in cleanTurbineData
+INFO - 2024-01-27 13:35:59,990 - in combineTurbineForecast
+INFO - 2024-01-27 13:35:59,991 - Starting forecast_util
+INFO - 2024-01-27 13:36:09,733 - forecast_util.py finished successfully, processing 1712 files in 9.74 seconds
+INFO - 2024-01-27 13:36:16,997 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:02:16,816 - Starting turbine_util
+INFO - 2024-01-27 14:02:16,816 - in readSQLDump
+INFO - 2024-01-27 14:02:22,269 - in cleanTurbineData
+INFO - 2024-01-27 14:02:26,516 - in combineTurbineForecast
+INFO - 2024-01-27 14:02:26,516 - Starting forecast_util
+INFO - 2024-01-27 14:02:36,106 - forecast_util.py finished successfully, processing 1713 files in 9.59 seconds
+INFO - 2024-01-27 14:02:43,403 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:03:18,165 - Starting turbine_util
+INFO - 2024-01-27 14:03:18,166 - in readSQLDump
+INFO - 2024-01-27 14:03:23,630 - in cleanTurbineData
+INFO - 2024-01-27 14:03:27,898 - in combineTurbineForecast
+INFO - 2024-01-27 14:03:27,898 - Starting forecast_util
+INFO - 2024-01-27 14:03:37,826 - forecast_util.py finished successfully, processing 1713 files in 9.93 seconds
+INFO - 2024-01-27 14:03:58,260 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:04:31,550 - Starting turbine_util
+INFO - 2024-01-27 14:04:31,550 - in readSQLDump
+INFO - 2024-01-27 14:04:37,100 - in cleanTurbineData
+INFO - 2024-01-27 14:04:41,434 - in combineTurbineForecast
+INFO - 2024-01-27 14:04:46,311 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:06:05,238 - Starting turbine_util
+INFO - 2024-01-27 14:06:05,238 - in readSQLDump
+INFO - 2024-01-27 14:06:10,647 - in cleanTurbineData
+INFO - 2024-01-27 14:06:14,885 - in combineTurbineForecast
+ERROR - 2024-01-27 14:06:17,869 - cannot access local variable 'forecast_row' where it is not associated with a value
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 335, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 324, in merge_forecast
+    forecast_row['timestamp'] = pd.to_datetime(forecast_row['timestamp'], utc=True)
+                                               ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'forecast_row' where it is not associated with a value
+INFO - 2024-01-27 14:06:21,274 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:08:21,524 - Starting turbine_util
+INFO - 2024-01-27 14:08:21,525 - in readSQLDump
+INFO - 2024-01-27 14:08:26,971 - in cleanTurbineData
+INFO - 2024-01-27 14:08:31,318 - in combineTurbineForecast
+INFO - 2024-01-27 14:08:39,428 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:10:54,046 - Starting turbine_util
+INFO - 2024-01-27 14:10:54,046 - in readSQLDump
+INFO - 2024-01-27 14:10:59,604 - in cleanTurbineData
+INFO - 2024-01-27 14:11:03,928 - in combineTurbineForecast
+ERROR - 2024-01-27 14:11:07,778 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 333, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 330, in merge_forecast
+    turbine_row = pd.merge(turbine_row, forecast_row, on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:11:11,164 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:13:21,391 - Starting turbine_util
+INFO - 2024-01-27 14:13:21,392 - in readSQLDump
+INFO - 2024-01-27 14:13:27,107 - in cleanTurbineData
+INFO - 2024-01-27 14:13:31,488 - in combineTurbineForecast
+ERROR - 2024-01-27 14:13:35,443 - 'Series' object has no attribute 'columns'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 335, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 330, in merge_forecast
+    print(forecast_row.columns)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+INFO - 2024-01-27 14:13:38,871 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:15:36,656 - Starting turbine_util
+INFO - 2024-01-27 14:15:36,656 - in readSQLDump
+INFO - 2024-01-27 14:15:42,178 - in cleanTurbineData
+INFO - 2024-01-27 14:15:46,434 - in combineTurbineForecast
+ERROR - 2024-01-27 14:15:50,214 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 333, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 330, in merge_forecast
+    turbine_row = pd.merge(turbine_row, forecast_row.to_frame(), on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:15:53,548 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:18:27,430 - Starting turbine_util
+INFO - 2024-01-27 14:18:27,431 - in readSQLDump
+INFO - 2024-01-27 14:18:32,917 - in cleanTurbineData
+INFO - 2024-01-27 14:18:37,180 - in combineTurbineForecast
+ERROR - 2024-01-27 14:18:41,173 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 333, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 330, in merge_forecast
+    turbine_row = pd.merge(turbine_row.to_frame(), forecast_row.to_frame(), on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:18:44,630 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:20:17,200 - Starting turbine_util
+INFO - 2024-01-27 14:20:17,201 - in readSQLDump
+INFO - 2024-01-27 14:20:22,884 - in cleanTurbineData
+INFO - 2024-01-27 14:20:27,222 - in combineTurbineForecast
+ERROR - 2024-01-27 14:20:31,141 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 333, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 330, in merge_forecast
+    turbine_row = pd.merge(turbine_row.to_frame(), forecast_row.to_frame(), left_on='timestamp', right_on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:20:34,532 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:25:46,008 - Starting turbine_util
+INFO - 2024-01-27 14:25:46,008 - in readSQLDump
+INFO - 2024-01-27 14:25:51,722 - in cleanTurbineData
+INFO - 2024-01-27 14:25:56,034 - in combineTurbineForecast
+ERROR - 2024-01-27 14:26:00,038 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 333, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 330, in merge_forecast
+    turbine_row = pd.merge(turbine_row.to_frame(), forecast_row.to_frame(), left_on='timestamp', right_on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:26:03,534 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:29:17,558 - Starting turbine_util
+INFO - 2024-01-27 14:29:17,558 - in readSQLDump
+INFO - 2024-01-27 14:29:23,106 - in cleanTurbineData
+INFO - 2024-01-27 14:29:27,369 - in combineTurbineForecast
+INFO - 2024-01-27 14:29:32,279 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:31:57,364 - Starting turbine_util
+INFO - 2024-01-27 14:31:57,364 - in readSQLDump
+INFO - 2024-01-27 14:32:03,021 - in cleanTurbineData
+INFO - 2024-01-27 14:32:07,359 - in combineTurbineForecast
+ERROR - 2024-01-27 14:32:10,290 - 'timestamp'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 160, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'timestamp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 343, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 324, in merge_forecast
+    turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
+                                              ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:32:13,660 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:32:25,962 - Starting turbine_util
+INFO - 2024-01-27 14:32:25,963 - in readSQLDump
+INFO - 2024-01-27 14:32:31,386 - in cleanTurbineData
+INFO - 2024-01-27 14:32:35,653 - in combineTurbineForecast
+ERROR - 2024-01-27 14:32:38,576 - 'timestamp'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 160, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'timestamp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 343, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 324, in merge_forecast
+    turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
+                                              ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:32:42,006 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:33:38,651 - Starting turbine_util
+INFO - 2024-01-27 14:33:38,651 - in readSQLDump
+INFO - 2024-01-27 14:33:44,399 - in cleanTurbineData
+INFO - 2024-01-27 14:33:48,812 - in combineTurbineForecast
+ERROR - 2024-01-27 14:33:51,931 - 'timestamp'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 160, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'timestamp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 343, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 325, in merge_forecast
+    turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
+                                              ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:33:55,352 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:34:13,970 - Starting turbine_util
+INFO - 2024-01-27 14:34:13,970 - in readSQLDump
+INFO - 2024-01-27 14:34:19,389 - in cleanTurbineData
+INFO - 2024-01-27 14:34:23,659 - in combineTurbineForecast
+INFO - 2024-01-27 14:34:27,463 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:35:10,310 - Starting turbine_util
+INFO - 2024-01-27 14:35:10,311 - in readSQLDump
+INFO - 2024-01-27 14:35:15,800 - in cleanTurbineData
+INFO - 2024-01-27 14:35:20,081 - in combineTurbineForecast
+ERROR - 2024-01-27 14:35:23,037 - 'Series' object has no attribute 'columns'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 343, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 324, in merge_forecast
+    print(turbine_row.columns)
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+INFO - 2024-01-27 14:35:26,395 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:35:44,216 - Starting turbine_util
+INFO - 2024-01-27 14:35:44,217 - in readSQLDump
+INFO - 2024-01-27 14:35:49,714 - in cleanTurbineData
+INFO - 2024-01-27 14:35:54,139 - in combineTurbineForecast
+INFO - 2024-01-27 14:35:59,003 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:36:32,961 - Starting turbine_util
+INFO - 2024-01-27 14:36:32,961 - in readSQLDump
+INFO - 2024-01-27 14:36:38,593 - in cleanTurbineData
+INFO - 2024-01-27 14:36:43,056 - in combineTurbineForecast
+ERROR - 2024-01-27 14:36:46,115 - 'Series' object has no attribute 'columns'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 340, in combineTurbineForecast
+    #cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 334, in merge_forecast
+    #merge and move on
+          ^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+INFO - 2024-01-27 14:36:49,690 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:37:13,056 - Starting turbine_util
+INFO - 2024-01-27 14:37:13,056 - in readSQLDump
+INFO - 2024-01-27 14:37:18,596 - in cleanTurbineData
+INFO - 2024-01-27 14:37:22,948 - in combineTurbineForecast
+ERROR - 2024-01-27 14:37:25,912 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 338, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 335, in merge_forecast
+    turbine_row = pd.merge(turbine_row, forecast_row, left_on='timestamp', right_on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:37:29,415 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:37:42,249 - Starting turbine_util
+INFO - 2024-01-27 14:37:42,249 - in readSQLDump
+INFO - 2024-01-27 14:37:47,859 - in cleanTurbineData
+INFO - 2024-01-27 14:37:52,102 - in combineTurbineForecast
+ERROR - 2024-01-27 14:37:55,034 - 'timestamp'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 338, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 335, in merge_forecast
+    #turbine_row = pd.merge(turbine_row, forecast_row, left_on='timestamp', right_on='timestamp', how='outer')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 169, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 791, in __init__
+    ) = self._get_merge_keys()
+        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\merge.py", line 1269, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 1844, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'timestamp'
+INFO - 2024-01-27 14:37:58,388 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:39:07,653 - Starting turbine_util
+INFO - 2024-01-27 14:39:07,653 - in readSQLDump
+INFO - 2024-01-27 14:39:13,330 - in cleanTurbineData
+INFO - 2024-01-27 14:39:17,796 - in combineTurbineForecast
+INFO - 2024-01-27 14:39:27,046 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:40:38,234 - Starting turbine_util
+INFO - 2024-01-27 14:40:38,234 - in readSQLDump
+INFO - 2024-01-27 14:40:43,943 - in cleanTurbineData
+INFO - 2024-01-27 14:40:48,352 - in combineTurbineForecast
+ERROR - 2024-01-27 14:40:51,416 - module 'pandas' has no attribute 'conat'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 340, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 337, in merge_forecast
+    turbine_row = pd.concat(turbine_row, forecast_row, axis=1)
+                  ^^^^^^^^
+AttributeError: module 'pandas' has no attribute 'conat'
+INFO - 2024-01-27 14:40:54,816 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:40:58,387 - Starting turbine_util
+INFO - 2024-01-27 14:40:58,388 - in readSQLDump
+INFO - 2024-01-27 14:41:03,824 - in cleanTurbineData
+INFO - 2024-01-27 14:41:08,217 - in combineTurbineForecast
+ERROR - 2024-01-27 14:41:11,143 - concat() takes 1 positional argument but 2 positional arguments (and 1 keyword-only argument) were given
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 340, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 963, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 979, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 337, in merge_forecast
+    turbine_row = pd.concat(turbine_row, forecast_row, axis=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: concat() takes 1 positional argument but 2 positional arguments (and 1 keyword-only argument) were given
+INFO - 2024-01-27 14:41:14,605 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:42:00,914 - Starting turbine_util
+INFO - 2024-01-27 14:42:00,914 - in readSQLDump
+INFO - 2024-01-27 14:42:06,433 - in cleanTurbineData
+INFO - 2024-01-27 14:42:10,753 - in combineTurbineForecast
+INFO - 2024-01-27 14:42:19,318 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:42:59,939 - Starting turbine_util
+INFO - 2024-01-27 14:42:59,939 - in readSQLDump
+INFO - 2024-01-27 14:43:05,457 - in cleanTurbineData
+INFO - 2024-01-27 14:43:10,051 - in combineTurbineForecast
+INFO - 2024-01-27 14:43:24,268 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:44:52,715 - Starting turbine_util
+INFO - 2024-01-27 14:44:52,715 - in readSQLDump
+INFO - 2024-01-27 14:44:58,342 - in cleanTurbineData
+INFO - 2024-01-27 14:45:02,675 - in combineTurbineForecast
+ERROR - 2024-01-27 14:45:11,746 - 2
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 344, in combineTurbineForecast
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 966, in apply_standard
+    return self.wrap_results(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 992, in wrap_results
+    return self.wrap_results_for_axis(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1134, in wrap_results_for_axis
+    result = self.infer_to_same_shape(results, res_index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1140, in infer_to_same_shape
+    result = self.obj._constructor(data=results)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 733, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 503, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 119, in arrays_to_mgr
+    arrays, refs = _homogenize(arrays, index, dtype)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 629, in _homogenize
+    val = sanitize_array(val, index, dtype=dtype, copy=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 620, in sanitize_array
+    return sanitize_array(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 603, in sanitize_array
+    subarr = maybe_infer_to_datetimelike(data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\dtypes\cast.py", line 1172, in maybe_infer_to_datetimelike
+    raise ValueError(value.ndim)  # pragma: no cover
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 2
+INFO - 2024-01-27 14:45:15,502 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:45:44,475 - Starting turbine_util
+INFO - 2024-01-27 14:45:44,476 - in readSQLDump
+INFO - 2024-01-27 14:45:49,895 - in cleanTurbineData
+INFO - 2024-01-27 14:45:54,124 - in combineTurbineForecast
+INFO - 2024-01-27 14:46:16,129 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:50:06,506 - Starting turbine_util
+INFO - 2024-01-27 14:50:06,506 - in readSQLDump
+INFO - 2024-01-27 14:50:12,162 - in cleanTurbineData
+INFO - 2024-01-27 14:50:16,491 - in combineTurbineForecast
+ERROR - 2024-01-27 14:50:25,355 - 2
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 342, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 966, in apply_standard
+    return self.wrap_results(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 992, in wrap_results
+    return self.wrap_results_for_axis(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1134, in wrap_results_for_axis
+    result = self.infer_to_same_shape(results, res_index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1140, in infer_to_same_shape
+    result = self.obj._constructor(data=results)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 733, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 503, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 119, in arrays_to_mgr
+    arrays, refs = _homogenize(arrays, index, dtype)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 629, in _homogenize
+    val = sanitize_array(val, index, dtype=dtype, copy=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 620, in sanitize_array
+    return sanitize_array(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 603, in sanitize_array
+    subarr = maybe_infer_to_datetimelike(data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\dtypes\cast.py", line 1172, in maybe_infer_to_datetimelike
+    raise ValueError(value.ndim)  # pragma: no cover
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 2
+INFO - 2024-01-27 14:50:28,921 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:50:57,246 - Starting turbine_util
+INFO - 2024-01-27 14:50:57,247 - in readSQLDump
+INFO - 2024-01-27 14:51:02,712 - in cleanTurbineData
+INFO - 2024-01-27 14:51:06,974 - in combineTurbineForecast
+ERROR - 2024-01-27 14:51:15,241 - 2
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 342, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 966, in apply_standard
+    return self.wrap_results(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 992, in wrap_results
+    return self.wrap_results_for_axis(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1134, in wrap_results_for_axis
+    result = self.infer_to_same_shape(results, res_index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1140, in infer_to_same_shape
+    result = self.obj._constructor(data=results)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 733, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 503, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 119, in arrays_to_mgr
+    arrays, refs = _homogenize(arrays, index, dtype)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 629, in _homogenize
+    val = sanitize_array(val, index, dtype=dtype, copy=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 620, in sanitize_array
+    return sanitize_array(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 603, in sanitize_array
+    subarr = maybe_infer_to_datetimelike(data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\dtypes\cast.py", line 1172, in maybe_infer_to_datetimelike
+    raise ValueError(value.ndim)  # pragma: no cover
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 2
+INFO - 2024-01-27 14:51:18,850 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 14:52:15,910 - Starting turbine_util
+INFO - 2024-01-27 14:52:15,910 - in readSQLDump
+INFO - 2024-01-27 14:52:21,477 - in cleanTurbineData
+INFO - 2024-01-27 14:52:25,743 - in combineTurbineForecast
+INFO - 2024-01-27 14:55:29,815 - Starting turbine_util
+INFO - 2024-01-27 14:55:29,815 - in readSQLDump
+INFO - 2024-01-27 14:55:35,367 - in cleanTurbineData
+INFO - 2024-01-27 14:55:39,648 - in combineTurbineForecast
+INFO - 2024-01-27 14:58:13,805 - Starting turbine_util
+INFO - 2024-01-27 14:58:13,805 - in readSQLDump
+INFO - 2024-01-27 14:58:19,396 - in cleanTurbineData
+INFO - 2024-01-27 14:58:23,764 - in combineTurbineForecast
+INFO - 2024-01-27 15:01:39,250 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:04:54,650 - Starting turbine_util
+INFO - 2024-01-27 15:04:54,650 - in readSQLDump
+INFO - 2024-01-27 15:05:00,076 - in cleanTurbineData
+INFO - 2024-01-27 15:05:04,325 - in combineTurbineForecast
+INFO - 2024-01-27 15:09:32,309 - Starting turbine_util
+INFO - 2024-01-27 15:09:32,310 - in readSQLDump
+INFO - 2024-01-27 15:09:37,718 - in cleanTurbineData
+INFO - 2024-01-27 15:09:41,945 - in combineTurbineForecast
+INFO - 2024-01-27 15:09:58,799 - data merged successfully in 14.50 seconds
+INFO - 2024-01-27 15:11:16,895 - Starting turbine_util
+INFO - 2024-01-27 15:11:16,895 - in readSQLDump
+INFO - 2024-01-27 15:11:22,436 - in cleanTurbineData
+INFO - 2024-01-27 15:11:26,806 - in combineTurbineForecast
+INFO - 2024-01-27 15:11:43,696 - data merged successfully in 14.52 seconds
+INFO - 2024-01-27 15:13:10,456 - Starting turbine_util
+INFO - 2024-01-27 15:13:10,456 - in readSQLDump
+INFO - 2024-01-27 15:13:16,148 - in cleanTurbineData
+INFO - 2024-01-27 15:13:20,338 - in combineTurbineForecast
+INFO - 2024-01-27 15:13:20,339 - Starting forecast_util
+INFO - 2024-01-27 15:13:31,009 - forecast_util.py finished successfully, processing 1714 files in 10.67 seconds
+INFO - 2024-01-27 15:13:45,662 - data merged successfully in 12.24 seconds
+INFO - 2024-01-27 15:14:20,054 - Starting turbine_util
+INFO - 2024-01-27 15:14:20,055 - in readSQLDump
+INFO - 2024-01-27 15:14:25,552 - in cleanTurbineData
+INFO - 2024-01-27 15:14:30,028 - in combineTurbineForecast
+INFO - 2024-01-27 15:14:30,028 - Starting forecast_util
+INFO - 2024-01-27 15:14:40,180 - forecast_util.py finished successfully, processing 1714 files in 10.15 seconds
+ERROR - 2024-01-27 15:14:52,366 - 2
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 341, in combineTurbineForecast
+    df = df.apply(merge_forecast, axis=1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 10034, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 837, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 966, in apply_standard
+    return self.wrap_results(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 992, in wrap_results
+    return self.wrap_results_for_axis(results, res_index)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1134, in wrap_results_for_axis
+    result = self.infer_to_same_shape(results, res_index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\apply.py", line 1140, in infer_to_same_shape
+    result = self.obj._constructor(data=results)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 733, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 503, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 119, in arrays_to_mgr
+    arrays, refs = _homogenize(arrays, index, dtype)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\construction.py", line 629, in _homogenize
+    val = sanitize_array(val, index, dtype=dtype, copy=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 620, in sanitize_array
+    return sanitize_array(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\construction.py", line 603, in sanitize_array
+    subarr = maybe_infer_to_datetimelike(data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\dtypes\cast.py", line 1172, in maybe_infer_to_datetimelike
+    raise ValueError(value.ndim)  # pragma: no cover
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 2
+INFO - 2024-01-27 15:14:55,932 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-27 15:16:06,717 - Starting turbine_util
+INFO - 2024-01-27 15:16:06,717 - in readSQLDump
+INFO - 2024-01-27 15:16:12,516 - in cleanTurbineData
+INFO - 2024-01-27 15:16:16,871 - in combineTurbineForecast
+INFO - 2024-01-27 15:16:16,872 - Starting forecast_util
+INFO - 2024-01-27 15:16:26,794 - forecast_util.py finished successfully, processing 1714 files in 9.92 seconds
+INFO - 2024-01-27 15:16:46,777 - data merged successfully in 17.54 seconds

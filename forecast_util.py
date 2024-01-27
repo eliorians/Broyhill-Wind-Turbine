@@ -81,7 +81,6 @@ def cleanForecastData(filepath):
             #convert timestamp to UTC timezone, this makes for easier manioulation by elimating daylight savings
             #use the endtime as the timestamp since this lines up with the turbine data
             df['timestamp'] = pd.to_datetime(df['endTime'], utc=True)
-
             #set column types
             df = df.astype(column_types)
             

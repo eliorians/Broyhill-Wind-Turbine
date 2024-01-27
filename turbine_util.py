@@ -247,7 +247,8 @@ def cleanTurbineData(df):
         df = df.astype(turbine_column_types)
 
         #aggregate hourly
-        df = df.groupby(df['timestamp'].dt.floor('H')).agg({
+        df.set_index('timestamp', inplace=True)
+        df = df.resample('H').agg({
             'WTG1_R_InvPwr_kW'               : 'mean',
             'WTG1_R_InvPwr_kW_MAX'           : 'max',
             'WTG1_R_InvPwr_kW_MIN'           : 'min',
@@ -283,9 +284,9 @@ def cleanTurbineData(df):
         }).reset_index()
 
     except FutureWarning as warning:
-        print(f"Warning: " + str(warning))
+        logger.warning(warning)
     except Exception as error:
-        print(f"Error: " + str(error))
+        logger.error(error)
 
     return df
 
@@ -312,26 +313,49 @@ def combineTurbineForecast(df):
             df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile)
             df['forecast_file_exists'] = df['forecast_file_exists'].astype(bool)
 
-            #drop calculation columns
-            # df = df.drop('timestamp_est', axis=1)
-            # df = df.drop('timestamp_est_forecast', axis=1)
+            #TODO fix the merging process here... 
 
-            #todo open the file associated with each row, if it exists, and merge column # (HOURS_TO_FORECAST) with it
-                #? how to merge single rows?
+            def merge_forecast(turbine_row):
+                if turbine_row['forecast_file_exists'] == True:
+                    #create filepath and df
+                    file_path = os.path.join('./forecast-data-processed/', turbine_row['forecast_file'])
+                    forecast_df = pd.read_csv(file_path)
+
+                    #cleanup row
+                    turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
+
+                    #itterate over forecast file
+                    for index, forecast_row in forecast_df.iterrows():
+
+                        #cleanup row
+                        forecast_row['timestamp'] = pd.to_datetime(forecast_row['timestamp'], utc=True)
+
+                        # if we find the forecast that matches the turbine time
+                        if forecast_row['timestamp'] == turbine_row['timestamp']:
+                            #merge and move on
+                            turbine_row = pd.concat([pd.DataFrame(turbine_row).T, pd.DataFrame(forecast_row).T], axis=1)
+                            return turbine_row
+                        
+                return pd.DataFrame(turbine_row).T
             
-            #select row in df (and get the filename)
+            start_time = time.time()
 
-            #open the file and select 12th row
+            df = df.apply(merge_forecast, axis=1)
+            
+            end_time = time.time()
+            runtime = end_time - start_time
+            logger.info(f"data merged successfully in {runtime:.2f} seconds")
 
-            #merge selected 12th row into df
+            print(df)
 
-            #repeat for all rows
-
+            #drop calculation columns
+            #cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
+            #df = df.drop(cols_to_drop, axis=1)
 
         except FutureWarning as warning:
-            print(f"Warning: " + str(warning))
+            logger.warning(warning)
         except Exception as error:
-            print(f"Error: " + str(error))
+            logger.exception(error)
             traceback.print_exc()
 
     return df
@@ -340,8 +364,6 @@ def main():
 
     logging_setup()
     logger.info("Starting turbine_util")
-
-    #? considering using a database...
     #setupDatabase()
 
     #read in data
