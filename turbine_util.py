@@ -312,7 +312,12 @@ def combineTurbineForecast(df):
 
             #list of rows to be merged in
             forecast_dfs = []
-            
+
+            #NOTE: forecast dfs dont always start at the time of their filetime. This may be due to the time of collected
+            #      ex: collected at 2:00pm -> first forecast is for 2:00pm-3:00pm
+            #          but if collected at 2:01pm -> first forecast is for 3:00-4:00pm
+            #          this isnt confirmed why but this is occuring
+
             #iterate turbine rows
             for _, turbine_row in df.iterrows():
                 turbine_row['timestamp'] = pd.to_datetime(turbine_row['timestamp'], utc=True)
