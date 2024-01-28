@@ -340,18 +340,20 @@ def combineTurbineForecast(df):
                             #add row to list
                             forecast_dfs.append(forecast_row)
 
-            #concat list of forecast dfs
+            #concat list of forecast dfs and clean it
             forecast_df = pd.concat(forecast_dfs, axis=0)
-
-            forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
-            forecast_df.name = 'forecast_df'
+            forecast_df.to_csv('./turbine-data-processed/forecasts.csv')
+            
+            #forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
+            #forecast_df.name = 'forecast_df'
+            
             
             #final merge
-            df = df.merge(forecast_df, on='timestamp', how='outer')
+            #df = df.merge(forecast_df, on='timestamp', how='outer')
 
             #drop calculation columns
-            cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
-            df = df.drop(cols_to_drop, axis=1)
+            #cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
+            #df = df.drop(cols_to_drop, axis=1)
 
         except FutureWarning as warning:
             logger.warning(warning)

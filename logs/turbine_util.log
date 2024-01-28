@@ -9978,3 +9978,81 @@ Traceback (most recent call last):
     raise KeyError(key) from err
 KeyError: 'timestamp'
 INFO - 2024-01-27 15:58:49,866 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 09:41:16,626 - Starting turbine_util
+INFO - 2024-01-28 09:41:16,626 - in readSQLDump
+INFO - 2024-01-28 09:41:22,120 - in cleanTurbineData
+INFO - 2024-01-28 09:41:26,370 - in combineTurbineForecast
+INFO - 2024-01-28 09:41:26,370 - Starting forecast_util
+INFO - 2024-01-28 09:41:43,493 - forecast_util.py finished successfully, processing 1732 files in 17.12 seconds
+ERROR - 2024-01-28 09:42:28,628 - 'timestamp'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 160, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 70, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'timestamp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 345, in combineTurbineForecast
+    forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
+                                              ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'timestamp'
+INFO - 2024-01-28 09:42:32,108 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 09:42:56,305 - Starting turbine_util
+INFO - 2024-01-28 09:42:56,306 - in readSQLDump
+INFO - 2024-01-28 09:43:01,746 - in cleanTurbineData
+INFO - 2024-01-28 09:43:06,013 - in combineTurbineForecast
+INFO - 2024-01-28 09:43:06,014 - Starting forecast_util
+INFO - 2024-01-28 09:43:15,463 - forecast_util.py finished successfully, processing 1732 files in 9.45 seconds
+INFO - 2024-01-28 09:44:02,624 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 09:44:47,984 - Starting turbine_util
+INFO - 2024-01-28 09:44:47,984 - in readSQLDump
+INFO - 2024-01-28 09:44:53,516 - in cleanTurbineData
+INFO - 2024-01-28 09:44:57,766 - in combineTurbineForecast
+INFO - 2024-01-28 09:44:57,767 - Starting forecast_util
+INFO - 2024-01-28 09:45:07,214 - forecast_util.py finished successfully, processing 1732 files in 9.45 seconds
+INFO - 2024-01-28 09:45:54,403 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 09:46:39,816 - Starting turbine_util
+INFO - 2024-01-28 09:46:39,817 - in readSQLDump
+INFO - 2024-01-28 09:46:45,533 - in cleanTurbineData
+INFO - 2024-01-28 09:46:50,056 - in combineTurbineForecast
+INFO - 2024-01-28 09:46:50,057 - Starting forecast_util
+INFO - 2024-01-28 09:47:00,289 - forecast_util.py finished successfully, processing 1732 files in 10.23 seconds
+ERROR - 2024-01-28 09:47:46,457 - No axis named 2 for object type DataFrame
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 552, in _get_axis_number
+    return cls._AXIS_TO_AXIS_NUMBER[axis]
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 344, in combineTurbineForecast
+    forecast_df = pd.concat(forecast_dfs, axis=0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\concat.py", line 380, in concat
+    op = _Concatenator(
+         ^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\reshape\concat.py", line 453, in __init__
+    axis = DataFrame._get_axis_number(axis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 554, in _get_axis_number
+    raise ValueError(f"No axis named {axis} for object type {cls.__name__}")
+ValueError: No axis named 2 for object type DataFrame
+INFO - 2024-01-28 09:47:53,244 - Starting turbine_util
+INFO - 2024-01-28 09:47:53,244 - in readSQLDump
+INFO - 2024-01-28 09:47:58,716 - in cleanTurbineData
+INFO - 2024-01-28 09:48:02,941 - in combineTurbineForecast
+INFO - 2024-01-28 09:48:02,942 - Starting forecast_util
+INFO - 2024-01-28 09:48:12,338 - forecast_util.py finished successfully, processing 1732 files in 9.40 seconds
+INFO - 2024-01-28 09:48:59,492 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
