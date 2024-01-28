@@ -10056,3 +10056,33 @@ INFO - 2024-01-28 09:48:02,941 - in combineTurbineForecast
 INFO - 2024-01-28 09:48:02,942 - Starting forecast_util
 INFO - 2024-01-28 09:48:12,338 - forecast_util.py finished successfully, processing 1732 files in 9.40 seconds
 INFO - 2024-01-28 09:48:59,492 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 09:51:37,334 - Starting turbine_util
+INFO - 2024-01-28 09:51:37,335 - in readSQLDump
+INFO - 2024-01-28 09:51:42,844 - in cleanTurbineData
+INFO - 2024-01-28 09:51:47,082 - in combineTurbineForecast
+INFO - 2024-01-28 09:52:31,049 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 09:58:13,899 - Starting turbine_util
+INFO - 2024-01-28 09:58:13,899 - in readSQLDump
+INFO - 2024-01-28 09:58:19,432 - in cleanTurbineData
+INFO - 2024-01-28 09:58:23,744 - in combineTurbineForecast
+INFO - 2024-01-28 09:58:33,058 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 10:01:58,797 - Starting turbine_util
+INFO - 2024-01-28 10:01:58,797 - in readSQLDump
+INFO - 2024-01-28 10:02:04,343 - in cleanTurbineData
+INFO - 2024-01-28 10:02:08,780 - in combineTurbineForecast
+INFO - 2024-01-28 10:02:54,403 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 10:03:59,849 - Starting turbine_util
+INFO - 2024-01-28 10:03:59,849 - in readSQLDump
+INFO - 2024-01-28 10:04:05,403 - in cleanTurbineData
+INFO - 2024-01-28 10:04:09,694 - in combineTurbineForecast
+INFO - 2024-01-28 10:04:54,282 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 10:12:50,040 - Starting turbine_util
+INFO - 2024-01-28 10:12:50,040 - in readSQLDump
+INFO - 2024-01-28 10:12:55,850 - in cleanTurbineData
+INFO - 2024-01-28 10:13:00,282 - in combineTurbineForecast
+INFO - 2024-01-28 10:13:43,949 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-01-28 10:14:53,096 - Starting turbine_util
+INFO - 2024-01-28 10:14:53,096 - in readSQLDump
+INFO - 2024-01-28 10:14:58,580 - in cleanTurbineData
+INFO - 2024-01-28 10:15:02,889 - in combineTurbineForecast
+INFO - 2024-01-28 10:15:47,356 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"

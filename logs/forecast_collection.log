@@ -4298,3 +4298,4 @@ DEBUG - 2024-01-28 09:00:01,166 - https://api.weather.gov:443 "GET /gridpoints/R
 DEBUG - 2024-01-28 09:00:11,169 - Starting new HTTPS connection (1): api.weather.gov:443
 DEBUG - 2024-01-28 09:00:11,805 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5345
 INFO - 2024-01-28 09:00:11,815 - Data successfully saved to forecast-data\forecast_01-28-2024_09-00-11.json
+INFO - 2024-01-28 09:49:22,575 - Starting forecast collection
