@@ -335,7 +335,14 @@ def combineTurbineForecast(df):
 
                         # find the row in the forecast df that goes with current turbine row
                         if forecast_row['timestamp'] == turbine_row['timestamp']:
-                            #add row to list
+                            
+                            #TODO: add _0 to each non timestamp column in target row. This is our base row
+                            #      -> grab row above this one in the forecast_df 
+                            #      -> drop timestamp
+                            #      -> add_1 to end of each column
+                            #      -> add to end of current row
+                            #      -> repeat until we get to _11 (selecting 12 rows in total)
+                            
                             forecast_dfs.append(forecast_row)
 
             #concat list of forecast dfs and clean it
