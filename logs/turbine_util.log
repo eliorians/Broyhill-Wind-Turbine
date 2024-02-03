@@ -10086,3 +10086,167 @@ INFO - 2024-01-28 10:14:53,096 - in readSQLDump
 INFO - 2024-01-28 10:14:58,580 - in cleanTurbineData
 INFO - 2024-01-28 10:15:02,889 - in combineTurbineForecast
 INFO - 2024-01-28 10:15:47,356 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:19:50,109 - Starting turbine_util
+INFO - 2024-02-03 13:19:50,111 - in readSQLDump
+INFO - 2024-02-03 13:20:32,100 - Starting turbine_util
+INFO - 2024-02-03 13:20:32,100 - in readSQLDump
+INFO - 2024-02-03 13:20:37,707 - in cleanTurbineData
+INFO - 2024-02-03 13:20:42,013 - in combineTurbineForecast
+ERROR - 2024-02-03 13:20:48,628 - index 0 is out of bounds for axis 0 with size 0
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 336, in combineTurbineForecast
+    selected_rows = forecast_df.iloc[max(0, forecast_index[0] - HOURS_TO_FORECAST-1): forecast_index[0] + 1]
+                                            ~~~~~~~~~~~~~~^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 5365, in __getitem__
+    return getitem(key)
+           ^^^^^^^^^^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+INFO - 2024-02-03 13:20:51,796 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:22:03,131 - Starting turbine_util
+INFO - 2024-02-03 13:22:03,131 - in readSQLDump
+INFO - 2024-02-03 13:22:08,527 - in cleanTurbineData
+INFO - 2024-02-03 13:22:12,755 - in combineTurbineForecast
+INFO - 2024-02-03 13:24:04,725 - Starting turbine_util
+INFO - 2024-02-03 13:24:04,726 - in readSQLDump
+INFO - 2024-02-03 13:24:10,179 - in cleanTurbineData
+INFO - 2024-02-03 13:24:14,538 - in combineTurbineForecast
+INFO - 2024-02-03 13:24:55,102 - Starting turbine_util
+INFO - 2024-02-03 13:24:55,102 - in readSQLDump
+INFO - 2024-02-03 13:25:00,519 - in cleanTurbineData
+INFO - 2024-02-03 13:25:04,752 - in combineTurbineForecast
+INFO - 2024-02-03 13:25:51,120 - Starting turbine_util
+INFO - 2024-02-03 13:25:51,120 - in readSQLDump
+INFO - 2024-02-03 13:25:56,490 - in cleanTurbineData
+INFO - 2024-02-03 13:26:00,646 - in combineTurbineForecast
+INFO - 2024-02-03 13:33:29,591 - Starting turbine_util
+INFO - 2024-02-03 13:33:29,592 - in readSQLDump
+INFO - 2024-02-03 13:33:35,015 - in cleanTurbineData
+INFO - 2024-02-03 13:33:41,219 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:33:41,231 - in combineTurbineForecast
+INFO - 2024-02-03 13:35:28,261 - Starting turbine_util
+INFO - 2024-02-03 13:35:28,262 - in readSQLDump
+INFO - 2024-02-03 13:35:33,606 - in cleanTurbineData
+INFO - 2024-02-03 13:35:39,822 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:35:39,835 - in combineTurbineForecast
+INFO - 2024-02-03 13:37:35,613 - Starting turbine_util
+INFO - 2024-02-03 13:37:35,614 - in readSQLDump
+INFO - 2024-02-03 13:37:41,119 - in cleanTurbineData
+INFO - 2024-02-03 13:37:47,462 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:37:47,475 - in combineTurbineForecast
+INFO - 2024-02-03 13:43:55,875 - Starting turbine_util
+INFO - 2024-02-03 13:43:55,875 - in readSQLDump
+INFO - 2024-02-03 13:44:01,476 - in cleanTurbineData
+INFO - 2024-02-03 13:44:07,934 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:44:07,945 - in combineTurbineForecast
+INFO - 2024-02-03 13:45:48,020 - Starting turbine_util
+INFO - 2024-02-03 13:45:48,020 - in readSQLDump
+INFO - 2024-02-03 13:45:53,624 - in cleanTurbineData
+INFO - 2024-02-03 13:46:00,441 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:46:00,453 - in combineTurbineForecast
+INFO - 2024-02-03 13:46:25,607 - Starting turbine_util
+INFO - 2024-02-03 13:46:25,607 - in readSQLDump
+INFO - 2024-02-03 13:46:31,104 - in cleanTurbineData
+INFO - 2024-02-03 13:46:37,392 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:46:37,404 - in combineTurbineForecast
+INFO - 2024-02-03 13:51:26,054 - Starting turbine_util
+INFO - 2024-02-03 13:51:26,054 - in readSQLDump
+INFO - 2024-02-03 13:51:31,486 - in cleanTurbineData
+INFO - 2024-02-03 13:51:37,742 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 13:51:37,757 - in combineTurbineForecast
+ERROR - 2024-02-03 13:51:43,036 - 'Series' object has no attribute 'columns'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 348, in combineTurbineForecast
+    new_columns = [f'{t0}_{t1}' for t0, t1 in forecast_df.columns]
+                                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+INFO - 2024-02-03 13:51:45,950 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 15:01:40,111 - Starting turbine_util
+INFO - 2024-02-03 15:01:40,111 - in readSQLDump
+INFO - 2024-02-03 15:01:45,460 - in cleanTurbineData
+INFO - 2024-02-03 15:01:51,709 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:01:51,722 - in combineTurbineForecast
+ERROR - 2024-02-03 15:01:57,007 - too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 348, in combineTurbineForecast
+    new_columns = [f'{t0}_{t1}' for t0, t1 in forecast_df.columns]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 348, in <listcomp>
+    new_columns = [f'{t0}_{t1}' for t0, t1 in forecast_df.columns]
+                                    ^^^^^^
+ValueError: too many values to unpack (expected 2)
+INFO - 2024-02-03 15:01:59,918 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 15:03:08,649 - Starting turbine_util
+INFO - 2024-02-03 15:03:08,649 - in readSQLDump
+INFO - 2024-02-03 15:03:16,034 - Starting turbine_util
+INFO - 2024-02-03 15:03:16,035 - in readSQLDump
+INFO - 2024-02-03 15:03:21,386 - in cleanTurbineData
+INFO - 2024-02-03 15:03:27,617 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:03:27,632 - in combineTurbineForecast
+INFO - 2024-02-03 15:05:51,019 - Starting turbine_util
+INFO - 2024-02-03 15:05:51,019 - in readSQLDump
+INFO - 2024-02-03 15:05:56,519 - in cleanTurbineData
+INFO - 2024-02-03 15:06:02,971 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:06:02,984 - in combineTurbineForecast
+INFO - 2024-02-03 15:06:22,127 - Starting turbine_util
+INFO - 2024-02-03 15:06:22,127 - in readSQLDump
+INFO - 2024-02-03 15:06:27,706 - in cleanTurbineData
+INFO - 2024-02-03 15:06:34,179 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:06:34,190 - in combineTurbineForecast
+INFO - 2024-02-03 15:06:59,752 - Starting turbine_util
+INFO - 2024-02-03 15:06:59,752 - in readSQLDump
+INFO - 2024-02-03 15:07:05,157 - in cleanTurbineData
+INFO - 2024-02-03 15:07:11,364 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:07:11,376 - in combineTurbineForecast
+INFO - 2024-02-03 15:07:58,436 - Starting turbine_util
+INFO - 2024-02-03 15:07:58,436 - in readSQLDump
+INFO - 2024-02-03 15:08:03,792 - in cleanTurbineData
+INFO - 2024-02-03 15:08:10,040 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:08:10,052 - in combineTurbineForecast
+ERROR - 2024-02-03 15:08:15,483 - 'Series' object has no attribute 'columns'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 350, in combineTurbineForecast
+    new_columns = [f'{column}_{index}' for index, column in forecast_df.columns]
+                                                            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+INFO - 2024-02-03 15:08:18,442 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 15:10:53,974 - Starting turbine_util
+INFO - 2024-02-03 15:10:53,974 - in readSQLDump
+INFO - 2024-02-03 15:10:59,514 - in cleanTurbineData
+INFO - 2024-02-03 15:11:05,852 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:11:05,864 - in combineTurbineForecast
+ERROR - 2024-02-03 15:11:11,511 - 'Series' object has no attribute 'columns'
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 350, in combineTurbineForecast
+    new_columns = [f'{column}_{index}' for index, column in forecast_df.index]
+                                                            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+INFO - 2024-02-03 15:11:14,474 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 15:11:17,174 - Starting turbine_util
+INFO - 2024-02-03 15:11:17,174 - in readSQLDump
+INFO - 2024-02-03 15:11:22,580 - in cleanTurbineData
+INFO - 2024-02-03 15:11:28,826 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:11:28,839 - in combineTurbineForecast
+INFO - 2024-02-03 15:13:47,063 - Starting turbine_util
+INFO - 2024-02-03 15:13:47,063 - in readSQLDump
+INFO - 2024-02-03 15:13:52,546 - in cleanTurbineData
+INFO - 2024-02-03 15:13:58,864 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:13:58,876 - in combineTurbineForecast
+INFO - 2024-02-03 15:16:18,296 - Starting turbine_util
+INFO - 2024-02-03 15:16:18,296 - in readSQLDump
+INFO - 2024-02-03 15:16:23,753 - in cleanTurbineData
+INFO - 2024-02-03 15:16:30,190 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:16:30,203 - in combineTurbineForecast
+INFO - 2024-02-03 15:18:20,317 - Starting turbine_util
+INFO - 2024-02-03 15:18:20,318 - in readSQLDump
+INFO - 2024-02-03 15:18:25,656 - in cleanTurbineData
+INFO - 2024-02-03 15:18:32,000 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 15:18:32,012 - in combineTurbineForecast

@@ -288,6 +288,9 @@ def cleanTurbineData(df):
     except Exception as error:
         logger.error(error)
 
+    df.to_csv('./turbine-data-processed/cleanedFrames.csv')
+    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"')
+
     return df
 
 def combineTurbineForecast(df):
@@ -311,7 +314,7 @@ def combineTurbineForecast(df):
             df['forecast_file_exists'] = df['forecast_file'].apply(findForecastFile).astype(bool)
 
             #list of rows to be merged in
-            forecast_dfs = []
+            #forecast_dfs = []
 
             #NOTE: forecast dfs dont always start at the time of their filetime. This may be due to the time of collected
             #      ex: collected at 2:00pm -> first forecast is for 2:00pm-3:00pm
@@ -324,35 +327,53 @@ def combineTurbineForecast(df):
 
                 #if forecast file exists for the current turbine_row
                 if turbine_row['forecast_file_exists'] == True:
-
+                    
                     #create filepath, and turn to df
                     file_path = os.path.join('./forecast-data-processed/', turbine_row['forecast_file'])
                     forecast_df = pd.read_csv(file_path)
+                    forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
+                    #locate index of matching timestamp
+                    forecast_index = forecast_df[forecast_df['timestamp'] == turbine_row['timestamp']].index
+                    #calculate start and end index for the rows around the matching timestamp we want to use
+                    start_index = max(0, forecast_index[0] - HOURS_TO_FORECAST - 1)
+                    end_index = forecast_index[0] + 1
+                    #select rows and sort into reverse order so the matching forecast is at 0
+                    forecast_df = forecast_df.iloc[start_index: end_index].sort_index(ascending=False)
+                    #clean up index (make index 0 to n-1 starting with matching forecast)
+                    forecast_df.reset_index(drop=True, inplace=True)
+                    forecast_df.drop(columns=['Unnamed: 0', 'timestamp'], inplace=True)
+                    #stack to create multi index
+                    forecast_df = forecast_df.stack()
+                    #get new column names in the form of column_0 for row 0 and so on
+                    new_columns = [f'{column}_{index}' for index, column in forecast_df.index]
+                    #set columns and transform back to frame
+                    forecast_df.index = new_columns
+                    forecast_df = forecast_df.to_frame().T            
+                    #add timestamp back in for merging
+                    forecast_df['timestamp'] = turbine_row['timestamp']
+                    forecast_df.to_csv('./turbine-data-processed/forecast_test.csv')
+                    exit()
 
+                    #todo merge in (similiar to the old way?)
+
+                    #OLD WAY
                     #itterate over forecast file
-                    for _, forecast_row in forecast_df.iterrows():
-                        forecast_row['timestamp'] = pd.to_datetime(forecast_row['timestamp'], utc=True)
+                    # for _, forecast_row in forecast_df.iterrows():
+                    #     forecast_row['timestamp'] = pd.to_datetime(forecast_row['timestamp'], utc=True)
 
                         # find the row in the forecast df that goes with current turbine row
-                        if forecast_row['timestamp'] == turbine_row['timestamp']:
+            #             if forecast_row['timestamp'] == turbine_row['timestamp']:
                             
-                            #TODO: add _0 to each non timestamp column in target row. This is our base row
-                            #      -> grab row above this one in the forecast_df 
-                            #      -> drop timestamp
-                            #      -> add_1 to end of each column
-                            #      -> add to end of current row
-                            #      -> repeat until we get to _11 (selecting 12 rows in total)
-                            
-                            forecast_dfs.append(forecast_row)
+            #                 forecast_dfs.append(forecast_row)
 
-            #concat list of forecast dfs and clean it
-            forecast_df = pd.concat(forecast_dfs, axis=1)
-            forecast_df = forecast_df.T
-            forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
-            #forecast_df.to_csv('./turbine-data-processed/forecasts.csv')
+            # #concat list of forecast dfs and clean it
+            # forecast_df = pd.concat(forecast_dfs, axis=1)
+            # forecast_df = forecast_df.T
+            # forecast_df['timestamp'] = pd.to_datetime(forecast_df['timestamp'], utc=True)
+            # #forecast_df.to_csv('./turbine-data-processed/forecasts.csv')
             
-            #final merge
-            df = df.merge(forecast_df, on='timestamp', how='outer')
+            # #final merge
+            # df = df.merge(forecast_df, on='timestamp', how='outer')
 
             #drop calculation columns
             #cols_to_drop = ['timestamp_est', 'timestamp_est_forecast', 'forecast_file', 'forecast_file_exists']
@@ -364,6 +385,8 @@ def combineTurbineForecast(df):
             logger.exception(error)
             traceback.print_exc()
 
+    df.to_csv('./turbine-data-processed/combinedFrames.csv')
+    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"')
     return df
 
 def main():
@@ -380,10 +403,6 @@ def main():
 
     #combine with forecast data
     df = combineTurbineForecast(df)
-
-    #output
-    df.to_csv('./turbine-data-processed/cleanedFrames.csv')
-    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"')
 
     return df
 
