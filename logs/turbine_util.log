@@ -10278,3 +10278,50 @@ INFO - 2024-02-03 15:44:42,126 - in cleanTurbineData
 INFO - 2024-02-03 15:44:48,352 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
 INFO - 2024-02-03 15:44:48,365 - in combineTurbineForecast
 INFO - 2024-02-03 15:44:58,171 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 16:12:18,122 - Starting turbine_util
+INFO - 2024-02-03 16:12:18,122 - in readSQLDump
+INFO - 2024-02-03 16:12:23,585 - in cleanTurbineData
+INFO - 2024-02-03 16:12:30,042 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 16:12:30,055 - in combineTurbineForecast
+INFO - 2024-02-03 16:12:30,058 - Starting forecast_util
+INFO - 2024-02-03 16:12:51,899 - forecast_util.py finished successfully, processing 1883 files in 21.84 seconds
+INFO - 2024-02-03 16:13:04,663 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 16:14:17,898 - Starting turbine_util
+INFO - 2024-02-03 16:14:17,898 - in readSQLDump
+INFO - 2024-02-03 16:14:23,373 - in cleanTurbineData
+INFO - 2024-02-03 16:14:29,771 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 16:14:29,788 - in combineTurbineForecast
+INFO - 2024-02-03 16:14:29,789 - Starting forecast_util
+INFO - 2024-02-03 16:14:40,471 - forecast_util.py finished successfully, processing 1883 files in 10.68 seconds
+INFO - 2024-02-03 16:14:52,021 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 16:14:52,056 - in trimData
+INFO - 2024-02-03 16:14:52,076 - Turbine data cleaned and saved to "./turbine-data-processed/trimmedFrames.csv"
+INFO - 2024-02-03 16:16:20,996 - Starting turbine_util
+INFO - 2024-02-03 16:16:20,996 - in readSQLDump
+INFO - 2024-02-03 16:16:26,492 - in cleanTurbineData
+INFO - 2024-02-03 16:16:32,747 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 16:16:32,760 - in combineTurbineForecast
+INFO - 2024-02-03 16:16:32,761 - Starting forecast_util
+INFO - 2024-02-03 16:16:43,316 - forecast_util.py finished successfully, processing 1883 files in 10.55 seconds
+INFO - 2024-02-03 16:16:55,001 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 16:16:55,033 - in trimData
+INFO - 2024-02-03 16:17:27,559 - Starting turbine_util
+INFO - 2024-02-03 16:17:27,559 - in readSQLDump
+INFO - 2024-02-03 16:17:32,895 - in cleanTurbineData
+INFO - 2024-02-03 16:17:39,098 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 16:17:39,111 - in combineTurbineForecast
+INFO - 2024-02-03 16:17:39,111 - Starting forecast_util
+INFO - 2024-02-03 16:17:49,516 - forecast_util.py finished successfully, processing 1883 files in 10.40 seconds
+INFO - 2024-02-03 16:18:00,987 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 16:18:01,025 - in trimData
+INFO - 2024-02-03 16:18:01,045 - Turbine data cleaned and saved to "./turbine-data-processed/trimmedFrames.csv"
+INFO - 2024-02-03 16:19:46,558 - Starting turbine_util
+INFO - 2024-02-03 16:19:46,558 - in readSQLDump
+INFO - 2024-02-03 16:19:52,052 - in cleanTurbineData
+INFO - 2024-02-03 16:19:58,711 - Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"
+INFO - 2024-02-03 16:19:58,723 - in combineTurbineForecast
+INFO - 2024-02-03 16:19:58,723 - Starting forecast_util
+INFO - 2024-02-03 16:20:09,771 - forecast_util.py finished successfully, processing 1883 files in 11.05 seconds
+INFO - 2024-02-03 16:20:22,443 - Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"
+INFO - 2024-02-03 16:20:22,477 - in trimData
+INFO - 2024-02-03 16:20:22,497 - Turbine data cleaned and saved to "./turbine-data-processed/trimmedFrames.csv"

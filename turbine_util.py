@@ -377,9 +377,28 @@ def combineTurbineForecast(df):
     return df
 
 def trimData(df):
+    logger.info("in trimData")
+ 
+    #error catching
+    with warnings.catch_warnings():
+        warnings.filterwarnings("error", category=FutureWarning)
+        try:
 
-    
+            #trim down to the first forecast value and beyond
+            firstForecast_index = df['forecast_file_exists'].idxmax()
+            df = df.loc[firstForecast_index:]
+            df.reset_index(drop=True, inplace=True)
 
+            #todo fill in missing data
+
+        except FutureWarning as warning:
+            logger.warning(warning)
+        except Exception as error:
+            logger.exception(error)
+            traceback.print_exc()
+
+    df.to_csv('./turbine-data-processed/trimmedFrames.csv')
+    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/trimmedFrames.csv"')
     return df
 
 def main():
