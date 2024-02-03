@@ -26,10 +26,13 @@ def main():
     
     #process turbine data and get dataframe
     df = turbine_util.main
-    
-    #todo train/test split (80/20)
+
+    #todo split off, saving some to be used as validation
     # train_size = int(len(df) * 0.8)
     # train_data, test_data = df.iloc[:train_size], df.iloc[train_size:]
+
+    
+
 
 
 if __name__ == "__main__":
