@@ -30,7 +30,6 @@ def main():
     #todo split off, saving some to be used as validation
     # train_size = int(len(df) * 0.8)
     # train_data, test_data = df.iloc[:train_size], df.iloc[train_size:]
-
     
 
 
