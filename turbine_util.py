@@ -3,11 +3,12 @@ import os
 import time
 import traceback
 import warnings
-from mysqlx import OperationalError
 import pandas as pd
 import logging
 import pytz
-from sqlalchemy import create_engine
+#database imports
+#from mysqlx import OperationalError
+#from sqlalchemy import create_engine
 
 import forecast_util
 
@@ -193,17 +194,17 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
     
-def setupDatabase():
-    logger.info("in setupDatabase")
+# def setupDatabase():
+#     logger.info("in setupDatabase")
 
-    try:
-        database_url = 'mysql+mysqlconnector://root:password@localhost:3306/broyhill_turbine'
-        engine = create_engine(database_url)
+#     try:
+#         database_url = 'mysql+mysqlconnector://root:password@localhost:3306/broyhill_turbine'
+#         engine = create_engine(database_url)
 
-        with engine.connect() as connection:
-            print("Connected to the database successfully.")
-    except Exception as e:
-        print(f"Error connecting to the database: {e}")
+#         with engine.connect() as connection:
+#             print("Connected to the database successfully.")
+#     except Exception as e:
+#         print(f"Error connecting to the database: {e}")
 
 #read the main frames.csv SQL dump file
 def readSQLDump():
@@ -289,7 +290,7 @@ def cleanTurbineData(df):
         logger.error(error)
 
     df.to_csv('./turbine-data-processed/cleanedFrames.csv')
-    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/cleanedFrames.csv"')
+    logger.info('"./turbine-data-processed/cleanedFrames.csv" saved successfully')
 
     return df
 
@@ -373,7 +374,7 @@ def combineTurbineForecast(df):
             traceback.print_exc()
 
     df.to_csv('./turbine-data-processed/combinedFrames.csv')
-    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/combinedFrames.csv"')
+    logger.info('"./turbine-data-processed/combinedFrames.csv" saved successfully')
     return df
 
 def trimData(df):
@@ -398,7 +399,7 @@ def trimData(df):
             traceback.print_exc()
 
     df.to_csv('./turbine-data-processed/trimmedFrames.csv')
-    logger.info('Turbine data cleaned and saved to "./turbine-data-processed/trimmedFrames.csv"')
+    logger.info('"./turbine-data-processed/trimmedFrames.csv" saved successfully')
     return df
 
 def main():
@@ -419,6 +420,8 @@ def main():
     #todo: trim dataframe down to the data that will be used to train with
     df = trimData(df)
 
+    df.to_csv('./turbine-data-processed/finalFrames.csv')
+    logger.info('"./turbine-data-processed/finalFrames.csv" saved successfully')
     return df
 
 if __name__ == "__main__":
