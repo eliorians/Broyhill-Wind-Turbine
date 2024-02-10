@@ -1,17 +1,44 @@
 
+import csv
 import os
 import logging
 import time
-import warnings
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error, r2_score
 import turbine_util
 
-
 logger = logging.getLogger('main')
+
+#! CONFIG
+
+#weather plots should appear or not
+showPlot=True
+
+#how often the data should be reprocessed
+threshold_minutes=60
+
+#size of split
+split=.2
+
+#target to train and plot
+target = 'WTG1_R_InvPwr_kW'
+
+#list of features to train and plot
+features = ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
+
+#select the model type from model_list
+model_list = {
+'linear_regression': LinearRegression(),
+'random_forest': RandomForestRegressor(),
+}
+
+model_type='linear_regression'
+
+#! END CONFIG
 
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
@@ -40,22 +67,24 @@ def dataProcessed(file_path, threshold_minutes=20):
     else:
         return False
 
-def plotFeatures(df):
+def plotFeatures(df, showPlot, target, features):
     logger.info("in plotFeatures")
-    warnings.filterwarnings("ignore")
     
+    #get x axis
     xAxis = df['timestamp']
-    featuresToPlot=['WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-
-    for feature in featuresToPlot:
+    #plot the target
+    plt.plot(xAxis, df[target], label=target, color='red')
+    #plot features
+    for feature in features:
         plt.plot(xAxis, df[feature], label=feature)
-
+    #show plot
     plt.xlabel('Timestamp')
     plt.ylabel('Value')
     plt.title('Plot of Features')
     plt.legend()
     plt.savefig('./plots/features_plot.png')
-    #plt.show()
+    if (showPlot):
+        plt.show()
     return
 
 
@@ -72,53 +101,68 @@ def train_test_split(df, split):
     return train_df, test_df
 
 
-def train_linear_regression(train_df, test_df):
-    logger.info("in train_linear_regression")
+def train_eval_model(train_df, test_df, target, features, model_list, model_type):
+    logger.info("in train_eval_model")
 
-    # select features for training and target variable
-    features = ['windSpeed_mph_0']
-    target = 'WTG1_R_InvPwr_kW'
+    model = model_list.get(model_type)
 
     # split train and test data into features and target
     x_train, y_train = train_df[features], train_df[target]
     x_test, y_test = test_df[features], test_df[target]
 
     # initialize and train the linear regression model
-    model = LinearRegression()
     model.fit(x_train, y_train)
 
     # predict on the test set
     y_pred = model.predict(x_test)
 
-    # Evaluate the model
+    # evaluate the model
+    cur_time = time.time()
     mse = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
+    mae = mean_absolute_error(y_test, y_pred)
+    mape = mean_absolute_percentage_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
 
+    #log evaluation metrics
     logger.info(f"Model: {model}")
     logger.info(f"Mean Squared Error: {mse}")
+    logger.info(f"Root Mean Squared Error: {rmse}")
+    logger.info(f"Mean Absolute Error: {mae}")    
+    logger.info(f"Mean Absolute Percentage Error: {mape}")
     logger.info(f"R^2 Score: {r2}")
+
+    with open('./model-data/eval.txt', "a") as f:
+        f.write(f"Model: {model}\n")
+        f.write(f"Date Trained: {cur_time}\n")
+        f.write(f"Mean Squared Error: {mse}\n")
+        f.write(f"Root Mean Squared Error: {rmse}\n")
+        f.write(f"Mean Absolute Error: {mae}\n")
+        f.write(f"Mean Absolute Percentage Error: {mape}\n")
+        f.write(f"R^2 Error: {r2}\n")
+        f.write(f"Features: {features}\n")
+        f.write("\n")
 
 def main():
     logging_setup()
-    logger.info("Starting main")
+    logger.info("Starting main")    
     
     #process turbine data and get dataframe
     #if the data has been processed recently then dont do it again
     data_path='./turbine-data-processed/finalFrames.csv'
-    if (dataProcessed(data_path, threshold_minutes=20) == True):
+    if (dataProcessed(data_path, threshold_minutes) == True):
         df = pd.read_csv(data_path)
     else:
         df = turbine_util.main()
         
+    #train/test split
+    train_df, test_df = train_test_split(df, split)
 
     #plot various features against the target (WTG1_R_InvPwr_kW)
-    plotFeatures(df)
-
-    #train/test split
-    train_df, test_df = train_test_split(df, split=.2)
+    plotFeatures(df, showPlot, target, features)
 
     #train & evaluate the model
-    train_linear_regression(train_df, test_df)
+    train_eval_model(train_df, test_df, target, features, model_list, model_type)
 
 
 if __name__ == "__main__":

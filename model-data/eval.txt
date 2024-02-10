@@ -1,0 +1,27 @@
+Model: LinearRegression()
+Date Trained: 1707590691.1888204
+Mean Squared Error: 63.803589871521645
+Root Mean Squared Error: 7.987714934292638
+Mean Absolute Error: 5.5254654803818815
+Mean Absolute Percentage Error: 25.074971116222716
+R^2 Error: 0.41818935242930266
+Features: ['windSpeed_mph_0']
+
+Model: RandomForestRegressor()
+Date Trained: 1707591337.2495408
+Mean Squared Error: 59.6077156826067
+Root Mean Squared Error: 7.720603323743987
+Mean Absolute Error: 4.520775815572776
+Mean Absolute Percentage Error: 14.688881880444914
+R^2 Error: 0.45645058951476325
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1707591739.9014645
+Mean Squared Error: 63.328498131080295
+Root Mean Squared Error: 7.957920465239665
+Mean Absolute Error: 5.66145370224226
+Mean Absolute Percentage Error: 26.637614053116586
+R^2 Error: 0.4225216076161703
+Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
+
