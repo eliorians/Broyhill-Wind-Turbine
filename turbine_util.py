@@ -6,9 +6,6 @@ import warnings
 import pandas as pd
 import logging
 import pytz
-#database imports
-#from mysqlx import OperationalError
-#from sqlalchemy import create_engine
 
 import forecast_util
 
@@ -193,18 +190,6 @@ def logging_setup():
             logging.StreamHandler(),  # Send log messages to the console
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
-    
-# def setupDatabase():
-#     logger.info("in setupDatabase")
-
-#     try:
-#         database_url = 'mysql+mysqlconnector://root:password@localhost:3306/broyhill_turbine'
-#         engine = create_engine(database_url)
-
-#         with engine.connect() as connection:
-#             print("Connected to the database successfully.")
-#     except Exception as e:
-#         print(f"Error connecting to the database: {e}")
 
 #read the main frames.csv SQL dump file
 def readSQLDump():
@@ -289,8 +274,8 @@ def cleanTurbineData(df):
     except Exception as error:
         logger.error(error)
 
-    df.to_csv('./turbine-data-processed/cleanedFrames.csv')
-    logger.info('"./turbine-data-processed/cleanedFrames.csv" saved successfully')
+    #df.to_csv('./turbine-data-processed/cleanedFrames.csv')
+    #logger.info('"./turbine-data-processed/cleanedFrames.csv" saved successfully')
 
     return df
 
@@ -373,8 +358,8 @@ def combineTurbineForecast(df):
             logger.exception(error)
             traceback.print_exc()
 
-    df.to_csv('./turbine-data-processed/combinedFrames.csv')
-    logger.info('"./turbine-data-processed/combinedFrames.csv" saved successfully')
+    #df.to_csv('./turbine-data-processed/combinedFrames.csv')
+    #logger.info('"./turbine-data-processed/combinedFrames.csv" saved successfully')
     return df
 
 def trimData(df):
@@ -390,7 +375,8 @@ def trimData(df):
             df = df.loc[firstForecast_index:]
             df.reset_index(drop=True, inplace=True)
 
-            #todo drop missing data
+            #drop rows with missing data
+            df = df.dropna()
 
         except FutureWarning as warning:
             logger.warning(warning)
@@ -398,8 +384,8 @@ def trimData(df):
             logger.exception(error)
             traceback.print_exc()
 
-    df.to_csv('./turbine-data-processed/trimmedFrames.csv')
-    logger.info('"./turbine-data-processed/trimmedFrames.csv" saved successfully')
+    #df.to_csv('./turbine-data-processed/trimmedFrames.csv')
+    #logger.info('"./turbine-data-processed/trimmedFrames.csv" saved successfully')
     return df
 
 def main():
@@ -417,7 +403,7 @@ def main():
     #combine with forecast data
     df = combineTurbineForecast(df)
 
-    #todo: trim dataframe down to the data that will be used to train with
+    #trim dataframe down to the data that will be used to train with
     df = trimData(df)
 
     df.to_csv('./turbine-data-processed/finalFrames.csv')

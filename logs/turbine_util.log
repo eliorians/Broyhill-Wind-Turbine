@@ -10336,3 +10336,11 @@ INFO - 2024-02-08 19:07:09,939 - Turbine data cleaned and saved to "./turbine-da
 INFO - 2024-02-08 19:07:09,992 - in trimData
 INFO - 2024-02-08 19:07:10,033 - Turbine data cleaned and saved to "./turbine-data-processed/trimmedFrames.csv"
 INFO - 2024-02-08 19:07:10,077 - Turbine data cleaned and saved to "./turbine-data-processed/finalFrames.csv"
+INFO - 2024-02-10 11:29:28,775 - Starting turbine_util
+INFO - 2024-02-10 11:29:28,776 - in readSQLDump
+INFO - 2024-02-10 11:29:34,367 - in cleanTurbineData
+INFO - 2024-02-10 11:29:38,791 - in combineTurbineForecast
+INFO - 2024-02-10 11:29:38,791 - Starting forecast_util
+INFO - 2024-02-10 11:30:01,844 - forecast_util.py finished successfully, processing 2046 files in 23.05 seconds
+INFO - 2024-02-10 11:30:12,712 - in trimData
+INFO - 2024-02-10 11:30:12,745 - "./turbine-data-processed/finalFrames.csv" saved successfully

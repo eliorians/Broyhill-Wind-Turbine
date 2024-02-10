@@ -7,11 +7,15 @@ Folders:
 
     forecast-data           - raw weather forecast data collected from National Weather Service API. Collected every hour.
 
-    forecast-data-processed - cleaned forecast data to be used by the model.
+    forecast-data-processed - cleaned forecast data to be used by the model
 
-    turbine-data            - data collected from turbine since 2009, not stored on GitHub
+    turbine-data            - data collected from turbine since 2009 (frames.csv)
 
-    turbine-data-processed  - cleaned turbine data to be used by the model
+    turbine-data-processed  - cleaned turbine data from thoughout tubrine_util
+
+    plots                   - saved plots made throughout the project
+
+    model-data              - saved outputs from the training process
 
 
 Files:
