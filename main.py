@@ -158,11 +158,14 @@ def main():
     #train/test split
     train_df, test_df = train_test_split(df, split)
 
-    #plot various features against the target (WTG1_R_InvPwr_kW)
+    #plot various features against the target
     plotFeatures(df, showPlot, target, features)
 
     #train & evaluate the model
     train_eval_model(train_df, test_df, target, features, model_list, model_type)
+
+    #todo: try new models
+    #todo: visualize the predictions
 
 
 if __name__ == "__main__":
