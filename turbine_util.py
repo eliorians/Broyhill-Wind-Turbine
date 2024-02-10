@@ -390,7 +390,7 @@ def trimData(df):
             df = df.loc[firstForecast_index:]
             df.reset_index(drop=True, inplace=True)
 
-            #todo fill in missing data
+            #todo drop missing data
 
         except FutureWarning as warning:
             logger.warning(warning)
