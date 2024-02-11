@@ -1,3 +1,10 @@
+METRIC GUIDE:
+MSE (Mean Squared Error): Closer to 0 is better.
+RMSE (Root Mean Squared Error): Closer to 0 is better.
+MAE (Mean Absolute Error): Closer to 0 is better.
+MAPE (Mean Absolute Percentage Error): Closer to 0 is better.
+R^2 (R-squared) Score: Closer to 1 is better.
+
 Model: LinearRegression()
 Date Trained: 1707590691.1888204
 Mean Squared Error: 63.803589871521645
@@ -24,4 +31,67 @@ Mean Absolute Error: 5.66145370224226
 Mean Absolute Percentage Error: 26.637614053116586
 R^2 Error: 0.4225216076161703
 Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
+
+Model: LinearRegression()
+Date Trained: 1707680558.1080623
+Mean Squared Error: 67.48735434409471
+Root Mean Squared Error: 8.215068736419356
+Mean Absolute Error: 5.824361478723251
+Mean Absolute Percentage Error: 23.982762294690342
+R^2 Error: 0.38459792916297175
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1707681238.7349603
+Mean Squared Error: 112.62423709615845
+Root Mean Squared Error: 10.61245669466587
+Mean Absolute Error: 7.732837520369473
+Mean Absolute Percentage Error: 37.05117045566389
+R^2 Error: -0.02699519649314963
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
+
+Model: RandomForestRegressor()
+Date Trained: 1707681239.4689708
+Mean Squared Error: 64.98364725077992
+Root Mean Squared Error: 8.061243530050431
+Mean Absolute Error: 5.139635883487107
+Mean Absolute Percentage Error: 17.49361351432088
+R^2 Error: 0.40742867345529277
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
+
+Model: GradientBoostingRegressor()
+Date Trained: 1707681239.6939783
+Mean Squared Error: 65.8863523155665
+Root Mean Squared Error: 8.117040859547677
+Mean Absolute Error: 5.143407002143046
+Mean Absolute Percentage Error: 15.145343059566798
+R^2 Error: 0.39919710812540454
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
+
+Model: SVR()
+Date Trained: 1707681239.712152
+Mean Squared Error: 109.50806307180571
+Root Mean Squared Error: 10.464610029609593
+Mean Absolute Error: 6.07319556746772
+Mean Absolute Percentage Error: 23.519934234852293
+R^2 Error: 0.0014204965846610351
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
+
+Model: KNeighborsRegressor()
+Date Trained: 1707681239.8232777
+Mean Squared Error: 175.95435230431372
+Root Mean Squared Error: 13.264778637591874
+Mean Absolute Error: 9.003833770678707
+Mean Absolute Percentage Error: 43.00214107352845
+R^2 Error: -0.6044883346406902
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
+
+Model: DecisionTreeRegressor()
+Date Trained: 1707681239.8382766
+Mean Squared Error: 92.981524545368
+Root Mean Squared Error: 9.642692805713972
+Mean Absolute Error: 5.209892470997477
+Mean Absolute Percentage Error: 6.410854399357611
+R^2 Error: 0.15212230037862795
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
 

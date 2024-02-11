@@ -11,8 +11,6 @@ import forecast_util
 
 logger = logging.getLogger('turbine_util')
 
-HOURS_TO_FORECAST = 12
-
 #all columns that exist in frames.csv
 #see "./turbine-data/turbine_data_info.cfg" for column info
 column_names = [
@@ -279,7 +277,7 @@ def cleanTurbineData(df):
 
     return df
 
-def combineTurbineForecast(df):
+def combineTurbineForecast(df, hours_to_forecast):
     logger.info("in combineTurbineForecast")
 
     #process forecast data
@@ -293,7 +291,7 @@ def combineTurbineForecast(df):
             #create timestamp_est since forecast files are in EST
             df['timestamp_est'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
             #subtract HOURS_TO_FORECAST to get the time of forecast that we are looking for
-            df['timestamp_est_forecast'] = df['timestamp_est'] - pd.Timedelta(hours=HOURS_TO_FORECAST)
+            df['timestamp_est_forecast'] = df['timestamp_est'] - pd.Timedelta(hours=hours_to_forecast)
             #create corresponding forecast filename
             df['forecast_file'] = ('forecast_' + df['timestamp_est_forecast'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv').astype(str)
             #create a column that will be true if the forecast data exists
@@ -330,7 +328,7 @@ def combineTurbineForecast(df):
                     forecast_df.reset_index(drop=True, inplace=True)
                     forecast_df.drop(columns=['Unnamed: 0', 'timestamp'], inplace=True)
                     #drop most of the older ones
-                    forecast_df = forecast_df.head(HOURS_TO_FORECAST)
+                    forecast_df = forecast_df.head(hours_to_forecast)
                     #stack to create multi index
                     forecast_df = forecast_df.stack()
                     #get new column names in the form of column_0 for row 0 and so on
@@ -388,11 +386,10 @@ def trimData(df):
     #logger.info('"./turbine-data-processed/trimmedFrames.csv" saved successfully')
     return df
 
-def main():
+def main(hours_to_forecast):
 
     logging_setup()
     logger.info("Starting turbine_util")
-    #setupDatabase()
 
     #read in data
     df = readSQLDump()
@@ -401,7 +398,7 @@ def main():
     df = cleanTurbineData(df)
 
     #combine with forecast data
-    df = combineTurbineForecast(df)
+    df = combineTurbineForecast(df, hours_to_forecast)
 
     #trim dataframe down to the data that will be used to train with
     df = trimData(df)
