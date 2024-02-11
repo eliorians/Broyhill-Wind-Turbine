@@ -51,7 +51,7 @@ if(genFeatures):
     features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph'])
 
 #the model that will be used
-model_type='linear_regression'
+model_type='random_forest'
 
 #select the model type from model_list
 model_list = {
