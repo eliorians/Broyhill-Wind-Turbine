@@ -12,10 +12,21 @@ logger = logging.getLogger('forecast_util')
 column_types = {
     'temperature_F'                     : int,
     'windSpeed_mph'                     : int,
-    'windDirection'                     : str,
+    'windDirection'                     : int,
     'probabilityOfPrecipitation_percent': int,
     'dewpoint_degC'                     : float,
     'relativeHumidity_percent'          : int
+}
+
+direction_mapping = {
+    'N': 0,
+    'NE': 45,
+    'E': 90,
+    'SE': 135,
+    'S': 180,
+    'SW': 225,
+    'W': 270,
+    'NW': 315
 }
 
 def logging_setup():
@@ -81,6 +92,10 @@ def cleanForecastData(filepath):
             #convert timestamp to UTC timezone, this makes for easier manioulation by elimating daylight savings
             #use the endtime as the timestamp since this lines up with the turbine data
             df['timestamp'] = pd.to_datetime(df['endTime'], utc=True)
+
+            #make wind direction numeric
+            df['windDirection'] = [direction_mapping[direction] for direction in df['windDirection']]
+
             #set column types
             df = df.astype(column_types)
             

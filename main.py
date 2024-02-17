@@ -34,7 +34,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
 hours_to_forecast=12
 
 #how often the data should be reprocessed
-threshold_minutes=60
+threshold_minutes=0
 
 #size of split in train/test data
 split=.2
@@ -43,15 +43,10 @@ split=.2
 target = 'WTG1_R_InvPwr_kW'
 
 #list of features to train
-features_to_train = ['windDirection_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
-
-#or use generate using this method
-genFeatures= True
-if(genFeatures):
-    features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph'])
+features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['windSpeed_mph'])
 
 #the model that will be used
-model_type='random_forest'
+model_type='linear_regression'
 
 #select the model type from model_list
 model_list = {
@@ -64,21 +59,15 @@ model_list = {
 }
 
 #weather or not to train and evaluate all models in the model list
-testAllModels = False
+testAllModels = True
 
-#weather plots should appear or not
-plot=True
+#weather features plot should be ran or not
+plotFeatures=False
 
-#features to be plotted
-features_to_plot= ['windSpeed_mph_0']
-
-#or plot all features
-genFeatures= False
-if(genFeatures):
-    features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0'])
+#generate features to plot
+features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph'])
 
 #! END CONFIG
-
 
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
@@ -126,6 +115,27 @@ def plotFeatures(df, target, features):
     plt.show()
     return
 
+def plotPrediction(timestamp, actual, prediction, model):
+    logger.info("in plotPrediction")
+
+    #create a new figure
+    plt.figure(figsize=(8, 6))
+    
+    #actual values
+    plt.plot(timestamp, actual, color='blue', label='Actual')
+    
+    #predicted values
+    plt.plot(timestamp, prediction, color='red', label='Predicted')
+    
+    #plot setup
+    plt.xlabel('Timestamp')
+    plt.ylabel('Value')
+    plt.title(f'Actual vs Predicted for {model}')
+    plt.legend()
+    plt.savefig('./plots/prediction_plot_' + model + '.png')
+    plt.show()
+
+    return
 
 def train_test_split(df, split):
     logger.info("in train_test_split")
@@ -163,6 +173,9 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
         mae = mean_absolute_error(y_test, y_pred)
         mape = mean_absolute_percentage_error(y_test, y_pred)
         r2 = r2_score(y_test, y_pred)
+
+        #plot the predictions
+        plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
 
         #log evaluation metrics
         logger.info(f"Model: {model}")
@@ -202,7 +215,7 @@ def main():
     train_df, test_df = train_test_split(df, split)
 
     #plot various features against the target
-    if (plot == True):
+    if (plotFeatures == True):
         plotFeatures(df, target, features_to_plot)
 
     #train & evaluate the model, training all based on the config
@@ -212,10 +225,6 @@ def main():
     else:
         model_name=model_type
         train_eval_model(train_df, test_df, target, features_to_train, model_list, model_name)
-
-
-    #todo: visualize the predictions
-
 
 if __name__ == "__main__":
     main()
