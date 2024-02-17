@@ -6,13 +6,15 @@ import time
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error, r2_score
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.svm import SVR
-from sklearn.tree import DecisionTreeRegressor
 import turbine_util
+
+from sklearn.linear_model import LinearRegression, BayesianRidge, LogisticRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.svm import SVR
+from sklearn.neural_network import MLPRegressor
 
 logger = logging.getLogger('main')
 
@@ -34,7 +36,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
 hours_to_forecast=12
 
 #how often the data should be reprocessed
-threshold_minutes=0
+threshold_minutes=60
 
 #size of split in train/test data
 split=.2
@@ -46,26 +48,29 @@ target = 'WTG1_R_InvPwr_kW'
 features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['windSpeed_mph'])
 
 #the model that will be used
-model_type='linear_regression'
+model_type='random_forest'
 
 #select the model type from model_list
+#todo adjust hyper parameters here
 model_list = {
-    'linear_regression': LinearRegression(),
-    'random_forest': RandomForestRegressor(),
-    'gradient_boosting': GradientBoostingRegressor(),
-    'svr': SVR(),
-    'k_neighbors': KNeighborsRegressor(),
-    'decision_tree': DecisionTreeRegressor()
+    'linear_regression'     : LinearRegression(),
+    'random_forest'         : RandomForestRegressor(),
+    'gradient_boosting'     : GradientBoostingRegressor(),
+    'svr'                   : SVR(),
+    'k_neighbors'           : KNeighborsRegressor(),
+    'decision_tree'         : DecisionTreeRegressor(),
+    'bayesian_ridge'        : BayesianRidge(),
+    'MLPRegressor'          : MLPRegressor(),
 }
 
 #weather or not to train and evaluate all models in the model list
-testAllModels = True
+testAllModels = False
 
 #weather features plot should be ran or not
-plotFeatures=False
+plot_features=False
 
-#generate features to plot
-features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph'])
+#generate features to plot (use allFeat = True to generate all features or)
+features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['windSpeed_mph'])
 
 #! END CONFIG
 
@@ -215,7 +220,7 @@ def main():
     train_df, test_df = train_test_split(df, split)
 
     #plot various features against the target
-    if (plotFeatures == True):
+    if (plot_features == True):
         plotFeatures(df, target, features_to_plot)
 
     #train & evaluate the model, training all based on the config
