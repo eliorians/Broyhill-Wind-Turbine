@@ -22,7 +22,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
     features = []
     if allFeats:
         feats_list=['windDirection', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph']
-    for number in range(hours_to_forecast):
+    for number in range(start=0, stop=hours_to_forecast-1):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
 
@@ -31,26 +31,26 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
 
 #! CONFIG
 
-#the hour that will be forecast from
+#The hour that will be forecast from
 #set threshold minutes to 0 if changed to allow data to reset
 hours_to_forecast=12
 
-#how often the data should be reprocessed
+#How often the data should be reprocessed
 threshold_minutes=60
 
-#size of split in train/test data
+#Size of split in train/test data
 split=.2
 
-#target to train and plot
+#Target to train and plot
 target = 'WTG1_R_InvPwr_kW'
 
-#list of features to train
-features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['windSpeed_mph'])
+#List of features to train
+features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['windSpeed_mph'])
 
-#the model that will be used
-model_type='random_forest'
+#The model that will be used
+model_type='linear_regression'
 
-#select the model type from model_list
+#Select the model type from model_list
 #todo adjust hyper parameters here
 model_list = {
     'linear_regression'     : LinearRegression(),
@@ -63,14 +63,15 @@ model_list = {
     'MLPRegressor'          : MLPRegressor(),
 }
 
-#weather or not to train and evaluate all models in the model list
+#Wether or not to train and evaluate all models in the model list
 testAllModels = False
 
-#weather features plot should be ran or not
-plot_features=False
+#Wether features plot should be ran or not
+plot_features=True
 
-#generate features to plot (use allFeat = True to generate all features or)
-features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, allFeats=True, feats_list=['windSpeed_mph'])
+#Generate features to plot (use allFeat = True to generate all features)
+#features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['windSpeed_mph'])
+features_to_plot= ['windSpeed_mph_0']
 
 #! END CONFIG
 
@@ -88,7 +89,7 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
-def dataProcessed(file_path, threshold_minutes=20):
+def dataProcessed(file_path, threshold_minutes):
     # get the creation time of the file and current time
     file_creation_time = os.path.getmtime(file_path)
     current_time = time.time()
@@ -104,21 +105,23 @@ def dataProcessed(file_path, threshold_minutes=20):
 def plotFeatures(df, target, features):
     logger.info("in plotFeatures")
     
-    #get x axis
-    xAxis = df['timestamp']
-    #plot the target
-    plt.plot(xAxis, df[target], label=target, color='red')
-    #plot features
-    for feature in features:
-        plt.plot(xAxis, df[feature], label=feature)
-    #show plot
-    plt.xlabel('Timestamp')
-    plt.ylabel('Value')
-    plt.title('Plot of Features')
-    plt.legend()
-    plt.savefig('./plots/features_plot.png')
+    num_plots = len(features)
+    fig, axes = plt.subplots(num_plots, 1, figsize=(8, 5*num_plots))
+    fig.suptitle('Scatter Plot of Features against Target', fontsize=16)
+
+    # Ensure axes is always iterable, even for a single subplot
+    if not isinstance(axes, np.ndarray):
+        axes = np.array([axes])
+
+    for i, feature in enumerate(features):
+        axes[i].scatter(df[feature], df[target], alpha=0.5)
+        axes[i].set_xlabel(feature)
+        axes[i].set_ylabel(target)
+        axes[i].set_title(f'{feature} vs {target}')
+
+    plt.tight_layout()
+    plt.savefig('./plots/feature_plots/features_scatter_plot.png')
     plt.show()
-    return
 
 def plotPrediction(timestamp, actual, prediction, model):
     logger.info("in plotPrediction")
@@ -137,7 +140,7 @@ def plotPrediction(timestamp, actual, prediction, model):
     plt.ylabel('Value')
     plt.title(f'Actual vs Predicted for {model}')
     plt.legend()
-    plt.savefig('./plots/prediction_plot_' + model + '.png')
+    plt.savefig('./plots/prediction_plots/prediction_plot_' + model + '.png')
     plt.show()
 
     return
