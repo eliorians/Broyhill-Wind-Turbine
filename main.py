@@ -6,7 +6,7 @@ import time
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error, r2_score
+import seaborn as sea
 import turbine_util
 
 from sklearn.linear_model import LinearRegression, BayesianRidge, LogisticRegression
@@ -15,6 +15,8 @@ from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.svm import SVR
 from sklearn.neural_network import MLPRegressor
+from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error, r2_score
+
 
 logger = logging.getLogger('main')
 
@@ -25,9 +27,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
     for number in range(hours_to_forecast-1):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
-
     return features
-
 
 #! CONFIG
 
@@ -36,20 +36,22 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
 hours_to_forecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=60
+threshold_minutes=0
 
 #Size of split in train/test data
 split=.2
 
-#Target to train and plot
+#Wether to train and evaluate the model. Set the target and list of features to train with.
+train_model= True
 target = 'WTG1_R_InvPwr_kW'
-
-#List of features to train
 #features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['windSpeed_mph'])
 features_to_train = ['windSpeed_mph_0']
 
 #The model that will be used
 model_type='linear_regression'
+
+#Wether to train and evaluate all models in the model list
+testAllModels = False
 
 #Select the model type from model_list
 #todo adjust hyper parameters here
@@ -58,17 +60,13 @@ model_list = {
     'random_forest'         : RandomForestRegressor(),
 }
 
-#Wether or not to train and evaluate all models in the model list
-testAllModels = False
-
-#Wether features plot should be ran or not
-plot_features=True
-
-#Generate features to plot (use allFeat = True to generate all features)
-#features_to_plot= generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['windSpeed_mph'])
-features_to_plot= ['windSpeed_mph_0']
+#Wether to run plotFeature and the variables for the method
+plot_feature=True
+target_to_plot= 'WTG1_R_InvPwr_kW'
+feature_to_plot= 'windSpeed_mph_0'
 
 #! END CONFIG
+
 
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
@@ -84,9 +82,12 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
-def dataProcessed(file_path, threshold_minutes):
+def dataProcessed(filepath, threshold_minutes):
+    """
+    Returns true if [filepath] has been updated in the last [threshold minutes].
+    """
     # get the creation time of the file and current time
-    file_creation_time = os.path.getmtime(file_path)
+    file_creation_time = os.path.getmtime(filepath)
     current_time = time.time()
     # calculate the difference in seconds between the current time and the file creation time and convert to minutes
     time_difference_seconds = current_time - file_creation_time
@@ -97,50 +98,75 @@ def dataProcessed(file_path, threshold_minutes):
     else:
         return False
 
-def plotFeatures(df, target, features):
-    logger.info("in plotFeatures")
-    
-    num_plots = len(features)
-    fig, axes = plt.subplots(num_plots, 1, figsize=(8, 5*num_plots))
-    fig.suptitle('Scatter Plot of Features against Target', fontsize=16)
+def plotFeature(df, target, feature):
+    """
+    Plot a single feature against a single target using seaborn scatterplot.
 
-    # Ensure axes is always iterable, even for a single subplot
-    if not isinstance(axes, np.ndarray):
-        axes = np.array([axes])
+    Parameters:
+    - df: DataFrame containing the data.
+    - target: Name of the target column.
+    - feature: Name of the feature column to be plotted.
+    """
+    logger.info("in plotFeature")
 
-    for i, feature in enumerate(features):
-        axes[i].scatter(df[feature], df[target])
-        axes[i].set_xlabel(feature)
-        axes[i].set_ylabel(target)
-        axes[i].set_title(f'{feature} vs {target}')
+    try:
+        # Create the scatter plot using seaborn
+        sea.set(style="whitegrid")
+        plt.figure(figsize=(8, 5))
+        sea.jointplot(data=df, x=feature, y=target, kind='reg')
+        
+        # Set labels and title
+        plt.xlabel(feature)
+        plt.ylabel(target)
+        plt.title(f'Scatter Plot of {feature} against {target}')
+        
+        # Save and show the plot
+        plt.tight_layout()
+        plt.savefig('./plots/feature_plots/feature_jointplot_reg.png')
+        plt.show()
 
-    plt.tight_layout()
-    plt.savefig('./plots/feature_plots/features_scatter_plot.png')
-    plt.show()
+    except Exception as e:
+        logger.error(f"Error: {str(e)}")
+
 
 def plotPrediction(timestamp, actual, prediction, model):
+    """
+    Plot a actual against predicted data.
+
+    Parameters:
+    - timestamp: times from test_df to be used for x axis
+    - actual: Real data from the test_df
+    - prediction: Predictions generated by the model
+    - model: Name of the model used to predict
+    """
     logger.info("in plotPrediction")
 
-    #create a new figure
-    plt.figure(figsize=(8, 6))
-    
-    #actual values
-    plt.plot(timestamp, actual, color='blue', label='Actual')
-    
-    #predicted values
-    plt.plot(timestamp, prediction, color='red', label='Predicted')
-    
-    #plot setup
-    plt.xlabel('Timestamp')
-    plt.ylabel('Value')
-    plt.title(f'Actual vs Predicted for {model}')
-    plt.legend()
-    plt.savefig('./plots/prediction_plots/prediction_plot_' + model + '.png')
-    plt.show()
+    try:
+        # Create scatter plot using Seaborn
+        sea.set(style="whitegrid")
+        plt.figure(figsize=(8, 6))
+        sea.scatterplot(x=actual, y=prediction, label='Predicted vs Actual', alpha=0.6, kind='reg')
+        
+        # Plot setup
+        plt.xlabel('Actual')
+        plt.ylabel('Predicted')
+        plt.title(f'Actual vs Predicted for {model}')
+        plt.legend()
+        plt.grid(True)
+        
+        # Save and show the plot
+        plt.tight_layout()
+        plt.savefig(f'./plots/prediction_plots/prediction_scatter_{model}.png')
+        plt.show()
 
-    return
+    except Exception as e:
+        logger.error(f"Error: {str(e)}")
+
 
 def train_test_split(df, split):
+    """
+    Sequentially splits a [df] based on the [split]
+    """
     logger.info("in train_test_split")
 
     #find the split index
@@ -182,11 +208,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
 
         #log evaluation metrics
         logger.info(f"Model: {model}")
-        logger.info(f"Mean Squared Error: {mse}")
         logger.info(f"Root Mean Squared Error: {rmse}")
-        logger.info(f"Mean Absolute Error: {mae}")    
-        logger.info(f"Mean Absolute Percentage Error: {mape}")
-        logger.info(f"R^2 Score: {r2}")
 
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {model}\n")
@@ -209,21 +231,25 @@ def main():
         df = pd.read_csv(data_path)
     else:
         df = turbine_util.main(hours_to_forecast)
-        
+
     #train/test split
     train_df, test_df = train_test_split(df, split)
 
-    #plot various features against the target
-    if (plot_features == True):
-        plotFeatures(df, target, features_to_plot)
+    #plot actual windspeed against target
+    #plotFeature(df, target_to_plot, 'WTG1_R_WindSpeed_mps')
 
-    #train & evaluate the model, training all based on the config
-    if(testAllModels == True):
-            for model_name, model in model_list.items():
-                train_eval_model(train_df, test_df, target, features_to_train, model_list, model_name)
-    else:
-        model_name=model_type
-        train_eval_model(train_df, test_df, target, features_to_train, model_list, model_name)
+    #plot feature against target
+    if (plot_feature == True):
+        plotFeature(df, target_to_plot, feature_to_plot)
+
+    if (train_model == True):
+        #train & evaluate the model, training all based on the config
+        if(testAllModels == True):
+                for model_name, model in model_list.items():
+                    train_eval_model(train_df, test_df, target, features_to_train, model_list, model_name)
+        else:
+            model_name=model_type
+            train_eval_model(train_df, test_df, target, features_to_train, model_list, model_name)
 
 if __name__ == "__main__":
     main()

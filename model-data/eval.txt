@@ -275,3 +275,48 @@ Mean Absolute Percentage Error: 28.849025898528925
 R^2 Error: 0.3802009714870884
 Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3', 'windSpeed_mph_4', 'windSpeed_mph_5', 'windSpeed_mph_6', 'windSpeed_mph_7', 'windSpeed_mph_8', 'windSpeed_mph_9', 'windSpeed_mph_10', 'windSpeed_mph_11']
 
+Model: LinearRegression()
+Date Trained: 1708794267.458295
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1708794591.480656
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1708798462.2203724
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1708798574.42745
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1708801100.527663
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: RandomForestRegressor()
+Date Trained: 1708801110.8871446
+Root Mean Squared Error: 7.742214356110523
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1708807659.0999708
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: LinearRegression()
+Date Trained: 1708808297.0034826
+Root Mean Squared Error: 7.987714934292638
+Features: ['windSpeed_mph_0']
+
+Model: RandomForestRegressor()
+Date Trained: 1708808319.9149115
+Root Mean Squared Error: 7.714424434410825
+Features: ['windSpeed_mph_0']
+

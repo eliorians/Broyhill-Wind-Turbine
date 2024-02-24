@@ -1,4 +1,5 @@
 
+import math
 import warnings
 import pandas as pd
 import logging
@@ -12,21 +13,22 @@ logger = logging.getLogger('forecast_util')
 column_types = {
     'temperature_F'                     : int,
     'windSpeed_mph'                     : int,
-    'windDirection'                     : int,
+    #'windDirection'                     : tuple,
     'probabilityOfPrecipitation_percent': int,
     'dewpoint_degC'                     : float,
     'relativeHumidity_percent'          : int
 }
 
+#map the wind direction to vectors around a circle
 direction_mapping = {
-    'N': 0,
-    'NE': 45,
-    'E': 90,
-    'SE': 135,
-    'S': 180,
-    'SW': 225,
-    'W': 270,
-    'NW': 315
+    'N': (0, 1),
+    'NE': (math.sqrt(2)/2, math.sqrt(2)/2),
+    'E': (1, 0),
+    'SE': (math.sqrt(2)/2, -math.sqrt(2)/2),
+    'S': (0, -1),
+    'SW': (-math.sqrt(2)/2, -math.sqrt(2)/2),
+    'W': (-1, 0),
+    'NW': (-math.sqrt(2)/2, math.sqrt(2)/2)
 }
 
 def logging_setup():
