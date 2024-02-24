@@ -22,7 +22,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
     features = []
     if allFeats:
         feats_list=['windDirection', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph']
-    for number in range(start=0, stop=hours_to_forecast-1):
+    for number in range(hours_to_forecast-1):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
 
@@ -109,7 +109,7 @@ def plotFeatures(df, target, features):
         axes = np.array([axes])
 
     for i, feature in enumerate(features):
-        axes[i].scatter(df[feature], df[target], alpha=0.5)
+        axes[i].scatter(df[feature], df[target])
         axes[i].set_xlabel(feature)
         axes[i].set_ylabel(target)
         axes[i].set_title(f'{feature} vs {target}')
