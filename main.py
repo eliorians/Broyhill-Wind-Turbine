@@ -45,7 +45,8 @@ split=.2
 target = 'WTG1_R_InvPwr_kW'
 
 #List of features to train
-features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['windSpeed_mph'])
+#features_to_train = generate_features(hours_to_forecast=hours_to_forecast, allFeats=False, feats_list=['windSpeed_mph'])
+features_to_train = ['windSpeed_mph_0']
 
 #The model that will be used
 model_type='linear_regression'
@@ -55,12 +56,6 @@ model_type='linear_regression'
 model_list = {
     'linear_regression'     : LinearRegression(),
     'random_forest'         : RandomForestRegressor(),
-    'gradient_boosting'     : GradientBoostingRegressor(),
-    'svr'                   : SVR(),
-    'k_neighbors'           : KNeighborsRegressor(),
-    'decision_tree'         : DecisionTreeRegressor(),
-    'bayesian_ridge'        : BayesianRidge(),
-    'MLPRegressor'          : MLPRegressor(),
 }
 
 #Wether or not to train and evaluate all models in the model list
@@ -196,11 +191,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {model}\n")
             f.write(f"Date Trained: {cur_time}\n")
-            f.write(f"Mean Squared Error: {mse}\n")
             f.write(f"Root Mean Squared Error: {rmse}\n")
-            f.write(f"Mean Absolute Error: {mae}\n")
-            f.write(f"Mean Absolute Percentage Error: {mape}\n")
-            f.write(f"R^2 Error: {r2}\n")
             f.write(f"Features: {features}\n")
             f.write("\n")
 
