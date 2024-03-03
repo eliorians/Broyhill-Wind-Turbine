@@ -35,7 +35,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=0
+threshold_minutes=120
 
 #Size of split in train/test data
 split=.2
@@ -161,14 +161,15 @@ def main():
 
     #plotting stuff
     if toPlot == True:
-        plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        #plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
         plots.plot_PowerVSForecastWind(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
-
-    #train/test split
-    train_df, test_df = train_test_split(df, split)
 
     #train & evaluate the model, training all based on the config
     if toTrain == True:
+
+        #train/test split
+        train_df, test_df = train_test_split(df, split)
+
         if toTrainAll == True:
                 for modelName, model in modelList.items():
                     train_eval_model(train_df, test_df, targetToTrain, featuresToTrain, modelList, modelName)
