@@ -59,15 +59,12 @@ def plot_PowerVSActualWind(df, power, actualWindSpeed):
 
     try:
         #create plot
-        sea.set(style="whitegrid")
+        sea.set_theme('paper', style='whitegrid')
         sea.jointplot(data=df, x=actualWindSpeed, y=power, 
                     height=10, ratio=5,
-                    kind='reg',)
-        
-        #labels
-        plt.xlabel(actualWindSpeed)
-        plt.ylabel(power)
-        plt.title(f'{actualWindSpeed} against {power}')
+                    marginal_ticks=True,
+                    kind='reg',
+                    joint_kws={'line_kws': {'color': 'red'}})
         
         #output
         plt.savefig('./plots/jointplot_powerVSactualWind.png')
@@ -90,7 +87,7 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
                     marginal_ticks=True, color='blue',
                     kind='hist',
                     #alpha=.9,
-                    marginal_kws=dict(color='green'),
+                    marginal_kws=dict(color='blue'),
                     #scatter_kws={'alpha': 0.5},
                     #joint_kws={'line_kws': {'color': 'red'}},
                     )
