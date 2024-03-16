@@ -8,12 +8,8 @@ import pandas as pd
 import turbine_util
 import plots
 
-from sklearn.linear_model import LinearRegression, BayesianRidge, LogisticRegression
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.svm import SVR
-from sklearn.neural_network import MLPRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error, r2_score
 
 
@@ -123,12 +119,8 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
         y_pred = model.predict(x_test)
 
         # evaluate the model
-        cur_time = time.time()
         mse = mean_squared_error(y_test, y_pred)
         rmse = np.sqrt(mse)
-        mae = mean_absolute_error(y_test, y_pred)
-        mape = mean_absolute_percentage_error(y_test, y_pred)
-        r2 = r2_score(y_test, y_pred)
 
         #plot the predictions
         plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
@@ -139,8 +131,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
 
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {model}\n")
-            f.write(f"Date Trained: {cur_time}\n")
-            f.write(f"Root Mean Squared Error: {rmse}\n")
+            f.write(f"RMSE: {rmse}\n")
             f.write(f"Features: {features}\n")
             f.write("\n")
 
