@@ -79,26 +79,81 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
     logger = logging.getLogger('plots')
     logger.info("in plot_PowerVSForecastWind")
 
-    try:
-        #create plot
+    plotType = 'reg'
+
+    #hex plot
+    if (plotType == 'hex'):
+        sea.set_theme('paper', style='whitegrid')
+        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+                    height=10, ratio=5,
+                    marginal_ticks=True, color='red',
+                    kind='hex',
+                    marginal_kws=dict(color='green'),
+        )
+        plt.savefig('./plots/forecastWindspeed_vs_power/hex_powerVsforecastWind.png')
+
+    #hist plot
+    if (plotType == 'hist'):
         sea.set_theme('paper', style='whitegrid')
         sea.jointplot(data=df, x=forecastWindspeed, y=power,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
                     kind='hist',
-                    #alpha=.9,
-                    marginal_kws=dict(color='blue'),
-                    #scatter_kws={'alpha': 0.5},
-                    #joint_kws={'line_kws': {'color': 'red'}},
-                    )
+                    marginal_kws=dict(color='green'),
+        )
+        plt.savefig('./plots/forecastWindspeed_vs_power/hist_powerVsforecastWind.png')
 
-        #output
-        plt.savefig('./plots/hist_powerVSforecastWind.png')
-        plt.show()
+    #kde plot
+    if (plotType == 'kde'):
+        sea.set_theme('paper', style='whitegrid')
+        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+                    height=10, ratio=5,
+                    marginal_ticks=True, color='blue',
+                    kind='kde',
+                    alpha=.9,
+                    marginal_kws=dict(color='green'),
+        )
+        plt.savefig('./plots/forecastWindspeed_vs_power/kde_powerVsforecastWind.png')
 
-    except Exception as e:
-        logger.error(f"Error: {str(e)}")
+    #reg plot
+    if (plotType == 'reg'):
+        sea.set_theme('paper', style='whitegrid')
+        order=3
+        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+                    height=10, ratio=5,
+                    marginal_ticks=True, color='blue',
+                    kind='reg',
+                    order=order,
+                    marginal_kws=dict(color='green'),
+                    joint_kws={'line_kws': {'color': 'red'}},
+                    scatter_kws={'alpha': 0.5},
+        )
+        plt.savefig(f'./plots/forecastWindspeed_vs_power/reg{order}_powerVsforecastWind.png')
 
-    return
+    #resid plot
+    if (plotType == 'resid'):
+        sea.set_theme('paper', style='whitegrid')
+        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+                    height=10, ratio=5,
+                    marginal_ticks=True, color='blue',
+                    kind='resid',
+                    scatter_kws={'alpha': 0.5},
+                    marginal_kws=dict(color='green'),
+        )
+        plt.savefig('./plots/forecastWindspeed_vs_power/resid_powerVsforecastWind.png')
+
+    #scatter plot
+    if (plotType == 'scatter'):
+        sea.set_theme('paper', style='whitegrid')
+        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+                    height=10, ratio=5,
+                    marginal_ticks=True, color='blue',
+                    kind='scatter',
+                    marginal_kws=dict(color='green'),
+                    alpha= 0.5,
+        )
+        plt.savefig('./plots/forecastWindspeed_vs_power/scatter_powerVsforecastWind.png')
+
+    plt.show()
 
 
