@@ -4,13 +4,15 @@ import logging
 import time
 import numpy as np
 import pandas as pd
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import PolynomialFeatures
 
 import turbine_util
 import plots
 
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error, r2_score
+from sklearn.metrics import mean_squared_error
 
 
 logger = logging.getLogger('main')
@@ -37,11 +39,11 @@ threshold_minutes=120
 split=.2
 
 #Wether to train and evaluate the model. Set the model type from the model list, as well as the target and list of features to train with.
-toTrain= False
-modelType='linear_regression'
+toTrain= True
+modelType='polynomial_regression'
 targetToTrain = 'WTG1_R_InvPwr_kW'
 featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=False, feats_list=['windSpeed_mph'])
-featuresToTrain = ['windSpeed_mph_0']
+featuresToTrain = ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
 
 #Wether to train and evaluate all models in the model list
 toTrainAll = False
@@ -49,10 +51,11 @@ toTrainAll = False
 modelList = {
     'linear_regression'     : LinearRegression(),
     'random_forest'         : RandomForestRegressor(),
+    'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression())
 }
 
 #Wether to plot stuff (not for turning off prediction outcomes)
-toPlot=True
+toPlot=False
 
 #! ------- END CONFIG ------- !#
 
@@ -152,7 +155,7 @@ def main():
 
     #plotting stuff
     if toPlot == True:
-        #plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
         plots.plot_PowerVSForecastWind(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
 
     #train & evaluate the model, training all based on the config

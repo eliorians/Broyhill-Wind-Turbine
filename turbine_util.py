@@ -65,11 +65,11 @@ column_names = [
     "WTG1_R_TurbineState", "WTG1_R_TurbineState_MAX", "WTG1_R_TurbineState_MIN", 
     "WTG1_R_BrakeState", "WTG1_R_BrakeState_MIN", 
     "WTG1_R_TimeOnline_hr", "WTG1_R_TimeAvailable_hr", 
-    "WTG1_R_AnyFltCond", "WTG1_R_AnyFltCond_MAX", 
+    "WTG1_R_AnyFltCond", "WTG1_R_AnyFltCond_MAX",       #WARNING FLAGS
     "WTG1_R_AnyEnvCond", "WTG1_R_AnyEnvCond_MAX", 
     "WTG1_R_AnyExtCond", "WTG1_R_AnyExtCond_MAX", 
     "WTG1_R_AnyWrnCond", "WTG1_R_AnyWrnCond_MAX", 
-    "WTG1_R_StateOffTime_sec", "WTG1_R_StateOffTime_sec_MIN", 
+    "WTG1_R_StateOffTime_sec", "WTG1_R_StateOffTime_sec_MIN", #CUMULATIVE OFF TIME
     "WTG1_R_StateWaitTime_sec", "WTG1_R_StateWaitTime_sec_MIN", 
     "WTG1_R_StateMotorTime_sec", "WTG1_R_StateMotorTime_sec_MIN", 
     "WTG1_R_StateStandbyTime_sec", "WTG1_R_StateStandbyTime_sec_MIN", 

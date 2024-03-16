@@ -28,28 +28,25 @@ def plotPrediction(timestamp, actual, prediction, model):
     logger = logging.getLogger('plots')
     logger.info("in plotPrediction")
 
-    try:
-        # Create scatter plot using Seaborn
-        sea.set(style="whitegrid")
-        sea.scatterplot(x=actual, y=prediction, label='Predicted vs Actual', alpha=0.6, kind='reg')
-        
-        # Plot setup
-        plt.xlabel('Actual')
-        plt.ylabel('Predicted')
-        plt.title(f'Actual vs Predicted for {model}')
-        plt.legend()
-        plt.grid(True)
-        
-        # Save and show the plot
-        plt.tight_layout()
-        plt.savefig(f'./plots/prediction_plots/scatterplot_{model}_prediction.png')
-        plt.show()
+    sea.set_theme('paper', style='whitegrid')
+    sea.jointplot(x=actual, y=prediction,
+                height=10, ratio=5,
+                marginal_ticks=True, color='blue',
+                kind='reg',
+                marginal_kws=dict(color='green'),
+                joint_kws={'line_kws': {'color': 'red'}},
+                scatter_kws={'alpha': 0.6},
+                label='Predicted vs Actual',
+    )
 
-    except Exception as e:
-        logger.error(f"Error: {str(e)}")
-
-    return
-
+    plt.xlabel('Actual')
+    plt.ylabel('Predicted')
+    plt.legend()
+    
+    #output
+    plt.tight_layout()
+    plt.savefig(f'./plots/prediction_plots/{model}_actualVSprediction.png')
+    plt.show()
 
 
 def plot_PowerVSActualWind(df, power, actualWindSpeed):
@@ -57,21 +54,27 @@ def plot_PowerVSActualWind(df, power, actualWindSpeed):
     logger = logging.getLogger('plots')
     logger.info("in plot_PowerVSActualWind")
 
-    try:
-        #create plot
-        sea.set_theme('paper', style='whitegrid')
-        sea.jointplot(data=df, x=actualWindSpeed, y=power, 
-                    height=10, ratio=5,
-                    marginal_ticks=True,
-                    kind='reg',
-                    joint_kws={'line_kws': {'color': 'red'}})
-        
-        #output
-        plt.savefig('./plots/jointplot_powerVSactualWind.png')
-        plt.show()
+    threshold = 3
+    z_scores_actualWind = np.abs((df[actualWindSpeed] - df[actualWindSpeed].mean()) / df[actualWindSpeed].std())
+    z_scores_power = np.abs((df[power] - df[power].mean()) / df[power].std())
+    outliers = df[(z_scores_actualWind > threshold) | (z_scores_power > threshold)]
 
-    except Exception as e:
-        logger.error(f"Error: {str(e)}")
+    #create plot
+    sea.set_theme('paper', style='whitegrid')
+    sea.jointplot(data=df, x=actualWindSpeed, y=power, 
+                height=10, ratio=5,
+                marginal_ticks=True,
+                kind='reg',
+                joint_kws={'line_kws': {'color': 'red'}},
+                marginal_kws=dict(color='green'),
+                scatter_kws={'alpha': 0.5},
+    )
+    
+    plt.scatter(outliers[actualWindSpeed], outliers[power], label='Outliers', color='black', marker='x')
+    
+    #output
+    plt.savefig('./plots/jointplot_powerVSactualWind_outliers.png')
+    plt.show()
 
 
 def plot_PowerVSForecastWind(df, power, forecastWindspeed):
