@@ -38,24 +38,28 @@ threshold_minutes=120
 #Size of split in train/test data
 split=.2
 
-#Wether to train and evaluate the model. Set the model type from the model list, as well as the target and list of features to train with.
-toTrain= False
-modelType='polynomial_regression'
+#Wether to train and evaluate the model
+toTrain= True
+#Set the model type from the model list 
+modelType='linear_regression'
+#Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
+#Columns from finalFrames.csv to be used in training
 featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=False, feats_list=['windSpeed_mph'])
 featuresToTrain = ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
 
-#Wether to train and evaluate all models in the model list
-toTrainAll = False
-
+#List of models able to be used
 modelList = {
     'linear_regression'     : LinearRegression(),
     'random_forest'         : RandomForestRegressor(),
     'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression())
 }
 
+#Wether to train and evaluate all models in the model list
+toTrainAll = False
+
 #Wether to plot stuff (not for turning off prediction outcomes)
-toPlot=True
+toPlot=False
 
 #! ------- END CONFIG ------- !#
 
@@ -111,17 +115,17 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
 
         model = model_list.get(model_name)
 
-        # split train and test data into features and target
+        #split train and test data into features and target
         x_train, y_train = train_df[features], train_df[target]
         x_test, y_test = test_df[features], test_df[target]
 
-        # initialize and train the linear regression model
+        #initialize and train the linear regression model
         model.fit(x_train, y_train)
 
-        # predict on the test set
+        #predict on the test set
         y_pred = model.predict(x_test)
 
-        # evaluate the model
+        #evaluate the model
         mse = mean_squared_error(y_test, y_pred)
         rmse = np.sqrt(mse)
 
@@ -136,6 +140,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
             f.write(f"Model: {model}\n")
             f.write(f"RMSE: {rmse}\n")
             f.write(f"Features: {features}\n")
+            f.write(f"Hours to Forecast: {hoursToForecast}")
             f.write("\n")
 
     except Exception as e:

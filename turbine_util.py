@@ -113,7 +113,7 @@ column_names = [
     "WTG1_R_MCU_GridEventStatus", "WTG1_R_MCU_GridEventStatus_MAX", "WTG1_R_MCU_GridEventStatus_MIN"
 ]
 
-#columns to be used
+#turbine columns to be used
 use_columns = [
     'timestamp',                                                                                                           #current time
     'WTG1_R_InvPwr_kW', 'WTG1_R_InvPwr_kW_MAX', 'WTG1_R_InvPwr_kW_MIN', 'WTG1_R_InvPwr_kW_STDDEV',                         #power produced
@@ -125,10 +125,10 @@ use_columns = [
     'WTG1_R_YawLeftTime_sec', 'WTG1_R_YawRightTime_sec', 'WTG1_R_YawUnwindRight_sec', 'WTG1_R_YawUnwindLeft_sec',          #yaw wind/unwind
     "WTG1_R_YawVaneAvg_deg", "WTG1_R_YawVaneAvg_deg_MAX", "WTG1_R_YawVaneAvg_deg_MIN", "WTG1_R_YawVaneAvg_deg_STDDEV",     #yaw position
     "WTG1_R_RotorSpeed_RPM", "WTG1_R_RotorSpeed_RPM_MAX", "WTG1_R_RotorSpeed_RPM_MIN",                                     #rotor speed
-    'WTG1_R_AnyWrnCond', "WTG1_R_AnyFltCond", "WTG1_R_AnyEnvCond", "WTG1_R_AnyExtCond", "WTG1_R_DSP_GridStateEventStatus"  #any warning flags
+    "WTG1_R_TurbineState"                                                                                                  #whether the turbine is on or off
 ]
 
-#column types for each used column
+#turbine column types
 turbine_column_types = {
     'WTG1_R_InvPwr_kW'               : float,               # Power produced
     'WTG1_R_InvPwr_kW_MAX'           : float,
@@ -157,13 +157,10 @@ turbine_column_types = {
     'WTG1_R_RotorSpeed_RPM'          : float,               # Rotor speed
     'WTG1_R_RotorSpeed_RPM_MAX'      : float,
     'WTG1_R_RotorSpeed_RPM_MIN'      : float,
-    'WTG1_R_AnyWrnCond'              : int,                 # Any warning flags
-    'WTG1_R_AnyFltCond'              : int,                 # Any fault conditions
-    'WTG1_R_AnyEnvCond'              : int,                 # Any environmental conditions
-    'WTG1_R_AnyExtCond'              : int,                 # Any external conditions
-    'WTG1_R_DSP_GridStateEventStatus': int                  # DSP Grid State Event Status
+    "WTG1_R_TurbineState"            : int                  # If turbine is on/off    
 }
 
+#forecast data column types
 forecast_column_types = {
     'temperature_F'                     : int,
     'windSpeed_mph'                     : int,
@@ -174,7 +171,6 @@ forecast_column_types = {
     'relativeHumidity_percent'          : int
 }
 
-#setup for program logging
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
     logs_directory = os.path.join(os.getcwd(), 'logs')
@@ -189,8 +185,10 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
-#read the main frames.csv SQL dump file
 def readSQLDump():
+    '''
+    read the main frames.csv SQL dump file
+    '''
     logger.info("in readSQLDump")
 
     #path to data and the row the data starts
@@ -206,13 +204,17 @@ def readSQLDump():
     
     return df
 
-#finds the forecast filename in ./forecast-data-processed and returns true if it exists
 def findForecastFile(filename):
+    '''
+    finds the forecast filename in ./forecast-data-processed and returns true if it exists
+    '''
     filepath = './forecast-data-processed/' + filename
     return os.path.isfile(filepath)
 
-#clean turbine data, see various steps throughout
 def cleanTurbineData(df):
+    '''
+    first step of cleaning turbine data
+    '''
     logger.info("in cleanTurbineData")
 
     #error catching
@@ -220,11 +222,14 @@ def cleanTurbineData(df):
         warnings.filterwarnings("error", category=FutureWarning)
     try:
 
+        #todo remove rows where turbine was in 'off' state
+        df = df[df['WTG1_R_TurbineState'] != 1]
+
         #set timestamp type, reading mixed format
         df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
         #make format consistent
         df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
-        #set back to datetime with consistent format
+        #set back to datetime with consistent format (UTC)
         df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S', utc=True)
 
         #set all other column types
@@ -260,11 +265,7 @@ def cleanTurbineData(df):
             'WTG1_R_RotorSpeed_RPM'          : 'mean',
             'WTG1_R_RotorSpeed_RPM_MAX'      : 'max',
             'WTG1_R_RotorSpeed_RPM_MIN'      : 'min',
-            'WTG1_R_AnyWrnCond'              : 'last',
-            'WTG1_R_AnyFltCond'              : 'last',
-            'WTG1_R_AnyEnvCond'              : 'last',
-            'WTG1_R_AnyExtCond'              : 'last',
-            'WTG1_R_DSP_GridStateEventStatus': 'last'
+            'WTG1_R_TurbineState'            : 'last',
         }).reset_index()
 
     except FutureWarning as warning:
@@ -278,6 +279,9 @@ def cleanTurbineData(df):
     return df
 
 def combineTurbineForecast(df, hours_to_forecast):
+    '''
+    combine turbine and forecast data based on the hour_to_forecast.
+    '''
     logger.info("in combineTurbineForecast")
 
     #process forecast data
@@ -305,7 +309,7 @@ def combineTurbineForecast(df, hours_to_forecast):
             #NOTE: forecast dfs dont always start at the time of their filetime. This may be due to the time of collected
             #      ex: collected at 2:00pm -> first forecast is for 2:00pm-3:00pm
             #          but if collected at 2:01pm -> first forecast is for 3:00-4:00pm
-            #          this isnt confirmed why but this is occuring, must select rows based around the timestamp not the index
+            #          this isnt confirmed why but this is occuring, must select rows relative to the timestamp not the index
 
             #iterate turbine rows
             for _, turbine_row in df.iterrows():
@@ -361,6 +365,9 @@ def combineTurbineForecast(df, hours_to_forecast):
     return df
 
 def trimData(df):
+    '''
+    Final step of cleaning turbine data
+    '''
     logger.info("in trimData")
  
     #error catching
@@ -368,7 +375,7 @@ def trimData(df):
         warnings.filterwarnings("error", category=FutureWarning)
         try:
 
-            #trim down to the first forecast value and beyond
+            #trim down to the first forecast value collected
             firstForecast_index = df['forecast_file_exists'].idxmax()
             df = df.loc[firstForecast_index:]
             df.reset_index(drop=True, inplace=True)
@@ -408,4 +415,4 @@ def main(hours_to_forecast):
     return df
 
 if __name__ == "__main__":
-    main()
+    main(12)

@@ -10344,3 +10344,60 @@ INFO - 2024-02-10 11:29:38,791 - Starting forecast_util
 INFO - 2024-02-10 11:30:01,844 - forecast_util.py finished successfully, processing 2046 files in 23.05 seconds
 INFO - 2024-02-10 11:30:12,712 - in trimData
 INFO - 2024-02-10 11:30:12,745 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-03-31 11:57:11,625 - Starting turbine_util
+INFO - 2024-03-31 11:57:11,625 - in readSQLDump
+INFO - 2024-03-31 11:57:29,481 - in cleanTurbineData
+ERROR - 2024-03-31 11:57:46,198 - "Column(s) ['WTG1_R_AnyEnvCond', 'WTG1_R_AnyExtCond', 'WTG1_R_AnyFltCond', 'WTG1_R_AnyWrnCond', 'WTG1_R_DSP_GridStateEventStatus'] do not exist"
+INFO - 2024-03-31 11:57:46,263 - in combineTurbineForecast
+INFO - 2024-03-31 11:57:46,278 - Starting forecast_util
+INFO - 2024-03-31 11:59:30,614 - forecast_util.py finished successfully, processing 3144 files in 104.33 seconds
+ERROR - 2024-03-31 11:59:30,614 - 'timestamp'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Roaming\Python\Python310\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'timestamp'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 300, in combineTurbineForecast
+    df['forecast_file'] = ('forecast_' + df['timestamp_est_forecast'].dt.strftime('%m-%d-%Y_%H-%M') + '.csv').astype(str)
+  File "C:\Users\Eli Orians\AppData\Roaming\Python\Python310\site-packages\pandas\core\frame.py", line 3896, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Eli Orians\AppData\Roaming\Python\Python310\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'timestamp'
+INFO - 2024-03-31 11:59:30,757 - in trimData
+ERROR - 2024-03-31 11:59:30,757 - 'forecast_file_exists'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Roaming\Python\Python310\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'forecast_file_exists'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 383, in trimData
+    #drop rows with missing data
+  File "C:\Users\Eli Orians\AppData\Roaming\Python\Python310\site-packages\pandas\core\frame.py", line 3896, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Eli Orians\AppData\Roaming\Python\Python310\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'forecast_file_exists'
+INFO - 2024-03-31 11:59:47,652 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-03-31 12:00:46,311 - Starting turbine_util
+INFO - 2024-03-31 12:00:46,311 - in readSQLDump
+INFO - 2024-03-31 12:00:55,671 - in cleanTurbineData
+INFO - 2024-03-31 12:01:03,765 - in combineTurbineForecast
+INFO - 2024-03-31 12:01:03,765 - Starting forecast_util
+INFO - 2024-03-31 12:01:46,135 - forecast_util.py finished successfully, processing 3144 files in 42.37 seconds
+INFO - 2024-03-31 12:02:11,387 - in trimData
+INFO - 2024-03-31 12:02:11,504 - "./turbine-data-processed/finalFrames.csv" saved successfully
