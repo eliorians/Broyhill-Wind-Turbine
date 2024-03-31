@@ -222,7 +222,7 @@ def cleanTurbineData(df):
         warnings.filterwarnings("error", category=FutureWarning)
     try:
 
-        #todo remove rows where turbine was in 'off' state
+        #remove rows where turbine was in 'off' state see ./turbine-data/turbine_state_info.png
         df = df[df['WTG1_R_TurbineState'] != 1]
 
         #set timestamp type, reading mixed format

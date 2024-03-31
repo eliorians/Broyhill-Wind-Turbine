@@ -1,39 +1,20 @@
-Model: LinearRegression()
-RMSE: 7.876127678319613
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
+Model: GradientBoostingRegressor()
+RMSE: 7.715464622044576
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
 
-Model: LinearRegression()
-RMSE: 7.876127678319613
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
+Model: GradientBoostingRegressor()
+RMSE: 7.424580651932272
+Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
 Hours to Forecast: 12
-Model: LinearRegression()
-RMSE: 7.876127678319613
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
+
+Model: GradientBoostingRegressor()
+RMSE: 10.72515947325862
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
 Hours to Forecast: 12
-Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
-                ('linearregression', LinearRegression())])
-RMSE: 9.281584972912697
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
+
+Model: GradientBoostingRegressor()
+RMSE: 8.20973541699373
+Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
 Hours to Forecast: 12
-Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
-                ('linearregression', LinearRegression())])
-RMSE: 9.281584972912697
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
-Hours to Forecast: 12
-Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
-                ('linearregression', LinearRegression())])
-RMSE: 7.886126680153107
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1']
-Hours to Forecast: 12
-Model: LinearRegression()
-RMSE: 7.996063791656957
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1']
-Hours to Forecast: 12
-Model: RandomForestRegressor()
-RMSE: 8.148104718966207
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1']
-Hours to Forecast: 12
-Model: RandomForestRegressor()
-RMSE: 8.330185144963703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
-Hours to Forecast: 12
+

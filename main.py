@@ -4,24 +4,28 @@ import logging
 import time
 import numpy as np
 import pandas as pd
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import PolynomialFeatures
 
 import turbine_util
 import plots
 
 from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import PolynomialFeatures
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 
-
 logger = logging.getLogger('main')
+
+#TODO model cannot read windDirection as Tuple... 'windDirection'
+#TODO add turbine state as a feature to be used...?
 
 def generate_features(hours_to_forecast, allFeats, feats_list):
     features = []
     if allFeats:
-        feats_list=['windDirection', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph']
-    for number in range(hours_to_forecast-1):
+        feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph']
+    for number in range(hours_to_forecast):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
     return features
@@ -40,19 +44,26 @@ split=.2
 
 #Wether to train and evaluate the model
 toTrain= True
+
 #Set the model type from the model list 
-modelType='linear_regression'
+modelType='gradient_boosted_reg'
+
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
+
 #Columns from finalFrames.csv to be used in training
-featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=False, feats_list=['windSpeed_mph'])
-featuresToTrain = ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
+featuresToTrain=['windSpeed_mph_0']
+featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
+featuresToTrain=['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
+featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=True, feats_list=['windSpeed_mph'])
 
 #List of models able to be used
 modelList = {
     'linear_regression'     : LinearRegression(),
     'random_forest'         : RandomForestRegressor(),
-    'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression())
+    'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression()),
+    'decision_tree'         : DecisionTreeRegressor(),
+    'gradient_boosted_reg'  : GradientBoostingRegressor(),
 }
 
 #Wether to train and evaluate all models in the model list
@@ -140,7 +151,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
             f.write(f"Model: {model}\n")
             f.write(f"RMSE: {rmse}\n")
             f.write(f"Features: {features}\n")
-            f.write(f"Hours to Forecast: {hoursToForecast}")
+            f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write("\n")
 
     except Exception as e:
