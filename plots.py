@@ -2,6 +2,7 @@
 import os
 import logging
 import numpy as np
+import pandas as pd
 import seaborn as sea
 from matplotlib import pyplot as plt
 
@@ -54,10 +55,11 @@ def plot_PowerVSActualWind(df, power, actualWindSpeed):
     logger = logging.getLogger('plots')
     logger.info("in plot_PowerVSActualWind")
 
-    threshold = 3
-    z_scores_actualWind = np.abs((df[actualWindSpeed] - df[actualWindSpeed].mean()) / df[actualWindSpeed].std())
-    z_scores_power = np.abs((df[power] - df[power].mean()) / df[power].std())
-    outliers = df[(z_scores_actualWind > threshold) | (z_scores_power > threshold)]
+    #removing outliers based on z score... no good
+    # threshold = 3
+    # z_scores_actualWind = np.abs((df[actualWindSpeed] - df[actualWindSpeed].mean()) / df[actualWindSpeed].std())
+    # z_scores_power = np.abs((df[power] - df[power].mean()) / df[power].std())
+    # outliers = df[(z_scores_actualWind > threshold) | (z_scores_power > threshold)]
 
     #create plot
     sea.set_theme('paper', style='whitegrid')
@@ -70,7 +72,7 @@ def plot_PowerVSActualWind(df, power, actualWindSpeed):
                 scatter_kws={'alpha': 0.5},
     )
     
-    plt.scatter(outliers[actualWindSpeed], outliers[power], label='Outliers', color='black', marker='x')
+    # plt.scatter(outliers[actualWindSpeed], outliers[power], label='Outliers', color='black', marker='x')
     
     #output
     plt.savefig('./plots/jointplot_powerVSactualWind_outliers.png')
@@ -83,6 +85,21 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
     logger.info("in plot_PowerVSForecastWind")
 
     plotType = 'reg'
+
+    #bar plot of windspeed quantities (there is no 3-4 values...)
+    if (False):
+        bins = range(int(df[forecastWindspeed].min()), int(df[forecastWindspeed].max()) + 1)
+        labels = [str(num) for num in bins[:-1]]  # Labels for the bins
+        df['wind_speed_bins'] = pd.cut(df[forecastWindspeed], bins=bins, labels=labels, include_lowest=True)
+        forecastWindspeed_counts = df['wind_speed_bins'].value_counts().reset_index()
+        forecastWindspeed_counts.columns = ['wind_speed', 'count']
+        forecastWindspeed_counts = forecastWindspeed_counts.sort_values(by='wind_speed')
+        sea.barplot(data=forecastWindspeed_counts, x='wind_speed', y='count', color='blue')
+        with open("bins.txt", "w") as file:
+            file.write("Bins for wind speed values (whole numbers):\n")
+            for bin_start, bin_end in zip(bins[:-1], bins[1:]):
+                file.write(f"{bin_start}-{bin_end}\n")
+
 
     #hex plot
     if (plotType == 'hex'):
@@ -121,7 +138,9 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
     #reg plot
     if (plotType == 'reg'):
         sea.set_theme('paper', style='whitegrid')
-        order=3
+        bins = 30
+        order=1
+
         sea.jointplot(data=df, x=forecastWindspeed, y=power,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
@@ -129,8 +148,9 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
                     order=order,
                     marginal_kws=dict(color='green'),
                     joint_kws={'line_kws': {'color': 'red'}},
-                    scatter_kws={'alpha': 0.5},
+                    scatter_kws={'alpha': 0.5},         
         )
+
         plt.savefig(f'./plots/forecastWindspeed_vs_power/reg{order}_powerVsforecastWind.png')
 
     #resid plot

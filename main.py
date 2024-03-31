@@ -39,7 +39,7 @@ threshold_minutes=120
 split=.2
 
 #Wether to train and evaluate the model. Set the model type from the model list, as well as the target and list of features to train with.
-toTrain= True
+toTrain= False
 modelType='polynomial_regression'
 targetToTrain = 'WTG1_R_InvPwr_kW'
 featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=False, feats_list=['windSpeed_mph'])
@@ -55,7 +55,7 @@ modelList = {
 }
 
 #Wether to plot stuff (not for turning off prediction outcomes)
-toPlot=False
+toPlot=True
 
 #! ------- END CONFIG ------- !#
 

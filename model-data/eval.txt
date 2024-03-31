@@ -23,3 +23,8 @@ Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
 RMSE: 9.281584972912617
 Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
 
+Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
+                ('linearregression', LinearRegression())])
+RMSE: 9.281584972912523
+Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3']
+

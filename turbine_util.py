@@ -62,7 +62,7 @@ column_names = [
     "WTG1_R_WindSpeed_mps", "WTG1_R_WindSpeed_mps_MAX", "WTG1_R_WindSpeed_mps_MIN", "WTG1_R_WindSpeed_mps_STDDEV", #INSTANTANEOUS WINDSPEED
     "WTG1_R_WindSpeed1m_mps", "WTG1_R_WindSpeed10m_mps", #WINDSPEED 1M AND 10M AVG
     "WTG1_R_YawVaneAvg_deg", "WTG1_R_YawVaneAvg_deg_MAX", "WTG1_R_YawVaneAvg_deg_MIN", "WTG1_R_YawVaneAvg_deg_STDDEV",  #yaw position
-    "WTG1_R_TurbineState", "WTG1_R_TurbineState_MAX", "WTG1_R_TurbineState_MIN", 
+    "WTG1_R_TurbineState", "WTG1_R_TurbineState_MAX", "WTG1_R_TurbineState_MIN", #TURBINE STATE
     "WTG1_R_BrakeState", "WTG1_R_BrakeState_MIN", 
     "WTG1_R_TimeOnline_hr", "WTG1_R_TimeAvailable_hr", 
     "WTG1_R_AnyFltCond", "WTG1_R_AnyFltCond_MAX",       #WARNING FLAGS
