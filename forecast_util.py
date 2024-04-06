@@ -13,7 +13,8 @@ logger = logging.getLogger('forecast_util')
 column_types = {
     'temperature_F'                     : int,
     'windSpeed_mph'                     : int,
-    #'windDirection'                     : tuple,
+    'windDirection_x'                   : float,
+    'windDirection_y'                   : float,
     'probabilityOfPrecipitation_percent': int,
     'dewpoint_degC'                     : float,
     'relativeHumidity_percent'          : int
@@ -97,6 +98,8 @@ def cleanForecastData(filepath):
 
             #make wind direction numeric
             df['windDirection'] = [direction_mapping[direction] for direction in df['windDirection']]
+            #split into two columns
+            df[['windDirection_x', 'windDirection_y']] = pd.DataFrame(df['windDirection'].tolist(), index=df.index)
 
             #set column types
             df = df.astype(column_types)
@@ -104,7 +107,7 @@ def cleanForecastData(filepath):
             #drop uneeded columns
             columns_to_drop = ['number', 'name', 'isDaytime', 'temperatureUnit', 'temperature', 'temperatureTrend', 
                                'icon', 'detailedForecast', 'probabilityOfPrecipitation', 'dewpoint', 'relativeHumidity', 
-                               'windSpeed', 'shortForecast', 'endTime', 'startTime']
+                               'windSpeed', 'shortForecast', 'endTime', 'startTime', 'windDirection']
             df.drop(columns=columns_to_drop, inplace=True)
 
         except FutureWarning as warning:

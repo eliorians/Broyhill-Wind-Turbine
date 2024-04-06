@@ -10401,3 +10401,91 @@ INFO - 2024-03-31 12:01:03,765 - Starting forecast_util
 INFO - 2024-03-31 12:01:46,135 - forecast_util.py finished successfully, processing 3144 files in 42.37 seconds
 INFO - 2024-03-31 12:02:11,387 - in trimData
 INFO - 2024-03-31 12:02:11,504 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-04-06 12:18:52,453 - Starting turbine_util
+INFO - 2024-04-06 12:18:52,454 - in readSQLDump
+INFO - 2024-04-06 12:18:57,761 - in cleanTurbineData
+INFO - 2024-04-06 12:19:02,021 - in combineTurbineForecast
+INFO - 2024-04-06 12:19:02,022 - Starting forecast_util
+INFO - 2024-04-06 12:19:21,985 - forecast_util.py finished successfully, processing 3289 files in 19.96 seconds
+INFO - 2024-04-06 12:19:32,533 - in trimData
+INFO - 2024-04-06 12:19:32,576 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-04-06 12:21:20,633 - Starting turbine_util
+INFO - 2024-04-06 12:21:20,633 - in readSQLDump
+INFO - 2024-04-06 12:21:25,789 - in cleanTurbineData
+INFO - 2024-04-06 12:21:29,933 - in combineTurbineForecast
+INFO - 2024-04-06 12:21:29,934 - Starting forecast_util
+INFO - 2024-04-06 12:21:50,066 - forecast_util.py finished successfully, processing 3289 files in 20.13 seconds
+INFO - 2024-04-06 12:21:59,695 - in trimData
+INFO - 2024-04-06 12:21:59,738 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-04-06 12:25:16,328 - Starting turbine_util
+INFO - 2024-04-06 12:25:16,328 - in readSQLDump
+INFO - 2024-04-06 12:25:21,486 - in cleanTurbineData
+ERROR - 2024-04-06 12:25:22,680 - Can only use .dt accessor with datetimelike values
+INFO - 2024-04-06 12:25:22,696 - in combineTurbineForecast
+INFO - 2024-04-06 12:25:22,697 - Starting forecast_util
+INFO - 2024-04-06 12:25:42,461 - forecast_util.py finished successfully, processing 3289 files in 19.76 seconds
+ERROR - 2024-04-06 12:25:42,461 - Can only use .dt accessor with datetimelike values
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 302, in combineTurbineForecast
+    df['timestamp_est'] = df['timestamp'].dt.tz_convert(pytz.timezone('US/Eastern'))
+                          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\generic.py", line 6204, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\accessor.py", line 224, in __get__
+    accessor_obj = self._accessor(obj)
+                   ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\accessors.py", line 608, in __new__
+    raise AttributeError("Can only use .dt accessor with datetimelike values")
+AttributeError: Can only use .dt accessor with datetimelike values
+INFO - 2024-04-06 12:25:42,495 - in trimData
+ERROR - 2024-04-06 12:25:42,496 - 'forecast_file_exists'
+Traceback (most recent call last):
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3790, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'forecast_file_exists'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\Eli Orians\Desktop\Repo\Broyhill-Wind-Turbine\turbine_util.py", line 385, in trimData
+    firstForecast_index = df['forecast_file_exists'].idxmax()
+                          ~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\frame.py", line 3893, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eli Orians\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\indexes\base.py", line 3797, in get_loc
+    raise KeyError(key) from err
+KeyError: 'forecast_file_exists'
+INFO - 2024-04-06 12:25:52,568 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-04-06 12:27:37,536 - Starting turbine_util
+INFO - 2024-04-06 12:27:37,537 - in readSQLDump
+INFO - 2024-04-06 12:27:42,845 - in cleanTurbineData
+INFO - 2024-04-06 12:27:47,085 - in combineTurbineForecast
+INFO - 2024-04-06 12:27:47,086 - Starting forecast_util
+INFO - 2024-04-06 12:28:06,972 - forecast_util.py finished successfully, processing 3289 files in 19.89 seconds
+INFO - 2024-04-06 12:28:16,616 - in trimData
+INFO - 2024-04-06 12:28:16,676 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-04-06 12:28:46,082 - Starting turbine_util
+INFO - 2024-04-06 12:28:46,083 - in readSQLDump
+INFO - 2024-04-06 12:28:55,907 - Starting turbine_util
+INFO - 2024-04-06 12:28:55,907 - in readSQLDump
+INFO - 2024-04-06 12:29:01,174 - in cleanTurbineData
+INFO - 2024-04-06 12:29:05,794 - in combineTurbineForecast
+INFO - 2024-04-06 12:29:05,795 - Starting forecast_util
+INFO - 2024-04-06 12:29:26,232 - forecast_util.py finished successfully, processing 3289 files in 20.44 seconds
+INFO - 2024-04-06 12:29:35,653 - in trimData
+INFO - 2024-04-06 12:29:35,699 - "./turbine-data-processed/finalFrames.csv" saved successfully
+INFO - 2024-04-06 12:30:16,352 - Starting turbine_util
+INFO - 2024-04-06 12:30:16,352 - in readSQLDump
+INFO - 2024-04-06 12:30:21,519 - in cleanTurbineData
+INFO - 2024-04-06 12:30:27,070 - in combineTurbineForecast
+INFO - 2024-04-06 12:30:27,071 - Starting forecast_util
+INFO - 2024-04-06 12:30:47,806 - forecast_util.py finished successfully, processing 3289 files in 20.73 seconds
+INFO - 2024-04-06 12:30:57,455 - in trimData
+INFO - 2024-04-06 12:30:57,494 - "./turbine-data-processed/finalFrames.csv" saved successfully

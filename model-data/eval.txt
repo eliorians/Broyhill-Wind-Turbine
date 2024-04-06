@@ -18,3 +18,156 @@ RMSE: 8.20973541699373
 Features: ['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_1', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_2', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_3', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_4', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_5', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_6', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_7', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_8', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_9', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_10', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11', 'windSpeed_mph_11']
 Hours to Forecast: 12
 
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 10.167703990854651
+Features: ['windSpeed_mph_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_mph_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_mph_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_mph_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_mph_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_mph_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_mph_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_mph_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_mph_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_mph_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10', 'windSpeed_mph_11', 'windDirection_x_11', 'windDirection_y_11', 'probabilityOfPrecipitation_percent_11', 'dewpoint_degC_11', 'relativeHumidity_percent_11', 'temperature_F_11']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: baseline
+RMSE: 12.541636504565247
+R^2: -0.281539525422126
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression(fit_intercept=False)
+RMSE: 9.13997662598767
+R^2: 0.31936581687596455
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression()
+RMSE: 8.552793997265892
+R^2: 0.4040091257586206
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+

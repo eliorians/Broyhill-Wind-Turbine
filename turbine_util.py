@@ -222,15 +222,22 @@ def cleanTurbineData(df):
         warnings.filterwarnings("error", category=FutureWarning)
     try:
 
-        #remove rows where turbine was in 'off' state see ./turbine-data/turbine_state_info.png
-        df = df[df['WTG1_R_TurbineState'] != 1]
+        #keep only rows where turbine was in 'active' state 
+        #see ./turbine-data/turbine_state_info.png
+        df = df[df['WTG1_R_TurbineState'] == 7]
 
         #set timestamp type, reading mixed format
-        df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
+        #df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
+        df.loc[:, 'timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc=True)
+
         #make format consistent
-        df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
+        #df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
+        df.loc[:, 'timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%d %H:%M:%S'))
+
         #set back to datetime with consistent format (UTC)
-        df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S', utc=True)
+        #df['timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S', utc=True)
+        df.loc[:, 'timestamp'] = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S', utc=True)
+
 
         #set all other column types
         df = df.astype(turbine_column_types)

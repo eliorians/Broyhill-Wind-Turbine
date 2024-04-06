@@ -14,17 +14,14 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, r2_score
 
 logger = logging.getLogger('main')
-
-#TODO model cannot read windDirection as Tuple... 'windDirection'
-#TODO add turbine state as a feature to be used...?
 
 def generate_features(hours_to_forecast, allFeats, feats_list):
     features = []
     if allFeats:
-        feats_list=['probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'windSpeed_mph']
+        feats_list=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'WTG1_R_TurbineState']
     for number in range(hours_to_forecast):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
@@ -43,31 +40,29 @@ threshold_minutes=120
 split=.2
 
 #Wether to train and evaluate the model
-toTrain= True
+toTrain=True
 
 #Set the model type from the model list 
-modelType='gradient_boosted_reg'
+modelType='linear_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
 #Columns from finalFrames.csv to be used in training
 featuresToTrain=['windSpeed_mph_0']
-featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
-featuresToTrain=['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
-featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=True, feats_list=['windSpeed_mph'])
+#featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
+#featuresToTrain=['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
+#featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=True, feats_list=['windSpeed_mph'])
 
 #List of models able to be used
 modelList = {
-    'linear_regression'     : LinearRegression(),
+    'baseline'              : 'baseline',
+    'linear_regression'     : LinearRegression(fit_intercept=True),
     'random_forest'         : RandomForestRegressor(),
     'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression()),
     'decision_tree'         : DecisionTreeRegressor(),
     'gradient_boosted_reg'  : GradientBoostingRegressor(),
 }
-
-#Wether to train and evaluate all models in the model list
-toTrainAll = False
 
 #Wether to plot stuff (not for turning off prediction outcomes)
 toPlot=False
@@ -130,26 +125,39 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
         x_train, y_train = train_df[features], train_df[target]
         x_test, y_test = test_df[features], test_df[target]
 
-        #initialize and train the linear regression model
-        model.fit(x_train, y_train)
+        #process for baseline model, returns average target for all points
+        if model == 'baseline':
+            #get the mean of the target
+            target_mean = train_df[target].mean()
 
-        #predict on the test set
-        y_pred = model.predict(x_test)
+            #predict the average value for all instances in the test set
+            y_pred = np.full_like(test_df[target], fill_value=target_mean)
+
+        #process for any other selected model
+        else:
+            #initialize and train the linear regression model
+            model.fit(x_train, y_train)
+
+            #predict on the test set
+            y_pred = model.predict(x_test)
 
         #evaluate the model
         mse = mean_squared_error(y_test, y_pred)
         rmse = np.sqrt(mse)
+        r_squared = r2_score(y_test, y_pred)
 
         #plot the predictions
         plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
 
         #log evaluation metrics
         logger.info(f"Model: {model}")
-        logger.info(f"Root Mean Squared Error: {rmse}")
+        logger.info(f"RMSE: {rmse}")
+        logger.info(f"R^2: {r_squared}")
 
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {model}\n")
             f.write(f"RMSE: {rmse}\n")
+            f.write(f"R^2: {r_squared}\n")
             f.write(f"Features: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write("\n")
@@ -171,21 +179,19 @@ def main():
 
     #plotting stuff
     if toPlot == True:
+        plots.plotQuantities(df, 'WTG1_R_TurbineState')
         plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
         plots.plot_PowerVSForecastWind(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
+        print("target min: "+ str(df[targetToTrain].min()))
+        print("target max: "+ str(df[targetToTrain].max()))
+        print("target mean: "+ str(df[targetToTrain].mean()))
 
-    #train & evaluate the model, training all based on the config
+    #perform train/test split and then
+    #train & evaluate the model
     if toTrain == True:
 
-        #train/test split
         train_df, test_df = train_test_split(df, split)
-
-        if toTrainAll == True:
-                for modelName, model in modelList.items():
-                    train_eval_model(train_df, test_df, targetToTrain, featuresToTrain, modelList, modelName)
-        else:
-            modelName=modelType
-            train_eval_model(train_df, test_df, targetToTrain, featuresToTrain, modelList, modelName)
+        train_eval_model(train_df, test_df, targetToTrain, featuresToTrain, modelList, modelType)
 
 if __name__ == "__main__":
     main()

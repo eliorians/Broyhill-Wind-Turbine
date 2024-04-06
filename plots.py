@@ -2,7 +2,6 @@
 import os
 import logging
 import numpy as np
-import pandas as pd
 import seaborn as sea
 from matplotlib import pyplot as plt
 
@@ -29,6 +28,7 @@ def plotPrediction(timestamp, actual, prediction, model):
     logger = logging.getLogger('plots')
     logger.info("in plotPrediction")
 
+    #SCATTER PLOT
     sea.set_theme('paper', style='whitegrid')
     sea.jointplot(x=actual, y=prediction,
                 height=10, ratio=5,
@@ -39,27 +39,32 @@ def plotPrediction(timestamp, actual, prediction, model):
                 scatter_kws={'alpha': 0.6},
                 label='Predicted vs Actual',
     )
-
+    plt.yticks(np.arange(-10, 56, step=1))
     plt.xlabel('Actual')
     plt.ylabel('Predicted')
     plt.legend()
-    
-    #output
-    plt.tight_layout()
-    plt.savefig(f'./plots/prediction_plots/{model}_actualVSprediction.png')
+    plt.savefig(f'./plots/prediction_plots/{model}_scatter.png')
     plt.show()
 
+    #LINE PLOT
+    plt.figure(figsize=(10, 5))
+    sea.lineplot(x=timestamp, y=actual, label='Actual', color='blue')
+    sea.lineplot(x=timestamp, y=prediction, label='Predicted', color='red')
+    plt.xlabel('Timestamp')
+    plt.xticks(rotation=45)
+    plt.ylabel('Value')
+    plt.yticks(np.arange(-10, 56, step=1))
+    date_start = timestamp.min()
+    date_stop = timestamp.max()
+    plt.title(f'{model} Line Plot of Actual vs Predicted\nDate Range: {date_start} to {date_stop}')
+    plt.legend()
+    plt.savefig(f'./plots/prediction_plots/{model}_lineplot.png')
+    plt.show()
 
 def plot_PowerVSActualWind(df, power, actualWindSpeed):
     logging_setup()
     logger = logging.getLogger('plots')
     logger.info("in plot_PowerVSActualWind")
-
-    #removing outliers based on z score... no good
-    # threshold = 3
-    # z_scores_actualWind = np.abs((df[actualWindSpeed] - df[actualWindSpeed].mean()) / df[actualWindSpeed].std())
-    # z_scores_power = np.abs((df[power] - df[power].mean()) / df[power].std())
-    # outliers = df[(z_scores_actualWind > threshold) | (z_scores_power > threshold)]
 
     #create plot
     sea.set_theme('paper', style='whitegrid')
@@ -71,11 +76,9 @@ def plot_PowerVSActualWind(df, power, actualWindSpeed):
                 marginal_kws=dict(color='green'),
                 scatter_kws={'alpha': 0.5},
     )
-    
-    # plt.scatter(outliers[actualWindSpeed], outliers[power], label='Outliers', color='black', marker='x')
-    
+        
     #output
-    plt.savefig('./plots/jointplot_powerVSactualWind_outliers.png')
+    plt.savefig('./plots/actualWindspeed_vs_power/jointplot_powerVSactualWind.png')
     plt.show()
 
 
@@ -85,21 +88,6 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
     logger.info("in plot_PowerVSForecastWind")
 
     plotType = 'reg'
-
-    #bar plot of windspeed quantities (there is no 3-4 values...)
-    if (False):
-        bins = range(int(df[forecastWindspeed].min()), int(df[forecastWindspeed].max()) + 1)
-        labels = [str(num) for num in bins[:-1]]  # Labels for the bins
-        df['wind_speed_bins'] = pd.cut(df[forecastWindspeed], bins=bins, labels=labels, include_lowest=True)
-        forecastWindspeed_counts = df['wind_speed_bins'].value_counts().reset_index()
-        forecastWindspeed_counts.columns = ['wind_speed', 'count']
-        forecastWindspeed_counts = forecastWindspeed_counts.sort_values(by='wind_speed')
-        sea.barplot(data=forecastWindspeed_counts, x='wind_speed', y='count', color='blue')
-        with open("bins.txt", "w") as file:
-            file.write("Bins for wind speed values (whole numbers):\n")
-            for bin_start, bin_end in zip(bins[:-1], bins[1:]):
-                file.write(f"{bin_start}-{bin_end}\n")
-
 
     #hex plot
     if (plotType == 'hex'):
@@ -180,3 +168,30 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
     plt.show()
 
 
+def plotQuantities(df, column):
+    '''
+    Creates a bar plot with the count of each entry for a given column.
+    Useful columns to plot: 'WTG1_R_TurbineState' and 'windSpeed_0'
+    '''
+    logging_setup()
+    logger = logging.getLogger('plots')
+    logger.info("in plotQuantities")
+
+    #get counts of each unique value in the specified column
+    counts = df[column].value_counts().reset_index()
+    counts.columns = [column, 'count']
+    counts = counts.sort_values(by=column)
+
+    #plotting
+    sea.set_theme('paper', style='whitegrid')
+    sea.barplot(data=counts, x=column, y='count', color='blue')
+    plt.xlabel(column)
+    plt.ylabel('Count')
+    plt.title(f'Count of Each Entry in {column}')
+
+    #output
+    plt.show()
+    plt.savefig(f'./plots/counts/{column}_count.png')
+
+    #write counts to file
+    #counts.to_csv(f"{column}_counts.csv", index=False)
