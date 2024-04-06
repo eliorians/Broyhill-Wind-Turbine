@@ -224,7 +224,7 @@ def cleanTurbineData(df):
 
         #keep only rows where turbine was in 'active' state 
         #see ./turbine-data/turbine_state_info.png
-        df = df[df['WTG1_R_TurbineState'] == 7]
+        #df = df[df['WTG1_R_TurbineState'] == 7]
 
         #set timestamp type, reading mixed format
         #df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)

@@ -34,7 +34,7 @@ def generate_features(hours_to_forecast, allFeats, feats_list):
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=120
+threshold_minutes=60
 
 #Size of split in train/test data
 split=.2
@@ -50,14 +50,14 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 
 #Columns from finalFrames.csv to be used in training
 featuresToTrain=['windSpeed_mph_0']
-#featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
+featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
 #featuresToTrain=['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
 #featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=True, feats_list=['windSpeed_mph'])
 
 #List of models able to be used
 modelList = {
     'baseline'              : 'baseline',
-    'linear_regression'     : LinearRegression(fit_intercept=True),
+    'linear_regression'     : LinearRegression(),
     'random_forest'         : RandomForestRegressor(),
     'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression()),
     'decision_tree'         : DecisionTreeRegressor(),
@@ -180,8 +180,8 @@ def main():
     #plotting stuff
     if toPlot == True:
         plots.plotQuantities(df, 'WTG1_R_TurbineState')
-        plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
-        plots.plot_PowerVSForecastWind(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
+        #plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        #plots.plot_PowerVSForecastWind(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
         print("target min: "+ str(df[targetToTrain].min()))
         print("target max: "+ str(df[targetToTrain].max()))
         print("target mean: "+ str(df[targetToTrain].mean()))
