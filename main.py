@@ -14,7 +14,9 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
+
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import GridSearchCV
 
 logger = logging.getLogger('main')
 
@@ -62,6 +64,19 @@ modelList = {
     'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression()),
     'decision_tree'         : DecisionTreeRegressor(),
     'gradient_boosted_reg'  : GradientBoostingRegressor(),
+}
+
+#param_grid associated with each model
+param_gridList = {
+    'linear_regression'     : {'fit_intercept' : [True, False],
+                                'copy_X'       : [True, False],
+                                'n_jobs'       : [1, 2, -1],
+                                'positive'     : [True, False]
+                                },
+    'random_forest'         : {},
+    'polynomial_regression' : {},
+    'decision_tree'         : {},
+    'gradient_boosted_reg'  : {},
 }
 
 #Wether to plot stuff (not for turning off prediction outcomes)
@@ -114,7 +129,6 @@ def train_test_split(df, split):
     test_df.to_csv('./model-data/test_df.csv')
     return train_df, test_df
 
-
 def train_eval_model(train_df, test_df, target, features, model_list, model_name):
     try:
         logger.info("in train_eval_model")
@@ -135,11 +149,22 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
 
         #process for any other selected model
         else:
-            #initialize and train the linear regression model
-            model.fit(x_train, y_train)
+            #grid search for optimum hyperparameters
+            param_grid = param_gridList.get(model_name) 
+            grid_search = GridSearchCV(model, param_grid, cv=5, scoring='neg_root_mean_squared_error', verbose=1)
 
-            #predict on the test set
-            y_pred = model.predict(x_test)
+            #fit the grid search to the data
+            grid_search.fit(x_train, y_train)
+
+            #get the best model from grid search
+            best_model = grid_search.best_estimator_
+            
+            #predict on the test set using the best model
+            y_pred = best_model.predict(x_test)
+
+            #training without gridsearch
+            # model.fit(x_train, y_train)
+            # y_pred = model.predict(x_test)
 
         #evaluate the model
         mse = mean_squared_error(y_test, y_pred)
