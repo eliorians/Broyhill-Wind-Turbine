@@ -7,6 +7,7 @@ import pandas as pd
 
 import turbine_util
 import plots
+from params import param_gridList 
 
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import make_pipeline
@@ -23,7 +24,7 @@ logger = logging.getLogger('main')
 def generate_features(hours_to_forecast, allFeats, feats_list):
     features = []
     if allFeats:
-        feats_list=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F', 'WTG1_R_TurbineState']
+        feats_list=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
     for number in range(hours_to_forecast):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
@@ -45,14 +46,14 @@ split=.2
 toTrain=True
 
 #Set the model type from the model list 
-modelType='linear_regression'
+modelType='polynomial_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
 #Columns from finalFrames.csv to be used in training
 featuresToTrain=['windSpeed_mph_0']
-featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
+#featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
 #featuresToTrain=['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
 #featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=True, feats_list=['windSpeed_mph'])
 
@@ -61,22 +62,9 @@ modelList = {
     'baseline'              : 'baseline',
     'linear_regression'     : LinearRegression(),
     'random_forest'         : RandomForestRegressor(),
-    'polynomial_regression' : make_pipeline(PolynomialFeatures(3), LinearRegression()),
+    'polynomial_regression' : make_pipeline(PolynomialFeatures(), LinearRegression()),
     'decision_tree'         : DecisionTreeRegressor(),
     'gradient_boosted_reg'  : GradientBoostingRegressor(),
-}
-
-#param_grid associated with each model
-param_gridList = {
-    'linear_regression'     : {'fit_intercept' : [True, False],
-                                'copy_X'       : [True, False],
-                                'n_jobs'       : [1, 2, -1],
-                                'positive'     : [True, False]
-                                },
-    'random_forest'         : {},
-    'polynomial_regression' : {},
-    'decision_tree'         : {},
-    'gradient_boosted_reg'  : {},
 }
 
 #Wether to plot stuff (not for turning off prediction outcomes)
@@ -151,7 +139,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
         else:
             #grid search for optimum hyperparameters
             param_grid = param_gridList.get(model_name) 
-            grid_search = GridSearchCV(model, param_grid, cv=5, scoring='neg_root_mean_squared_error', verbose=1)
+            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', verbose=2, n_jobs=-1)
 
             #fit the grid search to the data
             grid_search.fit(x_train, y_train)

@@ -1,54 +1,51 @@
-Model: LinearRegression()
-RMSE: 8.503094116110312
-R^2: 0.41091555036254246
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression()
-RMSE: 7.957920465239665
-R^2: 0.4225216076161703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression(fit_intercept=False)
-RMSE: 8.633923965669487
-R^2: 0.3202440939412703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression()
-RMSE: 7.957920465239665
-R^2: 0.4225216076161703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression(n_jobs=-1)
-RMSE: 7.957920465239665
-R^2: 0.4225216076161703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression(positive=True)
-RMSE: 7.987714934292638
-R^2: 0.41818935242930266
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression(copy_X=False)
-RMSE: 7.957920465239665
-R^2: 0.4225216076161703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
-Hours to Forecast: 12
-
-Model: LinearRegression()
-RMSE: 7.957920465239665
-R^2: 0.4225216076161703
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
+Model: DecisionTreeRegressor()
+RMSE: 7.885126895038752
+R^2: 0.433038036534766
+Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 
 Model: LinearRegression()
 RMSE: 7.987714934292638
 R^2: 0.41818935242930266
-Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2']
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: RandomForestRegressor()
+RMSE: 7.668179058776963
+R^2: 0.4638071220217451
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: RandomForestRegressor()
+RMSE: 7.69759970543321
+R^2: 0.4596847864654796
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: GradientBoostingRegressor()
+RMSE: 8.579155366247132
+R^2: 0.3288406946547626
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures()),
+                ('linearregression', LinearRegression())])
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures()),
+                ('linearregression', LinearRegression())])
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures()),
+                ('linearregression', LinearRegression())])
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 
