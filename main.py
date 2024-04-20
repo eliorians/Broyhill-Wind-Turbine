@@ -7,67 +7,50 @@ import pandas as pd
 
 import turbine_util
 import plots
-from params import param_gridList 
-
-from sklearn.linear_model import LinearRegression
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.tree import DecisionTreeRegressor
 
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import GridSearchCV, cross_val_score
+
+from params import paramList 
+from params import modelList
+from params import featsList
 
 logger = logging.getLogger('main')
 
-def generate_features(hours_to_forecast, allFeats, feats_list):
+def generate_features(allFeats, hoursOut, feats_list):
     features = []
     if allFeats:
-        feats_list=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
-    for number in range(hours_to_forecast):
+        feats_list=featsList
+    for number in range(hoursOut):
         for feature in feats_list:
             features.append(f"{feature}_{number}")
     return features
 
 #! ------- CONFIG ------- !#
 
-#The hour that will be forecast from
-#set threshold minutes to 0 if changed to allow data to reset
+#The hour that will be forecasted
+#NOTE: set threshold minutes to 0 if changed to allow data to reset
 hoursToForecast=12
 
 #How often the data should be reprocessed
 threshold_minutes=60
 
-#Size of split in train/test data
-split=.2
-
 #Wether to train and evaluate the model
 toTrain=True
 
-#Set the model type from the model list 
-modelType='polynomial_regression'
+#Set the model type from the model list (see params.py for model list)
+modelType='linear_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
-#Columns from finalFrames.csv to be used in training
-featuresToTrain=['windSpeed_mph_0']
-#featuresToTrain=['windSpeed_mph_0', 'windSpeed_mph_1','windSpeed_mph_2']
-#featuresToTrain=['probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_mph_0']
-#featuresToTrain = generate_features(hours_to_forecast=hoursToForecast, allFeats=True, feats_list=['windSpeed_mph'])
+#Columns from finalFrames.csv to be used in training ()
+featuresToTrain = generate_features(allFeats=False, hoursOut=hoursToForecast, feats_list=['windSpeed_mph'])
 
-#List of models able to be used
-modelList = {
-    'baseline'              : 'baseline',
-    'linear_regression'     : LinearRegression(),
-    'random_forest'         : RandomForestRegressor(),
-    'polynomial_regression' : make_pipeline(PolynomialFeatures(), LinearRegression()),
-    'decision_tree'         : DecisionTreeRegressor(),
-    'gradient_boosted_reg'  : GradientBoostingRegressor(),
-}
+#Size of split in train/test data
+split=.2
 
-#Wether to plot stuff (not for turning off prediction outcomes)
+#Wether to plot stuff
 toPlot=False
 
 #! ------- END CONFIG ------- !#
@@ -135,11 +118,14 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
             #predict the average value for all instances in the test set
             y_pred = np.full_like(test_df[target], fill_value=target_mean)
 
-        #process for any other selected model
+        #process for any other selected model. 
+        #uses grid search to optimize parameters -> see settings in params.py
         else:
             #grid search for optimum hyperparameters
-            param_grid = param_gridList.get(model_name) 
-            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', verbose=2, n_jobs=-1)
+            param_grid = paramList.get(model_name) 
+            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=5, verbose=3, n_jobs=-1)
+            nested_score = cross_val_score(grid_search, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error')
+            logger.info(f"Nested CV Score (RMSE): {nested_score.mean()} +/- {nested_score.std()}")
 
             #fit the grid search to the data
             grid_search.fit(x_train, y_train)

@@ -49,3 +49,15 @@ R^2: 0.41818935242930266
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 
+Model: LinearRegression()
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression(n_jobs=-1)
+RMSE: 8.244364233095896
+R^2: 0.3802009714870884
+Features: ['windSpeed_mph_0', 'windSpeed_mph_1', 'windSpeed_mph_2', 'windSpeed_mph_3', 'windSpeed_mph_4', 'windSpeed_mph_5', 'windSpeed_mph_6', 'windSpeed_mph_7', 'windSpeed_mph_8', 'windSpeed_mph_9', 'windSpeed_mph_10', 'windSpeed_mph_11']
+Hours to Forecast: 12
+
