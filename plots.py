@@ -24,6 +24,16 @@ def logging_setup():
         ])
 
 def plotPrediction(timestamp, actual, prediction, model):
+    '''
+    Plot the prediction against the actual. 
+    Creates a scatter plot and a line plot and saves both in ./plots/prediction_plots
+
+    ARGS
+    timestamp: the x values for the plot
+    actual: actual y values
+    prediction: predicted y values
+    model: name of model used to create predictions
+    '''
     logging_setup()
     logger = logging.getLogger('plots')
     logger.info("in plotPrediction")
@@ -61,14 +71,17 @@ def plotPrediction(timestamp, actual, prediction, model):
     plt.savefig(f'./plots/prediction_plots/{model}_lineplot.png')
     plt.show()
 
-def plot_PowerVSActualWind(df, power, actualWindSpeed):
+def plot_TargetVSActual(df, target, actual):
+    '''
+    Setup to be called in main, just enable toPlot=True and uncomment the call
+    '''
     logging_setup()
     logger = logging.getLogger('plots')
-    logger.info("in plot_PowerVSActualWind")
+    logger.info("in plot_TargetVSActual")
 
     #create plot
     sea.set_theme('paper', style='whitegrid')
-    sea.jointplot(data=df, x=actualWindSpeed, y=power, 
+    sea.jointplot(data=df, x=actual, y=target, 
                 height=10, ratio=5,
                 marginal_ticks=True,
                 kind='reg',
@@ -78,50 +91,55 @@ def plot_PowerVSActualWind(df, power, actualWindSpeed):
     )
         
     #output
-    plt.savefig('./plots/actualWindspeed_vs_power/jointplot_powerVSactualWind.png')
+    plt.savefig(f'./plots/target_vs_actual/{target}_VS_{actual}.png')
     plt.show()
 
+def plot_TargetVSFeature(df, target, feature, plotType):
+    '''
+    Used for plotting the target against a feature.
 
-def plot_PowerVSForecastWind(df, power, forecastWindspeed):
+    ARGS
+    df: dataframe to pull columns from
+    target: target column from the df to plot against
+    feature: column to get from df to plot against target
+    plotType: type of plot to use [hex, hist, kde, reg, resid, scatter]
+
+    
+    '''
     logging_setup()
     logger = logging.getLogger('plots')
-    logger.info("in plot_PowerVSForecastWind")
-
-    plotType = 'reg'
+    logger.info("in plot_TargetVSFeature")
 
     #hex plot
     if (plotType == 'hex'):
         sea.set_theme('paper', style='whitegrid')
-        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+        sea.jointplot(data=df, x=feature, y=target,
                     height=10, ratio=5,
                     marginal_ticks=True, color='red',
                     kind='hex',
                     marginal_kws=dict(color='green'),
         )
-        plt.savefig('./plots/forecastWindspeed_vs_power/hex_powerVsforecastWind.png')
 
     #hist plot
     if (plotType == 'hist'):
         sea.set_theme('paper', style='whitegrid')
-        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+        sea.jointplot(data=df, x=feature, y=target,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
                     kind='hist',
                     marginal_kws=dict(color='green'),
         )
-        plt.savefig('./plots/forecastWindspeed_vs_power/hist_powerVsforecastWind.png')
 
     #kde plot
     if (plotType == 'kde'):
         sea.set_theme('paper', style='whitegrid')
-        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+        sea.jointplot(data=df, x=feature, y=target,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
                     kind='kde',
                     alpha=.9,
                     marginal_kws=dict(color='green'),
         )
-        plt.savefig('./plots/forecastWindspeed_vs_power/kde_powerVsforecastWind.png')
 
     #reg plot
     if (plotType == 'reg'):
@@ -129,7 +147,7 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
         bins = 30
         order=1
 
-        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+        sea.jointplot(data=df, x=feature, y=target,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
                     kind='reg',
@@ -139,34 +157,30 @@ def plot_PowerVSForecastWind(df, power, forecastWindspeed):
                     scatter_kws={'alpha': 0.5},         
         )
 
-        plt.savefig(f'./plots/forecastWindspeed_vs_power/reg{order}_powerVsforecastWind.png')
-
     #resid plot
     if (plotType == 'resid'):
         sea.set_theme('paper', style='whitegrid')
-        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+        sea.jointplot(data=df, x=feature, y=target,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
                     kind='resid',
                     scatter_kws={'alpha': 0.5},
                     marginal_kws=dict(color='green'),
         )
-        plt.savefig('./plots/forecastWindspeed_vs_power/resid_powerVsforecastWind.png')
 
     #scatter plot
     if (plotType == 'scatter'):
         sea.set_theme('paper', style='whitegrid')
-        sea.jointplot(data=df, x=forecastWindspeed, y=power,
+        sea.jointplot(data=df, x=feature, y=target,
                     height=10, ratio=5,
                     marginal_ticks=True, color='blue',
                     kind='scatter',
                     marginal_kws=dict(color='green'),
                     alpha= 0.5,
         )
-        plt.savefig('./plots/forecastWindspeed_vs_power/scatter_powerVsforecastWind.png')
-
+    
+    plt.savefig(f'./plots/target_vs_feature/{target}_VS_{feature}.png')
     plt.show()
-
 
 def plotQuantities(df, column):
     '''

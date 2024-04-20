@@ -2,6 +2,7 @@
 import os
 import logging
 import time
+import traceback
 import numpy as np
 import pandas as pd
 
@@ -25,7 +26,7 @@ def generate_features(allFeats, hoursOut, feats_list):
     Args:
     allFeats: True to use all features in the base list from params.py
     hoursOut: the number columns to use from each base feature. Use hoursToForcast for all features or 1 for just the _0's
-    
+
     '''
     features = []
     if allFeats:
@@ -109,13 +110,28 @@ def train_test_split(df, split):
     test_df.to_csv('./model-data/test_df.csv')
     return train_df, test_df
 
-def train_eval_model(train_df, test_df, target, features, model_list, model_name):
+def train_eval_model(df, split, target, features, model_name):
+    '''
+    Grid search to optimize hyperparamerters
+    cross validation for fairness
+    train model
+    test model
+    evaluate
+
+    ARGS
+    df: the dataframe to pull test and train data from
+    target: column to predict
+    features: list of columns to use as features
+    model_name: model to be trained and evaluated
+
+    '''
     try:
         logger.info("in train_eval_model")
 
-        model = model_list.get(model_name)
+        model = modelList.get(model_name)
 
         #split train and test data into features and target
+        train_df, test_df = train_test_split(df, split)
         x_train, y_train = train_df[features], train_df[target]
         x_test, y_test = test_df[features], test_df[target]
 
@@ -133,7 +149,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
             #grid search for optimum hyperparameters
             param_grid = paramList.get(model_name) 
             grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=5, verbose=3, n_jobs=-1)
-            nested_score = cross_val_score(grid_search, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error')
+            nested_score = cross_val_score(grid_search, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error', n_jobs=-1, verbose=3)
             logger.info(f"Nested CV Score (RMSE): {nested_score.mean()} +/- {nested_score.std()}")
 
             #fit the grid search to the data
@@ -172,6 +188,7 @@ def train_eval_model(train_df, test_df, target, features, model_list, model_name
 
     except Exception as e:
         logger.error(f"Error: {str(e)}")
+        traceback.print_exc()
 
 def main():
     logging_setup()
@@ -188,18 +205,15 @@ def main():
     #plotting stuff
     if toPlot == True:
         plots.plotQuantities(df, 'WTG1_R_TurbineState')
-        #plots.plot_PowerVSActualWind(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
-        #plots.plot_PowerVSForecastWind(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
+        plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
         print("target min: "+ str(df[targetToTrain].min()))
         print("target max: "+ str(df[targetToTrain].max()))
         print("target mean: "+ str(df[targetToTrain].mean()))
 
-    #perform train/test split and then
     #train & evaluate the model
     if toTrain == True:
-
-        train_df, test_df = train_test_split(df, split)
-        train_eval_model(train_df, test_df, targetToTrain, featuresToTrain, modelList, modelType)
+        train_eval_model(df, split, targetToTrain, featuresToTrain, modelType)
 
 if __name__ == "__main__":
     main()

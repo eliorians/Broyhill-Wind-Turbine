@@ -67,3 +67,9 @@ R^2: 0.41818935242930266
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 
+Model: LinearRegression(n_jobs=-1)
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
