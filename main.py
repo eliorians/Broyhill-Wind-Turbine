@@ -18,6 +18,15 @@ from params import featsList
 logger = logging.getLogger('main')
 
 def generate_features(allFeats, hoursOut, feats_list):
+    '''
+    Generates list of features to be used by the model given the number of hours out to use
+    and the list of base features.
+    
+    Args:
+    allFeats: True to use all features in the base list from params.py
+    hoursOut: the number columns to use from each base feature. Use hoursToForcast for all features or 1 for just the _0's
+    
+    '''
     features = []
     if allFeats:
         feats_list=featsList
@@ -44,8 +53,8 @@ modelType='linear_regression'
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
-#Columns from finalFrames.csv to be used in training ()
-featuresToTrain = generate_features(allFeats=False, hoursOut=hoursToForecast, feats_list=['windSpeed_mph'])
+#Columns from finalFrames.csv to be used in training (allFeates=True for all possible features, see base feats list in )
+featuresToTrain = generate_features(allFeats=False, hoursOut=1, feats_list=['windSpeed_mph'])
 
 #Size of split in train/test data
 split=.2

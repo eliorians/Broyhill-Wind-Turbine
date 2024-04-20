@@ -160,17 +160,6 @@ turbine_column_types = {
     "WTG1_R_TurbineState"            : int                  # If turbine is on/off    
 }
 
-#forecast data column types
-forecast_column_types = {
-    'temperature_F'                     : int,
-    'windSpeed_mph'                     : int,
-    'windDirection'                     : str,
-    'shortForecast'                     : str,
-    'probabilityOfPrecipitation_percent': int,
-    'dewpoint_degC'                     : float,
-    'relativeHumidity_percent'          : int
-}
-
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
     logs_directory = os.path.join(os.getcwd(), 'logs')
@@ -287,7 +276,13 @@ def cleanTurbineData(df):
 
 def combineTurbineForecast(df, hours_to_forecast):
     '''
-    combine turbine and forecast data based on the hour_to_forecast.
+    combine turbine and forecast data based on the hour_to_forecast. 
+    The _0 columns will be the forecast data from hours_to_forecast hours ago, for the current rows hour.
+    Then, the _1 columns will be the forecast data from hours_to_forecast ago, but for the row befores hour. And so on up to hours_to_forecast-1
+
+    ARGS
+    df: the turbine data to be combined with forecast data
+    hours_to_forecast: how many hours ago the forecast will be grabbed from to merge
     '''
     logger.info("in combineTurbineForecast")
 
