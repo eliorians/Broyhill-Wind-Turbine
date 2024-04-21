@@ -23,10 +23,9 @@ def generate_features(allFeats, hoursOut, feats_list):
     Generates list of features to be used by the model given the number of hours out to use
     and the list of base features.
     
-    Args:
+    ARGS
     allFeats: True to use all features in the base list from params.py
     hoursOut: the number columns to use from each base feature. Use hoursToForcast for all features or 1 for just the _0's
-
     '''
     features = []
     if allFeats:
@@ -82,6 +81,10 @@ def logging_setup():
 def dataProcessed(filepath, threshold_minutes):
     """
     Returns true if [filepath] has been updated in the last [threshold minutes].
+
+    ARGS
+    filepath: relative filepath to the file you want to check
+    threshold_minutes: # minutes the file must have been updated ago to return True
     """
     # get the creation time of the file and current time
     file_creation_time = os.path.getmtime(filepath)
@@ -98,6 +101,10 @@ def dataProcessed(filepath, threshold_minutes):
 def train_test_split(df, split):
     """
     Sequentially splits a [df] based on the [split]
+
+    ARGS
+    df: the dataframe to split
+    split: the split proportion
     """
     logger.info("in train_test_split")
 
@@ -120,10 +127,10 @@ def train_eval_model(df, split, target, features, model_name):
 
     ARGS
     df: the dataframe to pull test and train data from
+    split: the split proportion of the train/test data
     target: column to predict
     features: list of columns to use as features
     model_name: model to be trained and evaluated
-
     '''
     try:
         logger.info("in train_eval_model")

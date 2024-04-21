@@ -48,14 +48,30 @@ def logging_setup():
 
 #extracts json data
 def extractJson(data):
+    '''
+    given a json value, extract it
+
+    ARGS
+    data: json data
+
+    RETURNS
+    the value within the json
+    '''
     try:
         return data.get('value')
     except (json.JSONDecodeError, AttributeError):
         return None
 
-
-#converts forecast path to csv path
 def getNewFilepath(filepath):
+    '''
+    Converts json filepath to the processed csv filepath. Drops seconds to ensure consistent hourly naming.
+
+    ARGS
+    filepath: the current name of the forecast file
+
+    RETURNS
+    the updated name for the .csv file.
+    '''
     # extract the directory path and filename from the original filepath
     directory, filename = os.path.split(filepath)
     # remove the seconds, and change the extension to .csv
@@ -66,8 +82,13 @@ def getNewFilepath(filepath):
     new_filepath = os.path.join(new_directory, base_name)
     return new_filepath
 
-#process each forecast data file
 def cleanForecastData(filepath):
+    '''
+    Process each forecast data file.
+
+    ARGS
+    filepath: the path to the forecast file to process
+    '''
 
     #open json file
     with open(filepath, 'r') as json_file:

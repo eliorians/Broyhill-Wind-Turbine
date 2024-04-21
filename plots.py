@@ -73,7 +73,12 @@ def plotPrediction(timestamp, actual, prediction, model):
 
 def plot_TargetVSActual(df, target, actual):
     '''
-    Setup to be called in main, just enable toPlot=True and uncomment the call
+    Used for plotting the target against some actual data.
+
+    ARGS
+    df: the dataframe to pull data from
+    target: column to plot as target
+    actual: column to plot as actual
     '''
     logging_setup()
     logger = logging.getLogger('plots')
@@ -103,8 +108,6 @@ def plot_TargetVSFeature(df, target, feature, plotType):
     target: target column from the df to plot against
     feature: column to get from df to plot against target
     plotType: type of plot to use [hex, hist, kde, reg, resid, scatter]
-
-    
     '''
     logging_setup()
     logger = logging.getLogger('plots')

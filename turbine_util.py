@@ -176,7 +176,7 @@ def logging_setup():
 
 def readSQLDump():
     '''
-    read the main frames.csv SQL dump file
+    read the frames.csv SQL dump file into a dataframe
     '''
     logger.info("in readSQLDump")
 
@@ -196,6 +196,12 @@ def readSQLDump():
 def findForecastFile(filename):
     '''
     finds the forecast filename in ./forecast-data-processed and returns true if it exists
+
+    ARGS
+    filename: the name of the file to find
+
+    RETURNS
+    true if the file was found
     '''
     filepath = './forecast-data-processed/' + filename
     return os.path.isfile(filepath)
@@ -203,6 +209,12 @@ def findForecastFile(filename):
 def cleanTurbineData(df):
     '''
     first step of cleaning turbine data
+
+    ARGS
+    df: the raw turbine dataframe
+
+    RETURNS
+    cleaned turbine dataframe
     '''
     logger.info("in cleanTurbineData")
 
@@ -283,6 +295,9 @@ def combineTurbineForecast(df, hours_to_forecast):
     ARGS
     df: the turbine data to be combined with forecast data
     hours_to_forecast: how many hours ago the forecast will be grabbed from to merge
+
+    RETURNS
+    the merged dataframe
     '''
     logger.info("in combineTurbineForecast")
 
@@ -369,6 +384,12 @@ def combineTurbineForecast(df, hours_to_forecast):
 def trimData(df):
     '''
     Final step of cleaning turbine data
+
+    ARGS
+    df: the turbine data to trimmed
+
+    RETURNS
+    the trimmed dataframe
     '''
     logger.info("in trimData")
  
@@ -417,4 +438,5 @@ def main(hours_to_forecast):
     return df
 
 if __name__ == "__main__":
-    main(12)
+    hours_to_forecast = 12
+    main(hours_to_forecast)
