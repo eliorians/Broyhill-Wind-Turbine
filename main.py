@@ -48,7 +48,7 @@ threshold_minutes=60
 toTrain=True
 
 #Set the model type from the model list (see params.py for model list)
-modelType='linear_regression'
+modelType='gradient_boosted_reg'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -156,8 +156,6 @@ def train_eval_model(df, split, target, features, model_name):
             #grid search for optimum hyperparameters
             param_grid = paramList.get(model_name) 
             grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=5, verbose=3, n_jobs=-1)
-            nested_score = cross_val_score(grid_search, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error', n_jobs=-1, verbose=3)
-            logger.info(f"Nested CV Score (RMSE): {nested_score.mean()} +/- {nested_score.std()}")
 
             #fit the grid search to the data
             grid_search.fit(x_train, y_train)
@@ -165,6 +163,9 @@ def train_eval_model(df, split, target, features, model_name):
             #get the best model from grid search
             best_model = grid_search.best_estimator_
             
+            #cross validation on the best model found
+            scores = cross_val_score(best_model, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error')
+
             #predict on the test set using the best model
             y_pred = best_model.predict(x_test)
 
@@ -184,11 +185,15 @@ def train_eval_model(df, split, target, features, model_name):
         logger.info(f"Model: {model}")
         logger.info(f"RMSE: {rmse}")
         logger.info(f"R^2: {r_squared}")
+        logger.info(f"Cross-Validation Scores: {scores}")
+        logger.info(f"Average Score: {scores.mean()}")
 
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {model}\n")
             f.write(f"RMSE: {rmse}\n")
             f.write(f"R^2: {r_squared}\n")
+            f.write(f"Cross-Validation Scores: {scores}\n")
+            f.write(f"Average Score: {scores.mean()}\n")
             f.write(f"Features: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write("\n")

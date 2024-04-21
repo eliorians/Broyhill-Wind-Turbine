@@ -73,3 +73,76 @@ R^2: 0.41818935242930266
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 
+Model: LinearRegression(n_jobs=-1)
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Cross-Validation Scores: [-12.18461297  -6.65610604  -8.93533235  -8.81819368 -10.44067206]
+Average Score: -9.40698341877604
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression(n_jobs=-1)
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Cross-Validation Scores: [-12.18461297  -6.65610604  -8.93533235  -8.81819368 -10.44067206]
+Average Score: -9.40698341877604
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: RandomForestRegressor(n_jobs=-1, verbose=3)
+RMSE: 7.736622495949969
+R^2: 0.45419267148252096
+Cross-Validation Scores: [-13.70024477  -6.56261991 -12.0790929   -8.36421979 -10.50908566]
+Average Score: -10.243052604318276
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: RandomForestRegressor(n_jobs=-1, verbose=3)
+RMSE: 7.736622495949969
+R^2: 0.45419267148252096
+Cross-Validation Scores: [-13.70024477  -6.56261991 -12.0790929   -8.36421979 -10.50908566]
+Average Score: -10.243052604318276
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: LinearRegression(n_jobs=-1)
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Cross-Validation Scores: [-12.18461297  -6.65610604  -8.93533235  -8.81819368 -10.44067206]
+Average Score: -9.40698341877604
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: Pipeline(steps=[('polynomialfeatures', PolynomialFeatures()),
+                ('linearregression', LinearRegression(n_jobs=-1))])
+RMSE: 7.987714934292638
+R^2: 0.41818935242930266
+Cross-Validation Scores: [-12.18461297  -6.65610604  -8.93533235  -8.81819368 -10.44067206]
+Average Score: -9.40698341877604
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: RandomForestRegressor(n_jobs=-1, verbose=3)
+RMSE: 7.650955420945405
+R^2: 0.4662131222469167
+Cross-Validation Scores: [-13.92971695  -6.54060448 -10.58077689  -8.38071777 -10.33852045]
+Average Score: -9.954067307693597
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: RandomForestRegressor(n_jobs=-1, verbose=3)
+RMSE: 7.754861888141955
+R^2: 0.4516161133495219
+Cross-Validation Scores: [-13.93507432  -6.48719223 -10.2510586   -8.37677423 -10.39422967]
+Average Score: -9.888865809774538
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
+Model: DecisionTreeRegressor()
+RMSE: 7.736622495949969
+R^2: 0.45419267148252107
+Cross-Validation Scores: [-13.82234655  -6.57232485 -11.62694393  -8.37393046 -10.51367736]
+Average Score: -10.18184462994449
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+
