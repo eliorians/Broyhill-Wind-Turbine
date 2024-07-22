@@ -26,7 +26,6 @@ def main():
     url = "https://api.weather.gov/gridpoints/RNK/17,16/forecast/hourly"
     headers = {"User-Agent": "ElisForecastCollection/1.0 (eli.orians@gmail.com)", "Accept": "application/geo+json"}
     
-
     logging_setup()
     logger = logging.getLogger('forecast_collection')
     logger.info("Starting forecast collection")

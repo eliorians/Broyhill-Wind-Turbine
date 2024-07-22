@@ -48,7 +48,7 @@ threshold_minutes=60
 toTrain=True
 
 #Set the model type from the model list (see params.py for model list)
-modelType='gradient_boosted_reg'
+modelType='baseline'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -60,7 +60,7 @@ featuresToTrain = generate_features(allFeats=False, hoursOut=1, feats_list=['win
 split=.2
 
 #Wether to plot stuff
-toPlot=False
+toPlot=True
 
 #! ------- END CONFIG ------- !#
 
@@ -218,7 +218,7 @@ def main():
     if toPlot == True:
         plots.plotQuantities(df, 'WTG1_R_TurbineState')
         plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
-        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
+        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
         print("target min: "+ str(df[targetToTrain].min()))
         print("target max: "+ str(df[targetToTrain].max()))
         print("target mean: "+ str(df[targetToTrain].mean()))

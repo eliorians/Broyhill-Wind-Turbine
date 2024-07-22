@@ -181,7 +181,8 @@ def readSQLDump():
     logger.info("in readSQLDump")
 
     #path to data and the row the data starts
-    dataPath = "./turbine-data/frames.csv"
+    #dataPath = "./turbine-data/frames_11-16-23.csv"
+    dataPath = "./turbine-data/frames_6-17-24.csv"
     skipTop = 17
     skipBottom = 8
 
