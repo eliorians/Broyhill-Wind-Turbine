@@ -146,3 +146,11 @@ Average Score: -10.18184462994449
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 
+Model: LinearRegression(n_jobs=-1)
+RMSE: 7.386146488677761
+R^2: 0.32364587904909203
+Cross-Validation Scores: [-12.12485817 -16.46457273 -14.18360064 -14.40746233 -12.51608438]
+Average Score: -13.939315651374605
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+

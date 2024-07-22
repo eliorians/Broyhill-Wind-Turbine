@@ -1,5 +1,6 @@
 
 import math
+import traceback
 import warnings
 import pandas as pd
 import logging
@@ -22,14 +23,15 @@ column_types = {
 
 #map the wind direction to vectors around a circle
 direction_mapping = {
-    'N': (0, 1),
-    'NE': (math.sqrt(2)/2, math.sqrt(2)/2),
-    'E': (1, 0),
-    'SE': (math.sqrt(2)/2, -math.sqrt(2)/2),
-    'S': (0, -1),
-    'SW': (-math.sqrt(2)/2, -math.sqrt(2)/2),
-    'W': (-1, 0),
-    'NW': (-math.sqrt(2)/2, math.sqrt(2)/2)
+    'N'     : (0, 1),
+    'NE'    : (math.sqrt(2)/2, math.sqrt(2)/2),
+    'E'     : (1, 0),
+    'SE'    : (math.sqrt(2)/2, -math.sqrt(2)/2),
+    'S'     : (0, -1),
+    'SW'    : (-math.sqrt(2)/2, -math.sqrt(2)/2),
+    'W'     : (-1, 0),
+    'NW'    : (-math.sqrt(2)/2, math.sqrt(2)/2),
+    ''      : (0,0) # wind speed is 0, so wind direction is ''
 }
 
 def logging_setup():
@@ -135,6 +137,7 @@ def cleanForecastData(filepath):
             print(f"Warning while processing {filepath}: " + str(warning))
         except Exception as error:
             print(f"Error while processing {filepath}: " + str(error))
+            traceback.print_exc()
 
     #save to csv
     filepath = getNewFilepath(filepath)

@@ -42,13 +42,13 @@ def generate_features(allFeats, hoursOut, feats_list):
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=60
+threshold_minutes=0
 
 #Wether to train and evaluate the model
 toTrain=True
 
 #Set the model type from the model list (see params.py for model list)
-modelType='baseline'
+modelType='linear_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -136,6 +136,8 @@ def train_eval_model(df, split, target, features, model_name):
         logger.info("in train_eval_model")
 
         model = modelList.get(model_name)
+        if model is None:
+            raise ValueError(f"Model '{model_name}' not found in modelList. See options in modelList from params.py")
 
         #split train and test data into features and target
         train_df, test_df = train_test_split(df, split)
@@ -153,17 +155,21 @@ def train_eval_model(df, split, target, features, model_name):
         #process for any other selected model. 
         #uses grid search to optimize parameters -> see settings in params.py
         else:
-            #grid search for optimum hyperparameters
-            param_grid = paramList.get(model_name) 
+            #get the parameter list from params.py
+            param_grid = paramList.get(model_name)
+            if param_grid is None:
+                raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
+            
+            #perform grid search with 5 fold cross validation
             grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=5, verbose=3, n_jobs=-1)
-
+            
             #fit the grid search to the data
             grid_search.fit(x_train, y_train)
 
             #get the best model from grid search
             best_model = grid_search.best_estimator_
             
-            #cross validation on the best model found
+            #cross validation on the best model found to evaluate performance
             scores = cross_val_score(best_model, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error')
 
             #predict on the test set using the best model
@@ -185,8 +191,11 @@ def train_eval_model(df, split, target, features, model_name):
         logger.info(f"Model: {model}")
         logger.info(f"RMSE: {rmse}")
         logger.info(f"R^2: {r_squared}")
-        logger.info(f"Cross-Validation Scores: {scores}")
+        if model != 'baseline':
+            logger.info(f"Cross-Validation Scores: {scores}")
         logger.info(f"Average Score: {scores.mean()}")
+        logger.info(f"Features used: {features}")
+
 
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {model}\n")
