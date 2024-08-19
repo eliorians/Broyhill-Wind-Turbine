@@ -12,10 +12,10 @@ featsList=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOf
 modelList = {
     'baseline'              : 'baseline',
     'linear_regression'     : LinearRegression(n_jobs=-1),
-    'random_forest'         : RandomForestRegressor(n_jobs=-1, verbose=3),
+    'random_forest'         : RandomForestRegressor(n_jobs=-1, verbose=0),
     'polynomial_regression' : make_pipeline(PolynomialFeatures(), LinearRegression(n_jobs=-1)),
     'decision_tree'         : DecisionTreeRegressor(),
-    'gradient_boosted_reg'  : GradientBoostingRegressor(verbose=3),
+    'gradient_boosted_reg'  : GradientBoostingRegressor(verbose=0),
 }
 
 #param_grid associated with each model

@@ -10,7 +10,7 @@ import turbine_util
 import plots
 
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.model_selection import GridSearchCV, cross_val_score
+from sklearn.model_selection import GridSearchCV, KFold, TimeSeriesSplit, cross_val_score
 
 from params import paramList 
 from params import modelList
@@ -37,30 +37,44 @@ def generate_features(allFeats, hoursOut, feats_list):
 
 #! ------- CONFIG ------- !#
 
+#The data to use (date is the day collected)
+#dataPath = "./turbine-data/frames_11-16-23.csv"
+dataPath = "./turbine-data/frames_6-17-24.csv"
+
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=0
+threshold_minutes=60
 
 #Wether to train and evaluate the model
 toTrain=True
 
 #Set the model type from the model list (see params.py for model list)
-modelType='linear_regression'
+modelType= 'gradient_boosted_reg'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
-#Columns from finalFrames.csv to be used in training (allFeates=True for all possible features, see base feats list in )
+#Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 featuresToTrain = generate_features(allFeats=False, hoursOut=1, feats_list=['windSpeed_mph'])
 
 #Size of split in train/test data
 split=.2
 
-#Wether to plot stuff
-toPlot=True
+#General Plots
+toPlot= False
+#Prediction Plots (one per fold for nested gridsearch)
+toPlotPredictions= False
+
+#The type of validation technique to use. Select from: ['basic', 'gridsearch', 'nested_gridsearch']
+validation='nested_gridsearch'
+
+#The # of folds to use for either gridsearch or nested gridsearch
+gridsearch_folds = 3
+nested_gridsearch_outerfolds = 3
+nested_gridsearch_innerfolds = 3
 
 #! ------- END CONFIG ------- !#
 
@@ -119,11 +133,7 @@ def train_test_split(df, split):
 
 def train_eval_model(df, split, target, features, model_name):
     '''
-    Grid search to optimize hyperparamerters
-    cross validation for fairness
-    train model
-    test model
-    evaluate
+    Train and evaluate the mode. Use the config section of this file to select the validation type, model, and many other things.
 
     ARGS
     df: the dataframe to pull test and train data from
@@ -135,33 +145,76 @@ def train_eval_model(df, split, target, features, model_name):
     try:
         logger.info("in train_eval_model")
 
+        # get the model info from params.py
         model = modelList.get(model_name)
         if model is None:
             raise ValueError(f"Model '{model_name}' not found in modelList. See options in modelList from params.py")
 
-        #split train and test data into features and target
-        train_df, test_df = train_test_split(df, split)
-        x_train, y_train = train_df[features], train_df[target]
-        x_test, y_test = test_df[features], test_df[target]
-
-        #process for baseline model, returns average target for all points
+        # process for baseline model - returns average target for all points
         if model == 'baseline':
+            train_df, test_df = train_test_split(df, split)
+            x_train, y_train = train_df[features], train_df[target]
+            x_test, y_test = test_df[features], test_df[target]
+            
             #get the mean of the target
             target_mean = train_df[target].mean()
 
             #predict the average value for all instances in the test set
             y_pred = np.full_like(test_df[target], fill_value=target_mean)
 
-        #process for any other selected model. 
-        #uses grid search to optimize parameters -> see settings in params.py
-        else:
+            #eval
+            mse = mean_squared_error(y_test, y_pred)
+            rmse = np.sqrt(mse)
+            r_squared = r2_score(y_test, y_pred)
+
+            #logging
+            logger.info(f"RMSE: {rmse}")
+            logger.info(f"R^2: {r_squared}")
+            with open('./model-data/eval.txt', "a") as f:
+                f.write(f"Model: {model}\n")
+                f.write(f"RMSE: {rmse}\n")
+                f.write(f"R^2: {r_squared}\n")
+                f.write(f"\n")
+    
+            return
+        
+        #begin timing
+        start_time = time.time()
+
+        # process for all other models - varies based on the validation technique selected
+        if validation == 'basic':
+            #split train and test data into features and target
+            train_df, test_df = train_test_split(df, split)
+            x_train, y_train = train_df[features], train_df[target]
+            x_test, y_test = test_df[features], test_df[target]
+
+            #fit the data
+            model.fit(x_train, y_train)
+            #predict
+            y_pred = model.predict(x_test)
+
+            #evaluate the model
+            mse = mean_squared_error(y_test, y_pred)
+            rmse = np.sqrt(mse)
+            r_squared = r2_score(y_test, y_pred)
+
+            #plot the predictions
+            if toPlotPredictions:
+                plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
+
+        elif validation == 'gridsearch':
+            #split train and test data into features and target
+            train_df, test_df = train_test_split(df, split)
+            x_train, y_train = train_df[features], train_df[target]
+            x_test, y_test = test_df[features], test_df[target]
+
             #get the parameter list from params.py
             param_grid = paramList.get(model_name)
             if param_grid is None:
                 raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
             
             #perform grid search with 5 fold cross validation
-            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=5, verbose=3, n_jobs=-1)
+            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=gridsearch_folds, verbose=0, n_jobs=-1)
             
             #fit the grid search to the data
             grid_search.fit(x_train, y_train)
@@ -170,41 +223,117 @@ def train_eval_model(df, split, target, features, model_name):
             best_model = grid_search.best_estimator_
             
             #cross validation on the best model found to evaluate performance
-            scores = cross_val_score(best_model, x_train, y_train, cv=5, scoring='neg_root_mean_squared_error')
+            cross_scores = cross_val_score(best_model, x_train, y_train, cv=gridsearch_folds, scoring='neg_root_mean_squared_error')
 
             #predict on the test set using the best model
             y_pred = best_model.predict(x_test)
 
-            #training without gridsearch
-            # model.fit(x_train, y_train)
-            # y_pred = model.predict(x_test)
+            #evaluate the model
+            mse = mean_squared_error(y_test, y_pred)
+            rmse = np.sqrt(mse)
+            r_squared = r2_score(y_test, y_pred)
 
-        #evaluate the model
-        mse = mean_squared_error(y_test, y_pred)
-        rmse = np.sqrt(mse)
-        r_squared = r2_score(y_test, y_pred)
+            #plot the predictions
+            if toPlotPredictions:
+                plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
+        
+        elif validation == 'nested_gridsearch':
+            #split data into n folds
+            #outer_cv = KFold(n_splits=nested_gridsearch_outerfolds, shuffle=True, random_state=42)
+            outer_cv = TimeSeriesSplit(n_splits=nested_gridsearch_outerfolds)
+            outer_scores = []
 
-        #plot the predictions
-        plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
+            #for each fold
+            for train_index, test_index in outer_cv.split(df):
+                #split train and test data into features and target
+                train_df, test_df = df.iloc[train_index], df.iloc[test_index]
+                x_train, y_train = train_df[features], train_df[target]
+                x_test, y_test = test_df[features], test_df[target]
+
+                #get the parameter list from params.py
+                param_grid = paramList.get(model_name)
+                if param_grid is None:
+                    raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
+
+                #perform grid search with cross validation on training set for hyperparameter tuning
+                #inner_cv = KFold(n_splits=nested_gridsearch_innerfolds, shuffle=True, random_state=42)
+                inner_cv = TimeSeriesSplit(n_splits=nested_gridsearch_innerfolds)
+                grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=inner_cv, n_jobs=-1, verbose=0)
+                grid_search.fit(x_train, y_train)
+                
+                #get the best model from grid search
+                best_model = grid_search.best_estimator_
+
+                #cross validation on the best model found to evaluate performance
+                cross_scores = cross_val_score(best_model, x_train, y_train, cv=nested_gridsearch_innerfolds, scoring='neg_root_mean_squared_error')
+
+                #preict on the test set using the best model
+                y_pred = best_model.predict(x_test)
+
+                #evaluate the model and append to scores
+                mse = mean_squared_error(y_test, y_pred)    
+                rmse = np.sqrt(mse)
+                r_squared = r2_score(y_test, y_pred)
+                outer_scores.append((rmse, r_squared, cross_scores))
+                
+                logger.info(f"Outer Fold RMSE: {rmse}")
+                logger.info(f"Outer Fold R^2: {r_squared}")
+                logger.info(f"Outer Fold Cross-Validation Scores: {cross_scores}")
+                
+                #plot the predictions for each outer fold
+                if toPlotPredictions:
+                    plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
+
+            #average the scores across all outer folds
+            avg_rmse = np.mean([score[0] for score in outer_scores])
+            avg_r_squared = np.mean([score[1] for score in outer_scores])
+            avg_cross_scores = np.mean([score[2] for score in outer_scores])
+
+        else:
+            raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_gridsearch'.")
+        
+        #end timing
+        end_time = time.time()
+        final_time = end_time - start_time
 
         #log evaluation metrics
-        logger.info(f"Model: {model}")
-        logger.info(f"RMSE: {rmse}")
-        logger.info(f"R^2: {r_squared}")
-        if model != 'baseline':
-            logger.info(f"Cross-Validation Scores: {scores}")
-        logger.info(f"Average Score: {scores.mean()}")
+        logger.info(f"Model: {modelType}")
+        logger.info(f"Validation Technique: {validation}")
+        logger.info(f"Training Time (seconds): {final_time}")
+        if validation == 'basic':
+            logger.info(f"RMSE: {rmse}")
+            logger.info(f"R^2: {r_squared}")
+        if validation == 'gridsearch':
+            logger.info(f"RMSE: {rmse}")
+            logger.info(f"R^2: {r_squared}")
+            logger.info(f"Average Cross-Validation Score: {cross_scores.mean()}")
+        if validation == 'nested_gridsearch':
+            logger.info(f"Average RMSE: {avg_rmse}")
+            logger.info(f"Average R^2: {avg_r_squared}")
+            logger.info(f"Average Cross-Validation Score: {avg_cross_scores.mean()}")
         logger.info(f"Features used: {features}")
 
-
         with open('./model-data/eval.txt', "a") as f:
-            f.write(f"Model: {model}\n")
-            f.write(f"RMSE: {rmse}\n")
-            f.write(f"R^2: {r_squared}\n")
-            f.write(f"Cross-Validation Scores: {scores}\n")
-            f.write(f"Average Score: {scores.mean()}\n")
+            f.write(f"Model: {modelType}\n")
+            f.write(f"Validation Technique: {validation}\n")
+            f.write(f"Training Time (seconds): {final_time}\n")
+            if validation == 'basic':
+                f.write(f"RMSE: {rmse}\n")
+                f.write(f"R^2: {r_squared}\n")
+            if validation == 'gridsearch':
+                f.write(f"RMSE: {rmse}\n")
+                f.write(f"R^2: {r_squared}\n")
+                f.write(f"Average Cross-Validation Score: {cross_scores.mean()}\n")
+                f.write(f"Folds #: {gridsearch_folds}\n")
+            if validation == 'nested_gridsearch':
+                f.write(f"Average RMSE: {avg_rmse}\n")
+                f.write(f"Average R^2: {avg_r_squared}\n")
+                f.write(f"Average Cross-Validation Score: {avg_cross_scores.mean()}\n")
+                f.write(f"Outer Folds #: {nested_gridsearch_outerfolds}\n")
+                f.write(f"Inner Folds #: {nested_gridsearch_innerfolds}\n")
             f.write(f"Features: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
+            f.write(f"Data used: {dataPath}\n")
             f.write("\n")
 
     except Exception as e:
@@ -221,7 +350,7 @@ def main():
     if (dataProcessed(data_path, threshold_minutes) == True):
         df = pd.read_csv(data_path)
     else:
-        df = turbine_util.main(hoursToForecast)
+        df = turbine_util.main(dataPath, hoursToForecast)
 
     #plotting stuff
     if toPlot == True:

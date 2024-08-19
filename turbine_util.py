@@ -174,15 +174,13 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
-def readSQLDump():
+def readSQLDump(dataPath):
     '''
     read the frames.csv SQL dump file into a dataframe
     '''
     logger.info("in readSQLDump")
 
-    #path to data and the row the data starts
-    #dataPath = "./turbine-data/frames_11-16-23.csv"
-    dataPath = "./turbine-data/frames_6-17-24.csv"
+    #the row the data starts and ends
     skipTop = 17
     skipBottom = 8
 
@@ -226,7 +224,7 @@ def cleanTurbineData(df):
 
         #keep only rows where turbine was in 'active' state 
         #see ./turbine-data/turbine_state_info.png
-        #df = df[df['WTG1_R_TurbineState'] == 7]
+        df = df[df['WTG1_R_TurbineState'] == 7]
 
         #set timestamp type, reading mixed format
         #df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc= True)
@@ -417,13 +415,13 @@ def trimData(df):
     #logger.info('"./turbine-data-processed/trimmedFrames.csv" saved successfully')
     return df
 
-def main(hours_to_forecast):
+def main(dataPath, hours_to_forecast):
 
     logging_setup()
     logger.info("Starting turbine_util")
 
     #read in data
-    df = readSQLDump()
+    df = readSQLDump(dataPath)
 
     #clean data
     df = cleanTurbineData(df)
