@@ -160,26 +160,26 @@ Model: baseline
 RMSE: 11.379733484415556
 R^2: -0.644044956782583
 
-Model: polynomial_regression
-Validation Technique: nested_gridsearch
-Training Time (seconds): 2.170847177505493
-Average RMSE: 9.73057572449459
-Average R^2: 0.553102532432546
-Average Cross-Validation Score: -10.882975073932617
-Outer Folds #: 3
-Inner Folds #: 3
-Features: ['windSpeed_mph_0']
-Hours to Forecast: 12
-Data used: ./turbine-data/frames_6-17-24.csv
-
 Model: linear_regression
 Validation Technique: nested_gridsearch
 Training Time (seconds): 1.9033887386322021
 Average RMSE: 10.24376878223914
 Average R^2: 0.4802161544215228
 Average Cross-Validation Score: -10.997556524177426
-Outer Folds #: 3
-Inner Folds #: 3
+Outer Folds: 3
+Inner Folds: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Validation Technique: nested_gridsearch
+Training Time (seconds): 2.170847177505493
+Average RMSE: 9.73057572449459
+Average R^2: 0.553102532432546
+Average Cross-Validation Score: -10.882975073932617
+Outer Folds: 3
+Inner Folds: 3
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
@@ -190,8 +190,8 @@ Training Time (seconds): 91.02760291099548
 Average RMSE: 10.151329232321006
 Average R^2: 0.5185060243241569
 Average Cross-Validation Score: -11.112511605910461
-Outer Folds #: 3
-Inner Folds #: 3
+Outer Folds: 3
+Inner Folds: 3
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
@@ -201,9 +201,8 @@ Validation Technique: nested_gridsearch
 Training Time (seconds): 119.57330393791199
 Average RMSE: 10.09626883332404
 Average R^2: 0.5230441978226575
-Average Cross-Validation Score: -11.855413945886088
-Outer Folds #: 3
-Inner Folds #: 3
+Outer Folds: 3
+Inner Folds: 3
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
@@ -213,9 +212,8 @@ Validation Technique: nested_gridsearch
 Training Time (seconds): 2442.534332036972
 Average RMSE: 10.556137894815146
 Average R^2: 0.4885182732959008
-Average Cross-Validation Score: -11.756783941309836
-Outer Folds #: 3
-Inner Folds #: 3
+Outer Folds: 3
+Inner Folds: 3
 Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv

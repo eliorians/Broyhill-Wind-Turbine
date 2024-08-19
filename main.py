@@ -264,9 +264,6 @@ def train_eval_model(df, split, target, features, model_name):
                 #get the best model from grid search
                 best_model = grid_search.best_estimator_
 
-                #cross validation on the best model found to evaluate performance
-                cross_scores = cross_val_score(best_model, x_train, y_train, cv=nested_gridsearch_innerfolds, scoring='neg_root_mean_squared_error')
-
                 #preict on the test set using the best model
                 y_pred = best_model.predict(x_test)
 
@@ -274,12 +271,11 @@ def train_eval_model(df, split, target, features, model_name):
                 mse = mean_squared_error(y_test, y_pred)    
                 rmse = np.sqrt(mse)
                 r_squared = r2_score(y_test, y_pred)
-                outer_scores.append((rmse, r_squared, cross_scores))
+                outer_scores.append((rmse, r_squared))
                 
                 logger.info(f"Outer Fold RMSE: {rmse}")
                 logger.info(f"Outer Fold R^2: {r_squared}")
-                logger.info(f"Outer Fold Cross-Validation Scores: {cross_scores}")
-                
+
                 #plot the predictions for each outer fold
                 if toPlotPredictions:
                     plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
@@ -287,7 +283,6 @@ def train_eval_model(df, split, target, features, model_name):
             #average the scores across all outer folds
             avg_rmse = np.mean([score[0] for score in outer_scores])
             avg_r_squared = np.mean([score[1] for score in outer_scores])
-            avg_cross_scores = np.mean([score[2] for score in outer_scores])
 
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_gridsearch'.")
@@ -310,7 +305,6 @@ def train_eval_model(df, split, target, features, model_name):
         if validation == 'nested_gridsearch':
             logger.info(f"Average RMSE: {avg_rmse}")
             logger.info(f"Average R^2: {avg_r_squared}")
-            logger.info(f"Average Cross-Validation Score: {avg_cross_scores.mean()}")
         logger.info(f"Features used: {features}")
 
         with open('./model-data/eval.txt', "a") as f:
@@ -324,13 +318,12 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"RMSE: {rmse}\n")
                 f.write(f"R^2: {r_squared}\n")
                 f.write(f"Average Cross-Validation Score: {cross_scores.mean()}\n")
-                f.write(f"Folds #: {gridsearch_folds}\n")
+                f.write(f"Folds: {gridsearch_folds}\n")
             if validation == 'nested_gridsearch':
                 f.write(f"Average RMSE: {avg_rmse}\n")
                 f.write(f"Average R^2: {avg_r_squared}\n")
-                f.write(f"Average Cross-Validation Score: {avg_cross_scores.mean()}\n")
-                f.write(f"Outer Folds #: {nested_gridsearch_outerfolds}\n")
-                f.write(f"Inner Folds #: {nested_gridsearch_innerfolds}\n")
+                f.write(f"Outer Folds: {nested_gridsearch_outerfolds}\n")
+                f.write(f"Inner Folds: {nested_gridsearch_innerfolds}\n")
             f.write(f"Features: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
