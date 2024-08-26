@@ -218,3 +218,82 @@ Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: linear_regression
+Validation Technique: nested_gridsearch
+Training Time (seconds): 33.55936408042908
+Average RMSE: 10.24376878223914
+Average R^2: 0.4802161544215228
+Outer Folds: 3
+Inner Folds: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: gridsearch
+Training Time (seconds): 1127.6670107841492
+RMSE: 7.4961925462316605
+R^2: 0.28660350063676343
+Average Cross-Validation Score: -11.384100677128833
+N-Splits: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: random_forest
+Validation Technique: gridsearch
+Training Time (seconds): 222.2671196460724
+RMSE: 6.326646232585464
+R^2: 0.4918445254524755
+Average Cross-Validation Score: -11.303739234598055
+N-Splits: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Validation Technique: gridsearch
+Training Time (seconds): 24.062455892562866
+RMSE: 6.287934534301325
+R^2: 0.49804413806915093
+Average Cross-Validation Score: -10.992492265720804
+N-Splits: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: decision_tree
+Validation Technique: gridsearch
+Training Time (seconds): 40.438514947891235
+RMSE: 6.850719064403971
+R^2: 0.40417074387795904
+Average Cross-Validation Score: -10.955011169600114
+N-Splits: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: gradient_boosted_reg
+Validation Technique: gridsearch
+Training Time (seconds): 1002.5124816894531
+RMSE: 6.871492726816245
+R^2: 0.4005517596102294
+Average Cross-Validation Score: -10.870350659756278
+N-Splits: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+--- holding out rows between test and training sets ---
+
+Model: polynomial_regression
+Validation Technique: gridsearch
+Training Time (seconds): 15.987407684326172
+RMSE: 6.327859892948371
+R^2: 0.5004879446683781
+Average Cross-Validation Score: -10.992492265720804
+N-Splits: 3
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+

@@ -52,7 +52,7 @@ threshold_minutes=60
 toTrain=True
 
 #Set the model type from the model list (see params.py for model list)
-modelType= 'gradient_boosted_reg'
+modelType= 'polynomial_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -60,19 +60,19 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 featuresToTrain = generate_features(allFeats=False, hoursOut=1, feats_list=['windSpeed_mph'])
 
-#Size of split in train/test data
+#Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
 
 #General Plots
 toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
-toPlotPredictions= False
+toPlotPredictions= True
 
 #The type of validation technique to use. Select from: ['basic', 'gridsearch', 'nested_gridsearch']
-validation='nested_gridsearch'
+validation='gridsearch'
 
 #The # of folds to use for either gridsearch or nested gridsearch
-gridsearch_folds = 3
+gridsearch_splits = 3
 nested_gridsearch_outerfolds = 3
 nested_gridsearch_innerfolds = 3
 
@@ -114,7 +114,9 @@ def dataProcessed(filepath, threshold_minutes):
 
 def train_test_split(df, split):
     """
-    Sequentially splits a [df] based on the [split]
+    Sequentially splits a [df] based on the [split] 
+    so that the order is preserved and test_df comes after training_df.
+    Also, holdout hoursToForecast rows between the training and test sets so that the test set is truly unseen.
 
     ARGS
     df: the dataframe to split
@@ -124,11 +126,22 @@ def train_test_split(df, split):
 
     #find the split index
     split_index = int((1 - split) * len(df))
-    #split
-    train_df, test_df = df.iloc[:split_index], df.iloc[split_index:]
 
+    #calculate the indices for the holdout and test set
+    #have a 'hoursToForecast' size gap between the test and train set to ensure test data is unseen. 
+    holdout_start_index = split_index
+    test_start_index = split_index + hoursToForecast
+
+    #split the data (training: everything before the holdout; test: everything after holdout)
+    train_df = df.iloc[:holdout_start_index]
+    test_df = df.iloc[test_start_index:]
+
+    #save files for testing
+    holdout_df = df.iloc[holdout_start_index:test_start_index]
+    holdout_df.to_csv('./model-data/holdout_df.csv')
     train_df.to_csv('./model-data/train_df.csv')
     test_df.to_csv('./model-data/test_df.csv')
+
     return train_df, test_df
 
 def train_eval_model(df, split, target, features, model_name):
@@ -145,12 +158,12 @@ def train_eval_model(df, split, target, features, model_name):
     try:
         logger.info("in train_eval_model")
 
-        # get the model info from params.py
+        #get the model info from params.py
         model = modelList.get(model_name)
         if model is None:
             raise ValueError(f"Model '{model_name}' not found in modelList. See options in modelList from params.py")
 
-        # process for baseline model - returns average target for all points
+        #process for baseline model - returns average target for all points
         if model == 'baseline':
             train_df, test_df = train_test_split(df, split)
             x_train, y_train = train_df[features], train_df[target]
@@ -181,7 +194,7 @@ def train_eval_model(df, split, target, features, model_name):
         #begin timing
         start_time = time.time()
 
-        # process for all other models - varies based on the validation technique selected
+        #process for all other models - varies based on the validation technique selected
         if validation == 'basic':
             #split train and test data into features and target
             train_df, test_df = train_test_split(df, split)
@@ -203,41 +216,44 @@ def train_eval_model(df, split, target, features, model_name):
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
 
         elif validation == 'gridsearch':
-            #split train and test data into features and target
+            #split full dataframe into train and test data based on the split ratio (some data is held out inbetween in order to keep it truly 'unseen')
             train_df, test_df = train_test_split(df, split)
+            #section these out to the feature columns (x) and the target column (y)
             x_train, y_train = train_df[features], train_df[target]
             x_test, y_test = test_df[features], test_df[target]
 
-            #get the parameter list from params.py
+            #get the parameter list for the specified model from params.py
             param_grid = paramList.get(model_name)
             if param_grid is None:
                 raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
             
-            #perform grid search with 5 fold cross validation
-            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=gridsearch_folds, verbose=0, n_jobs=-1)
+            #initialize GridSearchCV with TimeSeriesSplit for cross-validation
+            tscv = TimeSeriesSplit(n_splits=gridsearch_splits)
+            grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=tscv, verbose=0, n_jobs=-1, refit=True)
             
-            #fit the grid search to the data
+            #perform the gridsearch to find the best model parameters
             grid_search.fit(x_train, y_train)
-
-            #get the best model from grid search
             best_model = grid_search.best_estimator_
-            
-            #cross validation on the best model found to evaluate performance
-            cross_scores = cross_val_score(best_model, x_train, y_train, cv=gridsearch_folds, scoring='neg_root_mean_squared_error')
+            print(f"Best parameters found for {model}: ", grid_search.best_params_)
 
-            #predict on the test set using the best model
+            #evaluate the model found using gridsearch with a similar technique (essentially testing on seen data) using TimeSeriesSplit again
+            cross_scores = cross_val_score(best_model, x_train, y_train, cv=tscv, scoring='neg_root_mean_squared_error')
+
+            #predict on the test set (unseen data, not used in gridsearch) using the best model from the gridsearch
             y_pred = best_model.predict(x_test)
 
-            #evaluate the model
+            #evaluate the model predictions against the actual
             mse = mean_squared_error(y_test, y_pred)
             rmse = np.sqrt(mse)
             r_squared = r2_score(y_test, y_pred)
 
-            #plot the predictions
+            #plot the predicted y values against the actual y values
             if toPlotPredictions:
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
         
         elif validation == 'nested_gridsearch':
+            #TODO nested gridsearch is not correct, need to get a better understanding of this
+
             #split data into n folds
             #outer_cv = KFold(n_splits=nested_gridsearch_outerfolds, shuffle=True, random_state=42)
             outer_cv = TimeSeriesSplit(n_splits=nested_gridsearch_outerfolds)
@@ -318,7 +334,7 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"RMSE: {rmse}\n")
                 f.write(f"R^2: {r_squared}\n")
                 f.write(f"Average Cross-Validation Score: {cross_scores.mean()}\n")
-                f.write(f"Folds: {gridsearch_folds}\n")
+                f.write(f"N-Splits: {gridsearch_splits}\n")
             if validation == 'nested_gridsearch':
                 f.write(f"Average RMSE: {avg_rmse}\n")
                 f.write(f"Average R^2: {avg_r_squared}\n")
@@ -347,8 +363,11 @@ def main():
 
     #plotting stuff
     if toPlot == True:
+        #plot quantities of turbine states
         plots.plotQuantities(df, 'WTG1_R_TurbineState')
+        #plot the power output against the windspeed measured at the turbine
         plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        #plot the power output against the windspeed measured by the forecast
         plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
         print("target min: "+ str(df[targetToTrain].min()))
         print("target max: "+ str(df[targetToTrain].max()))
