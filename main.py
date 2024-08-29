@@ -216,7 +216,7 @@ def train_eval_model(df, split, target, features, model_name):
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
 
         elif validation == 'gridsearch':
-            #split full dataframe into train and test data based on the split ratio (some data is held out inbetween in order to keep it truly 'unseen')
+            #split full dataframe into train and test data based on the split ratio
             train_df, test_df = train_test_split(df, split)
             #section these out to the feature columns (x) and the target column (y)
             x_train, y_train = train_df[features], train_df[target]
@@ -255,7 +255,6 @@ def train_eval_model(df, split, target, features, model_name):
             #TODO nested gridsearch is not correct, need to get a better understanding of this
 
             #split data into n folds
-            #outer_cv = KFold(n_splits=nested_gridsearch_outerfolds, shuffle=True, random_state=42)
             outer_cv = TimeSeriesSplit(n_splits=nested_gridsearch_outerfolds)
             outer_scores = []
 
@@ -272,7 +271,6 @@ def train_eval_model(df, split, target, features, model_name):
                     raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
 
                 #perform grid search with cross validation on training set for hyperparameter tuning
-                #inner_cv = KFold(n_splits=nested_gridsearch_innerfolds, shuffle=True, random_state=42)
                 inner_cv = TimeSeriesSplit(n_splits=nested_gridsearch_innerfolds)
                 grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=inner_cv, n_jobs=-1, verbose=0)
                 grid_search.fit(x_train, y_train)
