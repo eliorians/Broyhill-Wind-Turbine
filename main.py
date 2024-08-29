@@ -10,7 +10,7 @@ import turbine_util
 import plots
 
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.model_selection import GridSearchCV, KFold, TimeSeriesSplit, cross_val_score
+from sklearn.model_selection import GridSearchCV, KFold, TimeSeriesSplit, cross_val_score, cross_validate
 
 from params import paramList 
 from params import modelList
@@ -46,13 +46,13 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=60
+threshold_minutes=120
 
 #Wether to train and evaluate the model
 toTrain=True
 
 #Set the model type from the model list (see params.py for model list)
-modelType= 'polynomial_regression'
+modelType= 'gradient_boosted_reg'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -69,12 +69,12 @@ toPlot= False
 toPlotPredictions= True
 
 #The type of validation technique to use. Select from: ['basic', 'gridsearch', 'nested_gridsearch']
-validation='gridsearch'
+validation='nested_gridsearch'
 
 #The # of folds to use for either gridsearch or nested gridsearch
 gridsearch_splits = 3
-nested_gridsearch_outerfolds = 3
-nested_gridsearch_innerfolds = 3
+nested_outersplits = 3
+nested_innersplits = 3
 
 #! ------- END CONFIG ------- !#
 
@@ -252,51 +252,33 @@ def train_eval_model(df, split, target, features, model_name):
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
         
         elif validation == 'nested_gridsearch':
-            #TODO nested gridsearch is not correct, need to get a better understanding of this
+            
+            #TODO add R^2 scoring 
+            
+            #get the parameters for gridsearch
+            param_grid = paramList.get(model_name)
+            if param_grid is None:
+                raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
+            
+            #specify columns from the dataframe to use
+            x, y = df[features], df[target]
 
-            #split data into n folds
-            outer_cv = TimeSeriesSplit(n_splits=nested_gridsearch_outerfolds)
-            outer_scores = []
+            # Define outer and inner cross validation techniques (TimeSeriesSplit technique to uphold temporal order)
+            outer_tscv = TimeSeriesSplit(n_splits=nested_outersplits)
+            inner_tscv = TimeSeriesSplit(n_splits=nested_innersplits)
 
-            #for each fold
-            for train_index, test_index in outer_cv.split(df):
-                #split train and test data into features and target
-                train_df, test_df = df.iloc[train_index], df.iloc[test_index]
-                x_train, y_train = train_df[features], train_df[target]
-                x_test, y_test = test_df[features], test_df[target]
+            # Initialize GridSearchCV for the inner loop
+            grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
 
-                #get the parameter list from params.py
-                param_grid = paramList.get(model_name)
-                if param_grid is None:
-                    raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
+            # Perform nested cross-validation
+            # - estimator=grid_search: Pass the GridSearchCV object as the estimator, which will make the 'inner splits' use GridSearch to tune hyperparameters
+            # - cv=outer_tscv: The outer cross-validation strategy to split data into training and test sets
+            # - return_train_score=False: Only return the test scores, not the training scores
+            nested_scores = cross_validate(estimator=grid_search, X=x, y=y, cv=outer_tscv, scoring='neg_root_mean_squared_error', return_train_score=False)
 
-                #perform grid search with cross validation on training set for hyperparameter tuning
-                inner_cv = TimeSeriesSplit(n_splits=nested_gridsearch_innerfolds)
-                grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=inner_cv, n_jobs=-1, verbose=0)
-                grid_search.fit(x_train, y_train)
-                
-                #get the best model from grid search
-                best_model = grid_search.best_estimator_
-
-                #preict on the test set using the best model
-                y_pred = best_model.predict(x_test)
-
-                #evaluate the model and append to scores
-                mse = mean_squared_error(y_test, y_pred)    
-                rmse = np.sqrt(mse)
-                r_squared = r2_score(y_test, y_pred)
-                outer_scores.append((rmse, r_squared))
-                
-                logger.info(f"Outer Fold RMSE: {rmse}")
-                logger.info(f"Outer Fold R^2: {r_squared}")
-
-                #plot the predictions for each outer fold
-                if toPlotPredictions:
-                    plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
-
-            #average the scores across all outer folds
-            avg_rmse = np.mean([score[0] for score in outer_scores])
-            avg_r_squared = np.mean([score[1] for score in outer_scores])
+            #output scores
+            avg_rmse = -nested_scores['test_score'].mean()
+            print(f"Average RMSE from nested CV: avg_rmse")
 
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_gridsearch'.")
@@ -316,9 +298,11 @@ def train_eval_model(df, split, target, features, model_name):
             logger.info(f"RMSE: {rmse}")
             logger.info(f"R^2: {r_squared}")
             logger.info(f"Average Cross-Validation Score: {cross_scores.mean()}")
+            logger.info(f"N-Splits: {gridsearch_splits}")
         if validation == 'nested_gridsearch':
             logger.info(f"Average RMSE: {avg_rmse}")
-            logger.info(f"Average R^2: {avg_r_squared}")
+            logger.info(f"Outer N-Splits: {nested_outersplits}\n")
+            logger.info(f"Inner N-Splits: {nested_innersplits}\n")
         logger.info(f"Features used: {features}")
 
         with open('./model-data/eval.txt', "a") as f:
@@ -335,9 +319,9 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"N-Splits: {gridsearch_splits}\n")
             if validation == 'nested_gridsearch':
                 f.write(f"Average RMSE: {avg_rmse}\n")
-                f.write(f"Average R^2: {avg_r_squared}\n")
-                f.write(f"Outer Folds: {nested_gridsearch_outerfolds}\n")
-                f.write(f"Inner Folds: {nested_gridsearch_innerfolds}\n")
+                #f.write(f"Average R^2: {avg_r_squared}\n")
+                f.write(f"Outer N-Splits: {nested_outersplits}\n")
+                f.write(f"Inner N-Splits: {nested_innersplits}\n")
             f.write(f"Features: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
