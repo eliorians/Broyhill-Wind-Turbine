@@ -46,13 +46,14 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=120
+threshold_minutes=9999
 
 #Wether to train and evaluate the model
 toTrain=True
 
-#Set the model type from the model list (see params.py for model list)
-modelType= 'gradient_boosted_reg'
+#Set the model type from the model list: (more details in params.py)
+# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg']
+modelType= 'decision_tree'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -68,13 +69,14 @@ toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= True
 
-#The type of validation technique to use. Select from: ['basic', 'gridsearch', 'nested_gridsearch']
-validation='nested_gridsearch'
+#The type of validation technique to use. Select from: ['basic', 'gridsearch', 'nested_crossval']
+validation='gridsearch'
 
-#The # of folds to use for either gridsearch or nested gridsearch
-gridsearch_splits = 3
-nested_outersplits = 3
-nested_innersplits = 3
+#number of splits for grisearch
+gridsearch_splits = 5
+#number of inner and outer splits for nested cross validation
+nested_outersplits = 5
+nested_innersplits = 4
 
 #! ------- END CONFIG ------- !#
 
@@ -233,11 +235,10 @@ def train_eval_model(df, split, target, features, model_name):
             
             #perform the gridsearch to find the best model parameters
             grid_search.fit(x_train, y_train)
-            best_model = grid_search.best_estimator_
-            print(f"Best parameters found for {model}: ", grid_search.best_params_)
 
-            #evaluate the model found using gridsearch with a similar technique (essentially testing on seen data) using TimeSeriesSplit again
-            cross_scores = cross_val_score(best_model, x_train, y_train, cv=tscv, scoring='neg_root_mean_squared_error')
+            #save the results from training
+            best_model  = grid_search.best_estimator_
+            best_params = grid_search.best_params_
 
             #predict on the test set (unseen data, not used in gridsearch) using the best model from the gridsearch
             y_pred = best_model.predict(x_test)
@@ -251,9 +252,7 @@ def train_eval_model(df, split, target, features, model_name):
             if toPlotPredictions:
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
         
-        elif validation == 'nested_gridsearch':
-            
-            #TODO add R^2 scoring 
+        elif validation == 'nested_crossval':
             
             #get the parameters for gridsearch
             param_grid = paramList.get(model_name)
@@ -270,18 +269,21 @@ def train_eval_model(df, split, target, features, model_name):
             # Initialize GridSearchCV for the inner loop
             grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
 
+            #scoring metrics to use
+            scoring = {'rmse': 'neg_root_mean_squared_error', 'r2': 'r2'}
+
             # Perform nested cross-validation
             # - estimator=grid_search: Pass the GridSearchCV object as the estimator, which will make the 'inner splits' use GridSearch to tune hyperparameters
             # - cv=outer_tscv: The outer cross-validation strategy to split data into training and test sets
             # - return_train_score=False: Only return the test scores, not the training scores
-            nested_scores = cross_validate(estimator=grid_search, X=x, y=y, cv=outer_tscv, scoring='neg_root_mean_squared_error', return_train_score=False)
+            nested_scores = cross_validate(estimator=grid_search, X=x, y=y, cv=outer_tscv, scoring=scoring, return_train_score=False)
 
-            #output scores
-            avg_rmse = -nested_scores['test_score'].mean()
-            print(f"Average RMSE from nested CV: avg_rmse")
-
+            #get the test scores from testing with outer loop
+            avg_rmse = -nested_scores['test_rmse'].mean()
+            avg_r_squared = nested_scores['test_r2'].mean()
+            
         else:
-            raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_gridsearch'.")
+            raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_crossval'.")
         
         #end timing
         end_time = time.time()
@@ -297,12 +299,13 @@ def train_eval_model(df, split, target, features, model_name):
         if validation == 'gridsearch':
             logger.info(f"RMSE: {rmse}")
             logger.info(f"R^2: {r_squared}")
-            logger.info(f"Average Cross-Validation Score: {cross_scores.mean()}")
             logger.info(f"N-Splits: {gridsearch_splits}")
-        if validation == 'nested_gridsearch':
+            logger.info(f"Best Parameters: {best_params}")
+        if validation == 'nested_crossval':
             logger.info(f"Average RMSE: {avg_rmse}")
-            logger.info(f"Outer N-Splits: {nested_outersplits}\n")
-            logger.info(f"Inner N-Splits: {nested_innersplits}\n")
+            logger.info(f"R^2: {avg_r_squared}")
+            logger.info(f"Outer N-Splits: {nested_outersplits}")
+            logger.info(f"Inner N-Splits: {nested_innersplits}")
         logger.info(f"Features used: {features}")
 
         with open('./model-data/eval.txt', "a") as f:
@@ -315,11 +318,11 @@ def train_eval_model(df, split, target, features, model_name):
             if validation == 'gridsearch':
                 f.write(f"RMSE: {rmse}\n")
                 f.write(f"R^2: {r_squared}\n")
-                f.write(f"Average Cross-Validation Score: {cross_scores.mean()}\n")
                 f.write(f"N-Splits: {gridsearch_splits}\n")
-            if validation == 'nested_gridsearch':
+                f.write(f"Best Parameters: {best_params}")
+            if validation == 'nested_crossval':
                 f.write(f"Average RMSE: {avg_rmse}\n")
-                #f.write(f"Average R^2: {avg_r_squared}\n")
+                f.write(f"Average R^2: {avg_r_squared}\n")
                 f.write(f"Outer N-Splits: {nested_outersplits}\n")
                 f.write(f"Inner N-Splits: {nested_innersplits}\n")
             f.write(f"Features: {features}\n")
