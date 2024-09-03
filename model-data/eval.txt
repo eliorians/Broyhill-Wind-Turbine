@@ -523,3 +523,76 @@ Best Parameters: {'ccp_alpha': 1.0, 'criterion': 'friedman_mse', 'max_depth': No
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: ridge_cv
+Validation Technique: gridsearch
+Training Time (seconds): 9.599524974822998
+RMSE: 7.5360272936737935
+R^2: 0.29153697371949383
+N-Splits: 5
+Best Parameters: {'alphas': [0.01, 0.1, 1.0, 10.0, 100.0], 'cv': TimeSeriesSplit(gap=0, max_train_size=None, n_splits=10, test_size=None), 'fit_intercept': True, 'scoring': 'neg_mean_squared_error'}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: ridge_cv
+Validation Technique: nested_crossval
+Training Time (seconds): 2.8454487323760986
+Average RMSE: 10.448326067445802
+Average R^2: 0.3837142958774738
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: lasso_cv
+Validation Technique: nested_crossval
+Training Time (seconds): 2.5835018157958984
+Average RMSE: 10.637380017145437
+Average R^2: 0.3686200296151239
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: lasso_cv
+Validation Technique: gridsearch
+Training Time (seconds): 7.976921319961548
+RMSE: 7.535355074325249
+R^2: 0.29166335896063955
+N-Splits: 5
+Best Parameters: {'alphas': [0.01, 0.1, 1.0, 10.0, 100.0], 'cv': TimeSeriesSplit(gap=0, max_train_size=None, n_splits=5, test_size=None), 'fit_intercept': True, 'max_iter': 1000, 'tol': 0.0001}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Validation Technique: gridsearch
+Training Time (seconds): 9.081197261810303
+RMSE: 6.327859892948371
+R^2: 0.5004879446683781
+N-Splits: 5
+Best Parameters: {'linearregression__copy_X': True, 'linearregression__fit_intercept': False, 'linearregression__positive': False, 'polynomialfeatures__degree': 3, 'polynomialfeatures__interaction_only': False}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: elastic_net_cv
+Validation Technique: gridsearch
+Training Time (seconds): 10.365838527679443
+RMSE: 7.534680996354138
+R^2: 0.29179008232399384
+N-Splits: 5
+Best Parameters: {'alphas': [0.01, 0.1, 1.0, 10.0, 100.0], 'cv': TimeSeriesSplit(gap=0, max_train_size=None, n_splits=10, test_size=None), 'fit_intercept': True, 'l1_ratio': 0.1, 'max_iter': 1000, 'n_alphas': 100, 'tol': 0.0001}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: elastic_net_cv
+Validation Technique: nested_crossval
+Training Time (seconds): 13.04073190689087
+Average RMSE: 10.648318523226177
+Average R^2: 0.36771701445947336
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+

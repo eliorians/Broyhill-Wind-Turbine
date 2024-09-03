@@ -10,7 +10,7 @@ import turbine_util
 import plots
 
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.model_selection import GridSearchCV, KFold, TimeSeriesSplit, cross_val_score, cross_validate
+from sklearn.model_selection import GridSearchCV, TimeSeriesSplit, cross_validate
 
 from params import paramList 
 from params import modelList
@@ -52,8 +52,8 @@ threshold_minutes=9999
 toTrain=True
 
 #Set the model type from the model list: (more details in params.py)
-# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg']
-modelType= 'decision_tree'
+# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv']
+modelType= 'elastic_net_cv'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -69,8 +69,9 @@ toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= True
 
-#The type of validation technique to use. Select from: ['basic', 'gridsearch', 'nested_crossval']
-validation='gridsearch'
+#The type of validation technique to use.
+# ['basic', 'gridsearch', 'nested_crossval']
+validation='nested_crossval'
 
 #number of splits for grisearch
 gridsearch_splits = 5
