@@ -25,7 +25,7 @@ def generate_features(allFeats, hoursOut, feats_list):
     
     ARGS
     allFeats: True to use all features in the base list from params.py
-    hoursOut: the number columns to use from each base feature. Use hoursToForcast for all features or 1 for just the _0's
+    hoursOut: How many hours out of forecast to use for the model. Use hoursToForcast for all features or 1 for just the _0's (aka the forecast for that hour)
     '''
     features = []
     if allFeats:
