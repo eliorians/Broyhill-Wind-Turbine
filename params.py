@@ -1,11 +1,14 @@
 from sklearn.pipeline import make_pipeline
-from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
 from sklearn.preprocessing import PolynomialFeatures
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.tree import DecisionTreeRegressor
-
 from sklearn.model_selection import TimeSeriesSplit
+
+from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.svm import SVR
+
+from sklearn.gaussian_process.kernels import RBF, Matern, RationalQuadratic
 
 #names of columns that can be used as features. add a _# up to hoursToForecast-1 (use generateFeatures())
 featsList=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
@@ -21,6 +24,9 @@ modelList = {
     'ridge_cv'              : RidgeCV(),
     'lasso_cv'              : LassoCV(n_jobs=-1),
     'elastic_net_cv'        : ElasticNetCV(n_jobs=-1),
+    'svr'                   : SVR(),
+    'gaussian'              : GaussianProcessRegressor(),
+
 }
 
 #param_grid associated with each model
@@ -109,4 +115,18 @@ paramList = {
                                 'cv' : [TimeSeriesSplit(n_splits=5), TimeSeriesSplit(n_splits=10)],
                                 'n_alphas' : [100, 1000, 10000]
     },
+    'svr'                   : {'kernel': ['linear', 'poly', 'rbf'],
+                                'degree': [1, 2, 3, 4, 5],
+                                #'gamma': [scale, auto],
+                                #'coef0': [],
+                                'tol': [0.0001, 0.001],
+                                #'C' : [1],
+                                #'epsilon' : [.01],
+                                'shrinking' : [True, False],
+    },
+    'gaussian'      : {'alpha'  : [1e-10, 1e-5, 1e-2],
+                                'kernel'    : [RBF(), Matern(), RationalQuadratic()],
+                                'n_restarts_optimizer' : [0, 5, 10], 
+                                'normalize_y': [True, False], 
+    }
 }

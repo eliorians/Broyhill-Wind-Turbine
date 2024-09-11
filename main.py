@@ -52,8 +52,8 @@ threshold_minutes=9999
 toTrain=True
 
 #Set the model type from the model list: (more details in params.py)
-# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv']
-modelType= 'elastic_net_cv'
+# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'gaussian']
+modelType= 'gaussian'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -159,7 +159,7 @@ def train_eval_model(df, split, target, features, model_name):
     model_name: model to be trained and evaluated
     '''
     try:
-        logger.info("in train_eval_model")
+        logger.info(f"in train_eval_model using: {validation} with {modelType}")
 
         #get the model info from params.py
         model = modelList.get(model_name)
