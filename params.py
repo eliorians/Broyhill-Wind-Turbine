@@ -26,7 +26,6 @@ modelList = {
     'elastic_net_cv'        : ElasticNetCV(n_jobs=-1),
     'svr'                   : SVR(),
     'gaussian'              : GaussianProcessRegressor(),
-
 }
 
 #param_grid associated with each model
