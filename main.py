@@ -279,9 +279,14 @@ def train_eval_model(df, split, target, features, model_name):
             # - return_train_score=False: Only return the test scores, not the training scores
             nested_scores = cross_validate(estimator=grid_search, X=x, y=y, cv=outer_tscv, scoring=scoring, return_train_score=False)
 
+            #TODO train one more time on the full data to get parameters...
+
+            #TODO get STD also
             #get the test scores from testing with outer loop
             avg_rmse = -nested_scores['test_rmse'].mean()
             avg_r_squared = nested_scores['test_r2'].mean()
+
+
             
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_crossval'.")
