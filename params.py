@@ -5,7 +5,7 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
 
 from sklearn.gaussian_process.kernels import RBF, Matern, RationalQuadratic
@@ -25,8 +25,7 @@ modelList = {
     'lasso_cv'              : LassoCV(n_jobs=-1),
     'elastic_net_cv'        : ElasticNetCV(n_jobs=-1),
     'svr'                   : SVR(),
-    'gaussian'              : GaussianProcessRegressor(),
-
+    'kernal_ridge'          : KernelRidge()
 }
 
 #param_grid associated with each model
@@ -124,9 +123,9 @@ paramList = {
                                 #'epsilon' : [.01],
                                 'shrinking' : [True, False],
     },
-    'gaussian'      : {'alpha'  : [1e-10, 1e-5, 1e-2],
-                                'kernel'    : [RBF(), Matern(), RationalQuadratic()],
-                                'n_restarts_optimizer' : [0, 5, 10], 
-                                'normalize_y': [True, False], 
+    'kernal_ridge'              : {'alpha'  : [1e-10, 1e-5, 1e-2],
+                                'kernel' : ['linear', 'polynomial', 'rbf', 'sigmoid'],
+                                'gamma' : [0, 5, 10], 
+                                'degree': [1, 2, 3, 4], 
     }
 }

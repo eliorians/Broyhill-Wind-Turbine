@@ -617,3 +617,35 @@ Features: ['windSpeed_mph_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: kernal_ridge
+Validation Technique: gridsearch
+Training Time (seconds): 116.63513708114624
+RMSE: 6.346866849181758
+R^2: 0.4974826750267831
+N-Splits: 5
+Best Parameters: {'alpha': 1e-05, 'degree': 3, 'gamma': 10, 'kernel': 'polynomial'}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: kernal_ridge
+Validation Technique: nested_crossval
+Training Time (seconds): 153.29885911941528
+Average RMSE: 9.898040129736778
+Average R^2: 0.48378927104127023
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: kernal_ridge
+Validation Technique: nested_crossval
+Training Time (seconds): 167.71539855003357
+Average RMSE: 9.967451246186593
+Average R^2: 0.4551486574965381
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0', 'temperature_F_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
