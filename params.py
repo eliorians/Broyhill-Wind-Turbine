@@ -4,7 +4,7 @@ from sklearn.model_selection import TimeSeriesSplit
 
 from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, BaggingRegressor
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
 
@@ -23,7 +23,8 @@ modelList = {
     'lasso_cv'              : LassoCV(n_jobs=-1),
     'elastic_net_cv'        : ElasticNetCV(n_jobs=-1),
     'svr'                   : SVR(),
-    'kernal_ridge'          : KernelRidge()
+    'kernal_ridge'          : KernelRidge(),
+    'bagging'               : BaggingRegressor(n_jobs=-1)
 }
 
 #param_grid associated with each model
@@ -93,17 +94,20 @@ paramList = {
                                #'tol'                      : [],
                                #'ccp_alpha'                : [0.0, 0.5, 1.0],
     },
+
     'ridge_cv'              : {'alphas'        : [[0.1, 1.0, 10.0], [0.01, 0.1, 1.0, 10.0, 100.0]],
                                'fit_intercept' : [True, False],
                                'scoring'       : ['neg_mean_squared_error'],
                                'cv'            : [TimeSeriesSplit(n_splits=5), TimeSeriesSplit(n_splits=10)],
     },
+
     'lasso_cv'              : {'alphas': [[0.1, 1.0, 10.0], [0.01, 0.1, 1.0, 10.0, 100.0]],
                                 'fit_intercept': [True, False],
                                 'max_iter': [1000, 10000],
                                 'tol': [0.0001, 0.001],
                                 'cv': [TimeSeriesSplit(n_splits=5), TimeSeriesSplit(n_splits=10)],
     },
+
     'elastic_net_cv'        : {'alphas': [[0.1, 1.0, 10.0], [0.01, 0.1, 1.0, 10.0, 100.0]],
                                 'l1_ratio': [0.1, 0.5, 0.9],
                                 'fit_intercept': [True, False],
@@ -112,6 +116,7 @@ paramList = {
                                 'cv' : [TimeSeriesSplit(n_splits=5), TimeSeriesSplit(n_splits=10)],
                                 'n_alphas' : [100, 1000, 10000]
     },
+
     'svr'                   : {'kernel': ['linear', 'poly', 'rbf'],
                                 'degree': [1, 2, 3, 4, 5],
                                 #'gamma': [scale, auto],
@@ -121,9 +126,20 @@ paramList = {
                                 #'epsilon' : [.01],
                                 'shrinking' : [True, False],
     },
+
     'kernal_ridge'              : {'alpha'  : [1e-10, 1e-5, 1e-2],
                                 'kernel' : ['linear', 'polynomial', 'rbf', 'sigmoid'],
                                 'gamma' : [0, 5, 10], 
                                 'degree': [1, 2, 3, 4], 
+    },
+
+    'bagging'                   : {'estimator' : [DecisionTreeRegressor(), make_pipeline(PolynomialFeatures(degree=3), LinearRegression(n_jobs=-1))],
+                                   'n_estimators' : [10, 50, 100],
+                                   'max_samples' : [.5, .7, 1],
+                                   'max_features' : [None, .5, 1],
+                                   'bootstrap' : [True, False],
+                                   'bootstrap_features' : [True, False],
+                                   'oob_score' : [True, False],
+                                   'warm_start' : [True, False],
     }
 }

@@ -743,3 +743,28 @@ Best Parameters: {'alpha': 1e-05, 'degree': 3, 'gamma': 5, 'kernel': 'polynomial
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: bagging
+Validation Technique: nested_crossval
+Training Time (seconds): 92.44441652297974
+Average RMSE: 9.959399292142953
+Average R^2: 0.47774645706179886
+Std RMSE: 2.458541048400112
+Std R^2: 0.20176127758252704
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'bootstrap': True, 'bootstrap_features': True, 'estimator': Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
+                ('linearregression', LinearRegression(n_jobs=-1))]), 'max_features': 0.5, 'max_samples': 0.5, 'n_estimators': 10, 'oob_score': False, 'warm_start': False}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: bagging
+Validation Technique: gridsearch
+Training Time (seconds): 1875.7843010425568
+RMSE: 6.327616832203447
+R^2: 0.5005263176546753
+N-Splits: 5
+Best Parameters: {'bootstrap': True, 'bootstrap_features': True, 'estimator': Pipeline(steps=[('polynomialfeatures', PolynomialFeatures(degree=3)),
+                ('linearregression', LinearRegression(n_jobs=-1))]), 'max_features': 1, 'max_samples': 0.5, 'n_estimators': 10, 'oob_score': False, 'warm_start': True}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
