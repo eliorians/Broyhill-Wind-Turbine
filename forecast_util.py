@@ -144,6 +144,7 @@ def cleanForecastData(filepath):
     df.to_csv(filepath)
     #logger.info(f"Data successfully saved to {filepath}")
 
+
 def main():
 
     logging_setup()

@@ -649,3 +649,97 @@ Features: ['windSpeed_mph_0', 'temperature_F_0']
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 1.971996784210205
+Average RMSE: 10.546319843508158
+Average R^2: 0.3760238246821457
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 2.1835877895355225
+Average RMSE: 10.546319843508158
+Average R^2: 0.3760238246821457
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 2.1384353637695312
+Average RMSE: 10.546319843508158
+Average R^2: 0.3760238246821457
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 1.9800631999969482
+Average RMSE: 10.546319843508158
+Average R^2: 0.3760238246821457
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 2.0193498134613037
+Average RMSE: 10.546319843508158
+Average R^2: 0.3760238246821457
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 2.120835542678833
+Average RMSE: 10.546319843508158
+Average R^2: 0.3760238246821457
+Std RMSE: 2.1133202351919094
+Std R^2: 0.3004473925711207
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'copy_X': True, 'fit_intercept': True, 'positive': True}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: kernal_ridge
+Validation Technique: nested_crossval
+Training Time (seconds): 1194.8563890457153
+Average RMSE: 12.115874966759268
+Average R^2: -0.4150475323673426
+Std RMSE: 3.665022101027803
+Std R^2: 0.9935833847395038
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'alpha': 1e-10, 'degree': 2, 'gamma': 5, 'kernel': 'polynomial'}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: kernal_ridge
+Validation Technique: nested_crossval
+Training Time (seconds): 276.54406213760376
+Average RMSE: 9.862695623754526
+Average R^2: 0.4813904839897982
+Std RMSE: 2.336364853490543
+Std R^2: 0.21430423646418406
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'alpha': 1e-05, 'degree': 3, 'gamma': 5, 'kernel': 'polynomial'}Features: ['windSpeed_mph_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+

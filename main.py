@@ -46,7 +46,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=9999
+threshold_minutes=90
 
 #Wether to train and evaluate the model
 toTrain=True
@@ -279,14 +279,16 @@ def train_eval_model(df, split, target, features, model_name):
             # - return_train_score=False: Only return the test scores, not the training scores
             nested_scores = cross_validate(estimator=grid_search, X=x, y=y, cv=outer_tscv, scoring=scoring, return_train_score=False)
 
-            #TODO train one more time on the full data to get parameters...
-
-            #TODO get STD also
             #get the test scores from testing with outer loop
             avg_rmse = -nested_scores['test_rmse'].mean()
             avg_r_squared = nested_scores['test_r2'].mean()
+            std_rmse = nested_scores['test_rmse'].std()
+            std_r_squared = nested_scores['test_r2'].std()
 
-
+            # Perform GridSearchCV on the entire dataset to get the best parameters
+            grid_search_full = GridSearchCV(estimator=model, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
+            grid_search_full.fit(x, y)
+            best_params = grid_search_full.best_params_
             
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_crossval'.")
@@ -309,9 +311,12 @@ def train_eval_model(df, split, target, features, model_name):
             logger.info(f"Best Parameters: {best_params}")
         if validation == 'nested_crossval':
             logger.info(f"Average RMSE: {avg_rmse}")
-            logger.info(f"R^2: {avg_r_squared}")
+            logger.info(f"Average R^2: {avg_r_squared}")
+            logger.info(f"Std RMSE: {std_rmse}")
+            logger.info(f"Std R^2: {std_r_squared}")
             logger.info(f"Outer N-Splits: {nested_outersplits}")
             logger.info(f"Inner N-Splits: {nested_innersplits}")
+            logger.info(f"Best Parameters: {best_params}")
         logger.info(f"Features used: {features}")
 
         with open('./model-data/eval.txt', "a") as f:
@@ -329,8 +334,11 @@ def train_eval_model(df, split, target, features, model_name):
             if validation == 'nested_crossval':
                 f.write(f"Average RMSE: {avg_rmse}\n")
                 f.write(f"Average R^2: {avg_r_squared}\n")
+                f.write(f"Std RMSE: {std_rmse}\n")
+                f.write(f"Std R^2: {std_r_squared}\n")
                 f.write(f"Outer N-Splits: {nested_outersplits}\n")
                 f.write(f"Inner N-Splits: {nested_innersplits}\n")
+                f.write(f"Best Parameters: {best_params}")
             f.write(f"Features: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
@@ -355,14 +363,16 @@ def main():
     #plotting stuff
     if toPlot == True:
         #plot quantities of turbine states
-        plots.plotQuantities(df, 'WTG1_R_TurbineState')
+        #plots.plotQuantities(df, 'WTG1_R_TurbineState')
+        plots.plot_windspeed_distribution()
+
         #plot the power output against the windspeed measured at the turbine
-        plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        #plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
         #plot the power output against the windspeed measured by the forecast
-        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
-        print("target min: "+ str(df[targetToTrain].min()))
-        print("target max: "+ str(df[targetToTrain].max()))
-        print("target mean: "+ str(df[targetToTrain].mean()))
+        #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
+        #print("target min: "+ str(df[targetToTrain].min()))
+        #print("target max: "+ str(df[targetToTrain].max()))
+        #print("target mean: "+ str(df[targetToTrain].mean()))
 
     #train & evaluate the model
     if toTrain == True:

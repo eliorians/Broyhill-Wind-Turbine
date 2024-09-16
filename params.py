@@ -8,8 +8,6 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
 
-from sklearn.gaussian_process.kernels import RBF, Matern, RationalQuadratic
-
 #names of columns that can be used as features. add a _# up to hoursToForecast-1 (use generateFeatures())
 featsList=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
 

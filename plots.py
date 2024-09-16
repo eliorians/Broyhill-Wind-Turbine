@@ -2,6 +2,7 @@
 import os
 import logging
 import numpy as np
+import pandas as pd
 import seaborn as sea
 from matplotlib import pyplot as plt
 
@@ -207,8 +208,57 @@ def plotQuantities(df, column):
     plt.title(f'Count of Each Entry in {column}')
 
     #output
-    plt.show()
     plt.savefig(f'./plots/counts/{column}_count.png')
+    plt.show()
 
     #write counts to file
     #counts.to_csv(f"{column}_counts.csv", index=False)
+
+def plot_windspeed_distribution():
+    '''
+    Plot the distribution of windspeed_mph across all CSV files in the given folder as a bar plot.
+    Label all wind speeds from 0 to 40 on the x-axis.
+    '''
+    logging_setup()
+    logger = logging.getLogger('plots')
+    logger.info("in plot_windspeed_distribution")
+
+    wind_speeds = []
+    csv_folder = 'forecast-data-processed'
+
+    # Iterate over all CSV files in the processed folder
+    for filename in os.listdir(csv_folder):
+        if filename.endswith('.csv'):
+            # Load the CSV file
+            filepath = os.path.join(csv_folder, filename)
+            try:
+                df = pd.read_csv(filepath)
+                # Collect all windspeed values
+                wind_speeds.extend(df['windSpeed_mph'].dropna().tolist())
+            except Exception as error:
+                print(f"Error reading {filename}: {error}")
+
+    # Convert wind speeds to integers for binning
+    wind_speeds = [int(ws) for ws in wind_speeds]
+
+    # Create a frequency count of wind speeds from 0 to 40
+    wind_speed_counts = pd.Series(wind_speeds).value_counts().sort_index()
+    wind_speed_counts = wind_speed_counts.reindex(range(0, 41), fill_value=0)  # Fill missing wind speeds with 0 count
+
+    # Plotting the bar plot
+    plt.figure(figsize=(10, 6))
+    plt.bar(wind_speed_counts.index, wind_speed_counts.values, color='skyblue')
+
+    # Set the x-axis to show all values from 0 to 40
+    plt.xticks(range(0, 41, 1))  # Show every wind speed from 0 to 40
+    max_freq = wind_speed_counts.max()  # Find the maximum frequency
+    plt.yticks(range(0, max_freq + 5000, 5000))  # Set y-ticks to be every 500
+
+
+    plt.title('Distribution of Wind Speed (mph)', fontsize=14)
+    plt.xlabel('Wind Speed (mph)', fontsize=12)
+    plt.ylabel('Frequency (Count)', fontsize=12)
+
+    # Save the plot
+    plt.savefig(f'./plots/counts/all_windspeed_count.png')
+    plt.show()
