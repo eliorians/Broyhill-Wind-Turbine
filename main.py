@@ -49,7 +49,7 @@ hoursToForecast=12
 threshold_minutes=90
 
 #Wether to train and evaluate the model
-toTrain=True
+toTrain=False
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge']
@@ -65,7 +65,7 @@ featuresToTrain = generate_features(allFeats=False, hoursOut=1, feats_list=['win
 split=.2
 
 #General Plots
-toPlot= False
+toPlot= True
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= True
 
@@ -364,12 +364,14 @@ def main():
     if toPlot == True:
         #plot quantities of turbine states
         #plots.plotQuantities(df, 'WTG1_R_TurbineState')
-        plots.plot_windspeed_distribution()
+
+        #plots.plot_windspeed_distribution()
 
         #plot the power output against the windspeed measured at the turbine
         #plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+
         #plot the power output against the windspeed measured by the forecast
-        #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
+        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
         #print("target min: "+ str(df[targetToTrain].min()))
         #print("target max: "+ str(df[targetToTrain].max()))
         #print("target mean: "+ str(df[targetToTrain].mean()))
