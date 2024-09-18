@@ -100,6 +100,53 @@ def plot_TargetVSActual(df, target, actual):
     plt.savefig(f'./plots/target_vs_actual/{target}_VS_{actual}.png')
     plt.show()
 
+def plot_TargetVSForecasted(df, target, forecast):
+    '''
+    Used for plotting the target against some actual data, tuned to the forecast data
+
+    ARGS
+    df: the dataframe to pull data from
+    target: column to plot as target
+    wind: column to plot as forecasted windspeed
+    '''
+    logging_setup()
+    logger = logging.getLogger('plots')
+    logger.info("in plot_TargetVSForecasted")
+
+    #create plot
+    sea.set_theme('paper', style='whitegrid')
+    g = sea.jointplot(data=df, x=forecast, y=target, 
+                height=10, ratio=5,
+                marginal_ticks=True,
+                kind='reg',
+                joint_kws={'line_kws': {'color': 'green'}},
+                marginal_kws=dict(color='green'),
+                scatter_kws={'alpha': 0.5},
+    )
+
+    #Polynomial regression line
+    degree = 3
+    x = df[forecast].values
+    y = df[target].values
+    p = np.polyfit(x, y, degree)  # Fit polynomial of the specified degree
+    poly = np.poly1d(p)
+
+    # Generate x values for plotting the polynomial fit line
+    x_range = np.linspace(x.min(), x.max(), 500)
+    y_poly = poly(x_range)
+
+    g.ax_joint.plot(x_range, y_poly, color='red', lw=2, label=f'Poly degree {degree}')
+
+    #zoom in on the lower values of forecasted windspeed
+    #g.ax_joint.set_xlim(0, 20)
+
+    g.set_axis_labels("Wind Speed (mph)", "Power Output (kW)")
+    g.ax_joint.legend()
+        
+    #output
+    plt.savefig(f'./plots/target_vs_forecasted/{target}_VS_{forecast}_poly_{degree}.png')
+    plt.show()
+
 def plot_TargetVSFeature(df, target, feature, plotType):
     '''
     Used for plotting the target against a feature.

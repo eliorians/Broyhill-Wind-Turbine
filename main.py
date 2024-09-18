@@ -371,7 +371,8 @@ def main():
         #plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
 
         #plot the power output against the windspeed measured by the forecast
-        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0', 'scatter')
+        plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
+
         #print("target min: "+ str(df[targetToTrain].min()))
         #print("target max: "+ str(df[targetToTrain].max()))
         #print("target mean: "+ str(df[targetToTrain].mean()))
