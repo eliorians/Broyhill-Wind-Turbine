@@ -21711,3 +21711,938 @@ INFO - 2024-09-14 14:00:01,287 - Data successfully saved to forecast-data\foreca
 DEBUG - 2024-09-14 15:00:00,293 - Starting new HTTPS connection (1): api.weather.gov:443
 DEBUG - 2024-09-14 15:00:00,746 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4967
 INFO - 2024-09-14 15:00:00,756 - Data successfully saved to forecast-data\forecast_09-14-2024_15-00-00.json
+DEBUG - 2024-09-14 16:00:00,760 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 16:00:02,044 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5199
+INFO - 2024-09-14 16:00:02,058 - Data successfully saved to forecast-data\forecast_09-14-2024_16-00-00.json
+DEBUG - 2024-09-14 17:00:00,060 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 17:00:00,567 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5199
+INFO - 2024-09-14 17:00:00,581 - Data successfully saved to forecast-data\forecast_09-14-2024_17-00-00.json
+DEBUG - 2024-09-14 18:00:00,582 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 18:00:02,332 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5196
+INFO - 2024-09-14 18:00:02,345 - Data successfully saved to forecast-data\forecast_09-14-2024_18-00-00.json
+DEBUG - 2024-09-14 19:00:00,347 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 19:00:00,842 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5196
+INFO - 2024-09-14 19:00:00,856 - Data successfully saved to forecast-data\forecast_09-14-2024_19-00-00.json
+DEBUG - 2024-09-14 20:00:00,861 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 20:00:03,129 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5226
+INFO - 2024-09-14 20:00:03,143 - Data successfully saved to forecast-data\forecast_09-14-2024_20-00-00.json
+DEBUG - 2024-09-14 21:00:00,146 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 21:00:00,644 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5226
+INFO - 2024-09-14 21:00:00,658 - Data successfully saved to forecast-data\forecast_09-14-2024_21-00-00.json
+DEBUG - 2024-09-14 22:00:00,670 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 22:00:01,988 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5233
+INFO - 2024-09-14 22:00:02,015 - Data successfully saved to forecast-data\forecast_09-14-2024_22-00-00.json
+DEBUG - 2024-09-14 23:00:00,026 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-14 23:00:00,535 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5233
+INFO - 2024-09-14 23:00:00,551 - Data successfully saved to forecast-data\forecast_09-14-2024_23-00-00.json
+DEBUG - 2024-09-15 00:00:00,555 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 00:00:05,154 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5239
+INFO - 2024-09-15 00:00:05,169 - Data successfully saved to forecast-data\forecast_09-15-2024_00-00-00.json
+DEBUG - 2024-09-15 01:00:00,173 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 01:00:00,712 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5239
+INFO - 2024-09-15 01:00:00,725 - Data successfully saved to forecast-data\forecast_09-15-2024_01-00-00.json
+DEBUG - 2024-09-15 02:00:00,727 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 02:00:02,482 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5227
+INFO - 2024-09-15 02:00:02,494 - Data successfully saved to forecast-data\forecast_09-15-2024_02-00-00.json
+DEBUG - 2024-09-15 03:00:00,496 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 03:00:00,876 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5227
+INFO - 2024-09-15 03:00:00,888 - Data successfully saved to forecast-data\forecast_09-15-2024_03-00-00.json
+DEBUG - 2024-09-15 04:00:00,890 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 04:00:01,918 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5233
+INFO - 2024-09-15 04:00:01,932 - Data successfully saved to forecast-data\forecast_09-15-2024_04-00-00.json
+DEBUG - 2024-09-15 05:00:02,227 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 05:00:02,615 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5233
+INFO - 2024-09-15 05:00:02,627 - Data successfully saved to forecast-data\forecast_09-15-2024_05-00-02.json
+DEBUG - 2024-09-15 06:00:00,629 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 06:00:01,002 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5079
+INFO - 2024-09-15 06:00:01,012 - Data successfully saved to forecast-data\forecast_09-15-2024_06-00-00.json
+DEBUG - 2024-09-15 07:00:00,014 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 07:00:00,391 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5065
+INFO - 2024-09-15 07:00:00,404 - Data successfully saved to forecast-data\forecast_09-15-2024_07-00-00.json
+DEBUG - 2024-09-15 08:00:00,406 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 08:00:02,350 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5062
+INFO - 2024-09-15 08:00:02,363 - Data successfully saved to forecast-data\forecast_09-15-2024_08-00-00.json
+DEBUG - 2024-09-15 09:00:00,365 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 09:00:00,751 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5062
+INFO - 2024-09-15 09:00:00,763 - Data successfully saved to forecast-data\forecast_09-15-2024_09-00-00.json
+DEBUG - 2024-09-15 10:00:00,766 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 10:00:01,730 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5055
+INFO - 2024-09-15 10:00:01,743 - Data successfully saved to forecast-data\forecast_09-15-2024_10-00-00.json
+DEBUG - 2024-09-15 11:00:00,746 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 11:00:02,145 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-15 11:00:02,157 - Data successfully saved to forecast-data\forecast_09-15-2024_11-00-00.json
+DEBUG - 2024-09-15 12:00:00,160 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 12:00:00,672 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-15 12:00:00,684 - Data successfully saved to forecast-data\forecast_09-15-2024_12-00-00.json
+DEBUG - 2024-09-15 13:00:00,686 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 13:00:01,577 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5053
+INFO - 2024-09-15 13:00:01,597 - Data successfully saved to forecast-data\forecast_09-15-2024_13-00-00.json
+DEBUG - 2024-09-15 14:00:00,600 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 14:00:01,720 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5052
+INFO - 2024-09-15 14:00:01,732 - Data successfully saved to forecast-data\forecast_09-15-2024_14-00-00.json
+DEBUG - 2024-09-15 15:00:00,735 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 15:00:01,263 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5052
+INFO - 2024-09-15 15:00:01,274 - Data successfully saved to forecast-data\forecast_09-15-2024_15-00-00.json
+DEBUG - 2024-09-15 16:00:00,276 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 16:00:00,703 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5149
+INFO - 2024-09-15 16:00:00,715 - Data successfully saved to forecast-data\forecast_09-15-2024_16-00-00.json
+DEBUG - 2024-09-15 17:00:00,718 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 17:00:01,915 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5159
+INFO - 2024-09-15 17:00:01,927 - Data successfully saved to forecast-data\forecast_09-15-2024_17-00-00.json
+DEBUG - 2024-09-15 18:00:00,930 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 18:00:01,352 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5159
+INFO - 2024-09-15 18:00:01,364 - Data successfully saved to forecast-data\forecast_09-15-2024_18-00-00.json
+DEBUG - 2024-09-15 19:00:00,366 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 19:00:00,758 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5142
+INFO - 2024-09-15 19:00:00,770 - Data successfully saved to forecast-data\forecast_09-15-2024_19-00-00.json
+DEBUG - 2024-09-15 20:00:00,772 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 20:00:03,117 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5143
+INFO - 2024-09-15 20:00:03,129 - Data successfully saved to forecast-data\forecast_09-15-2024_20-00-00.json
+DEBUG - 2024-09-15 21:00:00,130 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 21:00:00,535 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5143
+INFO - 2024-09-15 21:00:00,547 - Data successfully saved to forecast-data\forecast_09-15-2024_21-00-00.json
+DEBUG - 2024-09-15 22:00:00,549 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 22:00:00,941 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5129
+INFO - 2024-09-15 22:00:00,953 - Data successfully saved to forecast-data\forecast_09-15-2024_22-00-00.json
+DEBUG - 2024-09-15 23:00:00,956 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-15 23:00:01,746 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5125
+INFO - 2024-09-15 23:00:01,758 - Data successfully saved to forecast-data\forecast_09-15-2024_23-00-00.json
+DEBUG - 2024-09-16 00:00:00,761 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 00:00:02,865 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5112
+INFO - 2024-09-16 00:00:02,877 - Data successfully saved to forecast-data\forecast_09-16-2024_00-00-00.json
+DEBUG - 2024-09-16 01:00:00,879 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 01:00:01,261 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5112
+INFO - 2024-09-16 01:00:01,273 - Data successfully saved to forecast-data\forecast_09-16-2024_01-00-00.json
+DEBUG - 2024-09-16 02:00:00,276 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 02:00:00,689 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5116
+INFO - 2024-09-16 02:00:00,701 - Data successfully saved to forecast-data\forecast_09-16-2024_02-00-00.json
+DEBUG - 2024-09-16 03:00:00,703 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 03:00:01,878 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5157
+INFO - 2024-09-16 03:00:01,890 - Data successfully saved to forecast-data\forecast_09-16-2024_03-00-00.json
+DEBUG - 2024-09-16 04:00:00,892 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 04:00:02,409 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5153
+INFO - 2024-09-16 04:00:02,420 - Data successfully saved to forecast-data\forecast_09-16-2024_04-00-00.json
+DEBUG - 2024-09-16 05:00:01,615 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 05:00:01,996 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5153
+INFO - 2024-09-16 05:00:02,009 - Data successfully saved to forecast-data\forecast_09-16-2024_05-00-01.json
+DEBUG - 2024-09-16 06:00:00,011 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 06:00:00,365 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5078
+INFO - 2024-09-16 06:00:00,377 - Data successfully saved to forecast-data\forecast_09-16-2024_06-00-00.json
+DEBUG - 2024-09-16 07:00:00,379 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 07:00:01,388 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5067
+INFO - 2024-09-16 07:00:01,401 - Data successfully saved to forecast-data\forecast_09-16-2024_07-00-00.json
+DEBUG - 2024-09-16 08:00:00,403 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 08:00:00,830 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5067
+INFO - 2024-09-16 08:00:00,843 - Data successfully saved to forecast-data\forecast_09-16-2024_08-00-00.json
+DEBUG - 2024-09-16 09:00:00,845 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 09:00:01,394 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5056
+INFO - 2024-09-16 09:00:01,406 - Data successfully saved to forecast-data\forecast_09-16-2024_09-00-00.json
+DEBUG - 2024-09-16 10:00:00,410 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 10:00:00,909 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-16 10:00:00,922 - Data successfully saved to forecast-data\forecast_09-16-2024_10-00-00.json
+DEBUG - 2024-09-16 11:00:00,924 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 11:00:01,802 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5081
+INFO - 2024-09-16 11:00:01,815 - Data successfully saved to forecast-data\forecast_09-16-2024_11-00-00.json
+DEBUG - 2024-09-16 12:00:00,817 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 12:00:01,210 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5081
+INFO - 2024-09-16 12:00:01,223 - Data successfully saved to forecast-data\forecast_09-16-2024_12-00-00.json
+DEBUG - 2024-09-16 13:00:00,225 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 13:00:00,621 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5060
+INFO - 2024-09-16 13:00:00,628 - Data successfully saved to forecast-data\forecast_09-16-2024_13-00-00.json
+DEBUG - 2024-09-16 14:00:00,630 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 14:00:01,807 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5078
+INFO - 2024-09-16 14:00:01,819 - Data successfully saved to forecast-data\forecast_09-16-2024_14-00-00.json
+DEBUG - 2024-09-16 15:00:00,827 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 15:00:03,531 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5074
+INFO - 2024-09-16 15:00:03,584 - Data successfully saved to forecast-data\forecast_09-16-2024_15-00-00.json
+DEBUG - 2024-09-16 16:00:00,626 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 16:00:01,468 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5068
+INFO - 2024-09-16 16:00:01,480 - Data successfully saved to forecast-data\forecast_09-16-2024_16-00-00.json
+DEBUG - 2024-09-16 17:00:00,483 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 17:00:01,722 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5049
+INFO - 2024-09-16 17:00:01,735 - Data successfully saved to forecast-data\forecast_09-16-2024_17-00-00.json
+DEBUG - 2024-09-16 18:00:00,737 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 18:00:02,593 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-16 18:00:02,600 - Data successfully saved to forecast-data\forecast_09-16-2024_18-00-00.json
+DEBUG - 2024-09-16 19:00:00,601 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 19:00:02,191 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-16 19:00:02,202 - Data successfully saved to forecast-data\forecast_09-16-2024_19-00-00.json
+DEBUG - 2024-09-16 20:00:00,205 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 20:00:00,744 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5058
+INFO - 2024-09-16 20:00:00,756 - Data successfully saved to forecast-data\forecast_09-16-2024_20-00-00.json
+DEBUG - 2024-09-16 21:00:00,759 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 21:00:01,289 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5062
+INFO - 2024-09-16 21:00:01,302 - Data successfully saved to forecast-data\forecast_09-16-2024_21-00-00.json
+DEBUG - 2024-09-16 22:00:00,304 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 22:00:01,679 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-16 22:00:01,692 - Data successfully saved to forecast-data\forecast_09-16-2024_22-00-00.json
+DEBUG - 2024-09-16 23:00:00,694 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-16 23:00:02,227 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5073
+INFO - 2024-09-16 23:00:02,240 - Data successfully saved to forecast-data\forecast_09-16-2024_23-00-00.json
+DEBUG - 2024-09-17 00:00:00,243 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 00:00:00,693 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5073
+INFO - 2024-09-17 00:00:00,705 - Data successfully saved to forecast-data\forecast_09-17-2024_00-00-00.json
+DEBUG - 2024-09-17 01:00:00,707 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 01:00:01,688 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5060
+INFO - 2024-09-17 01:00:01,700 - Data successfully saved to forecast-data\forecast_09-17-2024_01-00-00.json
+DEBUG - 2024-09-17 02:00:00,703 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 02:00:02,776 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5061
+INFO - 2024-09-17 02:00:02,783 - Data successfully saved to forecast-data\forecast_09-17-2024_02-00-00.json
+DEBUG - 2024-09-17 03:00:00,785 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 03:00:01,181 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5061
+INFO - 2024-09-17 03:00:01,192 - Data successfully saved to forecast-data\forecast_09-17-2024_03-00-00.json
+DEBUG - 2024-09-17 04:00:00,195 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 04:00:00,769 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5055
+INFO - 2024-09-17 04:00:00,781 - Data successfully saved to forecast-data\forecast_09-17-2024_04-00-00.json
+DEBUG - 2024-09-17 05:00:01,966 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 05:00:02,323 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5029
+INFO - 2024-09-17 05:00:02,335 - Data successfully saved to forecast-data\forecast_09-17-2024_05-00-01.json
+DEBUG - 2024-09-17 06:00:00,337 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 06:00:00,791 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5047
+INFO - 2024-09-17 06:00:00,803 - Data successfully saved to forecast-data\forecast_09-17-2024_06-00-00.json
+DEBUG - 2024-09-17 07:00:00,805 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 07:00:03,047 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5032
+INFO - 2024-09-17 07:00:03,060 - Data successfully saved to forecast-data\forecast_09-17-2024_07-00-00.json
+DEBUG - 2024-09-17 08:00:00,063 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 08:00:00,443 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5032
+INFO - 2024-09-17 08:00:00,456 - Data successfully saved to forecast-data\forecast_09-17-2024_08-00-00.json
+DEBUG - 2024-09-17 09:00:00,458 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 09:00:01,793 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5012
+INFO - 2024-09-17 09:00:01,806 - Data successfully saved to forecast-data\forecast_09-17-2024_09-00-00.json
+DEBUG - 2024-09-17 10:00:00,808 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 10:00:01,638 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5008
+INFO - 2024-09-17 10:00:01,646 - Data successfully saved to forecast-data\forecast_09-17-2024_10-00-00.json
+DEBUG - 2024-09-17 11:00:00,648 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 11:00:02,763 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4997
+INFO - 2024-09-17 11:00:02,775 - Data successfully saved to forecast-data\forecast_09-17-2024_11-00-00.json
+DEBUG - 2024-09-17 12:00:00,777 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 12:00:01,164 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4997
+INFO - 2024-09-17 12:00:01,176 - Data successfully saved to forecast-data\forecast_09-17-2024_12-00-00.json
+DEBUG - 2024-09-17 13:00:00,178 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 13:00:01,001 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5004
+INFO - 2024-09-17 13:00:01,013 - Data successfully saved to forecast-data\forecast_09-17-2024_13-00-00.json
+DEBUG - 2024-09-17 14:00:00,016 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 14:00:00,396 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5004
+INFO - 2024-09-17 14:00:00,408 - Data successfully saved to forecast-data\forecast_09-17-2024_14-00-00.json
+DEBUG - 2024-09-17 15:00:00,411 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 15:00:02,028 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4986
+INFO - 2024-09-17 15:00:02,040 - Data successfully saved to forecast-data\forecast_09-17-2024_15-00-00.json
+DEBUG - 2024-09-17 16:00:00,042 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 16:00:00,790 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5006
+INFO - 2024-09-17 16:00:00,802 - Data successfully saved to forecast-data\forecast_09-17-2024_16-00-00.json
+DEBUG - 2024-09-17 17:00:00,804 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 17:00:01,703 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5011
+INFO - 2024-09-17 17:00:01,715 - Data successfully saved to forecast-data\forecast_09-17-2024_17-00-00.json
+DEBUG - 2024-09-17 18:00:00,718 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 18:00:02,070 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5003
+INFO - 2024-09-17 18:00:02,078 - Data successfully saved to forecast-data\forecast_09-17-2024_18-00-00.json
+DEBUG - 2024-09-17 19:00:00,080 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 19:00:00,498 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5003
+INFO - 2024-09-17 19:00:00,510 - Data successfully saved to forecast-data\forecast_09-17-2024_19-00-00.json
+DEBUG - 2024-09-17 20:00:00,512 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 20:00:01,235 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2024-09-17 20:00:11,238 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 20:00:11,906 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5015
+INFO - 2024-09-17 20:00:11,919 - Data successfully saved to forecast-data\forecast_09-17-2024_20-00-11.json
+DEBUG - 2024-09-17 21:00:00,921 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 21:00:02,331 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5020
+INFO - 2024-09-17 21:00:02,343 - Data successfully saved to forecast-data\forecast_09-17-2024_21-00-00.json
+DEBUG - 2024-09-17 22:00:00,359 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 22:00:01,611 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5029
+INFO - 2024-09-17 22:00:01,626 - Data successfully saved to forecast-data\forecast_09-17-2024_22-00-00.json
+DEBUG - 2024-09-17 23:00:00,683 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-17 23:00:01,744 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5016
+INFO - 2024-09-17 23:00:01,758 - Data successfully saved to forecast-data\forecast_09-17-2024_23-00-00.json
+DEBUG - 2024-09-18 00:00:00,760 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 00:00:02,001 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5011
+INFO - 2024-09-18 00:00:02,014 - Data successfully saved to forecast-data\forecast_09-18-2024_00-00-00.json
+DEBUG - 2024-09-18 01:00:00,017 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 01:00:01,382 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5014
+INFO - 2024-09-18 01:00:01,395 - Data successfully saved to forecast-data\forecast_09-18-2024_01-00-00.json
+DEBUG - 2024-09-18 02:00:00,396 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 02:00:00,755 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5014
+INFO - 2024-09-18 02:00:00,768 - Data successfully saved to forecast-data\forecast_09-18-2024_02-00-00.json
+DEBUG - 2024-09-18 03:00:00,771 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 03:00:01,142 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5026
+INFO - 2024-09-18 03:00:01,154 - Data successfully saved to forecast-data\forecast_09-18-2024_03-00-00.json
+DEBUG - 2024-09-18 04:00:00,156 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 04:00:00,553 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5035
+INFO - 2024-09-18 04:00:00,564 - Data successfully saved to forecast-data\forecast_09-18-2024_04-00-00.json
+DEBUG - 2024-09-18 05:00:01,781 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 05:00:02,746 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5028
+INFO - 2024-09-18 05:00:02,759 - Data successfully saved to forecast-data\forecast_09-18-2024_05-00-01.json
+DEBUG - 2024-09-18 06:00:00,761 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 06:00:01,883 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5046
+INFO - 2024-09-18 06:00:01,896 - Data successfully saved to forecast-data\forecast_09-18-2024_06-00-00.json
+DEBUG - 2024-09-18 07:00:00,898 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 07:00:02,082 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-18 07:00:02,095 - Data successfully saved to forecast-data\forecast_09-18-2024_07-00-00.json
+DEBUG - 2024-09-18 08:00:00,097 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 08:00:00,507 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-18 08:00:00,521 - Data successfully saved to forecast-data\forecast_09-18-2024_08-00-00.json
+DEBUG - 2024-09-18 09:00:00,523 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 09:00:01,610 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5061
+INFO - 2024-09-18 09:00:01,623 - Data successfully saved to forecast-data\forecast_09-18-2024_09-00-00.json
+DEBUG - 2024-09-18 10:00:00,625 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 10:00:01,739 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5048
+INFO - 2024-09-18 10:00:01,751 - Data successfully saved to forecast-data\forecast_09-18-2024_10-00-00.json
+DEBUG - 2024-09-18 11:00:00,753 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 11:00:01,669 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5049
+INFO - 2024-09-18 11:00:01,680 - Data successfully saved to forecast-data\forecast_09-18-2024_11-00-00.json
+DEBUG - 2024-09-18 12:00:00,684 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 12:00:01,160 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2024-09-18 12:00:11,163 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 12:00:11,799 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5039
+INFO - 2024-09-18 12:00:11,812 - Data successfully saved to forecast-data\forecast_09-18-2024_12-00-11.json
+DEBUG - 2024-09-18 13:00:00,814 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 13:00:01,438 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5039
+INFO - 2024-09-18 13:00:01,450 - Data successfully saved to forecast-data\forecast_09-18-2024_13-00-00.json
+DEBUG - 2024-09-18 14:00:00,454 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 14:00:01,183 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-18 14:00:01,196 - Data successfully saved to forecast-data\forecast_09-18-2024_14-00-00.json
+DEBUG - 2024-09-18 15:00:00,198 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 15:00:00,733 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-18 15:00:00,744 - Data successfully saved to forecast-data\forecast_09-18-2024_15-00-00.json
+DEBUG - 2024-09-18 16:00:00,746 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 16:00:01,630 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2024-09-18 16:00:11,633 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 16:00:12,421 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5043
+INFO - 2024-09-18 16:00:12,433 - Data successfully saved to forecast-data\forecast_09-18-2024_16-00-11.json
+DEBUG - 2024-09-18 17:00:00,435 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 17:00:00,935 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5043
+INFO - 2024-09-18 17:00:00,947 - Data successfully saved to forecast-data\forecast_09-18-2024_17-00-00.json
+DEBUG - 2024-09-18 18:00:00,950 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 18:00:02,263 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5026
+INFO - 2024-09-18 18:00:02,275 - Data successfully saved to forecast-data\forecast_09-18-2024_18-00-00.json
+DEBUG - 2024-09-18 19:00:00,277 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 19:00:00,796 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5026
+INFO - 2024-09-18 19:00:00,808 - Data successfully saved to forecast-data\forecast_09-18-2024_19-00-00.json
+DEBUG - 2024-09-18 20:00:00,811 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 20:00:01,639 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5033
+INFO - 2024-09-18 20:00:01,651 - Data successfully saved to forecast-data\forecast_09-18-2024_20-00-00.json
+DEBUG - 2024-09-18 21:00:00,654 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 21:00:01,098 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5033
+INFO - 2024-09-18 21:00:01,109 - Data successfully saved to forecast-data\forecast_09-18-2024_21-00-00.json
+DEBUG - 2024-09-18 22:00:00,118 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 22:00:00,668 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5045
+INFO - 2024-09-18 22:00:00,679 - Data successfully saved to forecast-data\forecast_09-18-2024_22-00-00.json
+DEBUG - 2024-09-18 23:00:00,683 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-18 23:00:01,678 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5049
+INFO - 2024-09-18 23:00:01,691 - Data successfully saved to forecast-data\forecast_09-18-2024_23-00-00.json
+DEBUG - 2024-09-19 00:00:00,694 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 00:00:01,911 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5039
+INFO - 2024-09-19 00:00:01,924 - Data successfully saved to forecast-data\forecast_09-19-2024_00-00-00.json
+DEBUG - 2024-09-19 01:00:00,927 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 01:00:02,162 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5048
+INFO - 2024-09-19 01:00:02,174 - Data successfully saved to forecast-data\forecast_09-19-2024_01-00-00.json
+DEBUG - 2024-09-19 02:00:00,176 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 02:00:00,713 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5048
+INFO - 2024-09-19 02:00:00,724 - Data successfully saved to forecast-data\forecast_09-19-2024_02-00-00.json
+DEBUG - 2024-09-19 03:00:00,727 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 03:00:01,788 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5062
+INFO - 2024-09-19 03:00:01,800 - Data successfully saved to forecast-data\forecast_09-19-2024_03-00-00.json
+DEBUG - 2024-09-19 04:00:00,803 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 04:00:02,125 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-19 04:00:02,138 - Data successfully saved to forecast-data\forecast_09-19-2024_04-00-00.json
+DEBUG - 2024-09-19 05:00:01,360 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 05:00:01,955 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-19 05:00:01,967 - Data successfully saved to forecast-data\forecast_09-19-2024_05-00-01.json
+DEBUG - 2024-09-19 06:00:00,970 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 06:00:01,483 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-19 06:00:01,496 - Data successfully saved to forecast-data\forecast_09-19-2024_06-00-00.json
+DEBUG - 2024-09-19 07:00:00,498 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 07:00:01,325 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5201
+INFO - 2024-09-19 07:00:01,338 - Data successfully saved to forecast-data\forecast_09-19-2024_07-00-00.json
+DEBUG - 2024-09-19 08:00:00,340 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 08:00:00,822 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5201
+INFO - 2024-09-19 08:00:00,835 - Data successfully saved to forecast-data\forecast_09-19-2024_08-00-00.json
+DEBUG - 2024-09-19 09:00:00,837 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 09:00:01,519 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5196
+INFO - 2024-09-19 09:00:01,531 - Data successfully saved to forecast-data\forecast_09-19-2024_09-00-00.json
+DEBUG - 2024-09-19 10:00:00,533 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 10:00:01,469 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5207
+INFO - 2024-09-19 10:00:01,482 - Data successfully saved to forecast-data\forecast_09-19-2024_10-00-00.json
+DEBUG - 2024-09-19 11:00:00,484 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 11:00:01,311 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5201
+INFO - 2024-09-19 11:00:01,324 - Data successfully saved to forecast-data\forecast_09-19-2024_11-00-00.json
+DEBUG - 2024-09-19 12:00:00,327 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 12:00:01,188 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5177
+INFO - 2024-09-19 12:00:01,200 - Data successfully saved to forecast-data\forecast_09-19-2024_12-00-00.json
+DEBUG - 2024-09-19 13:00:00,202 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 13:00:01,256 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5180
+INFO - 2024-09-19 13:00:01,269 - Data successfully saved to forecast-data\forecast_09-19-2024_13-00-00.json
+DEBUG - 2024-09-19 14:00:00,271 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 14:00:03,026 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5171
+INFO - 2024-09-19 14:00:03,038 - Data successfully saved to forecast-data\forecast_09-19-2024_14-00-00.json
+DEBUG - 2024-09-19 15:00:00,041 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 15:00:02,011 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5182
+INFO - 2024-09-19 15:00:02,024 - Data successfully saved to forecast-data\forecast_09-19-2024_15-00-00.json
+DEBUG - 2024-09-19 16:00:00,027 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 16:00:00,550 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5182
+INFO - 2024-09-19 16:00:00,562 - Data successfully saved to forecast-data\forecast_09-19-2024_16-00-00.json
+DEBUG - 2024-09-19 17:00:00,564 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 17:00:02,766 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5176
+INFO - 2024-09-19 17:00:02,778 - Data successfully saved to forecast-data\forecast_09-19-2024_17-00-00.json
+DEBUG - 2024-09-19 18:00:00,780 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 18:00:01,303 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5176
+INFO - 2024-09-19 18:00:01,316 - Data successfully saved to forecast-data\forecast_09-19-2024_18-00-00.json
+DEBUG - 2024-09-19 19:00:00,318 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 19:00:02,948 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5153
+INFO - 2024-09-19 19:00:02,960 - Data successfully saved to forecast-data\forecast_09-19-2024_19-00-00.json
+DEBUG - 2024-09-19 20:00:00,963 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 20:00:03,657 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5121
+INFO - 2024-09-19 20:00:03,670 - Data successfully saved to forecast-data\forecast_09-19-2024_20-00-00.json
+DEBUG - 2024-09-19 21:00:00,672 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 21:00:01,221 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5121
+INFO - 2024-09-19 21:00:01,233 - Data successfully saved to forecast-data\forecast_09-19-2024_21-00-00.json
+DEBUG - 2024-09-19 22:00:00,236 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 22:00:01,216 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5098
+INFO - 2024-09-19 22:00:01,228 - Data successfully saved to forecast-data\forecast_09-19-2024_22-00-00.json
+DEBUG - 2024-09-19 23:00:00,232 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-19 23:00:01,703 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5109
+INFO - 2024-09-19 23:00:01,715 - Data successfully saved to forecast-data\forecast_09-19-2024_23-00-00.json
+DEBUG - 2024-09-20 00:00:00,718 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 00:00:01,912 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5113
+INFO - 2024-09-20 00:00:01,924 - Data successfully saved to forecast-data\forecast_09-20-2024_00-00-00.json
+DEBUG - 2024-09-20 01:00:00,926 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 01:00:02,639 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5116
+INFO - 2024-09-20 01:00:02,651 - Data successfully saved to forecast-data\forecast_09-20-2024_01-00-00.json
+DEBUG - 2024-09-20 02:00:00,654 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 02:00:01,139 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5116
+INFO - 2024-09-20 02:00:01,156 - Data successfully saved to forecast-data\forecast_09-20-2024_02-00-00.json
+DEBUG - 2024-09-20 03:00:00,158 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 03:00:02,668 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5209
+INFO - 2024-09-20 03:00:02,681 - Data successfully saved to forecast-data\forecast_09-20-2024_03-00-00.json
+DEBUG - 2024-09-20 04:00:00,683 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 04:00:01,194 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5209
+INFO - 2024-09-20 04:00:01,207 - Data successfully saved to forecast-data\forecast_09-20-2024_04-00-00.json
+DEBUG - 2024-09-20 05:00:01,462 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 05:00:01,920 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5208
+INFO - 2024-09-20 05:00:01,932 - Data successfully saved to forecast-data\forecast_09-20-2024_05-00-01.json
+DEBUG - 2024-09-20 06:00:00,934 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 06:00:01,794 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5175
+INFO - 2024-09-20 06:00:01,809 - Data successfully saved to forecast-data\forecast_09-20-2024_06-00-00.json
+DEBUG - 2024-09-20 07:00:00,811 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 07:00:01,835 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5187
+INFO - 2024-09-20 07:00:01,848 - Data successfully saved to forecast-data\forecast_09-20-2024_07-00-00.json
+DEBUG - 2024-09-20 08:00:00,850 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 08:00:02,718 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5171
+INFO - 2024-09-20 08:00:02,730 - Data successfully saved to forecast-data\forecast_09-20-2024_08-00-00.json
+DEBUG - 2024-09-20 09:00:00,732 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 09:00:01,225 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5171
+INFO - 2024-09-20 09:00:01,237 - Data successfully saved to forecast-data\forecast_09-20-2024_09-00-00.json
+DEBUG - 2024-09-20 10:00:00,240 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 10:00:00,742 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5190
+INFO - 2024-09-20 10:00:00,755 - Data successfully saved to forecast-data\forecast_09-20-2024_10-00-00.json
+DEBUG - 2024-09-20 11:00:00,757 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 11:00:01,918 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5191
+INFO - 2024-09-20 11:00:01,931 - Data successfully saved to forecast-data\forecast_09-20-2024_11-00-00.json
+DEBUG - 2024-09-20 12:00:00,932 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 12:00:01,406 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5191
+INFO - 2024-09-20 12:00:01,418 - Data successfully saved to forecast-data\forecast_09-20-2024_12-00-00.json
+DEBUG - 2024-09-20 13:00:00,420 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 13:00:01,065 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5207
+INFO - 2024-09-20 13:00:01,077 - Data successfully saved to forecast-data\forecast_09-20-2024_13-00-00.json
+DEBUG - 2024-09-20 14:00:00,080 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 14:00:01,053 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2024-09-20 14:00:11,057 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 14:00:11,554 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 338
+DEBUG - 2024-09-20 14:00:21,557 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 14:00:22,398 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5196
+INFO - 2024-09-20 14:00:22,410 - Data successfully saved to forecast-data\forecast_09-20-2024_14-00-21.json
+DEBUG - 2024-09-20 15:00:00,412 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 15:00:00,913 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5196
+INFO - 2024-09-20 15:00:00,925 - Data successfully saved to forecast-data\forecast_09-20-2024_15-00-00.json
+DEBUG - 2024-09-20 16:00:00,928 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 16:00:01,996 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5193
+INFO - 2024-09-20 16:00:02,009 - Data successfully saved to forecast-data\forecast_09-20-2024_16-00-00.json
+DEBUG - 2024-09-20 17:00:00,011 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 17:00:00,873 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5185
+INFO - 2024-09-20 17:00:00,886 - Data successfully saved to forecast-data\forecast_09-20-2024_17-00-00.json
+DEBUG - 2024-09-20 18:00:00,888 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 18:00:02,335 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5186
+INFO - 2024-09-20 18:00:02,347 - Data successfully saved to forecast-data\forecast_09-20-2024_18-00-00.json
+DEBUG - 2024-09-20 19:00:00,350 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 19:00:00,843 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5186
+INFO - 2024-09-20 19:00:00,855 - Data successfully saved to forecast-data\forecast_09-20-2024_19-00-00.json
+DEBUG - 2024-09-20 20:00:00,857 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 20:00:03,739 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5169
+INFO - 2024-09-20 20:00:03,751 - Data successfully saved to forecast-data\forecast_09-20-2024_20-00-00.json
+DEBUG - 2024-09-20 21:00:00,754 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 21:00:01,294 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5169
+INFO - 2024-09-20 21:00:01,308 - Data successfully saved to forecast-data\forecast_09-20-2024_21-00-00.json
+DEBUG - 2024-09-20 22:00:00,310 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 22:00:00,806 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5168
+INFO - 2024-09-20 22:00:00,819 - Data successfully saved to forecast-data\forecast_09-20-2024_22-00-00.json
+DEBUG - 2024-09-20 23:00:00,821 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-20 23:00:01,790 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5170
+INFO - 2024-09-20 23:00:01,810 - Data successfully saved to forecast-data\forecast_09-20-2024_23-00-00.json
+DEBUG - 2024-09-21 00:00:00,812 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 00:00:02,234 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5159
+INFO - 2024-09-21 00:00:02,247 - Data successfully saved to forecast-data\forecast_09-21-2024_00-00-00.json
+DEBUG - 2024-09-21 01:00:00,249 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 01:00:01,681 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5178
+INFO - 2024-09-21 01:00:01,692 - Data successfully saved to forecast-data\forecast_09-21-2024_01-00-00.json
+DEBUG - 2024-09-21 02:00:00,695 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 02:00:01,555 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5166
+INFO - 2024-09-21 02:00:01,567 - Data successfully saved to forecast-data\forecast_09-21-2024_02-00-00.json
+DEBUG - 2024-09-21 03:00:00,570 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 03:00:01,641 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5144
+INFO - 2024-09-21 03:00:01,659 - Data successfully saved to forecast-data\forecast_09-21-2024_03-00-00.json
+DEBUG - 2024-09-21 04:00:00,661 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 04:00:01,756 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5142
+INFO - 2024-09-21 04:00:01,768 - Data successfully saved to forecast-data\forecast_09-21-2024_04-00-00.json
+DEBUG - 2024-09-21 05:00:02,031 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 05:00:03,195 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5146
+INFO - 2024-09-21 05:00:03,207 - Data successfully saved to forecast-data\forecast_09-21-2024_05-00-02.json
+DEBUG - 2024-09-21 06:00:00,209 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 06:00:00,683 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5146
+INFO - 2024-09-21 06:00:00,696 - Data successfully saved to forecast-data\forecast_09-21-2024_06-00-00.json
+DEBUG - 2024-09-21 07:00:00,698 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 07:00:01,543 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5140
+INFO - 2024-09-21 07:00:01,555 - Data successfully saved to forecast-data\forecast_09-21-2024_07-00-00.json
+DEBUG - 2024-09-21 08:00:00,557 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 08:00:01,654 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5141
+INFO - 2024-09-21 08:00:01,669 - Data successfully saved to forecast-data\forecast_09-21-2024_08-00-00.json
+DEBUG - 2024-09-21 09:00:00,670 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 09:00:01,550 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5124
+INFO - 2024-09-21 09:00:01,562 - Data successfully saved to forecast-data\forecast_09-21-2024_09-00-00.json
+DEBUG - 2024-09-21 10:00:00,565 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 10:00:01,471 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5113
+INFO - 2024-09-21 10:00:01,483 - Data successfully saved to forecast-data\forecast_09-21-2024_10-00-00.json
+DEBUG - 2024-09-21 11:00:00,485 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 11:00:01,499 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5120
+INFO - 2024-09-21 11:00:01,512 - Data successfully saved to forecast-data\forecast_09-21-2024_11-00-00.json
+DEBUG - 2024-09-21 12:00:00,514 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 12:00:01,370 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5108
+INFO - 2024-09-21 12:00:01,388 - Data successfully saved to forecast-data\forecast_09-21-2024_12-00-00.json
+DEBUG - 2024-09-21 13:00:00,391 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 13:00:02,699 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5110
+INFO - 2024-09-21 13:00:02,713 - Data successfully saved to forecast-data\forecast_09-21-2024_13-00-00.json
+DEBUG - 2024-09-21 14:00:00,716 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 14:00:01,373 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5110
+INFO - 2024-09-21 14:00:01,384 - Data successfully saved to forecast-data\forecast_09-21-2024_14-00-00.json
+DEBUG - 2024-09-21 15:00:00,386 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 15:00:00,885 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5116
+INFO - 2024-09-21 15:00:00,900 - Data successfully saved to forecast-data\forecast_09-21-2024_15-00-00.json
+DEBUG - 2024-09-21 16:00:00,902 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 16:00:02,217 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5216
+INFO - 2024-09-21 16:00:02,229 - Data successfully saved to forecast-data\forecast_09-21-2024_16-00-00.json
+DEBUG - 2024-09-21 17:00:00,232 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 17:00:00,807 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5216
+INFO - 2024-09-21 17:00:00,820 - Data successfully saved to forecast-data\forecast_09-21-2024_17-00-00.json
+DEBUG - 2024-09-21 18:00:00,822 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 18:00:03,868 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5158
+INFO - 2024-09-21 18:00:03,880 - Data successfully saved to forecast-data\forecast_09-21-2024_18-00-00.json
+DEBUG - 2024-09-21 19:00:00,882 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 19:00:01,414 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5158
+INFO - 2024-09-21 19:00:01,428 - Data successfully saved to forecast-data\forecast_09-21-2024_19-00-00.json
+DEBUG - 2024-09-21 20:00:00,430 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 20:00:01,007 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5157
+INFO - 2024-09-21 20:00:01,020 - Data successfully saved to forecast-data\forecast_09-21-2024_20-00-00.json
+DEBUG - 2024-09-21 21:00:00,023 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 21:00:00,529 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5126
+INFO - 2024-09-21 21:00:00,541 - Data successfully saved to forecast-data\forecast_09-21-2024_21-00-00.json
+DEBUG - 2024-09-21 22:00:00,543 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 22:00:02,452 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5156
+INFO - 2024-09-21 22:00:02,464 - Data successfully saved to forecast-data\forecast_09-21-2024_22-00-00.json
+DEBUG - 2024-09-21 23:00:00,467 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-21 23:00:00,965 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5156
+INFO - 2024-09-21 23:00:00,977 - Data successfully saved to forecast-data\forecast_09-21-2024_23-00-00.json
+DEBUG - 2024-09-22 00:00:00,980 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 00:00:03,020 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5156
+INFO - 2024-09-22 00:00:03,034 - Data successfully saved to forecast-data\forecast_09-22-2024_00-00-00.json
+DEBUG - 2024-09-22 01:00:00,037 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 01:00:00,682 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5156
+INFO - 2024-09-22 01:00:00,695 - Data successfully saved to forecast-data\forecast_09-22-2024_01-00-00.json
+DEBUG - 2024-09-22 02:00:00,697 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 02:00:02,634 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5193
+INFO - 2024-09-22 02:00:02,646 - Data successfully saved to forecast-data\forecast_09-22-2024_02-00-00.json
+DEBUG - 2024-09-22 03:00:00,649 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 03:00:01,764 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5174
+INFO - 2024-09-22 03:00:01,777 - Data successfully saved to forecast-data\forecast_09-22-2024_03-00-00.json
+DEBUG - 2024-09-22 04:00:00,779 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 04:00:02,040 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5170
+INFO - 2024-09-22 04:00:02,053 - Data successfully saved to forecast-data\forecast_09-22-2024_04-00-00.json
+DEBUG - 2024-09-22 05:00:01,326 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 05:00:01,865 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5170
+INFO - 2024-09-22 05:00:01,879 - Data successfully saved to forecast-data\forecast_09-22-2024_05-00-01.json
+DEBUG - 2024-09-22 06:00:00,881 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 06:00:01,362 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5101
+INFO - 2024-09-22 06:00:01,374 - Data successfully saved to forecast-data\forecast_09-22-2024_06-00-00.json
+DEBUG - 2024-09-22 07:00:00,376 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 07:00:00,861 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5092
+INFO - 2024-09-22 07:00:00,873 - Data successfully saved to forecast-data\forecast_09-22-2024_07-00-00.json
+DEBUG - 2024-09-22 08:00:00,876 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 08:00:03,053 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5087
+INFO - 2024-09-22 08:00:03,066 - Data successfully saved to forecast-data\forecast_09-22-2024_08-00-00.json
+DEBUG - 2024-09-22 09:00:00,068 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 09:00:00,543 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5087
+INFO - 2024-09-22 09:00:00,555 - Data successfully saved to forecast-data\forecast_09-22-2024_09-00-00.json
+DEBUG - 2024-09-22 10:00:00,559 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 10:00:01,663 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5098
+INFO - 2024-09-22 10:00:01,677 - Data successfully saved to forecast-data\forecast_09-22-2024_10-00-00.json
+DEBUG - 2024-09-22 11:00:00,679 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 11:00:01,710 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5104
+INFO - 2024-09-22 11:00:01,722 - Data successfully saved to forecast-data\forecast_09-22-2024_11-00-00.json
+DEBUG - 2024-09-22 12:00:00,724 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 12:00:01,316 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5104
+INFO - 2024-09-22 12:00:01,329 - Data successfully saved to forecast-data\forecast_09-22-2024_12-00-00.json
+DEBUG - 2024-09-22 13:00:00,331 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 13:00:00,819 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5090
+INFO - 2024-09-22 13:00:00,831 - Data successfully saved to forecast-data\forecast_09-22-2024_13-00-00.json
+DEBUG - 2024-09-22 14:00:00,834 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 14:00:02,119 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5070
+INFO - 2024-09-22 14:00:02,131 - Data successfully saved to forecast-data\forecast_09-22-2024_14-00-00.json
+DEBUG - 2024-09-22 15:00:00,133 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 15:00:02,617 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5267
+INFO - 2024-09-22 15:00:02,630 - Data successfully saved to forecast-data\forecast_09-22-2024_15-00-00.json
+DEBUG - 2024-09-22 16:00:00,633 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 16:00:01,272 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5267
+INFO - 2024-09-22 16:00:01,284 - Data successfully saved to forecast-data\forecast_09-22-2024_16-00-00.json
+DEBUG - 2024-09-22 17:00:00,287 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 17:00:01,150 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5262
+INFO - 2024-09-22 17:00:01,163 - Data successfully saved to forecast-data\forecast_09-22-2024_17-00-00.json
+DEBUG - 2024-09-22 18:00:00,165 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 18:00:01,035 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5255
+INFO - 2024-09-22 18:00:01,047 - Data successfully saved to forecast-data\forecast_09-22-2024_18-00-00.json
+DEBUG - 2024-09-22 19:00:00,051 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 19:00:00,901 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5252
+INFO - 2024-09-22 19:00:00,914 - Data successfully saved to forecast-data\forecast_09-22-2024_19-00-00.json
+DEBUG - 2024-09-22 20:00:00,916 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 20:00:03,963 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5250
+INFO - 2024-09-22 20:00:03,974 - Data successfully saved to forecast-data\forecast_09-22-2024_20-00-00.json
+DEBUG - 2024-09-22 21:00:00,977 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 21:00:01,482 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5250
+INFO - 2024-09-22 21:00:01,493 - Data successfully saved to forecast-data\forecast_09-22-2024_21-00-00.json
+DEBUG - 2024-09-22 22:00:00,496 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 22:00:00,961 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5218
+INFO - 2024-09-22 22:00:00,973 - Data successfully saved to forecast-data\forecast_09-22-2024_22-00-00.json
+DEBUG - 2024-09-22 23:00:00,974 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-22 23:00:01,821 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5196
+INFO - 2024-09-22 23:00:01,833 - Data successfully saved to forecast-data\forecast_09-22-2024_23-00-00.json
+DEBUG - 2024-09-23 00:00:00,835 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 00:00:05,422 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5197
+INFO - 2024-09-23 00:00:05,434 - Data successfully saved to forecast-data\forecast_09-23-2024_00-00-00.json
+DEBUG - 2024-09-23 01:00:00,435 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 01:00:01,494 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5198
+INFO - 2024-09-23 01:00:01,507 - Data successfully saved to forecast-data\forecast_09-23-2024_01-00-00.json
+DEBUG - 2024-09-23 02:00:00,508 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 02:00:01,481 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5225
+INFO - 2024-09-23 02:00:01,495 - Data successfully saved to forecast-data\forecast_09-23-2024_02-00-00.json
+DEBUG - 2024-09-23 03:00:00,497 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 03:00:02,058 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5211
+INFO - 2024-09-23 03:00:02,072 - Data successfully saved to forecast-data\forecast_09-23-2024_03-00-00.json
+DEBUG - 2024-09-23 04:00:00,074 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 04:00:00,973 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5203
+INFO - 2024-09-23 04:00:00,986 - Data successfully saved to forecast-data\forecast_09-23-2024_04-00-00.json
+DEBUG - 2024-09-23 05:00:02,287 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 05:00:03,324 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-23 05:00:03,338 - Data successfully saved to forecast-data\forecast_09-23-2024_05-00-02.json
+DEBUG - 2024-09-23 06:00:00,340 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 06:00:00,723 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-23 06:00:00,735 - Data successfully saved to forecast-data\forecast_09-23-2024_06-00-00.json
+DEBUG - 2024-09-23 07:00:00,737 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 07:00:01,691 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5024
+INFO - 2024-09-23 07:00:01,703 - Data successfully saved to forecast-data\forecast_09-23-2024_07-00-00.json
+DEBUG - 2024-09-23 08:00:00,706 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 08:00:01,439 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5027
+INFO - 2024-09-23 08:00:01,452 - Data successfully saved to forecast-data\forecast_09-23-2024_08-00-00.json
+DEBUG - 2024-09-23 09:00:00,453 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 09:00:01,370 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5003
+INFO - 2024-09-23 09:00:01,380 - Data successfully saved to forecast-data\forecast_09-23-2024_09-00-00.json
+DEBUG - 2024-09-23 10:00:00,382 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 10:00:01,304 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4994
+INFO - 2024-09-23 10:00:01,311 - Data successfully saved to forecast-data\forecast_09-23-2024_10-00-00.json
+DEBUG - 2024-09-23 11:00:00,314 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 11:00:00,701 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4994
+INFO - 2024-09-23 11:00:00,714 - Data successfully saved to forecast-data\forecast_09-23-2024_11-00-00.json
+DEBUG - 2024-09-23 12:00:00,720 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 12:00:02,230 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4983
+INFO - 2024-09-23 12:00:02,285 - Data successfully saved to forecast-data\forecast_09-23-2024_12-00-00.json
+DEBUG - 2024-09-23 13:00:00,293 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 13:00:00,777 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4983
+INFO - 2024-09-23 13:00:00,789 - Data successfully saved to forecast-data\forecast_09-23-2024_13-00-00.json
+DEBUG - 2024-09-23 14:00:00,791 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 14:00:02,532 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4984
+INFO - 2024-09-23 14:00:02,544 - Data successfully saved to forecast-data\forecast_09-23-2024_14-00-00.json
+DEBUG - 2024-09-23 15:00:00,547 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 15:00:01,046 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4984
+INFO - 2024-09-23 15:00:01,058 - Data successfully saved to forecast-data\forecast_09-23-2024_15-00-00.json
+DEBUG - 2024-09-23 16:00:00,061 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 16:00:00,686 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5048
+INFO - 2024-09-23 16:00:00,701 - Data successfully saved to forecast-data\forecast_09-23-2024_16-00-00.json
+DEBUG - 2024-09-23 17:00:00,703 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 17:00:01,216 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5032
+INFO - 2024-09-23 17:00:01,229 - Data successfully saved to forecast-data\forecast_09-23-2024_17-00-00.json
+DEBUG - 2024-09-23 18:00:00,232 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 18:00:01,219 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5033
+INFO - 2024-09-23 18:00:01,231 - Data successfully saved to forecast-data\forecast_09-23-2024_18-00-00.json
+DEBUG - 2024-09-23 19:00:00,233 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 19:00:00,771 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5053
+INFO - 2024-09-23 19:00:00,784 - Data successfully saved to forecast-data\forecast_09-23-2024_19-00-00.json
+DEBUG - 2024-09-23 20:00:00,786 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 20:00:01,213 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5059
+INFO - 2024-09-23 20:00:01,226 - Data successfully saved to forecast-data\forecast_09-23-2024_20-00-00.json
+DEBUG - 2024-09-23 21:00:00,229 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 21:00:00,616 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5046
+INFO - 2024-09-23 21:00:00,628 - Data successfully saved to forecast-data\forecast_09-23-2024_21-00-00.json
+DEBUG - 2024-09-23 22:00:00,631 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 22:00:01,025 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5056
+INFO - 2024-09-23 22:00:01,037 - Data successfully saved to forecast-data\forecast_09-23-2024_22-00-00.json
+DEBUG - 2024-09-23 23:00:00,038 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-23 23:00:00,434 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5046
+INFO - 2024-09-23 23:00:00,446 - Data successfully saved to forecast-data\forecast_09-23-2024_23-00-00.json
+DEBUG - 2024-09-24 00:00:00,448 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 00:00:02,912 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5051
+INFO - 2024-09-24 00:00:02,925 - Data successfully saved to forecast-data\forecast_09-24-2024_00-00-00.json
+DEBUG - 2024-09-24 01:00:00,927 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 01:00:01,379 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5051
+INFO - 2024-09-24 01:00:01,392 - Data successfully saved to forecast-data\forecast_09-24-2024_01-00-00.json
+DEBUG - 2024-09-24 02:00:00,395 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 02:00:00,757 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5054
+INFO - 2024-09-24 02:00:00,764 - Data successfully saved to forecast-data\forecast_09-24-2024_02-00-00.json
+DEBUG - 2024-09-24 03:00:00,766 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 03:00:01,782 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5060
+INFO - 2024-09-24 03:00:01,796 - Data successfully saved to forecast-data\forecast_09-24-2024_03-00-00.json
+DEBUG - 2024-09-24 04:00:00,799 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 04:00:01,613 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5073
+INFO - 2024-09-24 04:00:01,626 - Data successfully saved to forecast-data\forecast_09-24-2024_04-00-00.json
+DEBUG - 2024-09-24 05:00:01,901 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 05:00:02,946 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5067
+INFO - 2024-09-24 05:00:02,959 - Data successfully saved to forecast-data\forecast_09-24-2024_05-00-01.json
+DEBUG - 2024-09-24 06:00:00,962 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 06:00:01,349 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5067
+INFO - 2024-09-24 06:00:01,362 - Data successfully saved to forecast-data\forecast_09-24-2024_06-00-00.json
+DEBUG - 2024-09-24 07:00:00,365 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 07:00:00,758 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5056
+INFO - 2024-09-24 07:00:00,771 - Data successfully saved to forecast-data\forecast_09-24-2024_07-00-00.json
+DEBUG - 2024-09-24 08:00:00,773 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 08:00:03,287 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5077
+INFO - 2024-09-24 08:00:03,301 - Data successfully saved to forecast-data\forecast_09-24-2024_08-00-00.json
+DEBUG - 2024-09-24 09:00:00,303 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 09:00:00,696 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5077
+INFO - 2024-09-24 09:00:00,708 - Data successfully saved to forecast-data\forecast_09-24-2024_09-00-00.json
+DEBUG - 2024-09-24 10:00:00,710 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 10:00:01,565 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5044
+INFO - 2024-09-24 10:00:01,578 - Data successfully saved to forecast-data\forecast_09-24-2024_10-00-00.json
+DEBUG - 2024-09-24 11:00:00,582 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 11:00:01,331 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5039
+INFO - 2024-09-24 11:00:01,344 - Data successfully saved to forecast-data\forecast_09-24-2024_11-00-00.json
+DEBUG - 2024-09-24 12:00:00,346 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 12:00:01,073 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5030
+INFO - 2024-09-24 12:00:01,086 - Data successfully saved to forecast-data\forecast_09-24-2024_12-00-00.json
+DEBUG - 2024-09-24 13:00:00,089 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 13:00:00,472 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5030
+INFO - 2024-09-24 13:00:00,485 - Data successfully saved to forecast-data\forecast_09-24-2024_13-00-00.json
+DEBUG - 2024-09-24 14:00:00,487 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 14:00:02,098 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5020
+INFO - 2024-09-24 14:00:02,109 - Data successfully saved to forecast-data\forecast_09-24-2024_14-00-00.json
+DEBUG - 2024-09-24 15:00:00,112 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 15:00:00,488 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5020
+INFO - 2024-09-24 15:00:00,500 - Data successfully saved to forecast-data\forecast_09-24-2024_15-00-00.json
+DEBUG - 2024-09-24 16:00:00,502 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 16:00:01,554 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5041
+INFO - 2024-09-24 16:00:01,567 - Data successfully saved to forecast-data\forecast_09-24-2024_16-00-00.json
+DEBUG - 2024-09-24 17:00:00,570 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 17:00:01,137 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5041
+INFO - 2024-09-24 17:00:01,146 - Data successfully saved to forecast-data\forecast_09-24-2024_17-00-00.json
+DEBUG - 2024-09-24 18:00:00,148 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 18:00:00,591 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5047
+INFO - 2024-09-24 18:00:00,604 - Data successfully saved to forecast-data\forecast_09-24-2024_18-00-00.json
+DEBUG - 2024-09-24 19:00:00,606 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 19:00:02,452 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5028
+INFO - 2024-09-24 19:00:02,475 - Data successfully saved to forecast-data\forecast_09-24-2024_19-00-00.json
+DEBUG - 2024-09-24 20:00:00,479 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 20:00:02,276 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5034
+INFO - 2024-09-24 20:00:02,289 - Data successfully saved to forecast-data\forecast_09-24-2024_20-00-00.json
+DEBUG - 2024-09-24 21:00:00,293 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 21:00:00,759 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5034
+INFO - 2024-09-24 21:00:00,769 - Data successfully saved to forecast-data\forecast_09-24-2024_21-00-00.json
+DEBUG - 2024-09-24 22:00:00,777 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 22:00:02,977 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5036
+INFO - 2024-09-24 22:00:02,986 - Data successfully saved to forecast-data\forecast_09-24-2024_22-00-00.json
+DEBUG - 2024-09-24 23:00:00,988 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-24 23:00:01,491 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5036
+INFO - 2024-09-24 23:00:01,504 - Data successfully saved to forecast-data\forecast_09-24-2024_23-00-00.json
+DEBUG - 2024-09-25 00:00:00,506 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 00:00:00,923 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5035
+INFO - 2024-09-25 00:00:00,936 - Data successfully saved to forecast-data\forecast_09-25-2024_00-00-00.json
+DEBUG - 2024-09-25 01:00:00,939 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 01:00:03,301 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5037
+INFO - 2024-09-25 01:00:03,314 - Data successfully saved to forecast-data\forecast_09-25-2024_01-00-00.json
+DEBUG - 2024-09-25 02:00:00,316 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 02:00:00,708 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5037
+INFO - 2024-09-25 02:00:00,719 - Data successfully saved to forecast-data\forecast_09-25-2024_02-00-00.json
+DEBUG - 2024-09-25 03:00:00,722 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 03:00:01,112 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5031
+INFO - 2024-09-25 03:00:01,124 - Data successfully saved to forecast-data\forecast_09-25-2024_03-00-00.json
+DEBUG - 2024-09-25 04:00:00,126 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 04:00:00,515 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5092
+INFO - 2024-09-25 04:00:00,528 - Data successfully saved to forecast-data\forecast_09-25-2024_04-00-00.json
+DEBUG - 2024-09-25 05:00:01,800 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 05:00:03,471 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5085
+INFO - 2024-09-25 05:00:03,484 - Data successfully saved to forecast-data\forecast_09-25-2024_05-00-01.json
+DEBUG - 2024-09-25 06:00:00,486 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 06:00:01,197 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5067
+INFO - 2024-09-25 06:00:01,210 - Data successfully saved to forecast-data\forecast_09-25-2024_06-00-00.json
+DEBUG - 2024-09-25 07:00:00,212 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 07:00:00,601 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5067
+INFO - 2024-09-25 07:00:00,613 - Data successfully saved to forecast-data\forecast_09-25-2024_07-00-00.json
+DEBUG - 2024-09-25 08:00:00,616 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 08:00:03,169 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5070
+INFO - 2024-09-25 08:00:03,183 - Data successfully saved to forecast-data\forecast_09-25-2024_08-00-00.json
+DEBUG - 2024-09-25 09:00:00,184 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 09:00:00,830 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5078
+INFO - 2024-09-25 09:00:00,842 - Data successfully saved to forecast-data\forecast_09-25-2024_09-00-00.json
+DEBUG - 2024-09-25 10:00:00,844 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 10:00:01,708 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5079
+INFO - 2024-09-25 10:00:01,721 - Data successfully saved to forecast-data\forecast_09-25-2024_10-00-00.json
+DEBUG - 2024-09-25 11:00:00,723 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 11:00:01,459 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5076
+INFO - 2024-09-25 11:00:01,472 - Data successfully saved to forecast-data\forecast_09-25-2024_11-00-00.json
+DEBUG - 2024-09-25 12:00:00,474 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 12:00:01,335 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5055
+INFO - 2024-09-25 12:00:01,342 - Data successfully saved to forecast-data\forecast_09-25-2024_12-00-00.json
+DEBUG - 2024-09-25 13:00:00,344 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 13:00:01,181 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5053
+INFO - 2024-09-25 13:00:01,193 - Data successfully saved to forecast-data\forecast_09-25-2024_13-00-00.json
+DEBUG - 2024-09-25 14:00:00,196 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 14:00:01,049 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-25 14:00:01,062 - Data successfully saved to forecast-data\forecast_09-25-2024_14-00-00.json
+DEBUG - 2024-09-25 15:00:00,065 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 15:00:00,453 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-25 15:00:00,467 - Data successfully saved to forecast-data\forecast_09-25-2024_15-00-00.json
+DEBUG - 2024-09-25 16:00:00,498 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 16:00:01,084 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2024-09-25 16:00:11,090 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 16:00:13,852 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5084
+INFO - 2024-09-25 16:00:13,867 - Data successfully saved to forecast-data\forecast_09-25-2024_16-00-11.json
+DEBUG - 2024-09-25 17:00:00,940 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 17:00:01,402 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5084
+INFO - 2024-09-25 17:00:01,429 - Data successfully saved to forecast-data\forecast_09-25-2024_17-00-00.json
+DEBUG - 2024-09-25 18:00:00,438 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 18:00:00,866 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5082
+INFO - 2024-09-25 18:00:00,878 - Data successfully saved to forecast-data\forecast_09-25-2024_18-00-00.json
+DEBUG - 2024-09-25 19:00:00,886 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 19:00:01,651 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5077
+INFO - 2024-09-25 19:00:01,661 - Data successfully saved to forecast-data\forecast_09-25-2024_19-00-00.json
+DEBUG - 2024-09-25 20:00:00,671 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 20:00:02,494 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5113
+INFO - 2024-09-25 20:00:02,506 - Data successfully saved to forecast-data\forecast_09-25-2024_20-00-00.json
+DEBUG - 2024-09-25 21:00:00,510 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 21:00:01,591 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5132
+INFO - 2024-09-25 21:00:01,601 - Data successfully saved to forecast-data\forecast_09-25-2024_21-00-00.json
+DEBUG - 2024-09-25 22:00:00,605 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 22:00:01,888 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5124
+INFO - 2024-09-25 22:00:01,903 - Data successfully saved to forecast-data\forecast_09-25-2024_22-00-00.json
+DEBUG - 2024-09-25 23:00:00,906 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-25 23:00:02,254 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5135
+INFO - 2024-09-25 23:00:02,267 - Data successfully saved to forecast-data\forecast_09-25-2024_23-00-00.json
+DEBUG - 2024-09-26 00:00:00,269 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 00:00:00,726 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5135
+INFO - 2024-09-26 00:00:00,739 - Data successfully saved to forecast-data\forecast_09-26-2024_00-00-00.json
+DEBUG - 2024-09-26 01:00:00,742 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 01:00:01,860 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5115
+INFO - 2024-09-26 01:00:01,875 - Data successfully saved to forecast-data\forecast_09-26-2024_01-00-00.json
+DEBUG - 2024-09-26 02:00:00,876 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 02:00:03,351 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5114
+INFO - 2024-09-26 02:00:03,364 - Data successfully saved to forecast-data\forecast_09-26-2024_02-00-00.json
+DEBUG - 2024-09-26 03:00:00,366 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 03:00:00,722 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5114
+INFO - 2024-09-26 03:00:00,734 - Data successfully saved to forecast-data\forecast_09-26-2024_03-00-00.json
+DEBUG - 2024-09-26 04:00:00,737 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 04:00:04,366 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5120
+INFO - 2024-09-26 04:00:04,379 - Data successfully saved to forecast-data\forecast_09-26-2024_04-00-00.json
+DEBUG - 2024-09-26 05:00:01,671 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 05:00:05,129 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4943
+INFO - 2024-09-26 05:00:05,143 - Data successfully saved to forecast-data\forecast_09-26-2024_05-00-01.json
+DEBUG - 2024-09-26 06:00:00,146 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 06:00:00,502 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4943
+INFO - 2024-09-26 06:00:00,514 - Data successfully saved to forecast-data\forecast_09-26-2024_06-00-00.json
+DEBUG - 2024-09-26 07:00:00,516 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 07:00:01,112 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 334
+DEBUG - 2024-09-26 07:00:11,115 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 07:00:11,716 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4969
+INFO - 2024-09-26 07:00:11,728 - Data successfully saved to forecast-data\forecast_09-26-2024_07-00-11.json
+DEBUG - 2024-09-26 08:00:00,730 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 08:00:01,552 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4971
+INFO - 2024-09-26 08:00:01,563 - Data successfully saved to forecast-data\forecast_09-26-2024_08-00-00.json
+DEBUG - 2024-09-26 09:00:00,565 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 09:00:01,301 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4974
+INFO - 2024-09-26 09:00:01,315 - Data successfully saved to forecast-data\forecast_09-26-2024_09-00-00.json
+DEBUG - 2024-09-26 10:00:00,317 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 10:00:00,687 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4974
+INFO - 2024-09-26 10:00:00,699 - Data successfully saved to forecast-data\forecast_09-26-2024_10-00-00.json
+DEBUG - 2024-09-26 11:00:00,702 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 11:00:04,676 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4964
+INFO - 2024-09-26 11:00:04,688 - Data successfully saved to forecast-data\forecast_09-26-2024_11-00-00.json
+DEBUG - 2024-09-26 12:00:00,692 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 12:00:01,082 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4964
+INFO - 2024-09-26 12:00:01,089 - Data successfully saved to forecast-data\forecast_09-26-2024_12-00-00.json
+DEBUG - 2024-09-26 13:00:00,092 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 13:00:00,481 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4964
+INFO - 2024-09-26 13:00:00,494 - Data successfully saved to forecast-data\forecast_09-26-2024_13-00-00.json
+DEBUG - 2024-09-26 14:00:00,501 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 14:00:01,224 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 500 336
+DEBUG - 2024-09-26 14:00:11,228 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 14:00:11,811 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4970
+INFO - 2024-09-26 14:00:11,824 - Data successfully saved to forecast-data\forecast_09-26-2024_14-00-11.json
+DEBUG - 2024-09-26 15:00:00,826 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 15:00:01,211 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4970
+INFO - 2024-09-26 15:00:01,223 - Data successfully saved to forecast-data\forecast_09-26-2024_15-00-00.json
+DEBUG - 2024-09-26 16:00:00,225 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 16:00:00,636 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 4973
+INFO - 2024-09-26 16:00:00,650 - Data successfully saved to forecast-data\forecast_09-26-2024_16-00-00.json
+DEBUG - 2024-09-26 17:00:00,650 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 17:00:01,533 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5052
+INFO - 2024-09-26 17:00:01,547 - Data successfully saved to forecast-data\forecast_09-26-2024_17-00-00.json
+DEBUG - 2024-09-26 18:00:00,548 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 18:00:01,001 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5052
+INFO - 2024-09-26 18:00:01,013 - Data successfully saved to forecast-data\forecast_09-26-2024_18-00-00.json
+DEBUG - 2024-09-26 19:00:00,017 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 19:00:01,948 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5050
+INFO - 2024-09-26 19:00:01,961 - Data successfully saved to forecast-data\forecast_09-26-2024_19-00-00.json
+DEBUG - 2024-09-26 20:00:00,963 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 20:00:02,289 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5051
+INFO - 2024-09-26 20:00:02,302 - Data successfully saved to forecast-data\forecast_09-26-2024_20-00-00.json
+DEBUG - 2024-09-26 21:00:00,304 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 21:00:04,942 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-26 21:00:04,954 - Data successfully saved to forecast-data\forecast_09-26-2024_21-00-00.json
+DEBUG - 2024-09-26 22:00:00,957 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 22:00:01,401 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5057
+INFO - 2024-09-26 22:00:01,413 - Data successfully saved to forecast-data\forecast_09-26-2024_22-00-00.json
+DEBUG - 2024-09-26 23:00:00,415 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-26 23:00:01,518 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5072
+INFO - 2024-09-26 23:00:01,526 - Data successfully saved to forecast-data\forecast_09-26-2024_23-00-00.json
+DEBUG - 2024-09-27 00:00:00,528 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 00:00:04,302 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5058
+INFO - 2024-09-27 00:00:04,315 - Data successfully saved to forecast-data\forecast_09-27-2024_00-00-00.json
+DEBUG - 2024-09-27 01:00:00,319 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 01:00:00,732 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5058
+INFO - 2024-09-27 01:00:00,744 - Data successfully saved to forecast-data\forecast_09-27-2024_01-00-00.json
+DEBUG - 2024-09-27 02:00:00,746 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 02:00:03,385 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5061
+INFO - 2024-09-27 02:00:03,397 - Data successfully saved to forecast-data\forecast_09-27-2024_02-00-00.json
+DEBUG - 2024-09-27 03:00:00,399 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 03:00:03,429 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5066
+INFO - 2024-09-27 03:00:03,441 - Data successfully saved to forecast-data\forecast_09-27-2024_03-00-00.json
+DEBUG - 2024-09-27 04:00:00,443 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 04:00:01,327 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5168
+INFO - 2024-09-27 04:00:01,339 - Data successfully saved to forecast-data\forecast_09-27-2024_04-00-00.json
+DEBUG - 2024-09-27 05:00:01,561 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 05:00:01,910 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5168
+INFO - 2024-09-27 05:00:01,917 - Data successfully saved to forecast-data\forecast_09-27-2024_05-00-01.json
+DEBUG - 2024-09-27 06:00:00,921 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 06:00:01,314 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5169
+INFO - 2024-09-27 06:00:01,326 - Data successfully saved to forecast-data\forecast_09-27-2024_06-00-00.json
+DEBUG - 2024-09-27 07:00:00,327 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-27 07:00:00,789 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5163
+INFO - 2024-09-27 07:00:00,801 - Data successfully saved to forecast-data\forecast_09-27-2024_07-00-00.json
+DEBUG - 2024-09-27 08:00:00,803 - Starting new HTTPS connection (1): api.weather.gov:443
+INFO - 2024-09-27 18:10:54,454 - Starting forecast collection
+DEBUG - 2024-09-27 19:00:00,465 - Starting new HTTPS connection (1): api.weather.gov:443
+INFO - 2024-09-29 23:55:34,613 - Starting forecast collection
+DEBUG - 2024-09-30 00:00:00,623 - Starting new HTTPS connection (1): api.weather.gov:443
+DEBUG - 2024-09-30 00:00:01,265 - https://api.weather.gov:443 "GET /gridpoints/RNK/17,16/forecast/hourly HTTP/1.1" 200 5077
+INFO - 2024-09-30 00:00:01,276 - Data successfully saved to forecast-data\forecast_09-30-2024_00-00-00.json

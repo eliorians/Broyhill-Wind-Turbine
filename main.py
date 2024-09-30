@@ -52,26 +52,26 @@ threshold_minutes=90
 toTrain=True
 
 #Set the model type from the model list: (more details in params.py)
-# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge']
-modelType= 'bagging'
+# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster]
+modelType= 'kernal_ridge'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
-featuresToTrain = generate_features(allFeats=False, hoursOut=1, feats_list=['windSpeed_mph'])
+featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_mph'])
 
 #Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
 
 #General Plots
-toPlot= True
+toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= True
 
 #The type of validation technique to use.
 # ['basic', 'gridsearch', 'nested_crossval']
-validation='gridsearch'
+validation='nested_crossval'
 
 #number of splits for grisearch
 gridsearch_splits = 5

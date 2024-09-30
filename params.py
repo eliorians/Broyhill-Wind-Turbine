@@ -4,7 +4,7 @@ from sklearn.model_selection import TimeSeriesSplit
 
 from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, BaggingRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, BaggingRegressor, AdaBoostRegressor
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
 
@@ -24,7 +24,8 @@ modelList = {
     'elastic_net_cv'        : ElasticNetCV(n_jobs=-1),
     'svr'                   : SVR(),
     'kernal_ridge'          : KernelRidge(),
-    'bagging'               : BaggingRegressor(n_jobs=-1)
+    'bagging'               : BaggingRegressor(n_jobs=-1),
+    'ada_boost'             : AdaBoostRegressor(),
 }
 
 #param_grid associated with each model
@@ -127,19 +128,25 @@ paramList = {
                                 'shrinking' : [True, False],
     },
 
-    'kernal_ridge'              : {'alpha'  : [1e-10, 1e-5, 1e-2],
+    'kernal_ridge'              : {'alpha'  : [1e-10, 1e-5, 1e-2, .1, 10, 100],
                                 'kernel' : ['linear', 'polynomial', 'rbf', 'sigmoid'],
-                                'gamma' : [0, 5, 10], 
+                                'gamma' : [0, .1, 1, 5, 10, 20], 
                                 'degree': [1, 2, 3, 4], 
     },
 
     'bagging'                   : {'estimator' : [DecisionTreeRegressor(), make_pipeline(PolynomialFeatures(degree=3), LinearRegression(n_jobs=-1))],
-                                   'n_estimators' : [10, 50, 100],
+                                   'n_estimators' : [50, 100, 250, 500],
                                    'max_samples' : [.5, .7, 1],
                                    'max_features' : [None, .5, 1],
                                    'bootstrap' : [True, False],
                                    'bootstrap_features' : [True, False],
                                    'oob_score' : [True, False],
                                    'warm_start' : [True, False],
+    },
+
+    'ada_boost'                 : {'estimator' : [DecisionTreeRegressor(), make_pipeline(PolynomialFeatures(degree=3))],
+                                   'n_estimators' : [50, 100, 250, 500],
+                                   'learning_rate' : [.01, .1, .5, 1],
+                                   'loss' : ['linear', 'square', 'exponential'],
     }
 }
