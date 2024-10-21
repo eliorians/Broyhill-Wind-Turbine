@@ -5,6 +5,8 @@ import time
 import traceback
 import numpy as np
 import pandas as pd
+from sklearn.feature_selection import SequentialFeatureSelector
+from sklearn.pipeline import Pipeline
 
 import turbine_util
 import plots
@@ -25,7 +27,7 @@ def generate_features(allFeats, hoursOut, feats_list):
     
     ARGS
     allFeats: True to use all features in the base list from params.py
-    hoursOut: How many hours out of forecast to use for the model. Use hoursToForcast for all features or 1 for just the _0's (aka the forecast for that hour)
+    hoursOut: How many hours out of forecast to use for the model. Use hoursToForcast for all features or 1 for just the _0's (aka the forecast for that hour). Max is hoursToForecast-1
     '''
     features = []
     if allFeats:
@@ -53,13 +55,19 @@ toTrain=True
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster]
-modelType= 'kernal_ridge'
+modelType= 'linear_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
-featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_mph'])
+#use hoursOut= 1 for only the forecast for that hour
+#use hourOut= hoursToForecast-1 to use all forecasted vallues from hoursToForecast hours before.
+featuresToTrain = generate_features(allFeats=True, hoursOut=11, feats_list=['windSpeed_knots'])
+
+#Use feature selection (give all features, or as many to test)
+feature_selection = True
+feature_selection_splits = TimeSeriesSplit(n_splits=5)
 
 #Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
@@ -71,7 +79,7 @@ toPlotPredictions= True
 
 #The type of validation technique to use.
 # ['basic', 'gridsearch', 'nested_crossval']
-validation='nested_crossval'
+validation='basic'
 
 #number of splits for grisearch
 gridsearch_splits = 5
@@ -159,7 +167,7 @@ def train_eval_model(df, split, target, features, model_name):
     model_name: model to be trained and evaluated
     '''
     try:
-        logger.info(f"in train_eval_model using: {validation} with {modelType}")
+        logger.info(f"in train_eval_model using: {validation} with {modelType}, with feature selection(T/F): {feature_selection}")
 
         #get the model info from params.py
         model = modelList.get(model_name)
@@ -204,18 +212,42 @@ def train_eval_model(df, split, target, features, model_name):
             x_train, y_train = train_df[features], train_df[target]
             x_test, y_test = test_df[features], test_df[target]
 
+            # Apply feature selection
+            if (feature_selection == True):
+                logger.info(f"Beginning feature selection...")
+                sfs = SequentialFeatureSelector(
+                    n_features_to_select='auto',        # Automatically selects the best number of features
+                    direction='forward',                # Use 'forward' for SFS or 'backward' for SBS
+                    cv=feature_selection_splits,        # Time series split
+                    scoring='neg_mean_squared_error',
+                    estimator=model,
+                    n_jobs=-1) 
+                
+                # Fit the feature selector on the training data
+                sfs.fit(x_train, y_train)
+
+                # Get the selected features and trim training data to these features
+                selected_features = [f for f, support in zip(features, sfs.get_support()) if support]
+                x_train = x_train[selected_features]
+                x_test = x_test[selected_features]
+
             #fit the data
+            logger.info(f"Fitting data...")
             model.fit(x_train, y_train)
+
             #predict
+            logger.info(f"Predicting...")
             y_pred = model.predict(x_test)
 
             #evaluate the model
+            logger.info(f"Evaluating...")
             mse = mean_squared_error(y_test, y_pred)
             rmse = np.sqrt(mse)
             r_squared = r2_score(y_test, y_pred)
 
             #plot the predictions
             if toPlotPredictions:
+                logger.info(f"Plotting...")
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
 
         elif validation == 'gridsearch':
@@ -225,12 +257,32 @@ def train_eval_model(df, split, target, features, model_name):
             x_train, y_train = train_df[features], train_df[target]
             x_test, y_test = test_df[features], test_df[target]
 
+            # Apply feature selection
+            if (feature_selection == True):
+                logger.info(f"Beginning feature selection...")
+                sfs = SequentialFeatureSelector(
+                    n_features_to_select='auto',        # Automatically selects the best number of features
+                    direction='forward',                # Use 'forward' for SFS or 'backward' for SBS
+                    cv=feature_selection_splits,        # Time series split
+                    scoring='neg_mean_squared_error',
+                    estimator=model,
+                    n_jobs=-1) 
+                
+                # Fit the feature selector on the training data
+                sfs.fit(x_train, y_train)
+
+                # Get the selected features and trim training data to these features
+                selected_features = [f for f, support in zip(features, sfs.get_support()) if support]
+                x_train = x_train[selected_features]
+                x_test = x_test[selected_features]
+
             #get the parameter list for the specified model from params.py
             param_grid = paramList.get(model_name)
             if param_grid is None:
                 raise ValueError(f"Parameter grid for '{model_name}' not found in paramList. See paramList in params.py")
             
             #initialize GridSearchCV with TimeSeriesSplit for cross-validation
+            logger.info(f"Starting GridSearch...")
             tscv = TimeSeriesSplit(n_splits=gridsearch_splits)
             grid_search = GridSearchCV(model, param_grid, scoring='neg_root_mean_squared_error', cv=tscv, verbose=0, n_jobs=-1, refit=True)
             
@@ -242,15 +294,18 @@ def train_eval_model(df, split, target, features, model_name):
             best_params = grid_search.best_params_
 
             #predict on the test set (unseen data, not used in gridsearch) using the best model from the gridsearch
+            logger.info(f"Predicintg...")
             y_pred = best_model.predict(x_test)
 
             #evaluate the model predictions against the actual
+            logger.info(f"Evaluating...")
             mse = mean_squared_error(y_test, y_pred)
             rmse = np.sqrt(mse)
             r_squared = r2_score(y_test, y_pred)
 
             #plot the predicted y values against the actual y values
             if toPlotPredictions:
+                logger.info(f"Plotting...")
                 plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
         
         elif validation == 'nested_crossval':
@@ -263,12 +318,40 @@ def train_eval_model(df, split, target, features, model_name):
             #specify columns from the dataframe to use
             x, y = df[features], df[target]
 
+            if (feature_selection == True):
+                logger.info(f"Setting up feature selection and inner loop pipeline...")
+                # Create feature selector to occur in inner loop 
+                feature_selector = SequentialFeatureSelector(
+                        n_features_to_select='auto',        # Automatically selects the best number of features
+                        direction='forward',                # Use 'forward' for SFS or 'backward' for SBS
+                        cv=feature_selection_splits,        # Time series split
+                        scoring='neg_mean_squared_error',   # Choose scoring metric (e.g., MSE)
+                        estimator=model,
+                        n_jobs=-1)
+                
+                # Create a pipeline - first the feature selection, then the model with grid search
+                pipeline = Pipeline([
+                    ('feature_selection', feature_selector),
+                    ('model', model)
+                ])
+
+                #update the param grid to include a prefix of model_ so it knows which step in the pipeline to be used at
+                model_param_grid = {f'model__{key}': value for key, value in param_grid.items()}
+                feature_selection_param_grid = {f'feature_selection__{key}': value for key, value in param_grid.items() if key in ['n_features_to_select', 'direction', 'cv', 'scoring', 'estimator', 'n_jobs']}
+                param_grid = {**feature_selection_param_grid, **model_param_grid}
+            else:
+                # Create pipline - no feature selection, so make pipeline of JUST the model
+                pipeline = Pipeline([
+                    ('model', model)
+                ])
+
             # Define outer and inner cross validation techniques (TimeSeriesSplit technique to uphold temporal order)
             outer_tscv = TimeSeriesSplit(n_splits=nested_outersplits)
             inner_tscv = TimeSeriesSplit(n_splits=nested_innersplits)
 
             # Initialize GridSearchCV for the inner loop
-            grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
+            logger.info(f"Setting up gridsearch for inner loop...")
+            grid_search = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
 
             #scoring metrics to use
             scoring = {'rmse': 'neg_root_mean_squared_error', 'r2': 'r2'}
@@ -277,6 +360,7 @@ def train_eval_model(df, split, target, features, model_name):
             # - estimator=grid_search: Pass the GridSearchCV object as the estimator, which will make the 'inner splits' use GridSearch to tune hyperparameters
             # - cv=outer_tscv: The outer cross-validation strategy to split data into training and test sets
             # - return_train_score=False: Only return the test scores, not the training scores
+            logger.info(f"Running nested cross validation...")
             nested_scores = cross_validate(estimator=grid_search, X=x, y=y, cv=outer_tscv, scoring=scoring, return_train_score=False)
 
             #get the test scores from testing with outer loop
@@ -286,10 +370,19 @@ def train_eval_model(df, split, target, features, model_name):
             std_r_squared = nested_scores['test_r2'].std()
 
             # Perform GridSearchCV on the entire dataset to get the best parameters
-            grid_search_full = GridSearchCV(estimator=model, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
+            logger.info(f"Running gridsearch on the full dataset to grab best parameters and features...")
+            grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
             grid_search_full.fit(x, y)
             best_params = grid_search_full.best_params_
-            
+
+            # Pull out the features selected
+            best_pipeline = grid_search_full.best_estimator_
+            if 'feature_selection' in best_pipeline.named_steps:
+                feature_selector = best_pipeline.named_steps['feature_selection']
+                selected_features_mask = feature_selector.get_support()
+                selected_feature_indices = [i for i, selected in enumerate(selected_features_mask) if selected]
+                selected_features = [features[i] for i in selected_feature_indices]
+                        
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_crossval'.")
         
@@ -318,6 +411,8 @@ def train_eval_model(df, split, target, features, model_name):
             logger.info(f"Inner N-Splits: {nested_innersplits}")
             logger.info(f"Best Parameters: {best_params}")
         logger.info(f"Features used: {features}")
+        if (feature_selection == True):
+                logger.info(f"Selected Features: {selected_features}")
 
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {modelType}\n")
@@ -340,6 +435,8 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"Inner N-Splits: {nested_innersplits}\n")
                 f.write(f"Best Parameters: {best_params}")
             f.write(f"Features: {features}\n")
+            if (feature_selection == True):
+                f.write(f"Selected Features: {selected_features}")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
             f.write("\n")
@@ -362,14 +459,25 @@ def main():
 
     #plotting stuff
     if toPlot == True:
+
+        #plot quanitity of turbine states being used
         #plots.plotQuantities(df, 'WTG1_R_TurbineState')
 
-        #plots.plot_windspeed_distribution()
+        #plot the distribution of windspeed (knots converted or original mph)
+        columnName = 'windSpeed_knots'
+        #columnName = 'windSpeed_mph'
+        plots.plot_windspeed_distribution(columnName)
 
+        #plot target against feature collected from the turbine data
         plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
-        plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_mph_0')
 
-        #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windDirection_y_0', plotType='reg')
+        #plot target against  feature collected from forecast data
+        plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0')
+
+        #plot other features
+        #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots', plotType='reg')
+
+        #print target distibution
         #print("target min: "+ str(df[targetToTrain].min()))
         #print("target max: "+ str(df[targetToTrain].max()))
         #print("target mean: "+ str(df[targetToTrain].mean()))

@@ -124,6 +124,9 @@ def cleanForecastData(filepath):
             #split into two columns
             df[['windDirection_x', 'windDirection_y']] = pd.DataFrame(df['windDirection'].tolist(), index=df.index)
 
+            #create new column 'windspeed_knots' by converting 'windSpeed_mph'
+            df = convert_windspeed_to_knots(df)
+
             #set column types
             df = df.astype(column_types)
             
@@ -144,6 +147,26 @@ def cleanForecastData(filepath):
     df.to_csv(filepath)
     #logger.info(f"Data successfully saved to {filepath}")
 
+def convert_windspeed_to_knots(df):
+    """
+    Converts the 'windspeed_mph' column to knots and stores the result in a new column 'windspeed_knots'.
+
+    Parameters:
+    df (pd.DataFrame): DataFrame containing a column 'windspeed_mph'.
+
+    Returns:
+    pd.DataFrame: DataFrame with the new 'windspeed_knots' column.
+    """
+    # Conversion factor from mph to knots
+    mph_to_knots = 0.868976
+    
+    # Ensure 'windSpeed_mph' is numeric, coercing errors to NaN
+    df['windSpeed_mph'] = pd.to_numeric(df['windSpeed_mph'], errors='coerce')
+    
+    # Create new 'windSpeed_knots' column and round to the nearest integer
+    df['windSpeed_knots'] = (df['windSpeed_mph'] * mph_to_knots).round().astype('Int64')  # Using Int64 to allow for NaN
+    
+    return df
 
 def main():
 

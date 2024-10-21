@@ -261,7 +261,7 @@ def plotQuantities(df, column):
     #write counts to file
     #counts.to_csv(f"{column}_counts.csv", index=False)
 
-def plot_windspeed_distribution():
+def plot_windspeed_distribution(columnName):
     '''
     Plot the distribution of windspeed_mph across all CSV files in the given folder as a bar plot.
     Label all wind speeds from 0 to 40 on the x-axis.
@@ -281,7 +281,7 @@ def plot_windspeed_distribution():
             try:
                 df = pd.read_csv(filepath)
                 # Collect all windspeed values
-                wind_speeds.extend(df['windSpeed_mph'].dropna().tolist())
+                wind_speeds.extend(df[columnName].dropna().tolist())
             except Exception as error:
                 print(f"Error reading {filename}: {error}")
 
@@ -302,10 +302,10 @@ def plot_windspeed_distribution():
     plt.yticks(range(0, max_freq + 5000, 5000))  # Set y-ticks to be every 500
 
 
-    plt.title('Distribution of Wind Speed (mph)', fontsize=14)
-    plt.xlabel('Wind Speed (mph)', fontsize=12)
+    plt.title(f'Distribution of {columnName}', fontsize=14)
+    plt.xlabel(columnName, fontsize=12)
     plt.ylabel('Frequency (Count)', fontsize=12)
 
     # Save the plot
-    plt.savefig(f'./plots/counts/all_windspeed_count.png')
+    plt.savefig(f'./plots/counts/all_{columnName}.png')
     plt.show()

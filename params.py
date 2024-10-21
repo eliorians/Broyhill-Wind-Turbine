@@ -9,7 +9,8 @@ from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
 
 #names of columns that can be used as features. add a _# up to hoursToForecast-1 (use generateFeatures())
-featsList=['windSpeed_mph', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
+#removed windSpeed_mph for windSpeed_knots
+featsList=[ 'windSpeed_knots', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
 
 #List of models able to be used
 modelList = {
