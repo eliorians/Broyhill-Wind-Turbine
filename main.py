@@ -42,20 +42,21 @@ def generate_features(allFeats, hoursOut, feats_list):
 #The data to use (date is the day collected)
 #dataPath = "./turbine-data/frames_11-16-23.csv"
 dataPath = "./turbine-data/frames_6-17-24.csv"
+#dataPath = "turbine-data/sep2024_frames.csv"
 
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 hoursToForecast=12
 
 #How often the data should be reprocessed
-threshold_minutes=90
+threshold_minutes=0
 
 #Wether to train and evaluate the model
-toTrain=True
+toTrain=False
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster]
-modelType= 'linear_regression'
+modelType= 'kernal_ridge'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -63,7 +64,7 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 #use hoursOut= 1 for only the forecast for that hour
 #use hourOut= hoursToForecast-1 to use all forecasted vallues from hoursToForecast hours before.
-featuresToTrain = generate_features(allFeats=True, hoursOut=11, feats_list=['windSpeed_knots'])
+featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
 
 #Use feature selection (give all features, or as many to test)
 feature_selection = True
@@ -79,7 +80,10 @@ toPlotPredictions= True
 
 #The type of validation technique to use.
 # ['basic', 'gridsearch', 'nested_crossval']
-validation='basic'
+validation='nested_crossval'
+
+#Wether to run a full gridsearch within nested crossvalidation to get the best parameters and features used. Increases runtime.
+getParameters = True
 
 #number of splits for grisearch
 gridsearch_splits = 5
@@ -369,19 +373,20 @@ def train_eval_model(df, split, target, features, model_name):
             std_rmse = nested_scores['test_rmse'].std()
             std_r_squared = nested_scores['test_r2'].std()
 
-            # Perform GridSearchCV on the entire dataset to get the best parameters
-            logger.info(f"Running gridsearch on the full dataset to grab best parameters and features...")
-            grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
-            grid_search_full.fit(x, y)
-            best_params = grid_search_full.best_params_
+            if (getParameters == True):
+                # Perform GridSearchCV on the entire dataset to get the best parameters
+                logger.info(f"Running gridsearch on the full dataset to grab best parameters and features...")
+                grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
+                grid_search_full.fit(x, y)
+                best_params = grid_search_full.best_params_
 
-            # Pull out the features selected
-            best_pipeline = grid_search_full.best_estimator_
-            if 'feature_selection' in best_pipeline.named_steps:
-                feature_selector = best_pipeline.named_steps['feature_selection']
-                selected_features_mask = feature_selector.get_support()
-                selected_feature_indices = [i for i, selected in enumerate(selected_features_mask) if selected]
-                selected_features = [features[i] for i in selected_feature_indices]
+                # Pull out the features selected
+                best_pipeline = grid_search_full.best_estimator_
+                if 'feature_selection' in best_pipeline.named_steps:
+                    feature_selector = best_pipeline.named_steps['feature_selection']
+                    selected_features_mask = feature_selector.get_support()
+                    selected_feature_indices = [i for i, selected in enumerate(selected_features_mask) if selected]
+                    selected_features = [features[i] for i in selected_feature_indices]
                         
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_crossval'.")
@@ -425,7 +430,7 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"RMSE: {rmse}\n")
                 f.write(f"R^2: {r_squared}\n")
                 f.write(f"N-Splits: {gridsearch_splits}\n")
-                f.write(f"Best Parameters: {best_params}")
+                f.write(f"Best Parameters: {best_params}\n")
             if validation == 'nested_crossval':
                 f.write(f"Average RMSE: {avg_rmse}\n")
                 f.write(f"Average R^2: {avg_r_squared}\n")
@@ -433,10 +438,10 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"Std R^2: {std_r_squared}\n")
                 f.write(f"Outer N-Splits: {nested_outersplits}\n")
                 f.write(f"Inner N-Splits: {nested_innersplits}\n")
-                f.write(f"Best Parameters: {best_params}")
+                f.write(f"Best Parameters: {best_params}\n")
             f.write(f"Features: {features}\n")
             if (feature_selection == True):
-                f.write(f"Selected Features: {selected_features}")
+                f.write(f"Selected Features: {selected_features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
             f.write("\n")
@@ -464,7 +469,7 @@ def main():
         #plots.plotQuantities(df, 'WTG1_R_TurbineState')
 
         #plot the distribution of windspeed (knots converted or original mph)
-        columnName = 'windSpeed_knots'
+        columnName = 'windSpeed_mph'
         #columnName = 'windSpeed_mph'
         plots.plot_windspeed_distribution(columnName)
 

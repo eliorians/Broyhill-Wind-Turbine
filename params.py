@@ -130,7 +130,7 @@ paramList = {
     },
 
     'kernal_ridge'              : {'alpha'  : [1e-10, 1e-5, 1e-2, .1, 10, 100],
-                                'kernel' : ['linear', 'polynomial', 'rbf', 'sigmoid'],
+                                'kernel' : ['polynomial', 'rbf', 'sigmoid'],
                                 'gamma' : [0, .1, 1, 5, 10, 20], 
                                 'degree': [1, 2, 3, 4], 
     },
