@@ -457,7 +457,7 @@ def train_eval_model(df, split, target, features, model_name):
             logger.info(f"N-Splits: {gridsearch_splits}")
             logger.info(f"Best Parameters: {best_params}")
             if (feature_selection == True):
-                logger.info(f'Feature Selection Type: {feature_selection}')
+                logger.info(f'Feature Selection Type: {feature_type}')
                 logger.info(f"Selected Features: {selected_features}")
         if validation == 'nested_crossval':
             logger.info(f"Average RMSE: {avg_rmse}")
@@ -469,7 +469,7 @@ def train_eval_model(df, split, target, features, model_name):
             if (getParameters):
                 logger.info(f"Best Parameters: {best_params}")
                 if (feature_selection == True):
-                    logger.info(f'Feature Selection Type: {feature_selection}')
+                    logger.info(f'Feature Selection Type: {feature_type}')
                     logger.info(f"Selected Features: {selected_features}")
         logger.info(f"Features given: {features}")
         
@@ -486,7 +486,7 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"N-Splits: {gridsearch_splits}\n")
                 f.write(f"Best Parameters: {best_params}\n")
                 if (feature_selection == True):
-                    f.write(f'Feature Selection Type: {feature_selection}\n')
+                    f.write(f'Feature Selection Type: {feature_type}\n')
                     f.write(f"Selected Features: {selected_features}\n")
             if validation == 'nested_crossval':
                 f.write(f"Average RMSE: {avg_rmse}\n")
@@ -498,7 +498,7 @@ def train_eval_model(df, split, target, features, model_name):
                 if (getParameters):
                     f.write(f"Best Parameters: {best_params}\n")
                     if (feature_selection == True):
-                        f.write(f'Feature Selection Type: {feature_selection}\n')
+                        f.write(f'Feature Selection Type: {feature_type}\n')
                         f.write(f"Selected Features: {selected_features}\n")
             f.write(f"Features given: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
