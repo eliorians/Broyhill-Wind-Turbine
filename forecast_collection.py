@@ -3,7 +3,7 @@ import time
 import requests
 import json
 import logging
-    
+
 def logging_setup():
     # Create a "logs" directory if it doesn't exist
     logs_directory = os.path.join(os.getcwd(), 'logs')

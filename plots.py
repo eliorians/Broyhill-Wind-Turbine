@@ -328,7 +328,7 @@ def plotHoursOutAccuracy():
     
     plt.xlabel('Hours Out (Days out)')
     plt.ylabel('RMSE')
-    plt.title('Prediction Accuracy Over Time (RMSE)')
+    plt.title(f'Prediction Accuracy Over Time (RMSE) for {model}')
 
     hour_day_labels = [f'{hours}h\n({hours / 24:.1f} days)' for hours in linearRegression_hours]
     plt.xticks(ticks=linearRegression_hours, labels=hour_day_labels, rotation=65, ha='center')

@@ -1033,3 +1033,64 @@ Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 
 Hours to Forecast: 6
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: kernal_ridge
+Validation Technique: nested_crossval
+Training Time (seconds): 204.94129753112793
+Average RMSE: 9.771845554905218
+Average R^2: 0.5014684155145573
+Std RMSE: 2.3223861491032864
+Std R^2: 0.15434454363729228
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'feature_selection__k': 5, 'feature_selection__score_func': <function f_regression at 0x0000012A6488EAC0>, 'model__alpha': 10, 'model__degree': 2, 'model__gamma': 0.1, 'model__kernel': 'polynomial'}
+Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'dewpoint_degC_0', 'temperature_F_0']
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: kernal_ridge
+Validation Technique: nested_crossval
+Training Time (seconds): 164.63457369804382
+Average RMSE: 10.53121850371709
+Average R^2: 0.418836268061097
+Std RMSE: 3.1021846642169693
+Std R^2: 0.23600491762446715
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'feature_selection__k': 1, 'feature_selection__score_func': <function f_regression at 0x00000220A1FFEAC0>, 'model__alpha': 10, 'model__degree': 3, 'model__gamma': 0.1, 'model__kernel': 'polynomial'}
+Selected Features: ['windSpeed_knots_0']
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0', 'windSpeed_knots_1', 'windDirection_x_1', 'windDirection_y_1', 'probabilityOfPrecipitation_percent_1', 'dewpoint_degC_1', 'relativeHumidity_percent_1', 'temperature_F_1', 'windSpeed_knots_2', 'windDirection_x_2', 'windDirection_y_2', 'probabilityOfPrecipitation_percent_2', 'dewpoint_degC_2', 'relativeHumidity_percent_2', 'temperature_F_2', 'windSpeed_knots_3', 'windDirection_x_3', 'windDirection_y_3', 'probabilityOfPrecipitation_percent_3', 'dewpoint_degC_3', 'relativeHumidity_percent_3', 'temperature_F_3', 'windSpeed_knots_4', 'windDirection_x_4', 'windDirection_y_4', 'probabilityOfPrecipitation_percent_4', 'dewpoint_degC_4', 'relativeHumidity_percent_4', 'temperature_F_4', 'windSpeed_knots_5', 'windDirection_x_5', 'windDirection_y_5', 'probabilityOfPrecipitation_percent_5', 'dewpoint_degC_5', 'relativeHumidity_percent_5', 'temperature_F_5', 'windSpeed_knots_6', 'windDirection_x_6', 'windDirection_y_6', 'probabilityOfPrecipitation_percent_6', 'dewpoint_degC_6', 'relativeHumidity_percent_6', 'temperature_F_6', 'windSpeed_knots_7', 'windDirection_x_7', 'windDirection_y_7', 'probabilityOfPrecipitation_percent_7', 'dewpoint_degC_7', 'relativeHumidity_percent_7', 'temperature_F_7', 'windSpeed_knots_8', 'windDirection_x_8', 'windDirection_y_8', 'probabilityOfPrecipitation_percent_8', 'dewpoint_degC_8', 'relativeHumidity_percent_8', 'temperature_F_8', 'windSpeed_knots_9', 'windDirection_x_9', 'windDirection_y_9', 'probabilityOfPrecipitation_percent_9', 'dewpoint_degC_9', 'relativeHumidity_percent_9', 'temperature_F_9', 'windSpeed_knots_10', 'windDirection_x_10', 'windDirection_y_10', 'probabilityOfPrecipitation_percent_10', 'dewpoint_degC_10', 'relativeHumidity_percent_10', 'temperature_F_10']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: random_forest
+Validation Technique: nested_crossval
+Training Time (seconds): 834.3992989063263
+Average RMSE: 10.151272826835587
+Average R^2: 0.4759695781193596
+Std RMSE: 2.6296964376531546
+Std R^2: 0.1372589647907139
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'feature_selection__k': 5, 'feature_selection__score_func': <function f_regression at 0x0000029B3CB1EAC0>, 'model__bootstrap': True, 'model__max_depth': None, 'model__max_features': 'log2', 'model__min_samples_leaf': 10, 'model__min_samples_split': 2, 'model__n_estimators': 500}
+Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'dewpoint_degC_0', 'temperature_F_0']
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: gaussian
+Validation Technique: nested_crossval
+Training Time (seconds): 349.90662598609924
+Average RMSE: 10.59572116604941
+Average R^2: 0.414871793331354
+Std RMSE: 2.9021497513315833
+Std R^2: 0.2322480269229743
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'model__alpha': 1e-10, 'model__kernel': RBF(length_scale=1), 'model__n_restarts_optimizer': 0}
+Feature Selection Type: True
+Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0']
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+

@@ -2,11 +2,15 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import TimeSeriesSplit
 
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import RBF, Matern, RationalQuadratic, DotProduct, WhiteKernel
 from sklearn.linear_model import LinearRegression, RidgeCV, LassoCV, ElasticNetCV
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, BaggingRegressor, AdaBoostRegressor
+from sklearn.neural_network import MLPRegressor
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.svm import SVR
+
 
 #names of columns that can be used as features. add a _# up to hoursToForecast-1 (use generateFeatures())
 #removed windSpeed_mph for windSpeed_knots
@@ -27,6 +31,8 @@ modelList = {
     'kernal_ridge'          : KernelRidge(),
     'bagging'               : BaggingRegressor(n_jobs=-1),
     'ada_boost'             : AdaBoostRegressor(),
+    'mlp_regressor'         : MLPRegressor(),
+    'gaussian'              : GaussianProcessRegressor()
 }
 
 #param_grid associated with each model
@@ -129,10 +135,10 @@ paramList = {
                                 'shrinking' : [True, False],
     },
 
-    'kernal_ridge'              : {'alpha'  : [1e-10, 1e-5, 1e-2, .1, 10, 100],
-                                'kernel' : ['polynomial', 'rbf', 'sigmoid'],
-                                'gamma' : [0, .1, 1, 5, 10, 20], 
-                                'degree': [1, 2, 3, 4], 
+    'kernal_ridge'              : {'alpha'  : [1e-5, 1e-2, .1, 10],
+                                'kernel' : ['polynomial', 'rbf'],
+                                'gamma' : [.1, 1, 10], 
+                                'degree': [1, 2, 3], 
     },
 
     'bagging'                   : {'estimator' : [DecisionTreeRegressor(), make_pipeline(PolynomialFeatures(degree=3), LinearRegression(n_jobs=-1))],
@@ -149,5 +155,29 @@ paramList = {
                                    'n_estimators' : [50, 100, 250, 500],
                                    'learning_rate' : [.01, .1, .5, 1],
                                    'loss' : ['linear', 'square', 'exponential'],
-    }
+    },
+
+    'mlp_regressor'             : {'hidden_layer_sizes': [(100,), (50, 50), (100, 50)],  # Number of neurons in each hidden layer
+                                    'activation': ['relu', 'tanh'],  # Common activation functions for better convergence in time series
+                                    'solver': ['adam'],  # 'adam' is generally good for most datasets
+                                    'alpha': [0.0001, 0.001, 0.01],  # Regularization term
+                                    'learning_rate': ['adaptive'],  # Learning rate schedule
+                                    'max_iter': [500, 1000],  # Maximum number of iterations
+                                    'early_stopping': [True],  # Use early stopping to avoid overfitting
+                                    #'validation_fraction': [0.1],  # Fraction of training data to use for validation
+                                    'batch_size': ['auto'],  # Size of minibatches for stochastic optimizers
+                                    #'momentum': [0.9, 0.99],  # Momentum for SGD (if using SGD solver)
+                                    #'nesterovs_momentum': [True, False],  # Whether to use Nesterov's momentum
+    },
+
+    'gaussian'                  : {
+                                    'kernel': [
+                                        RBF(length_scale=1.0),                              # Radial basis function kernel
+                                        #Matern(length_scale=1.0, nu=1.5),                # Matern kernel with ν=1.5
+                                        #RationalQuadratic(length_scale=1.0, alpha=0.01), # Rational Quadratic kernel
+                                        #DotProduct(sigma_0=1.0) + WhiteKernel(),        # Dot product kernel with added noise
+                                    ],
+                                    'alpha': [1e-10],                               # Noise level in the target values
+                                    'n_restarts_optimizer': [0, 5, 10],               # Number of restarts to avoid local minima
+    },
 }
