@@ -42,21 +42,21 @@ def generate_features(allFeats, hoursOut, feats_list):
 #The data to use (date is the day collected)
 #dataPath = "./turbine-data/frames_11-16-23.csv"
 dataPath = "./turbine-data/frames_6-17-24.csv"
-#dataPath = "turbine-data/sep2024_frames.csv"
 
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
-hoursToForecast=12
+#max = 154
+hoursToForecast=6
 
 #How often the data should be reprocessed
 threshold_minutes=0
 
 #Wether to train and evaluate the model
-toTrain=False
+toTrain=True
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster]
-modelType= 'kernal_ridge'
+modelType= 'linear_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -83,7 +83,7 @@ toPlotPredictions= True
 validation='nested_crossval'
 
 #Wether to run a full gridsearch within nested crossvalidation to get the best parameters and features used. Increases runtime.
-getParameters = True
+getParameters = False
 
 #number of splits for grisearch
 gridsearch_splits = 5
@@ -402,11 +402,15 @@ def train_eval_model(df, split, target, features, model_name):
         if validation == 'basic':
             logger.info(f"RMSE: {rmse}")
             logger.info(f"R^2: {r_squared}")
+            if (feature_selection == True):
+                    logger.info(f"Selected Features: {selected_features}")
         if validation == 'gridsearch':
             logger.info(f"RMSE: {rmse}")
             logger.info(f"R^2: {r_squared}")
             logger.info(f"N-Splits: {gridsearch_splits}")
             logger.info(f"Best Parameters: {best_params}")
+            if (feature_selection == True):
+                    logger.info(f"Selected Features: {selected_features}")
         if validation == 'nested_crossval':
             logger.info(f"Average RMSE: {avg_rmse}")
             logger.info(f"Average R^2: {avg_r_squared}")
@@ -414,11 +418,12 @@ def train_eval_model(df, split, target, features, model_name):
             logger.info(f"Std R^2: {std_r_squared}")
             logger.info(f"Outer N-Splits: {nested_outersplits}")
             logger.info(f"Inner N-Splits: {nested_innersplits}")
-            logger.info(f"Best Parameters: {best_params}")
-        logger.info(f"Features used: {features}")
-        if (feature_selection == True):
-                logger.info(f"Selected Features: {selected_features}")
-
+            if (getParameters):
+                logger.info(f"Best Parameters: {best_params}")
+                if (feature_selection == True):
+                    logger.info(f"Selected Features: {selected_features}")
+        logger.info(f"Features given: {features}")
+        
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {modelType}\n")
             f.write(f"Validation Technique: {validation}\n")
@@ -426,11 +431,15 @@ def train_eval_model(df, split, target, features, model_name):
             if validation == 'basic':
                 f.write(f"RMSE: {rmse}\n")
                 f.write(f"R^2: {r_squared}\n")
+                if (feature_selection == True):
+                        f.write(f"Selected Features: {selected_features}\n")
             if validation == 'gridsearch':
                 f.write(f"RMSE: {rmse}\n")
                 f.write(f"R^2: {r_squared}\n")
                 f.write(f"N-Splits: {gridsearch_splits}\n")
                 f.write(f"Best Parameters: {best_params}\n")
+                if (feature_selection == True):
+                        f.write(f"Selected Features: {selected_features}\n")
             if validation == 'nested_crossval':
                 f.write(f"Average RMSE: {avg_rmse}\n")
                 f.write(f"Average R^2: {avg_r_squared}\n")
@@ -438,10 +447,11 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"Std R^2: {std_r_squared}\n")
                 f.write(f"Outer N-Splits: {nested_outersplits}\n")
                 f.write(f"Inner N-Splits: {nested_innersplits}\n")
-                f.write(f"Best Parameters: {best_params}\n")
-            f.write(f"Features: {features}\n")
-            if (feature_selection == True):
-                f.write(f"Selected Features: {selected_features}\n")
+                if (getParameters):
+                    f.write(f"Best Parameters: {best_params}\n")
+                    if (feature_selection == True):
+                        f.write(f"Selected Features: {selected_features}\n")
+            f.write(f"Features given: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
             f.write("\n")

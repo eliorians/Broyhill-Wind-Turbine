@@ -901,3 +901,135 @@ Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+--- plotting validations for iterating hours out (linear regression) --- 
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 6.823733329772949
+Average RMSE: 10.286906840714082
+Average R^2: 0.40732091753044736
+Std RMSE: 1.8914403922339025
+Std R^2: 0.25649102143334557
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 6.811074495315552
+Average RMSE: 10.74599004815966
+Average R^2: 0.3629815606663952
+Std RMSE: 2.156572431010772
+Std R^2: 0.25776002652442814
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 24
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 7.637370347976685
+Average RMSE: 11.626232167435283
+Average R^2: 0.25076007322260835
+Std RMSE: 2.286003299240339
+Std R^2: 0.3053649892086509
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 48
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 6.948188543319702
+Average RMSE: 12.495538478919908
+Average R^2: 0.13666460260041818
+Std RMSE: 2.5699480133516865
+Std R^2: 0.3179360636131454
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 72
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 7.498772621154785
+Average RMSE: 13.354669656794997
+Average R^2: 0.02194333300360358
+Std RMSE: 2.4949808995194465
+Std R^2: 0.41610192789163464
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 96
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 7.418835878372192
+Average RMSE: 13.610518715669519
+Average R^2: 0.046144534930069536
+Std RMSE: 2.9192516483321045
+Std R^2: 0.35900669393176615
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 120
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 6.936455249786377
+Average RMSE: 14.884202462577573
+Average R^2: -0.06355473714068005
+Std RMSE: 4.349691452863605
+Std R^2: 0.3572166254011407
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 144
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 7.4372522830963135
+Average RMSE: 15.929312994624095
+Average R^2: -0.3148268949573534
+Std RMSE: 3.3819327514800412
+Std R^2: 0.5406394751988904
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 150
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 7.506647825241089
+Average RMSE: 16.003219059547543
+Average R^2: -0.33650519012379343
+Std RMSE: 3.366240115981227
+Std R^2: 0.5463753393787657
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 154
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 7.521111726760864
+Average RMSE: 9.810125117039744
+Average R^2: 0.44378389551719727
+Std RMSE: 1.6334600186168273
+Std R^2: 0.270787761471436
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 6
+Data used: ./turbine-data/frames_6-17-24.csv
+
