@@ -69,8 +69,6 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #use hourOut= hoursToForecast-1 to use all forecasted vallues from hoursToForecast hours before.
 featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
 
-#number of splits for grisearch
-gridsearch_splits = 5
 #number of inner and outer splits for nested cross validation
 nested_outersplits = 5
 nested_innersplits = 4
