@@ -24,7 +24,7 @@ def logging_setup():
             logging.FileHandler(log_file)  # Save log messages to a file in the "logs" directory
         ])
 
-def plotPrediction(timestamp, actual, prediction, model):
+def plotPrediction(timestamp, actual, prediction, model, hoursOut):
     '''
     Plot the prediction against the actual. 
     Creates a scatter plot and a line plot and saves both in ./plots/prediction_plots
@@ -42,7 +42,7 @@ def plotPrediction(timestamp, actual, prediction, model):
     #SCATTER PLOT
     sea.set_theme('paper', style='whitegrid')
     sea.jointplot(x=actual, y=prediction,
-                height=10, ratio=5,
+                height=14,ratio=6,
                 marginal_ticks=True, color='blue',
                 kind='reg',
                 marginal_kws=dict(color='green'),
@@ -51,25 +51,27 @@ def plotPrediction(timestamp, actual, prediction, model):
                 label='Predicted vs Actual',
     )
     plt.yticks(np.arange(-10, 56, step=1))
-    plt.xlabel('Actual')
-    plt.ylabel('Predicted')
+    plt.xlabel('Actual (kW)')
+    plt.ylabel('Predicted (kW)')
+    date_start = timestamp.min()
+    date_stop = timestamp.max()
+    plt.title(f'{model} Scatter Plot of Actual vs Predicted - Date Range: {date_start} to {date_stop} predicting {hoursOut} hours out')
     plt.legend()
-    plt.savefig(f'./plots/prediction_plots/{model}_scatter.png')
+    plt.savefig(f'./plots/prediction_plots/{model}_{hoursOut}_scatter.png')
     plt.show()
 
     #LINE PLOT
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(14, 6))
     sea.lineplot(x=timestamp, y=actual, label='Actual', color='blue')
     sea.lineplot(x=timestamp, y=prediction, label='Predicted', color='red')
     plt.xlabel('Timestamp')
+    plt.gca().set_xticks(timestamp[::24])
     plt.xticks(rotation=45)
-    plt.ylabel('Value')
+    plt.ylabel('Value (kW)')
     plt.yticks(np.arange(-10, 56, step=1))
-    date_start = timestamp.min()
-    date_stop = timestamp.max()
-    plt.title(f'{model} Line Plot of Actual vs Predicted\nDate Range: {date_start} to {date_stop}')
+    plt.title(f'{model} Line Plot of Actual vs Predicted\nDate Range: {date_start} to {date_stop} predicting {hoursOut} hours out')
     plt.legend()
-    plt.savefig(f'./plots/prediction_plots/{model}_lineplot.png')
+    plt.savefig(f'./plots/prediction_plots/{model}_{hoursOut}_lineplot.png')
     plt.show()
 
 def plot_TargetVSActual(df, target, actual):

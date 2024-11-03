@@ -46,7 +46,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=12
+hoursToForecast=1
 
 #How often the data should be reprocessed
 threshold_minutes=90
@@ -332,8 +332,7 @@ def train_eval_model(df, split, target, features, model_name):
             # Plot the predicted y values against the actual y values
             if toPlotPredictions:
                 logger.info(f"Plotting...")
-                plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
-                
+                plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name, hoursToForecast)
         
         #end timing
         end_time = time.time()
@@ -341,31 +340,34 @@ def train_eval_model(df, split, target, features, model_name):
 
         #log evaluation metrics (in console and eval.txt)
         logger.info(f"Model: {modelType}")
+        logger.info(f'Hours Out: {hoursToForecast}')
         logger.info(f"Training Time (seconds): {final_time}")
         logger.info(f"Average RMSE: {avg_rmse}")
         logger.info(f"Average R^2: {avg_r_squared}")
-        logger.info(f"Std RMSE: {std_rmse}")
-        logger.info(f"Std R^2: {std_r_squared}")
+        # logger.info(f"Std RMSE: {std_rmse}")
+        # logger.info(f"Std R^2: {std_r_squared}")
         logger.info(f"Outer N-Splits: {nested_outersplits}")
         logger.info(f"Inner N-Splits: {nested_innersplits}")
         if (trainFullDataset):
             logger.info(f"Best Parameters: {best_params}")
+            logger.info(f"Features given: {features}")
             if (feature_selection == True):
                 logger.info(f'Feature Selection Type: {feature_type}')
                 logger.info(f"Selected Features: {selected_features}")
             logger.info(f"Predicted RMSE: {prediction_rmse}")
             logger.info(f"Predicted R^2: {prediction_r_squared}")
-        logger.info(f"Features given: {features}")
         
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {modelType}\n")
+            f.write(f'Hours Out: {hoursToForecast}\n')
             f.write(f"Training Time (seconds): {final_time}\n")
             f.write(f"Average RMSE: {avg_rmse}\n")
             f.write(f"Average R^2: {avg_r_squared}\n")
-            f.write(f"Std RMSE: {std_rmse}\n")
-            f.write(f"Std R^2: {std_r_squared}\n")
+            # f.write(f"Std RMSE: {std_rmse}\n")
+            # f.write(f"Std R^2: {std_r_squared}\n")
             f.write(f"Outer N-Splits: {nested_outersplits}\n")
             f.write(f"Inner N-Splits: {nested_innersplits}\n")
+            f.write(f"Features given: {features}\n")
             if (trainFullDataset):
                 f.write(f"Best Parameters: {best_params}\n")
                 if (feature_selection == True):
@@ -373,8 +375,6 @@ def train_eval_model(df, split, target, features, model_name):
                     f.write(f"Selected Features: {selected_features}\n")
                 f.write(f"Predicted RMSE: {prediction_rmse}\n")
                 f.write(f"Predicted R^2: {prediction_r_squared}\n")
-            f.write(f"Features given: {features}\n")
-            f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
             f.write("\n")
 
