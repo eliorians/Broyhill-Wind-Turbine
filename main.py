@@ -49,7 +49,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 hoursToForecast=1
 
 #How often the data should be reprocessed
-threshold_minutes=90
+threshold_minutes=0
 
 #Wether to train and evaluate the model
 toTrain=True
@@ -59,7 +59,7 @@ split=.2
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster', 'mlp_regressor', 'gaussian']
-modelType= 'linear_regression'
+modelType= 'kernal_ridge'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -68,9 +68,6 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #use hoursOut= 1 for only the forecast for that hour
 #use hourOut= hoursToForecast-1 to use all forecasted vallues from hoursToForecast hours before.
 featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
-
-#Wether to run a full gridsearch within nested crossvalidation to get the best parameters and features used. Increases runtime.
-trainFullDataset = True
 
 #number of splits for grisearch
 gridsearch_splits = 5
@@ -295,44 +292,42 @@ def train_eval_model(df, split, target, features, model_name):
         std_rmse = nested_scores['test_rmse'].std()
         std_r_squared = nested_scores['test_r2'].std()
 
-        if (trainFullDataset):
+        # Perform GridSearchCV on the entire dataset to get the best parameters
+        logger.info(f"Running gridsearch on the full dataset to grab best parameters and features...")
 
-            # Perform GridSearchCV on the entire dataset to get the best parameters
-            logger.info(f"Running gridsearch on the full dataset to grab best parameters and features...")
+        # Split full dataframe into train and test data based on the split ratio
+        train_df, test_df = train_test_split(df, split)
+        #section these out to the feature columns (x) and the target column (y)
+        x_train, y_train = train_df[features], train_df[target]
+        x_test, y_test = test_df[features], test_df[target]
 
-            # Split full dataframe into train and test data based on the split ratio
-            train_df, test_df = train_test_split(df, split)
-            #section these out to the feature columns (x) and the target column (y)
-            x_train, y_train = train_df[features], train_df[target]
-            x_test, y_test = test_df[features], test_df[target]
+        # Set up the gridsearch and train
+        grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
+        grid_search_full.fit(x_train, y_train)
 
-            # Set up the gridsearch and train
-            grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
-            grid_search_full.fit(x_train, y_train)
+        # Save the results from training (model, parameters, features)
+        best_model  = grid_search_full.best_estimator_
+        best_params = grid_search_full.best_params_
+        if 'feature_selection' in best_model.named_steps:
+            feature_selector = best_model.named_steps['feature_selection']
+            selected_features_mask = feature_selector.get_support()
+            selected_feature_indices = [i for i, selected in enumerate(selected_features_mask) if selected]
+            selected_features = [features[i] for i in selected_feature_indices]
 
-            # Save the results from training (model, parameters, features)
-            best_model  = grid_search_full.best_estimator_
-            best_params = grid_search_full.best_params_
-            if 'feature_selection' in best_model.named_steps:
-                feature_selector = best_model.named_steps['feature_selection']
-                selected_features_mask = feature_selector.get_support()
-                selected_feature_indices = [i for i, selected in enumerate(selected_features_mask) if selected]
-                selected_features = [features[i] for i in selected_feature_indices]
+        # Predict on the test set (unseen data, not used in gridsearch) using the best model from the gridsearch
+        logger.info(f"Predicting...")
+        y_pred = best_model.predict(x_test)
 
-            # Predict on the test set (unseen data, not used in gridsearch) using the best model from the gridsearch
-            logger.info(f"Predicintg...")
-            y_pred = best_model.predict(x_test)
+        # Evaluate the model predictions against the actual
+        logger.info(f"Evaluating Predictions...")
+        prediction_mse = mean_squared_error(y_test, y_pred)
+        prediction_rmse = np.sqrt(prediction_mse)
+        prediction_r_squared = r2_score(y_test, y_pred)
 
-            # Evaluate the model predictions against the actual
-            logger.info(f"Evaluating Predictions...")
-            prediction_mse = mean_squared_error(y_test, y_pred)
-            prediction_rmse = np.sqrt(prediction_mse)
-            prediction_r_squared = r2_score(y_test, y_pred)
-
-            # Plot the predicted y values against the actual y values
-            if toPlotPredictions:
-                logger.info(f"Plotting...")
-                plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name, hoursToForecast)
+        # Plot the predicted y values against the actual y values
+        if toPlotPredictions:
+            logger.info(f"Plotting...")
+            plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name, hoursToForecast)
         
         #end timing
         end_time = time.time()
@@ -341,40 +336,38 @@ def train_eval_model(df, split, target, features, model_name):
         #log evaluation metrics (in console and eval.txt)
         logger.info(f"Model: {modelType}")
         logger.info(f'Hours Out: {hoursToForecast}')
-        logger.info(f"Training Time (seconds): {final_time}")
         logger.info(f"Average RMSE: {avg_rmse}")
         logger.info(f"Average R^2: {avg_r_squared}")
         # logger.info(f"Std RMSE: {std_rmse}")
         # logger.info(f"Std R^2: {std_r_squared}")
-        logger.info(f"Outer N-Splits: {nested_outersplits}")
-        logger.info(f"Inner N-Splits: {nested_innersplits}")
-        if (trainFullDataset):
-            logger.info(f"Best Parameters: {best_params}")
-            logger.info(f"Features given: {features}")
-            if (feature_selection == True):
+        logger.info(f"Predicted RMSE: {prediction_rmse}")
+        logger.info(f"Predicted R^2: {prediction_r_squared}")
+        logger.info(f"Features given: {features}")
+        if (feature_selection == True):
                 logger.info(f'Feature Selection Type: {feature_type}')
                 logger.info(f"Selected Features: {selected_features}")
-            logger.info(f"Predicted RMSE: {prediction_rmse}")
-            logger.info(f"Predicted R^2: {prediction_r_squared}")
+        logger.info(f"Best Parameters: {best_params}")
+        logger.info(f"Training Time (seconds): {final_time}")
+        logger.info(f"Outer N-Splits: {nested_outersplits}")
+        logger.info(f"Inner N-Splits: {nested_innersplits}")
         
         with open('./model-data/eval.txt', "a") as f:
             f.write(f"Model: {modelType}\n")
             f.write(f'Hours Out: {hoursToForecast}\n')
-            f.write(f"Training Time (seconds): {final_time}\n")
             f.write(f"Average RMSE: {avg_rmse}\n")
             f.write(f"Average R^2: {avg_r_squared}\n")
             # f.write(f"Std RMSE: {std_rmse}\n")
             # f.write(f"Std R^2: {std_r_squared}\n")
+            f.write(f"Predicted RMSE: {prediction_rmse}\n")
+            f.write(f"Predicted R^2: {prediction_r_squared}\n")
+            f.write(f"Features given: {features}\n")
+            if (feature_selection == True):
+                f.write(f'Feature Selection Type: {feature_type}\n')
+                f.write(f"Selected Features: {selected_features}\n")
+            f.write(f"Best Parameters: {best_params}\n")
+            f.write(f"Training Time (seconds): {final_time}\n")
             f.write(f"Outer N-Splits: {nested_outersplits}\n")
             f.write(f"Inner N-Splits: {nested_innersplits}\n")
-            f.write(f"Features given: {features}\n")
-            if (trainFullDataset):
-                f.write(f"Best Parameters: {best_params}\n")
-                if (feature_selection == True):
-                    f.write(f'Feature Selection Type: {feature_type}\n')
-                    f.write(f"Selected Features: {selected_features}\n")
-                f.write(f"Predicted RMSE: {prediction_rmse}\n")
-                f.write(f"Predicted R^2: {prediction_r_squared}\n")
             f.write(f"Data used: {dataPath}\n")
             f.write("\n")
 

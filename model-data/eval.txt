@@ -1266,3 +1266,18 @@ Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 
 Hours to Forecast: 1
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: kernal_ridge
+Hours Out: 1
+Training Time (seconds): 508.98786306381226
+Average RMSE: 9.706056484579154
+Average R^2: 0.4622490268298874
+Outer N-Splits: 5
+Inner N-Splits: 4
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Best Parameters: {'model__alpha': 10, 'model__degree': 1, 'model__gamma': 0.1, 'model__kernel': 'polynomial'}
+Feature Selection Type: sfs
+Selected Features: ['windSpeed_knots_0', 'windDirection_y_0', 'temperature_F_0']
+Predicted RMSE: 8.217329832339571
+Predicted R^2: 0.14148873053777555
+Data used: ./turbine-data/frames_6-17-24.csv
+
