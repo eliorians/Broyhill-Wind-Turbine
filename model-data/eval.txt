@@ -1094,3 +1094,21 @@ Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 
 Hours to Forecast: 12
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: linear_regression
+Validation Technique: nested_crossval
+Training Time (seconds): 19.63598322868347
+Average RMSE: 10.286906840714082
+Average R^2: 0.40732091753044725
+Std RMSE: 1.8914403922339027
+Std R^2: 0.25649102143334557
+Outer N-Splits: 5
+Inner N-Splits: 4
+Best Parameters: {'model__copy_X': True, 'model__fit_intercept': True, 'model__positive': False}
+Feature Selection Type: sfs
+Selected Features: ['windSpeed_knots_0', 'windDirection_y_0', 'temperature_F_0']
+Predicted RMSE: 9.073406851140598
+Predicted R^2: -0.02700612724484075
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Hours to Forecast: 12
+Data used: ./turbine-data/frames_6-17-24.csv
+

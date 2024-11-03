@@ -59,7 +59,7 @@ split=.2
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster', 'mlp_regressor', 'gaussian']
-modelType= 'gaussian'
+modelType= 'linear_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -74,7 +74,7 @@ featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['wind
 validation='nested_crossval'
 
 #Wether to run a full gridsearch within nested crossvalidation to get the best parameters and features used. Increases runtime.
-getParameters = True
+trainFullDataset = True
 
 #number of splits for grisearch
 gridsearch_splits = 5
@@ -422,21 +422,44 @@ def train_eval_model(df, split, target, features, model_name):
             std_rmse = nested_scores['test_rmse'].std()
             std_r_squared = nested_scores['test_r2'].std()
 
-            if (getParameters == True):
+            if (trainFullDataset):
                 # Perform GridSearchCV on the entire dataset to get the best parameters
                 logger.info(f"Running gridsearch on the full dataset to grab best parameters and features...")
-                grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
-                grid_search_full.fit(x, y)
-                best_params = grid_search_full.best_params_
 
-                # Pull out the features selected
-                best_pipeline = grid_search_full.best_estimator_
-                if 'feature_selection' in best_pipeline.named_steps:
-                    feature_selector = best_pipeline.named_steps['feature_selection']
+                #split full dataframe into train and test data based on the split ratio
+                train_df, test_df = train_test_split(df, split)
+                #section these out to the feature columns (x) and the target column (y)
+                x_train, y_train = train_df[features], train_df[target]
+                x_test, y_test = test_df[features], test_df[target]
+
+                #set up the gridsearch and train
+                grid_search_full = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=inner_tscv, scoring='neg_root_mean_squared_error', n_jobs=-1, refit=True)
+                grid_search_full.fit(x_train, y_train)
+
+                #save the results from training (model, parameters, features)
+                best_model  = grid_search_full.best_estimator_
+                best_params = grid_search_full.best_params_
+                if 'feature_selection' in best_model.named_steps:
+                    feature_selector = best_model.named_steps['feature_selection']
                     selected_features_mask = feature_selector.get_support()
                     selected_feature_indices = [i for i, selected in enumerate(selected_features_mask) if selected]
                     selected_features = [features[i] for i in selected_feature_indices]
-                        
+
+                #predict on the test set (unseen data, not used in gridsearch) using the best model from the gridsearch
+                logger.info(f"Predicintg...")
+                y_pred = best_model.predict(x_test)
+
+                #evaluate the model predictions against the actual
+                logger.info(f"Evaluating Predictions...")
+                prediction_mse = mean_squared_error(y_test, y_pred)
+                prediction_rmse = np.sqrt(prediction_mse)
+                prediction_r_squared = r2_score(y_test, y_pred)
+
+                #plot the predicted y values against the actual y values
+                if toPlotPredictions:
+                    logger.info(f"Plotting...")
+                    plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name)
+                    
         else:
             raise ValueError(f"Validation '{validation}' not valid. Set validation in the config to either 'basic', 'gridsearch', or 'nested_crossval'.")
         
@@ -466,11 +489,13 @@ def train_eval_model(df, split, target, features, model_name):
             logger.info(f"Std R^2: {std_r_squared}")
             logger.info(f"Outer N-Splits: {nested_outersplits}")
             logger.info(f"Inner N-Splits: {nested_innersplits}")
-            if (getParameters):
+            if (trainFullDataset):
                 logger.info(f"Best Parameters: {best_params}")
                 if (feature_selection == True):
                     logger.info(f'Feature Selection Type: {feature_type}')
                     logger.info(f"Selected Features: {selected_features}")
+                logger.info(f"Predicted RMSE: {prediction_rmse}")
+                logger.info(f"Predicted R^2: {prediction_r_squared}")
         logger.info(f"Features given: {features}")
         
         with open('./model-data/eval.txt', "a") as f:
@@ -495,11 +520,13 @@ def train_eval_model(df, split, target, features, model_name):
                 f.write(f"Std R^2: {std_r_squared}\n")
                 f.write(f"Outer N-Splits: {nested_outersplits}\n")
                 f.write(f"Inner N-Splits: {nested_innersplits}\n")
-                if (getParameters):
+                if (trainFullDataset):
                     f.write(f"Best Parameters: {best_params}\n")
                     if (feature_selection == True):
                         f.write(f'Feature Selection Type: {feature_type}\n')
                         f.write(f"Selected Features: {selected_features}\n")
+                    f.write(f"Predicted RMSE: {prediction_rmse}\n")
+                    f.write(f"Predicted R^2: {prediction_r_squared}\n")
             f.write(f"Features given: {features}\n")
             f.write(f"Hours to Forecast: {hoursToForecast}\n")
             f.write(f"Data used: {dataPath}\n")
