@@ -27,7 +27,7 @@ def generate_features(allFeats, hoursOut, feats_list):
     
     ARGS
     allFeats: True to use all features in the base list from params.py
-    hoursOut: How many hours out of forecast to use for the model. Use hoursToForcast for all features or 1 for just the _0's (aka the forecast for that hour). Max is hoursToForecast-1
+    hoursOut: How many hours out of forecast to use for the model. Use hoursToForcast for all features or 1 for just the _0's (aka the forecast for that hour).
     '''
     features = []
     if allFeats:
@@ -46,7 +46,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=1
+hoursToForecast=24
 
 #How often the data should be reprocessed
 threshold_minutes=0
@@ -58,15 +58,15 @@ toTrain=True
 split=.2
 
 #Set the model type from the model list: (more details in params.py)
-# ['baseline', 'linear_regression','random_forest', 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_booster', 'mlp_regressor', 'gaussian']
-modelType= 'kernal_ridge'
+# ['baseline', 'linear_regression','random_forest', 'bagging 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_boost', 'mlp_regressor', 'gaussian']
+modelType= 'polynomial_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
 
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 #use hoursOut= 1 for only the forecast for that hour
-#use hourOut= hoursToForecast-1 to use all forecasted vallues from hoursToForecast hours before.
+#use hourOut= hoursToForecast to use all forecasted values from hoursToForecast hours before.
 featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
 
 #number of inner and outer splits for nested cross validation
@@ -246,7 +246,7 @@ def train_eval_model(df, split, target, features, model_name):
 
                 # Create feature selector using SelectKBest
                 feature_selector = SelectKBest() 
-                feature_selection_param_grid = {'feature_selection__k': [1, 5, 10], 'feature_selection__score_func' : [f_regression]}
+                feature_selection_param_grid = {'feature_selection__k': [1, 3, 5, 7], 'feature_selection__score_func' : [f_regression]}
 
                 # Create a pipeline - first the feature selection, then the model with grid search
                 pipeline = Pipeline([
@@ -265,6 +265,9 @@ def train_eval_model(df, split, target, features, model_name):
             pipeline = Pipeline([
                 ('model', model)
             ])
+             # Update the param grid to include a prefix of model_
+            model_param_grid = {f'model__{key}': value for key, value in param_grid.items()}
+            param_grid = {**model_param_grid}
 
         # Define outer and inner cross validation techniques (TimeSeriesSplit technique to uphold temporal order)
         outer_tscv = TimeSeriesSplit(n_splits=nested_outersplits)

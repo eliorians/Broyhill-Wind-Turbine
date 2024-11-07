@@ -14,7 +14,7 @@ from sklearn.svm import SVR
 
 #names of columns that can be used as features. add a _# up to hoursToForecast-1 (use generateFeatures())
 #removed windSpeed_mph for windSpeed_knots
-featsList=[ 'windSpeed_knots', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
+featsList=['windSpeed_knots', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
 
 #List of models able to be used
 modelList = {
@@ -43,16 +43,16 @@ paramList = {
                                 'positive'     : [True, False],
     },
 
-    'random_forest'         : {'n_estimators'             : [10, 100, 500],
+    'random_forest'         : {'n_estimators'             : [100, 500],
                               # 'criterion'                : ['squared_error', 'absolute_error', 'friedman_mse', 'poisson'],
                                'max_depth'                : [None, 10],
-                               'min_samples_split'        : [1, 2, 10, .5],
-                               'min_samples_leaf'         : [1, 2, 10, .5],
+                               'min_samples_split'        : [1, 10],
+                               'min_samples_leaf'         : [1, 2],
                               # 'min_weight_fraction_leaf' : [0.0, 0.1, 0.2, 0.3, 0.4, 0.5],
-                               'max_features'             : ['sqrt', 'log2', None],
+                               'max_features'             : ['sqrt', 'log2'],
                               # 'max_leaf_nodes'           : [None, 1, 10],
                               # 'min_impurity_decrease'    : [0.0, 1.0, 10.0],
-                               'bootstrap'                : [True, False],
+                               'bootstrap'                : [True],
                               # 'oob_score'                : [True, False],
                               # 'random_state'             : [None, 0, 1, 2],
                               # 'warm_start'               : [True, False],
