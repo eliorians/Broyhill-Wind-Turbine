@@ -256,6 +256,10 @@ def plotQuantities(df, column):
     plt.ylabel('Count')
     plt.title(f'Count of Each Entry in {column}')
 
+    total_count = counts['count'].sum()
+    plt.text(0.95, 0.95, f'Total Count: {total_count}', ha='right', va='top', transform=plt.gca().transAxes, 
+             fontsize=12, color='black', fontweight='bold')
+
     #output
     plt.savefig(f'./plots/counts/{column}_count.png')
     plt.show()

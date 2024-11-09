@@ -405,6 +405,9 @@ def trimData(df):
             #drop rows with missing data
             df = df.dropna()
 
+            #drop rows where power is negative
+            #df = df[df['WTG1_R_InvPwr_kW'] > 0]
+
         except FutureWarning as warning:
             logger.warning(warning)
         except Exception as error:

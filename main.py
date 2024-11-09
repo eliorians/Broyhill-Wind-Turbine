@@ -46,13 +46,13 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=24
+hoursToForecast=6
 
 #How often the data should be reprocessed
 threshold_minutes=0
 
 #Wether to train and evaluate the model
-toTrain=True
+toTrain=False
 
 #Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
@@ -83,7 +83,7 @@ feature_type = 'sfs'
 feature_selection_splits = TimeSeriesSplit(n_splits=5)
 
 #General Plots
-toPlot= False
+toPlot= True
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= True
 
@@ -392,18 +392,18 @@ def main():
     if toPlot == True:
 
         #plot quanitity of turbine states being used
-        #plots.plotQuantities(df, 'WTG1_R_TurbineState')
+        plots.plotQuantities(df, 'WTG1_R_TurbineState')
 
         #plot the distribution of windspeed (knots converted or original mph)
-        columnName = 'windSpeed_mph'
+        #columnName = 'windSpeed_mph'
         #columnName = 'windSpeed_knots'
-        plots.plot_windspeed_distribution(columnName)
+        #plots.plot_windspeed_distribution(columnName)
 
         #plot target against feature collected from the turbine data
-        plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        #plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
 
         #plot target against  feature collected from forecast data
-        plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0')
+        #plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0')
 
         #plot other features
         #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots', plotType='reg')
