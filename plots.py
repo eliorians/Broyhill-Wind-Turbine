@@ -318,26 +318,29 @@ def plot_windspeed_distribution(columnName):
 
 def plotHoursOutAccuracy():
     #values collected
-    linearRegression_hours = [6, 12, 24, 48, 72, 96, 120, 144, 154]
-    linearRegression_rmse = [9.810125117039744, 10.286906840714082, 10.74599004815966, 11.626232167435283, 12.495538478919908, 13.354669656794997, 13.610518715669519, 14.884202462577573, 16.003219059547543]
+
+    baseline_rmse = 11.44744822
+
+    hours = [1, 2, 3, 4, 5, 6, 12, 24, 48, 72, 96, 120]
+    linear = []
+    poly = []
 
     #set the values to be used
     model = 'linear_regression'
 
-    if (model == 'linear_regression'):
-        rmse = linearRegression_rmse
-        hours = linearRegression_hours
-
     #plot
     plt.figure(figsize=(12, 10))
-    plt.bar(hours, rmse, color='seagreen', width=5)
+    plt.bar(hours, linear, color='red', width=2, label='Linear Regerssion')
+    plt.bar(hours, poly, color='blue', width=2, label='Polynomial Regression')
     
     plt.xlabel('Hours Out (Days out)')
     plt.ylabel('RMSE')
     plt.title(f'Prediction Accuracy Over Time (RMSE) for {model}')
-
-    hour_day_labels = [f'{hours}h\n({hours / 24:.1f} days)' for hours in linearRegression_hours]
-    plt.xticks(ticks=linearRegression_hours, labels=hour_day_labels, rotation=65, ha='center')
+    plt.legend()
+    
+    #show hours converted to days
+    # hour_day_labels = [f'{hour}h\n({hour / 24:.1f} days)' for hour in hours]
+    # plt.xticks(ticks=hours, labels=hour_day_labels, rotation=65, ha='center')
     
     plt.savefig(f'plots\hoursOutAccuracy\{model}')
     plt.show()
