@@ -1,3 +1,4 @@
+from sklearn.discriminant_analysis import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import TimeSeriesSplit
@@ -21,7 +22,7 @@ modelList = {
     'baseline'              : 'baseline',
     'linear_regression'     : LinearRegression(n_jobs=-1),
     'random_forest'         : RandomForestRegressor(n_jobs=-1, verbose=0),
-    'polynomial_regression' : make_pipeline(PolynomialFeatures(), LinearRegression(n_jobs=-1)),
+    'polynomial_regression' : make_pipeline(StandardScaler(), PolynomialFeatures(), LinearRegression(n_jobs=-1)),
     'decision_tree'         : DecisionTreeRegressor(),
     'gradient_boosted_reg'  : GradientBoostingRegressor(verbose=0),
     'ridge_cv'              : RidgeCV(),

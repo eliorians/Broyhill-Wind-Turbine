@@ -46,13 +46,13 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=6
+hoursToForecast=1
 
 #How often the data should be reprocessed
 threshold_minutes=0
 
 #Wether to train and evaluate the model
-toTrain=False
+toTrain=True
 
 #Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
@@ -83,7 +83,7 @@ feature_type = 'sfs'
 feature_selection_splits = TimeSeriesSplit(n_splits=5)
 
 #General Plots
-toPlot= True
+toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= True
 
@@ -392,7 +392,10 @@ def main():
     if toPlot == True:
 
         #plot quanitity of turbine states being used
-        plots.plotQuantities(df, 'WTG1_R_TurbineState')
+        #plots.plotQuantities(df, 'WTG1_R_TurbineState')
+
+        #plot accuracy of forecasts
+        plots.plotForecastAccuracy(df, hoursToForecast)
 
         #plot the distribution of windspeed (knots converted or original mph)
         #columnName = 'windSpeed_mph'

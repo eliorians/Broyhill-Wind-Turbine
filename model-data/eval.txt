@@ -1700,3 +1700,48 @@ Outer N-Splits: 5
 Inner N-Splits: 4
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: polynomial_regression
+Hours Out: 6
+Average RMSE: 9.375328484049302
+Average R^2: 0.508232070178394
+Predicted RMSE: 6.275409930717494
+Predicted R^2: 0.4968521188126891
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Feature Selection Type: sfs
+Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0']
+Best Parameters: {'model__linearregression__copy_X': True, 'model__linearregression__fit_intercept': True, 'model__linearregression__positive': False, 'model__polynomialfeatures__degree': 2, 'model__polynomialfeatures__interaction_only': False}
+Training Time (seconds): 172.55272912979126
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Hours Out: 24
+Average RMSE: 9.883376010745433
+Average R^2: 0.4718136652326426
+Predicted RMSE: 6.950932612193253
+Predicted R^2: 0.39405040683333015
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Feature Selection Type: sfs
+Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0']
+Best Parameters: {'model__linearregression__copy_X': True, 'model__linearregression__fit_intercept': False, 'model__linearregression__positive': True, 'model__polynomialfeatures__degree': 2, 'model__polynomialfeatures__interaction_only': False}
+Training Time (seconds): 311.8295474052429
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Hours Out: 1
+Average RMSE: 9.608426288646884
+Average R^2: 0.4796761432918665
+Predicted RMSE: 6.753359245972368
+Predicted R^2: 0.42013850996943947
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Feature Selection Type: sfs
+Selected Features: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0']
+Best Parameters: {'model__linearregression__copy_X': True, 'model__linearregression__fit_intercept': True, 'model__linearregression__positive': True, 'model__polynomialfeatures__degree': 2, 'model__polynomialfeatures__interaction_only': True}
+Training Time (seconds): 102.61425971984863
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+

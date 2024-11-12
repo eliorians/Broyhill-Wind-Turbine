@@ -342,5 +342,39 @@ def plotHoursOutAccuracy():
     plt.savefig(f'plots\hoursOutAccuracy\{model}')
     plt.show()
 
+def plotForecastAccuracy(df, hoursOut):
+    """
+    Plots a comparison of forecasted wind speed in mph (converted to m/s) 
+    and actual wind speed in m/s over time from a DataFrame.
+
+    Parameters:
+    - df: DataFrame with columns:
+        - 'windSpeed_mph': forecasted wind speed in mph
+        - 'WTG1_R_WindSpeed_mps': actual wind speed in m/s
+        - 'timestamp': timestamps for each data point
+    """
+    # Convert forecasted wind speed from mph to m/s
+    df['forecast_wind_mps'] = df['windSpeed_mph_0'] * 0.44704  # 1 mph ≈ 0.44704 m/s
+
+    # Create the plot
+    plt.figure(figsize=(12, 6))
+    plt.scatter(df['forecast_wind_mps'], df['WTG1_R_WindSpeed_mps'], alpha=0.6, color='purple')
+    plt.plot([df['forecast_wind_mps'].min(), df['forecast_wind_mps'].max()], 
+             [df['forecast_wind_mps'].min(), df['forecast_wind_mps'].max()], 
+             color='black', linestyle='--', label='Ideal Line (y = x)')
+    
+    mae = np.mean(np.abs(df['forecast_wind_mps'] - df['WTG1_R_WindSpeed_mps']))
+    plt.text(0.05, 0.95, f'MAE: {mae:.2f} m/s', transform=plt.gca().transAxes,
+             fontsize=12, color='red', verticalalignment='top', bbox=dict(facecolor='white', alpha=0.8))
+    
+    # Adding titles and labels
+    plt.title(f"Forecasted vs Actual Wind Speed for {hoursOut} hours out")
+    plt.xlabel("Forecasted Wind Speed (m/s)")
+    plt.ylabel("Actual Wind Speed (m/s)")
+    plt.tight_layout()
+
+    plt.savefig(f'plots/forecastAccuracy/windspeed_accuracy_scatterplot_{hoursOut}')
+    plt.show()
+
 if __name__ == "__main__":
     plotHoursOutAccuracy()
