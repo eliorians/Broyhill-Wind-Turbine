@@ -371,13 +371,22 @@ def plotForecastAccuracy(df, hoursOut):
     # Create the plot
     plt.figure(figsize=(12, 6))
     plt.scatter(df['forecast_wind_mps'], df['WTG1_R_WindSpeed_mps'], alpha=0.6, color='purple')
+
+    # actual line of best fit
+    slope, intercept = np.polyfit(df['forecast_wind_mps'], df['WTG1_R_WindSpeed_mps'], 1)
+    line_x = np.linspace(df['forecast_wind_mps'].min(), df['forecast_wind_mps'].max(), 100)
+    line_y = slope * line_x + intercept
+    plt.plot(line_x, line_y, color='red', linewidth=2, label='Actual Line')
+
+    #ideal line plot
     plt.plot([df['forecast_wind_mps'].min(), df['forecast_wind_mps'].max()], 
              [df['forecast_wind_mps'].min(), df['forecast_wind_mps'].max()], 
              color='black', linestyle='--', label='Ideal Line (y = x)')
     
-    mae = np.mean(np.abs(df['forecast_wind_mps'] - df['WTG1_R_WindSpeed_mps']))
-    plt.text(0.05, 0.95, f'MAE: {mae:.2f} m/s', transform=plt.gca().transAxes,
-             fontsize=12, color='red', verticalalignment='top', bbox=dict(facecolor='white', alpha=0.8))
+    #determine MAE
+    # mae = np.mean(np.abs(df['forecast_wind_mps'] - df['WTG1_R_WindSpeed_mps']))
+    # plt.text(0.05, 0.95, f'MAE: {mae:.2f} m/s', transform=plt.gca().transAxes,
+    #          fontsize=12, color='red', verticalalignment='top', horizontalalignment='right', bbox=dict(facecolor='white', alpha=0.8))
     
     # Adding titles and labels
     plt.title(f"Forecasted vs Actual Wind Speed for {hoursOut} hours out")
@@ -385,6 +394,7 @@ def plotForecastAccuracy(df, hoursOut):
     plt.ylabel("Actual Wind Speed (m/s)")
     plt.tight_layout()
 
+    plt.legend()
     plt.savefig(f'plots/forecastAccuracy/windspeed_accuracy_scatterplot_{hoursOut}')
     plt.show()
 

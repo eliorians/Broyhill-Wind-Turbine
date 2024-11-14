@@ -46,13 +46,13 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=24
+hoursToForecast=144
 
 #How often the data should be reprocessed
 threshold_minutes=0
 
 #Wether to train and evaluate the model
-toTrain=True
+toTrain=False
 
 #Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
@@ -83,7 +83,7 @@ feature_type = 'sfs'
 feature_selection_splits = TimeSeriesSplit(n_splits=5)
 
 #General Plots
-toPlot= False
+toPlot= True
 #Prediction Plots (one per fold for nested gridsearch)
 toPlotPredictions= False
 
