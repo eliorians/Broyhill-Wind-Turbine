@@ -317,32 +317,41 @@ def plot_windspeed_distribution(columnName):
     plt.show()
 
 def plotHoursOutAccuracy():
+    
     #values collected
-
     baseline_rmse = 11.44744822
+    hours          = [1,    2,    3,    4,    5,    6,    12,    24,    48,    72,    96,    120,   144]
+    hours_12       = [1,    2,    3,    4,    5,    6,    12]
+    linear         = [9.70, 9.68, 9.73, 9.83, 9.85, 9.81, 10.28, 10.74, 11.62, 12.49, 13.35, 13.61, 14.88]
+    poly           = [9.67, 9.51, 9.52, 9.51, 9.44, 9.43, 9.95]
+    poly_scaling   = [9.60, 9.40, 9.44, 9.47, 9.46, 9.37, 9.99,  9.88,  11.48, 13.02, 12.75, 13.66, 15.64]
 
-    hours = [1, 2, 3, 4, 5, 6, 12, 24, 48, 72, 96, 120]
-    linear = []
-    poly = []
-
-    #set the values to be used
-    model = 'linear_regression'
 
     #plot
-    plt.figure(figsize=(12, 10))
-    plt.bar(hours, linear, color='red', width=2, label='Linear Regerssion')
-    plt.bar(hours, poly, color='blue', width=2, label='Polynomial Regression')
+    plt.figure(figsize=(16, 12))
+    plt.plot(hours, linear, color='red', label='Linear Regression', marker='o', alpha=.5)
+    plt.plot(hours_12, poly, color='blue', label='Polynomial Regression (No Convergence after 12 hours)', marker='o', alpha=.5)
+    plt.plot(hours, poly_scaling, color='green', label='Polynomial Regression w/ Scaling', marker='o', alpha=.5)
     
+    
+    plt.axhline(baseline_rmse, color='black', linestyle='--', linewidth=1.5, label=f'Baseline RMSE ({baseline_rmse:.2f})')
+
+    # axis
+    plt.yticks(np.arange(0, 16, 0.5))
+    plt.xticks(hours)
+    plt.ylim(5, 16)
+    # labels
     plt.xlabel('Hours Out (Days out)')
-    plt.ylabel('RMSE')
-    plt.title(f'Prediction Accuracy Over Time (RMSE) for {model}')
+    plt.ylabel('RMSE (Lower Values Better)')
+    plt.title(f'Prediction Accuracy Over Time (Avg RMSE)')
     plt.legend()
+    plt.grid(True)
     
     #show hours converted to days
     # hour_day_labels = [f'{hour}h\n({hour / 24:.1f} days)' for hour in hours]
     # plt.xticks(ticks=hours, labels=hour_day_labels, rotation=65, ha='center')
     
-    plt.savefig(f'plots\hoursOutAccuracy\{model}')
+    plt.savefig(f'plots\hoursOutAccuracy\multiple-models')
     plt.show()
 
 def plotForecastAccuracy(df, hoursOut):

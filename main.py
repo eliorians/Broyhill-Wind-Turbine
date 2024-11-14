@@ -46,7 +46,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=1
+hoursToForecast=24
 
 #How often the data should be reprocessed
 threshold_minutes=0
@@ -85,7 +85,7 @@ feature_selection_splits = TimeSeriesSplit(n_splits=5)
 #General Plots
 toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
-toPlotPredictions= True
+toPlotPredictions= False
 
 
 #! ------- END CONFIG ------- !#
@@ -325,14 +325,14 @@ def train_eval_model(df, split, target, features, model_name):
         prediction_rmse = np.sqrt(prediction_mse)
         prediction_r_squared = r2_score(y_test, y_pred)
 
+        #end timing
+        end_time = time.time()
+        final_time = end_time - start_time
+
         # Plot the predicted y values against the actual y values
         if toPlotPredictions:
             logger.info(f"Plotting...")
             plots.plotPrediction(test_df['timestamp'], y_test, y_pred, model_name, hoursToForecast)
-        
-        #end timing
-        end_time = time.time()
-        final_time = end_time - start_time
 
         #log evaluation metrics (in console and eval.txt)
         logger.info(f"Model: {modelType}")
