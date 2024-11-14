@@ -46,7 +46,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=144
+hoursToForecast=48
 
 #How often the data should be reprocessed
 threshold_minutes=0

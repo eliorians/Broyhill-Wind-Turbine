@@ -384,9 +384,9 @@ def plotForecastAccuracy(df, hoursOut):
              color='black', linestyle='--', label='Ideal Line (y = x)')
     
     #determine MAE
-    # mae = np.mean(np.abs(df['forecast_wind_mps'] - df['WTG1_R_WindSpeed_mps']))
-    # plt.text(0.05, 0.95, f'MAE: {mae:.2f} m/s', transform=plt.gca().transAxes,
-    #          fontsize=12, color='red', verticalalignment='top', horizontalalignment='right', bbox=dict(facecolor='white', alpha=0.8))
+    mae = np.mean(np.abs(df['forecast_wind_mps'] - df['WTG1_R_WindSpeed_mps']))
+    plt.text(0.05, 0.95, f'MAE: {mae:.2f} m/s', transform=plt.gca().transAxes,
+             fontsize=12, color='red', verticalalignment='top', bbox=dict(facecolor='white', alpha=0.8))
     
     # Adding titles and labels
     plt.title(f"Forecasted vs Actual Wind Speed for {hoursOut} hours out")
@@ -394,7 +394,7 @@ def plotForecastAccuracy(df, hoursOut):
     plt.ylabel("Actual Wind Speed (m/s)")
     plt.tight_layout()
 
-    plt.legend()
+    plt.legend(loc='upper right')
     plt.savefig(f'plots/forecastAccuracy/windspeed_accuracy_scatterplot_{hoursOut}')
     plt.show()
 
