@@ -16,7 +16,7 @@ from sklearn.model_selection import GridSearchCV, TimeSeriesSplit, cross_validat
 
 from params import paramList 
 from params import modelList
-from params import featsList
+from params import featsList, turbineFeatsList
 
 logger = logging.getLogger('main')
 
@@ -46,13 +46,13 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=48
+hoursToForecast=0
 
 #How often the data should be reprocessed
-threshold_minutes=0
+threshold_minutes=90
 
 #Wether to train and evaluate the model
-toTrain=False
+toTrain=True
 
 #Percentage of data that goes to testing (ex: .2 = 80/20 training/testing)
 split=.2
@@ -67,14 +67,17 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 #use hoursOut= 1 for only the forecast for that hour
 #use hourOut= hoursToForecast to use all forecasted values from hoursToForecast hours before.
-featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
+#featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
+
+#Train and test on the weather data collected at the turbine (hoursOut does not matter in this case, use feature selection false )
+featuresToTrain= turbineFeatsList
 
 #number of inner and outer splits for nested cross validation
 nested_outersplits = 5
 nested_innersplits = 4
 
-#Use feature selection (give all features, or as many to test. no feature selection for basic validation)
-feature_selection = True
+#Use feature selection (give all features, or as many to test; turn off if only using one feature)
+feature_selection = False
 
 #Type of feature selection to use, options are ['sfs', 'kbest']
 #sfs = Sequential Feature Selection / kbest = Select K Best
@@ -83,9 +86,9 @@ feature_type = 'sfs'
 feature_selection_splits = TimeSeriesSplit(n_splits=5)
 
 #General Plots
-toPlot= True
+toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
-toPlotPredictions= False
+toPlotPredictions= True
 
 
 #! ------- END CONFIG ------- !#

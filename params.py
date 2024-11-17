@@ -17,6 +17,9 @@ from sklearn.svm import SVR
 #removed windSpeed_mph for windSpeed_knots
 featsList=['windSpeed_knots', 'windDirection_x', 'windDirection_y', 'probabilityOfPrecipitation_percent', 'dewpoint_degC', 'relativeHumidity_percent', 'temperature_F']
 
+turbineFeatsList=['WTG1_R_WindSpeed_mps']
+
+
 #List of models able to be used
 modelList = {
     'baseline'              : 'baseline',

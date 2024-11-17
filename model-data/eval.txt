@@ -2090,3 +2090,42 @@ Outer N-Splits: 5
 Inner N-Splits: 4
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: linear_regression
+Hours Out: 1
+Average RMSE: 4.5501449667191185
+Average R^2: 0.8905593391663444
+Predicted RMSE: 3.651572607127879
+Predicted R^2: 0.8469956417908044
+Features given: ['WTG1_R_WindSpeed_mps']
+Best Parameters: {'model__copy_X': True, 'model__fit_intercept': True, 'model__positive': True}
+Training Time (seconds): 2.054293155670166
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: linear_regression
+Hours Out: 0
+Average RMSE: 4.5501449667191185
+Average R^2: 0.8905593391663444
+Predicted RMSE: 3.649488157864269
+Predicted R^2: 0.8483402985592207
+Features given: ['WTG1_R_WindSpeed_mps']
+Best Parameters: {'model__copy_X': True, 'model__fit_intercept': True, 'model__positive': True}
+Training Time (seconds): 2.0288820266723633
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Hours Out: 0
+Average RMSE: 2.9230756744040223
+Average R^2: 0.9537073376492442
+Predicted RMSE: 0.825748529966347
+Predicted R^2: 0.9922357073276283
+Features given: ['WTG1_R_WindSpeed_mps']
+Best Parameters: {'model__linearregression__copy_X': True, 'model__linearregression__fit_intercept': True, 'model__linearregression__positive': False, 'model__polynomialfeatures__degree': 6, 'model__polynomialfeatures__interaction_only': False}
+Training Time (seconds): 2.9361209869384766
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
