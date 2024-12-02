@@ -57,7 +57,7 @@ def plotPrediction(timestamp, actual, prediction, model, hoursOut):
     date_stop = timestamp.max()
     plt.title(f'{model} Scatter Plot of Actual vs Predicted - Date Range: {date_start} to {date_stop} predicting {hoursOut} hours out')
     plt.legend()
-    plt.savefig(f'./plots/prediction_plots/{model}_{hoursOut}_scatter.png')
+    plt.savefig(f'./plots/prediction_plots/{model}_{hoursOut}_scatter.png', bbox_inches='tight', pad_inches=0.5)
     plt.show()
 
     #LINE PLOT
@@ -71,7 +71,7 @@ def plotPrediction(timestamp, actual, prediction, model, hoursOut):
     plt.yticks(np.arange(-10, 56, step=1))
     plt.title(f'{model} Line Plot of Actual vs Predicted\nDate Range: {date_start} to {date_stop} predicting {hoursOut} hours out')
     plt.legend()
-    plt.savefig(f'./plots/prediction_plots/{model}_{hoursOut}_lineplot.png')
+    plt.savefig(f'./plots/prediction_plots/{model}_{hoursOut}_lineplot.png', bbox_inches='tight', pad_inches=0.5)
     plt.show()
 
 def plot_TargetVSActual(df, target, actual):
@@ -325,14 +325,16 @@ def plotHoursOutAccuracy():
     linear         = [9.70, 9.68, 9.73, 9.83, 9.85, 9.81, 10.28, 10.74, 11.62, 12.49, 13.35, 13.61, 14.88]
     poly           = [9.67, 9.51, 9.52, 9.51, 9.44, 9.43, 9.95]
     poly_scaling   = [9.60, 9.40, 9.44, 9.47, 9.46, 9.37, 9.99,  9.88,  11.48, 13.02, 12.75, 13.66, 15.64]
+    svr            = [9.83, 9.81, 9.82, 9.82, 9.84, 9.55, 9.79, 10.20,  12.04, 12.25, 12.70, 12.87, 15.02]
 
 
     #plot
     plt.figure(figsize=(16, 12))
     plt.plot(hours, linear, color='red', label='Linear Regression', marker='o', alpha=.5)
-    plt.plot(hours_12, poly, color='blue', label='Polynomial Regression (No Convergence after 12 hours)', marker='o', alpha=.5)
+    #plt.plot(hours_12, poly, color='blue', label='Polynomial Regression (No Convergence after 12 hours)', marker='o', alpha=.5)
     plt.plot(hours, poly_scaling, color='green', label='Polynomial Regression w/ Scaling', marker='o', alpha=.5)
-    
+    plt.plot(hours, svr, color='purple', label='SVR', marker='o', alpha=.5)
+
     
     plt.axhline(baseline_rmse, color='black', linestyle='--', linewidth=1.5, label=f'Baseline RMSE ({baseline_rmse:.2f})')
 

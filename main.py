@@ -46,10 +46,10 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=0
+hoursToForecast=144
 
 #How often the data should be reprocessed
-threshold_minutes=90
+threshold_minutes=0
 
 #Wether to train and evaluate the model
 toTrain=True
@@ -59,7 +59,7 @@ split=.2
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'bagging 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_boost', 'mlp_regressor', 'gaussian']
-modelType= 'polynomial_regression'
+modelType= 'svr'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -67,17 +67,17 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 #use hoursOut= 1 for only the forecast for that hour
 #use hourOut= hoursToForecast to use all forecasted values from hoursToForecast hours before.
-#featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
+featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
 
 #Train and test on the weather data collected at the turbine (hoursOut does not matter in this case, use feature selection false )
-featuresToTrain= turbineFeatsList
+#featuresToTrain= turbineFeatsList
 
 #number of inner and outer splits for nested cross validation
 nested_outersplits = 5
 nested_innersplits = 4
 
 #Use feature selection (give all features, or as many to test; turn off if only using one feature)
-feature_selection = False
+feature_selection = True
 
 #Type of feature selection to use, options are ['sfs', 'kbest']
 #sfs = Sequential Feature Selection / kbest = Select K Best
@@ -88,7 +88,7 @@ feature_selection_splits = TimeSeriesSplit(n_splits=5)
 #General Plots
 toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
-toPlotPredictions= True
+toPlotPredictions= False
 
 
 #! ------- END CONFIG ------- !#
@@ -398,7 +398,7 @@ def main():
         #plots.plotQuantities(df, 'WTG1_R_TurbineState')
 
         #plot accuracy of forecasts
-        plots.plotForecastAccuracy(df, hoursToForecast)
+        #plots.plotForecastAccuracy(df, hoursToForecast)
 
         #plot the distribution of windspeed (knots converted or original mph)
         #columnName = 'windSpeed_mph'
@@ -412,7 +412,7 @@ def main():
         #plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0')
 
         #plot other features
-        #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots', plotType='reg')
+        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0', plotType='reg')
 
         #print target distibution
         #print("target min: "+ str(df[targetToTrain].min()))
