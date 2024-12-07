@@ -26,7 +26,7 @@ Files:
 
     turbine_util.py         - clean turbine data and combines with forecast data to be used by the model. 
 
-    main.py                 - where the model is trained and evaluated. see #!CONFIG section at top of file for settings.
+    main.py                 - where the model is trained and evaluated. see #!CONFIG section at top of file for settings as well as params.py
 
     params.py               - holds the base features, list of implemented models and their grid search parameters 
 
