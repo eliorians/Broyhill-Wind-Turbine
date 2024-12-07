@@ -46,7 +46,7 @@ dataPath = "./turbine-data/frames_6-17-24.csv"
 #The hour that will be forecasted
 #NOTE: set threshold minutes to 0 if changed to allow data to reset
 #max = 154
-hoursToForecast=144
+hoursToForecast=6
 
 #How often the data should be reprocessed
 threshold_minutes=0
@@ -59,7 +59,7 @@ split=.2
 
 #Set the model type from the model list: (more details in params.py)
 # ['baseline', 'linear_regression','random_forest', 'bagging 'polynomial_regression', 'decision_tree', 'gradient_boosted_reg', 'ridge_cv', 'lasso_cv', 'elastic_net_cv', 'svr', 'kernal_ridge', 'ada_boost', 'mlp_regressor', 'gaussian']
-modelType= 'svr'
+modelType= 'polynomial_regression'
 
 #Column from finalFrames.csv to predict
 targetToTrain = 'WTG1_R_InvPwr_kW'
@@ -85,10 +85,10 @@ feature_type = 'sfs'
 #Feature selection Types (for k best, see within train_eval where it is called)
 feature_selection_splits = TimeSeriesSplit(n_splits=5)
 
-#General Plots
+#General Plots (see toPlot if statement and uncomment as needed)
 toPlot= False
 #Prediction Plots (one per fold for nested gridsearch)
-toPlotPredictions= False
+toPlotPredictions= True
 
 
 #! ------- END CONFIG ------- !#
@@ -395,29 +395,29 @@ def main():
     if toPlot == True:
 
         #plot quanitity of turbine states being used
-        #plots.plotQuantities(df, 'WTG1_R_TurbineState')
+        plots.plotQuantities(df, 'WTG1_R_TurbineState')
 
         #plot accuracy of forecasts
-        #plots.plotForecastAccuracy(df, hoursToForecast)
+        plots.plotForecastAccuracy(df, hoursToForecast)
 
         #plot the distribution of windspeed (knots converted or original mph)
         #columnName = 'windSpeed_mph'
-        #columnName = 'windSpeed_knots'
-        #plots.plot_windspeed_distribution(columnName)
+        columnName = 'windSpeed_knots'
+        plots.plot_windspeed_distribution(columnName)
 
         #plot target against feature collected from the turbine data
-        #plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
+        plots.plot_TargetVSActual(df, 'WTG1_R_InvPwr_kW', 'WTG1_R_WindSpeed_mps')
 
         #plot target against  feature collected from forecast data
-        #plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0')
+        plots.plot_TargetVSForecasted(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0')
 
         #plot other features
-        plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0', plotType='reg')
+        #plots.plot_TargetVSFeature(df, 'WTG1_R_InvPwr_kW', 'windSpeed_knots_0', plotType='reg')
 
         #print target distibution
-        #print("target min: "+ str(df[targetToTrain].min()))
-        #print("target max: "+ str(df[targetToTrain].max()))
-        #print("target mean: "+ str(df[targetToTrain].mean()))
+        print("target min: "+ str(df[targetToTrain].min()))
+        print("target max: "+ str(df[targetToTrain].max()))
+        print("target mean: "+ str(df[targetToTrain].mean()))
 
     #train & evaluate the model
     if toTrain == True:
