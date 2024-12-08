@@ -67,7 +67,7 @@ targetToTrain = 'WTG1_R_InvPwr_kW'
 #Columns from finalFrames.csv to be used in training (allFeates=True for all possible features. See 'featsList' in params.py for the base features being used)
 #use hoursOut= 1 for only the forecast for that hour
 #use hourOut= hoursToForecast to use all forecasted values from hoursToForecast hours before.
-featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots'])
+featuresToTrain = generate_features(allFeats=True, hoursOut=1, feats_list=['windSpeed_knots', 'windDirection_x', 'windDirection_y'])
 
 #Train and test on the weather data collected at the turbine (hoursOut does not matter in this case, use feature selection false )
 #featuresToTrain= turbineFeatsList

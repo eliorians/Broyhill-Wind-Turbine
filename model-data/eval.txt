@@ -2363,3 +2363,29 @@ Outer N-Splits: 5
 Inner N-Splits: 4
 Data used: ./turbine-data/frames_6-17-24.csv
 
+Model: polynomial_regression
+Hours Out: 6
+Average RMSE: 9.836348990399085
+Average R^2: 0.446405972783968
+Predicted RMSE: 8.714088127274271
+Predicted R^2: 0.02981324278052566
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0', 'probabilityOfPrecipitation_percent_0', 'dewpoint_degC_0', 'relativeHumidity_percent_0', 'temperature_F_0']
+Best Parameters: {'model__linearregression__copy_X': True, 'model__linearregression__fit_intercept': True, 'model__linearregression__positive': False, 'model__polynomialfeatures__degree': 1, 'model__polynomialfeatures__interaction_only': True}
+Training Time (seconds): 1510.252067565918
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
+Model: polynomial_regression
+Hours Out: 6
+Average RMSE: 9.415839319652715
+Average R^2: 0.4995266852979515
+Predicted RMSE: 6.275409930717494
+Predicted R^2: 0.4968521188126891
+Features given: ['windSpeed_knots_0', 'windDirection_x_0', 'windDirection_y_0']
+Best Parameters: {'model__linearregression__copy_X': True, 'model__linearregression__fit_intercept': True, 'model__linearregression__positive': False, 'model__polynomialfeatures__degree': 2, 'model__polynomialfeatures__interaction_only': False}
+Training Time (seconds): 4.245075941085815
+Outer N-Splits: 5
+Inner N-Splits: 4
+Data used: ./turbine-data/frames_6-17-24.csv
+
